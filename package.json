@@ -2,9 +2,13 @@
   "name": "@landbot/lui",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "npx rimraf ./dist",
+    "build": "npm run clean && npm run build:prod",
+    "build:prod": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -16,7 +20,21 @@
     "url": "https://github.com/landbot-org/lui/issues"
   },
   "homepage": "https://github.com/landbot-org/lui#readme",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": "^5.0.0"
+  },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-replace": "^5.0.0",
+    "@rollup/plugin-typescript": "^9.0.1",
+    "@types/react": "^18.0.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.1.0",
+    "tslib": "^2.4.0",
     "typescript": "^4.8.4"
   }
 }
