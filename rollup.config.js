@@ -4,7 +4,7 @@ import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 
 const extensions = ['.ts', '.tsx'];
-const EXTERNALS = [];
+const EXTERNALS = ['react'];
 
 export default {
   input: 'src/index.tsx',
