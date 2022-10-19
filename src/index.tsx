@@ -1,5 +1,1 @@
-import React from 'react';
-
-export const App = () => {
-  return <div>Lui</div>;
-};
+export { default as Button } from './Button';
