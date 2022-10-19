@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "type": "module",
+  "private": false,
   "scripts": {
     "test": "jest",
     "clean": "npx rimraf ./dist",
