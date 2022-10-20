@@ -1,7 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
-import Button from './Button';
+import Button, { ButtonPropTypes } from './Button';
 
 export default {
   title: 'Example/Button',
@@ -11,10 +13,14 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args: ButtonPropTypes) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
 };
 
+Primary.play = ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  userEvent.click(canvas.getByRole('button'));
+};
