@@ -5,3 +5,10 @@ test-report.xml
 
 .npmrc
 .vscode/*
+
+# Storybook
+storybook-static
+
+# Chromatic
+build-storybook.log
+stats.html
