@@ -13,14 +13,17 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args: ButtonPropTypes) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args: ButtonPropTypes) => (
+  <Button {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
 };
 
-Primary.play = ({ canvasElement }) => {
+Primary.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  userEvent.click(canvas.getByRole('button'));
+  await userEvent.click(canvas.getByRole('button'));
+  await expect(args.onClick).toHaveBeenCalled();
 };
