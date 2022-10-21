@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof Button> = (args: ButtonPropTypes) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Button',
+  label: 'Button 2',
 };
 
 Primary.play = async ({ args, canvasElement }) => {
