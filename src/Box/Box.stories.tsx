@@ -28,10 +28,23 @@ const Template: ComponentStory<typeof Box> = (args: BoxProps) => (
 export const Default = Template.bind({});
 Default.args = {
   children: 'Test',
+  display: 'block',
 };
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   await userEvent.click(canvas.getByText('Test'));
   await expect(canvas.getByText('Test')).toBeInTheDocument();
+};
+
+export const Flexbox = Template.bind({});
+Flexbox.args = {
+  children: (
+    <>
+      <p>row1</p>
+      <p>row2</p>
+    </>
+  ),
+  display: 'flex',
+  justifyContent: 'space-around',
 };
