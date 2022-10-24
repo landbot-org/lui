@@ -11,8 +11,7 @@ export const theme: Theme = {
   base_spacing: 8,
   typography: {
     font: {
-      primary:
-        'Gotham Rounded SSm A, Gotham Rounded SSm B, Gotham Rounded, Helvetica, sans-serif;',
+      primary: '\'DM Sans\', sans-serif',
     },
   },
 };
