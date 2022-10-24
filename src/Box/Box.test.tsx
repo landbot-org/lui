@@ -6,6 +6,6 @@ import Box from './Box';
 describe('Box', () => {
   it('renders by default', () => {
     const { getByText } = render(<Box>Test</Box>);
-    expect(getByText('test')).toBeInTheDocument();
+    expect(getByText('Test')).toBeInTheDocument();
   });
 });
