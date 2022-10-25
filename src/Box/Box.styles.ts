@@ -8,5 +8,5 @@ export const BoxStyled = styled(BaseSpacing)<BoxProps>`
   display: ${({ display }) => display};
   flex-direction: ${({ flexDirection }) => flexDirection};
   justify-content: ${({ justifyContent }) => justifyContent};
-  flex-wrap: ${({ wrap }) => wrap};
+  flex-wrap: ${({ flexWrap }) => flexWrap};
 `;

@@ -15,14 +15,21 @@ type FlexJustifyType =
   | 'space-around'
   | 'space-evenly';
 type FlexWrapType = 'nowrap' | 'wrap' | 'wrap-reverse';
+type DisplayType =
+  | 'block'
+  | 'flex'
+  | 'inline'
+  | 'inline-block'
+  | 'inline-flex'
+  | 'none';
 
 export interface BoxProps extends BaseSpacingProps {
   alignItems?: FlexAlignType;
   as?: React.ElementType | keyof JSX.IntrinsicElements;
   children: JSX.Element | string;
   className?: string;
-  display?: 'block' | 'flex';
+  display?: DisplayType;
   flexDirection?: FlexDirectionType;
+  flexWrap?: FlexWrapType;
   justifyContent?: FlexJustifyType;
-  wrap?: FlexWrapType;
 }
