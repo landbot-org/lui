@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "test-storybook": "test-storybook",
-    "lint": "./node_modules/.bin/eslint --ext=.tsx,.ts  src",
+    "lint": "eslint --ext=.tsx,.ts  src",
     "clean": "npx rimraf ./dist",
     "build": "npm run clean && npm run build:prod",
     "build:prod": "rollup -c",
