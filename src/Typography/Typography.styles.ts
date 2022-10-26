@@ -1,22 +1,29 @@
 import styled, { css } from 'styled-components';
+
 import BaseSpacing from '../BaseSpacing';
-import { Theme } from '../shared/theme.types';
+import { getColorFromTheme } from '../shared/mixins';
 import { TypographyProps } from './types';
 import { STYLES } from './constants';
 
 export const BaseTypography = styled(BaseSpacing)<TypographyProps>`
-  ${({ theme }: { theme: Theme }) => css`
+  ${({ theme }) => css`
     font-family: ${theme.typography.font.primary};
   `}
 
-  ${({ variant = 'body1' }: TypographyProps) => STYLES[variant]}
+  ${({ variant = 'body1' }) => STYLES[variant]}
 
-  ${({ weight }: TypographyProps) =>
+  ${({ color, theme }) =>
+    color &&
+    css`
+      color: ${getColorFromTheme(theme, color)};
+    `}
+
+  ${({ weight }) =>
     css`
       font-weight: ${weight};
     `}
 
-  ${({ ellipsize }: TypographyProps) =>
+  ${({ ellipsize }) =>
     ellipsize &&
     css`
       white-space: nowrap;

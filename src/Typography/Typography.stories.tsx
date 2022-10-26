@@ -1,84 +1,87 @@
-import { Story } from '@storybook/react';
 import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ThemeProvider } from 'styled-components';
+
+import { theme } from '../shared/theme';
 import { Typography } from './Typography';
 import { TypographyProps } from './types';
 
 export default {
-  title: 'Typography',
+  title: 'Components/Typography',
   component: Typography,
+} as ComponentMeta<typeof Typography>;
+
+const Template: ComponentStory<typeof Typography> = (args: TypographyProps) => (
+  <ThemeProvider theme={theme}>
+    <Typography {...args}>The Most Powerful No-Code Chatbot Builder</Typography>
+  </ThemeProvider>
+);
+
+export const Default = Template.bind({});
+Default.args = {};
+
+export const H1 = Template.bind({});
+H1.args = {
+  variant: 'h1',
 };
 
-const commonStoryProps = {
-  children: 'Almost before we knew it, we had left the ground.',
+export const H2 = Template.bind({});
+H2.args = {
+  variant: 'h2',
 };
 
-const Template = (props: TypographyProps) => <Typography {...props} />;
+export const H3 = Template.bind({});
+H3.args = {
+  variant: 'h3',
+};
 
-export const Default: Story<TypographyProps> = Template.bind({});
-Default.args = commonStoryProps;
+export const H4 = Template.bind({});
+H4.args = {
+  variant: 'h4',
+};
 
-const TemplateH1 = (props: TypographyProps) => <H1 {...props} />;
+export const H5 = Template.bind({});
+H5.args = {
+  variant: 'h5',
+};
 
-export const H1Story: Story<TypographyProps> = TemplateH1.bind({});
-H1Story.args = commonStoryProps;
-H1Story.storyName = 'H1';
+export const H6 = Template.bind({});
+H6.args = {
+  variant: 'h6',
+};
 
-const TemplateH2 = (props: TypographyProps) => <H2 {...props} />;
+export const Subtitle1 = Template.bind({});
+Subtitle1.args = {
+  variant: 'subtitle1',
+};
 
-export const H2Story: Story<TypographyProps> = TemplateH2.bind({});
-H2Story.args = commonStoryProps;
-H2Story.storyName = 'H2';
+export const Subtitle2 = Template.bind({});
+Subtitle2.args = {
+  variant: 'subtitle2',
+};
 
-const TemplateH3 = (props: TypographyProps) => <H3 {...props} />;
+export const Body1 = Template.bind({});
+Body1.args = {
+  variant: 'body1',
+};
 
-export const H3Story: Story<TypographyProps> = TemplateH3.bind({});
-H3Story.args = commonStoryProps;
-H3Story.storyName = 'H3';
+export const Body2 = Template.bind({});
+Body2.args = {
+  variant: 'body2',
+};
 
-const TemplateTab = (props: TypographyProps) => <Typography {...props} variant="tab" />;
+export const Caption = Template.bind({});
+Caption.args = {
+  variant: 'caption',
+};
 
-export const TabStory: Story<TypographyProps> = TemplateTab.bind({});
-TabStory.args = commonStoryProps;
-TabStory.storyName = 'Tab';
+export const Overline = Template.bind({});
+Overline.args = {
+  variant: 'overline',
+};
 
-const TemplateButton = (props: TypographyProps) => <Typography {...props} variant="button" />;
-
-export const ButtonStory: Story<TypographyProps> = TemplateButton.bind({});
-ButtonStory.args = commonStoryProps;
-ButtonStory.storyName = 'Button';
-
-const TemplatePlaceholder = (props: TypographyProps) => <Typography {...props} variant="placeholder" />;
-
-export const PlaceholderStory: Story<TypographyProps> = TemplatePlaceholder.bind({});
-PlaceholderStory.args = commonStoryProps;
-PlaceholderStory.storyName = 'Placeholder';
-
-const TemplateBody1 = (props: TypographyProps) => <P {...props} />;
-
-export const Body1Story: Story<TypographyProps> = TemplateBody1.bind({});
-Body1Story.args = commonStoryProps;
-Body1Story.storyName = 'Body1';
-
-const TemplateBody2 = (props: TypographyProps) => <Typography {...props} variant="body2" />;
-
-export const Body2Story: Story<TypographyProps> = TemplateBody2.bind({});
-Body2Story.args = commonStoryProps;
-Body2Story.storyName = 'Body2';
-
-const TemplateSmall = (props: TypographyProps) => <Small {...props} />;
-
-export const SmallStory: Story<TypographyProps> = TemplateSmall.bind({});
-SmallStory.args = commonStoryProps;
-SmallStory.storyName = 'Small';
-
-const TemplateTag = (props: TypographyProps) => <Typography {...props} variant="tag" />;
-
-export const TagStory: Story<TypographyProps> = TemplateTag.bind({});
-TagStory.args = commonStoryProps;
-TagStory.storyName = 'Tag';
-
-const TemplateCustom = (props: TypographyProps) => <Span {...props} />;
-
-export const SpanStory: Story<TypographyProps> = TemplateCustom.bind({});
-SpanStory.args = commonStoryProps;
-SpanStory.storyName = 'Custom';
+export const CustomColor = Template.bind({});
+CustomColor.args = {
+  color: 'neutral.800',
+  variant: 'h1',
+};

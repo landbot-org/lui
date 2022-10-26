@@ -82,3 +82,46 @@ export interface Theme {
     };
   };
 }
+
+type NeutralColorsTypes =
+  | 'neutral.main'
+  | 'neutral.50'
+  | 'neutral.100'
+  | 'neutral.200'
+  | 'neutral.300'
+  | 'neutral.400'
+  | 'neutral.600'
+  | 'neutral.700'
+  | 'neutral.800'
+  | 'neutral.900';
+type BlueColorsTypes =
+  | 'blue.main'
+  | 'blue.50'
+  | 'blue.100'
+  | 'blue.200'
+  | 'blue.300'
+  | 'blue.400'
+  | 'blue.500'
+  | 'blue.600'
+  | 'blue.800'
+  | 'blue.900';
+type PinkColorsTypes = 'pink.main' | 'pink.200' | 'pink.300' | 'pink.400' | 'pink.600' | 'pink.700';
+type TealColorsTypes = 'teal.main' | 'teal.200' | 'teal.400' | 'teal.600' | 'teal.700';
+type PurpleColorsTypes = 'purple.main' | 'purple.200' | 'purple.300' | 'purple.400' | 'purple.600' | 'purple.700';
+type OrangeColorsTypes = 'orange.main' | 'orange.200' | 'orange.400' | 'orange.600' | 'orange.700';
+type SuccessColorsTypes = 'success.dark' | 'success.main' | 'success.light';
+type InfoColorsTypes = 'info.dark' | 'info.main' | 'info.light';
+type WarningColorsTypes = 'warning.dark' | 'warning.main' | 'warning.light';
+type ErrorColorsTypes = 'error.dark' | 'error.main' | 'error.light';
+
+export type ColorsTypes =
+  | NeutralColorsTypes
+  | BlueColorsTypes
+  | PinkColorsTypes
+  | TealColorsTypes
+  | PurpleColorsTypes
+  | OrangeColorsTypes
+  | SuccessColorsTypes
+  | InfoColorsTypes
+  | WarningColorsTypes
+  | ErrorColorsTypes;
