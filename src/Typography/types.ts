@@ -16,13 +16,13 @@ export type TypographyVariants =
   | 'caption'
   | 'overline';
 
-export type WeightVariants = 400 | 500 | 700;
+type FontWeightVariants = 400 | 500 | 700;
 
 export interface TypographyProps {
   as?: React.ElementType | keyof JSX.IntrinsicElements;
   children: React.ReactNode;
   color?: ColorsTypes;
-  variant?: TypographyVariants;
+  fontWeight?: FontWeightVariants;
   ellipsize?: boolean;
-  weight?: WeightVariants;
+  variant?: TypographyVariants;
 }

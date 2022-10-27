@@ -18,9 +18,9 @@ export const BaseTypography = styled(BaseSpacing)<TypographyProps>`
       color: ${getColorFromTheme(theme, color)};
     `}
 
-  ${({ weight }) =>
+  ${({ fontWeight }) =>
     css`
-      font-weight: ${weight};
+      font-weight: ${fontWeight};
     `}
 
   ${({ ellipsize }) =>
