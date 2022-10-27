@@ -12,7 +12,7 @@
     "build": "npm run clean && npm run build:prod",
     "build:prod": "rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
   },
   "repository": {
     "type": "git",
