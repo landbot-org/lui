@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../shared/theme';
 import { BoxProps } from './types';
-import Box from './Box';
+import { Box } from './Box';
 
 export default {
   title: 'Components/Box',
