@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
-import Button, { ButtonPropTypes } from './Button';
+import { Button, ButtonPropTypes } from './Button';
 
 export default {
   title: 'Example/Button',
