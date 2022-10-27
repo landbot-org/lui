@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '../test-utils';
 
-import Box from './Box';
+import { Box } from './Box';
 
 describe('Box', () => {
   it('renders by default', () => {
