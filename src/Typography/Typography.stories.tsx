@@ -85,3 +85,11 @@ CustomColor.args = {
   color: 'neutral.800',
   variant: 'h1',
 };
+
+export const Ellipsize = () => (
+  <ThemeProvider theme={theme}>
+    <div style={{ maxWidth: '150px' }}>
+      <Typography ellipsize>The Most Powerful No-Code Chatbot Builder</Typography>
+    </div>
+  </ThemeProvider>
+);
