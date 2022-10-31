@@ -1,4 +1,1 @@
-import Box from './Box';
-export * from './types';
-
-export default Box;
+export { Box } from './Box';
