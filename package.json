@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
+    "test:ci": "jest --coverage --ci",
     "test-storybook": "test-storybook",
     "lint": "eslint --ext=.tsx,.ts  src",
     "clean": "npx rimraf ./dist",
