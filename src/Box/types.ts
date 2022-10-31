@@ -26,7 +26,7 @@ type DisplayType =
 export interface BoxProps extends BaseSpacingProps {
   alignItems?: FlexAlignType;
   as?: React.ElementType | keyof JSX.IntrinsicElements;
-  children: JSX.Element | string;
+  children: React.ReactNode;
   className?: string;
   display?: DisplayType;
   flexDirection?: FlexDirectionType;
