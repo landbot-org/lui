@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 import { Typography } from './Typography';
 import { render } from '../test-utils';
 
-describe('Box', () => {
+describe('Typography', () => {
   it('renders a text by default', () => {
     render(<Typography>Test</Typography>);
     expect(screen.getByText('Test')).toBeTruthy();
