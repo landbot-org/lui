@@ -1,19 +1,21 @@
 {
   "name": "@landbot/lui",
-  "version": "1.5.0",
+  "version": "1.7.4",
   "description": "",
   "main": "dist/index.js",
   "type": "module",
   "sideEffects": false,
   "scripts": {
     "test": "jest",
+    "test:ci": "jest --collect-coverage --ci",
     "test-storybook": "test-storybook",
     "lint": "eslint --ext=.tsx,.ts  src",
     "clean": "npx rimraf ./dist",
     "build": "npm run clean && npm run build:prod",
     "build:prod": "rollup -c",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "start": "start-storybook -p 6006",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
   },
   "repository": {
     "type": "git",

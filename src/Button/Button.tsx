@@ -9,8 +9,6 @@ export interface ButtonPropTypes {
 - Use a button for actions.
 - The label should always be present.
 **/
-const Button = ({ label, onClick }: ButtonPropTypes) => {
+export const Button = ({ label, onClick }: ButtonPropTypes) => {
   return <button onClick={onClick}>{label}</button>;
 };
-
-export default Button;
