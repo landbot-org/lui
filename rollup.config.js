@@ -28,5 +28,5 @@ export default {
     }),
     commonjs(),
   ],
-  external: [/node_modules/],
+  external: [/node_modules/, 'tslib'],
 };
