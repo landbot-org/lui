@@ -1,4 +1,5 @@
 import React from 'react';
+import { BaseSpacingProps } from '../BaseSpacing';
 
 import { ColorsTypes } from '../shared/theme.types';
 
@@ -18,7 +19,7 @@ export type TypographyVariants =
 
 type FontWeightVariants = 400 | 500 | 700;
 
-export interface TypographyProps {
+export interface TypographyProps extends BaseSpacingProps, React.HTMLAttributes<HTMLParagraphElement> {
   as?: React.ElementType | keyof JSX.IntrinsicElements;
   children: React.ReactNode;
   color?: ColorsTypes;
