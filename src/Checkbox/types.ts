@@ -1,7 +1,5 @@
 import React from 'react';
 
-export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
-  checked?: boolean;
-  disabled?: boolean;
+export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   indeterminate?: boolean;
 }
