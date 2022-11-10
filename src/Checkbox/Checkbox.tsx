@@ -17,6 +17,7 @@ export const Checkbox = ({ checked, disabled, indeterminate, onChange, ...rest }
       checked={checked}
       disabled={Boolean(disabled)}
       onChange={onChange}
+      type="checkbox"
       $indeterminate={indeterminate}
       {...rest}
     />

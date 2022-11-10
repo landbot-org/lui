@@ -1,5 +1,5 @@
 import { fireEvent } from '@storybook/testing-library';
-import { prettyDOM, waitFor } from '@testing-library/dom';
+import { waitFor } from '@testing-library/dom';
 import React from 'react';
 import { render } from '../test-utils';
 import { Checkbox } from './Checkbox';

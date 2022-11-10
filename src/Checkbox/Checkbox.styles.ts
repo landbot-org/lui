@@ -6,7 +6,7 @@ interface StyledCheckboxProps extends CheckboxProps {
   $indeterminate?: boolean;
 }
 
-export const StyledCheckbox = styled.input.attrs<StyledCheckboxProps>({ type: 'checkbox' })<StyledCheckboxProps>`
+export const StyledCheckbox = styled.input<StyledCheckboxProps>`
   appearance: none;
   border-radius: 2px;
   border: 1px solid ${getBorderColorFromState};
