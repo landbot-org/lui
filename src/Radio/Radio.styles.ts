@@ -26,4 +26,8 @@ export const StyledRadio = styled.input<RadioProps>`
   :focus {
     box-shadow: 0px 0px 4px rgba(156, 163, 175, 0.5);
   }
+
+  :focus:checked {
+    box-shadow: 0px 0px 4px rgba(99, 97, 240, 0.7);
+  }
 `;
