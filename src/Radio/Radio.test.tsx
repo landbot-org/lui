@@ -1,0 +1,70 @@
+import React, { useState } from 'react';
+import { fireEvent } from '@testing-library/react';
+import { render } from '../test-utils';
+
+import { Radio } from './Radio';
+
+const StatefulRadioGroup = () => {
+  const [checkedValue, setCheckedValue] = useState<string>();
+
+  return (
+    <>
+      {['Radio A', 'Radio B', 'Radio C'].map((label, index) => (
+        <label key={index}>
+          <Radio checked={checkedValue === label} name="Name" onChange={() => setCheckedValue(label)} />
+          {label}
+        </label>
+      ))}
+    </>
+  );
+};
+
+describe('Radio', () => {
+  it('should render radio', () => {
+    const { getByRole } = render(<Radio />);
+    expect(getByRole('radio')).toBeInTheDocument();
+  });
+
+  describe('prop: disabled', () => {
+    it('should be disabled', () => {
+      const { getByRole } = render(<Radio disabled />);
+      expect(getByRole('radio')).toBeDisabled();
+    });
+  });
+
+  describe('prop: checked', () => {
+    it('should be checked', () => {
+      const { getByRole } = render(<Radio checked />);
+      expect(getByRole('radio')).toBeChecked();
+    });
+  });
+
+  describe('prop: name', () => {
+    it('should be named', () => {
+      const { getByRole } = render(<Radio name="Name" />);
+      expect(getByRole('radio')).toHaveAttribute('name', 'Name');
+    });
+  });
+
+  describe('prop: onChange', () => {
+    it('should call onChange when click event fired', () => {
+      const onChange = jest.fn();
+      const { getByRole } = render(<Radio onChange={onChange} />);
+
+      fireEvent.click(getByRole('radio'));
+
+      expect(onChange).toHaveBeenCalled();
+    });
+  });
+
+  describe('Radio Group', () => {
+    it('should check the clicked radio input', () => {
+      const { getByRole } = render(<StatefulRadioGroup />);
+      const firstRadioInput = getByRole('radio', { name: 'Radio A' });
+
+      fireEvent.click(firstRadioInput);
+
+      expect(firstRadioInput).toBeChecked();
+    });
+  });
+});
