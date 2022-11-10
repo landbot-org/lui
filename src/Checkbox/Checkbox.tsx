@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { StyledCheckbox } from './Checkbox.styles';
 import { CheckboxProps } from './types';
 
-export const Checkbox = ({ checked, disabled, indeterminate = false, onChange, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ indeterminate = false, ...rest }: CheckboxProps) => {
   const checkboxRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -11,15 +11,5 @@ export const Checkbox = ({ checked, disabled, indeterminate = false, onChange, .
     }
   }, [indeterminate]);
 
-  return (
-    <StyledCheckbox
-      ref={checkboxRef}
-      checked={checked}
-      disabled={Boolean(disabled)}
-      onChange={onChange}
-      $indeterminate={indeterminate}
-      {...rest}
-      type="checkbox"
-    />
-  );
+  return <StyledCheckbox ref={checkboxRef} $indeterminate={indeterminate} {...rest} type="checkbox" />;
 };
