@@ -37,6 +37,12 @@ describe('Radio', () => {
       const { getByRole } = render(<Radio checked />);
       expect(getByRole('radio')).toBeChecked();
     });
+
+    it('should render when checked and disabled', () => {
+      const { getByRole } = render(<Radio checked disabled />);
+      expect(getByRole('radio')).toBeChecked();
+      expect(getByRole('radio')).toBeDisabled();
+    });
   });
 
   describe('prop: name', () => {
