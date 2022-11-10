@@ -1,5 +1,5 @@
 import { fireEvent } from '@storybook/testing-library';
-import { waitFor } from '@testing-library/dom';
+import { prettyDOM, waitFor } from '@testing-library/dom';
 import React from 'react';
 import { render } from '../test-utils';
 import { Checkbox } from './Checkbox';
@@ -22,6 +22,12 @@ describe('Checkbox', () => {
     waitFor(() => {
       expect(getByRole('checkbox')).toHaveAttribute('indeterminate', true);
     });
+  });
+  it('should change indeterminate attribute when toogle indeterminate prop', () => {
+    const { getByRole, rerender } = render(<Checkbox indeterminate onChange={jest.fn} />);
+    expect(getByRole('checkbox')).toHaveProperty('indeterminate', true);
+    rerender(<Checkbox onChange={jest.fn} />);
+    expect(getByRole('checkbox')).toHaveProperty('indeterminate', false);
   });
   it('should render checkbox indeterminate disabled', () => {
     const { getByRole } = render(<Checkbox disabled indeterminate onChange={jest.fn} />);

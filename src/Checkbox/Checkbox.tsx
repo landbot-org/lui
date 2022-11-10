@@ -6,8 +6,8 @@ export const Checkbox = ({ checked, disabled, indeterminate, onChange, ...rest }
   const checkboxRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (checkboxRef && checkboxRef.current && indeterminate) {
-      checkboxRef.current.indeterminate = true;
+    if (checkboxRef && checkboxRef.current) {
+      checkboxRef.current.indeterminate = Boolean(indeterminate);
     }
   }, [indeterminate]);
 
