@@ -25,52 +25,50 @@ describe('Radio', () => {
     expect(getByRole('radio')).toBeInTheDocument();
   });
 
-  describe('prop: disabled', () => {
-    it('should be disabled', () => {
-      const { getByRole } = render(<Radio disabled />);
-      expect(getByRole('radio')).toBeDisabled();
-    });
+  it('should be disabled', () => {
+    const { getByRole } = render(<Radio disabled />);
+    expect(getByRole('radio')).toBeDisabled();
   });
 
-  describe('prop: checked', () => {
-    it('should be checked', () => {
-      const { getByRole } = render(<Radio checked />);
-      expect(getByRole('radio')).toBeChecked();
-    });
-
-    it('should render when checked and disabled', () => {
-      const { getByRole } = render(<Radio checked disabled />);
-      expect(getByRole('radio')).toBeChecked();
-      expect(getByRole('radio')).toBeDisabled();
-    });
+  it('should be checked', () => {
+    const { getByRole } = render(<Radio checked />);
+    expect(getByRole('radio')).toBeChecked();
   });
 
-  describe('prop: name', () => {
-    it('should be named', () => {
-      const { getByRole } = render(<Radio name="Name" />);
-      expect(getByRole('radio')).toHaveAttribute('name', 'Name');
-    });
+  it('should render when checked and disabled', () => {
+    const { getByRole } = render(<Radio checked disabled />);
+    expect(getByRole('radio')).toBeChecked();
+    expect(getByRole('radio')).toBeDisabled();
   });
 
-  describe('prop: onChange', () => {
-    it('should call onChange when click event fired', () => {
-      const onChange = jest.fn();
-      const { getByRole } = render(<Radio onChange={onChange} />);
+  it('should be named', () => {
+    const { getByRole } = render(<Radio name="Name" />);
+    expect(getByRole('radio')).toHaveAttribute('name', 'Name');
+  });
 
-      fireEvent.click(getByRole('radio'));
+  it('should call onChange when click event fired', () => {
+    const onChange = jest.fn();
+    const { getByRole } = render(<Radio onChange={onChange} />);
 
-      expect(onChange).toHaveBeenCalled();
-    });
+    fireEvent.click(getByRole('radio'));
+
+    expect(onChange).toHaveBeenCalled();
   });
 
   describe('Radio Group', () => {
     it('should check the clicked radio input', () => {
       const { getByRole } = render(<StatefulRadioGroup />);
       const firstRadioInput = getByRole('radio', { name: 'Radio A' });
+      const secondRadioInput = getByRole('radio', { name: 'Radio B' });
 
       fireEvent.click(firstRadioInput);
 
       expect(firstRadioInput).toBeChecked();
+
+      fireEvent.click(secondRadioInput);
+
+      expect(firstRadioInput).not.toBeChecked();
+      expect(secondRadioInput).toBeChecked();
     });
   });
 });

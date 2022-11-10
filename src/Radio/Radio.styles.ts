@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { RadioProps } from './types';
 import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './utils';
 
-export const StyledRadio = styled.input.attrs<RadioProps>({ type: 'radio' })<RadioProps>`
+export const StyledRadio = styled.input<RadioProps>`
   appearance: none;
   border-radius: 50%;
   border: 1px solid ${getBorderColorFromState};
