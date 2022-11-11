@@ -20,7 +20,10 @@ export const StyledCheckbox = styled.input<StyledCheckboxProps>`
     ${getBackgroundColorFromState} no-repeat center;
 
   :focus {
-    box-shadow: 0px 0px 4px rgb(99 97 240 / 70%);
+    box-shadow: 0px 0px 4px rgba(156, 163, 175, 0.5);
+  }
+  :focus:checked {
+    box-shadow: 0px 0px 4px rgba(99, 97, 240, 0.7);
   }
 
   :indeterminate {
