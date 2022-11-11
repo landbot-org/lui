@@ -10,8 +10,7 @@ export const StyledCheckbox = styled.input<StyledCheckboxProps>`
   appearance: none;
   border-radius: 2px;
   border: 1px solid ${getBorderColorFromState};
-  cursor: pointer;
-  flex: none;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   height: 16px;
   width: 16px;
   margin: 8px;

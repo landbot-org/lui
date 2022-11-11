@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { expect } from '@storybook/jest';
-import { within } from '@storybook/testing-library';
+import { userEvent, within } from '@storybook/testing-library';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { theme } from '../shared/theme';
 import { Checkbox } from './Checkbox';
@@ -40,8 +40,16 @@ const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => {
 };
 
 export const Default = Template.bind({});
+Default.args = {
+  disabled: false,
+  checked: false,
+};
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
+  await userEvent.click(canvas.getByRole('checkbox'));
+  await expect(canvas.getByRole('checkbox')).toBeChecked();
+  await userEvent.click(canvas.getByRole('checkbox'));
+  await expect(canvas.getByRole('checkbox')).not.toBeChecked();
 };
