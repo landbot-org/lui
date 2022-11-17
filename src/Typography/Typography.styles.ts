@@ -13,9 +13,8 @@ export const BaseTypography = styled(BaseSpacing)<TypographyProps>`
   ${({ variant = 'body1' }) => STYLES[variant]}
 
   ${({ color, theme }) =>
-    color &&
     css`
-      color: ${getColorFromTheme(theme, color)};
+      color: ${getColorFromTheme(theme, color || 'blue.900')};
     `}
 
   ${({ fontWeight }) =>
