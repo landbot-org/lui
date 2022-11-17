@@ -27,6 +27,8 @@ export interface Theme {
     };
     pink: {
       main: string;
+      50: string;
+      100: string;
       200: string;
       300: string;
       400: string;
@@ -42,6 +44,8 @@ export interface Theme {
     };
     purple: {
       main: string;
+      50: string;
+      100: string;
       200: string;
       300: string;
       400: string;
