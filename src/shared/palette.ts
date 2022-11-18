@@ -26,6 +26,8 @@ export const BLUE = {
 
 export const PINK = {
   main: '#D7376B',
+  50: '#FEF3F3',
+  100: '#FEE7E8',
   200: '#FBB0B2',
   300: '#F28C9A',
   400: '#E76683',
@@ -43,6 +45,8 @@ export const TEAL = {
 
 export const PURPLE = {
   main: '#6361f0',
+  50: '#F5F5FF',
+  100: '#EEEEFF',
   200: '#DDDDFF',
   300: '#C8C8FA',
   400: '#A1A0F6',
