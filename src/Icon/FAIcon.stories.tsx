@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { theme } from '../shared/theme';
-import { faRobot } from '@fortawesome/pro-solid-svg-icons';
+import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FAIcon } from './FAIcon';
 import { FAIconProps } from './types';
 

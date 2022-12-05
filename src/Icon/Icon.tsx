@@ -7,7 +7,7 @@ export const Icon = ({ icon, size, ...rest }: IconProps) => {
 
   const IconProp = icon;
 
-  const Icon = useMemo(() => <IconProp height={dimensions} width={dimensions} />, [dimensions]);
+  const Icon = useMemo(() => <IconProp height={dimensions} width={dimensions} {...rest} />, [dimensions]);
 
   return <>{Icon}</>;
 };
