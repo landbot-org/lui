@@ -1,4 +1,3 @@
-import React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { ColorsTypes } from '../shared/theme.types';

@@ -1,1 +1,1 @@
-export { default as calendly } from './calendly';
+export { calendly } from './calendly';
