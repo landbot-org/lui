@@ -20,6 +20,9 @@ export const ToggleStyled = styled.div<Props>`
     right: 0;
     bottom: 0;
     cursor: pointer;
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
 
   span {
