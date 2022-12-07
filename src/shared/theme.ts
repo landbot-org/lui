@@ -1,5 +1,5 @@
 import { Theme } from './theme.types';
-import { BLUE, ERROR, INFO, NEUTRAL, ORANGE, PINK, PURPLE, SUCCESS, TEAL, WARNING } from './palette';
+import { BLUE, ERROR, INFO, NEUTRAL, ORANGE, PINK, PURPLE, SUCCESS, TEAL, WARNING, WHITE } from './palette';
 
 export const theme: Theme = {
   base_spacing: 8,
@@ -14,10 +14,12 @@ export const theme: Theme = {
     info: INFO,
     warning: WARNING,
     error: ERROR,
+    white: WHITE,
   },
   typography: {
     font: {
-      primary: '\'DM Sans\', sans-serif',
+      // eslint-disable-next-line quotes
+      primary: "'DM Sans', sans-serif",
     },
   },
 };

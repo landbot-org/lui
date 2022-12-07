@@ -79,6 +79,9 @@ export interface Theme {
       main: string;
       light: string;
     };
+    white: {
+      main: string;
+    };
   };
   typography: {
     font: {
@@ -117,6 +120,7 @@ type SuccessColorsTypes = 'success.dark' | 'success.main' | 'success.light';
 type InfoColorsTypes = 'info.dark' | 'info.main' | 'info.light';
 type WarningColorsTypes = 'warning.dark' | 'warning.main' | 'warning.light';
 type ErrorColorsTypes = 'error.dark' | 'error.main' | 'error.light';
+type WhiteColorsTypes = 'white.main';
 
 export type ColorsTypes =
   | NeutralColorsTypes
@@ -128,4 +132,5 @@ export type ColorsTypes =
   | SuccessColorsTypes
   | InfoColorsTypes
   | WarningColorsTypes
-  | ErrorColorsTypes;
+  | ErrorColorsTypes
+  | WhiteColorsTypes;
