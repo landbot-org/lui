@@ -43,16 +43,16 @@ export const Default = Template.bind({});
 
 const AllIcons = ({ size }: IconProps) => {
   return (
-    <Box display="flex">
-      {Object.keys(icons).map((icon) => (
-        <ThemeProvider theme={theme}>
-          <Box display="flex" flexDirection="column" alignItems="center" m={4} title={icon}>
+    <ThemeProvider theme={theme}>
+      <Box display="flex">
+        {Object.keys(icons).map((icon) => (
+          <Box key={icon} display="flex" flexDirection="column" alignItems="center" m={4} title={icon}>
             <Typography>{icon}</Typography>
             <Icon icon={icons[icon as keyof typeof icons]} size={size} />
           </Box>
-        </ThemeProvider>
-      ))}
-    </Box>
+        ))}
+      </Box>
+    </ThemeProvider>
   );
 };
 
