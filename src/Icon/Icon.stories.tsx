@@ -1,10 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import { theme } from '../shared/theme';
 import { Icon } from './Icon';
-import { calendly } from './icons';
+import * as icons from './icons';
 import { IconProps } from './types';
+import { Box } from '../Box';
+import { Typography } from '../Typography';
 
 export default {
   title: 'Components/Icon/Icon',
@@ -12,8 +14,10 @@ export default {
   argTypes: {
     icon: {
       control: {
-        type: null,
+        type: 'select',
+        options: Object.keys(icons),
       },
+      defaultValue: Object.keys(icons)[0],
     },
     size: {
       control: {
@@ -27,16 +31,32 @@ export default {
   },
 } as ComponentMeta<typeof Icon>;
 
-const Template: ComponentStory<typeof Icon> = (args: IconProps) => {
+const Template = (args: { size: IconProps['size']; icon: string }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Icon icon={calendly} size={args.size} />
+      <Icon icon={icons[args.icon as keyof typeof icons]} size={args.size} />
     </ThemeProvider>
   );
 };
 
 export const Default = Template.bind({});
-Default.args = {};
+
+const AllIcons = ({ size }: IconProps) => {
+  return (
+    <Box display="flex">
+      {Object.keys(icons).map((icon) => (
+        <ThemeProvider theme={theme}>
+          <Box display="flex" flexDirection="column" alignItems="center" m={4} title={icon}>
+            <Typography>{icon}</Typography>
+            <Icon icon={icons[icon as keyof typeof icons]} size={size} />
+          </Box>
+        </ThemeProvider>
+      ))}
+    </Box>
+  );
+};
+
+export const DefaultAllIcons = AllIcons.bind({});
 
 // Default.play = async ({ canvasElement }) => {
 //   const canvas = within(canvasElement);
