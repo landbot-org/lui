@@ -15,8 +15,8 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: Object.keys(icons),
       },
+      options: Object.keys(icons),
       defaultValue: Object.keys(icons)[0],
     },
     size: {
@@ -44,7 +44,7 @@ export const Default = Template.bind({});
 const AllIcons = ({ size }: IconProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <Box display="flex">
+      <Box display="flex" flexDirection="row" flexWrap="wrap">
         {Object.keys(icons).map((icon) => (
           <Box key={icon} display="flex" flexDirection="column" alignItems="center" m={4} title={icon}>
             <Typography>{icon}</Typography>
