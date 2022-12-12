@@ -57,12 +57,3 @@ const AllIcons = ({ size }: IconProps) => {
 };
 
 export const DefaultAllIcons = AllIcons.bind({});
-
-// Default.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement);
-//   await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
-//   await userEvent.click(canvas.getByRole('checkbox'));
-//   await expect(canvas.getByRole('checkbox')).toBeChecked();
-//   await userEvent.click(canvas.getByRole('checkbox'));
-//   await expect(canvas.getByRole('checkbox')).not.toBeChecked();
-// };

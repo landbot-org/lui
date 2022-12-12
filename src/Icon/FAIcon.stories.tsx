@@ -1,8 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { theme } from '../shared/theme';
+import { expect } from '@storybook/jest';
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
+import { theme } from '../shared/theme';
 import { FAIcon } from './FAIcon';
 import { FAIconProps } from './types';
 
@@ -42,11 +43,6 @@ const TemplateFAIcon: ComponentStory<typeof FAIcon> = (args: FAIconProps) => (
 export const Default = TemplateFAIcon.bind({});
 Default.args = {};
 
-// Default.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement);
-//   await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
-//   await userEvent.click(canvas.getByRole('checkbox'));
-//   await expect(canvas.getByRole('checkbox')).toBeChecked();
-//   await userEvent.click(canvas.getByRole('checkbox'));
-//   await expect(canvas.getByRole('checkbox')).not.toBeChecked();
-// };
+Default.play = async ({ canvasElement }) => {
+  await expect(canvasElement.querySelector('[data-icon=robot]')).toBeInTheDocument();
+};
