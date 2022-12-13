@@ -3,7 +3,7 @@ import { pxToRem } from '../shared/mixins';
 import { DIMENSIONS } from './constants';
 import { IconProps } from './types';
 
-export const Icon = ({ icon, size, ...rest }: IconProps) => {
+export const Icon = ({ icon, size = '1x', ...rest }: IconProps) => {
   const dimensions = pxToRem(DIMENSIONS[size]);
 
   const IconProp = icon;

@@ -1,6 +1,6 @@
-import { FAIconProps } from './types';
+import { Size } from './types';
 
-export const DIMENSIONS: Record<FAIconProps['size'], number> = {
+export const DIMENSIONS: Record<Size, number> = {
   '0.5x': 8,
   '1x': 16,
   '1.25x': 20,
