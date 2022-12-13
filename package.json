@@ -17,6 +17,20 @@
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
   },
+  "exports": {
+    ".": "./dist/index.js",
+    "./icons": "./dist/Icon/icons/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "icons": [
+        "dist/Icon/icons/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/landbot-org/lui.git"
