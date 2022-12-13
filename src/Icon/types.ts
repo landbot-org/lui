@@ -11,7 +11,7 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export interface FAIconProps extends Omit<FontAwesomeIconProps, 'size'> {
-  color?: ColorsTypes;
+  color?: ColorsTypes | 'inherit';
   icon: IconDefinition;
   size?: Size;
 }
