@@ -15,7 +15,6 @@ export default {
       control: {
         type: 'select',
       },
-      defaultValue: 'blue.main',
     },
     icon: {
       control: {
@@ -26,7 +25,6 @@ export default {
       control: {
         type: 'select',
       },
-      defaultValue: '1x',
     },
   },
   parameters: {

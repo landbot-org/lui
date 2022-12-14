@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const dialogflow = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+export const dialogflow = (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <mask
       id="mask0_1075_1804"
       style={{ maskType: 'alpha' }}

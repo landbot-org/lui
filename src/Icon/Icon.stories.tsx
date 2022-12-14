@@ -1,12 +1,14 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { ComponentMeta } from '@storybook/react';
+import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { theme } from '../shared/theme';
 import { Icon } from './Icon';
 import * as icons from './icons';
 import { IconProps } from './types';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default {
   title: 'Components/Icon/Icon',
@@ -17,13 +19,11 @@ export default {
         type: 'select',
       },
       options: Object.keys(icons),
-      defaultValue: Object.keys(icons)[0],
     },
     size: {
       control: {
         type: 'select',
       },
-      defaultValue: '1x',
     },
   },
   parameters: {
@@ -40,6 +40,16 @@ const Template = (args: { size: IconProps['size']; icon: string }) => {
 };
 
 export const Default = Template.bind({});
+
+const TemplateFontAwesome = (args: { size: IconProps['size']; icon: string }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Icon icon={<FontAwesomeIcon icon={faRobot} />} size={args.size} />
+    </ThemeProvider>
+  );
+};
+
+export const DefaultFontAwesome = TemplateFontAwesome.bind({});
 
 const AllIcons = ({ size }: IconProps) => {
   return (

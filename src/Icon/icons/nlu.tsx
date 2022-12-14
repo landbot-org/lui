@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const nlu = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+export const nlu = (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M33.8042 29.9511C33.8077 30.2738 33.7235 30.6957 33.6359 31.0435C33.0237 33.4893 30.3052 36.2339 26.4786 35.9841C23.0107 35.7584 20.186 34.1119 20.186 31.8029C20.186 29.4939 23.0038 27.6216 26.4786 27.6216C29.9535 27.6216 33.7823 27.6421 33.8042 29.9511Z"
       fill="#EA596E"

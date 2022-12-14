@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const analytics = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+export const analytics = (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M27.6052 4.77272V34.7727C27.6052 38.1321 29.884 40 32.3026 40C34.5394 40 37 38.4091 37 34.7727V4.99999C37 1.92471 34.7631 0 32.3026 0C29.8421 0 27.6052 2.12358 27.6052 4.77272Z"
       fill="#F8AB00"
