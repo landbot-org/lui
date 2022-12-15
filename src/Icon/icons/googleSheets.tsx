@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const googleSheets = (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const GoogleSheets = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <mask
       id="mask0_1075_1802"
       style={{ maskType: 'alpha' }}
