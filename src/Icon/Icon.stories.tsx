@@ -1,7 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { expect } from '@storybook/jest';
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { theme } from '../shared/theme';
 import { Icon } from './Icon';
@@ -78,11 +77,3 @@ const TemplateAllCustomIcons = ({ size }: IconProps) => {
 };
 
 export const AllCustomIcons = TemplateAllCustomIcons.bind({});
-
-Calendly.play = async ({ canvasElement }) => {
-  await expect(canvasElement.querySelector('svg')).toBeInTheDocument();
-};
-
-FontAwesome.play = async ({ canvasElement }) => {
-  await expect(canvasElement.querySelector('svg')).toBeInTheDocument();
-};
