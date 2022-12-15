@@ -8,4 +8,12 @@ describe('Box', () => {
     const { getByText } = render(<Box>Test</Box>);
     expect(getByText('Test')).toBeInTheDocument();
   });
+  it('should render with elevation', () => {
+    const { getByText } = render(<Box elevation={1}>Test</Box>);
+    expect(getByText('Test')).toBeInTheDocument();
+  });
+  it('should render with border', () => {
+    const { getByText } = render(<Box border={1}>Test</Box>);
+    expect(getByText('Test')).toBeInTheDocument();
+  });
 });
