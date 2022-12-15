@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { theme } from '../shared/theme';
 import { BoxProps } from './types';
@@ -19,22 +19,30 @@ export default {
   },
 } as ComponentMeta<typeof Box>;
 
+const Square = styled(Box)`
+  background-color: ${({ theme }) => theme.palette.blue[50]};
+  width: 100px;
+  height: 100px;
+`;
+
 const Template: ComponentStory<typeof Box> = (args: BoxProps) => (
   <ThemeProvider theme={theme}>
-    <Box {...args} />
+    <Square role="figure" {...args} />
   </ThemeProvider>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Test',
   display: 'block',
+  elevation: 1,
+  border: 1,
+  borderColor: 'neutral.300',
 };
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByText('Test'));
-  await expect(canvas.getByText('Test')).toBeInTheDocument();
+  await userEvent.click(canvas.getByRole('figure'));
+  await expect(canvas.getByRole('figure')).toBeInTheDocument();
 };
 
 export const Flexbox = Template.bind({});
