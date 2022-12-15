@@ -33,10 +33,10 @@ const Template: ComponentStory<typeof Box> = (args: BoxProps) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  display: 'block',
-  elevation: 1,
   border: 1,
   borderColor: 'neutral.300',
+  display: 'block',
+  elevation: 1,
 };
 
 Default.play = async ({ canvasElement }) => {
@@ -47,6 +47,7 @@ Default.play = async ({ canvasElement }) => {
 
 export const Flexbox = Template.bind({});
 Flexbox.args = {
+  alignItems: 'center',
   children: (
     <>
       <p>row1</p>

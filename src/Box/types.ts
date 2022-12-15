@@ -26,9 +26,13 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
 }
 
 export interface StyledBoxProps extends BoxProps {
+  $alignItems: BoxProps['alignItems'];
   $border: BoxProps['border'];
   $borderColor: BoxProps['borderColor'];
   $display: BoxProps['display'];
   $elevation: BoxProps['elevation'];
+  $flexDirection: BoxProps['flexDirection'];
+  $flexWrap: BoxProps['flexWrap'];
+  $justifyContent: BoxProps['justifyContent'];
   $radius: BoxProps['radius'];
 }
