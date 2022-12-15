@@ -12,7 +12,7 @@ import { Typography } from '../Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default {
-  title: 'Components/Icon/Icon',
+  title: 'Components/Icon',
   component: Icon,
   argTypes: {
     color: {
