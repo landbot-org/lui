@@ -8,7 +8,7 @@ import { Radio } from './Radio';
 import type { RadioProps } from './types';
 
 export default {
-  title: 'components/Radio',
+  title: 'Components/Radio',
   component: Radio,
   argTypes: {
     checked: { control: 'boolean' },
