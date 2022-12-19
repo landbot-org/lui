@@ -85,3 +85,7 @@ export const ERROR = {
   main: '#DD0E0E',
   light: '#FFC799',
 };
+
+export const WHITE = {
+  main: '#FFFFFF',
+};

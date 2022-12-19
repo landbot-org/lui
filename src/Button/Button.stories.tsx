@@ -1,30 +1,31 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
 
-import { Button, ButtonPropTypes } from './Button';
+import { Button } from './Button';
+import { theme } from '../shared/theme';
+import { ThemeProvider } from 'styled-components';
+import { ButtonProps } from './types';
 
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    children: { control: 'text' },
+    disabled: { control: 'boolean' },
   },
-  parameters: {
-    componentSubtitle: 'Displays an awesome button',
+  args: {
+    children: 'Button',
+    color: 'pink.main',
+    size: 'medium',
+    variant: 'contained',
+    disabled: false,
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args: ButtonPropTypes) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <Button {...args} />
+  </ThemeProvider>
+);
 
-export const Primary = Template.bind({});
-Primary.args = {
-  label: 'Button',
-};
-
-Primary.play = async ({ args, canvasElement }) => {
-  const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByRole('button'));
-  await expect(args.onClick).toHaveBeenCalled();
-};
+export const Default = Template.bind({});

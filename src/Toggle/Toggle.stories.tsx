@@ -14,8 +14,11 @@ export default {
   argTypes: {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },
-    size: { control: 'radio', options: ['small', 'medium'], defaultValue: 'medium' },
+    size: { control: 'radio', options: ['small', 'medium'] },
     onChange: { action: 'onChange' },
+  },
+  args: {
+    size: 'medium',
   },
   parameters: {
     componentSubtitle: 'Displays a toggle switch',
