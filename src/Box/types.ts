@@ -13,6 +13,7 @@ export type BorderType = 0 | 1 | 2;
 export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDivElement> {
   alignItems?: FlexAlignType;
   as?: React.ElementType | keyof JSX.IntrinsicElements;
+  background?: ColorsTypes;
   border?: BorderType;
   borderColor?: ColorsTypes;
   children?: React.ReactNode;
@@ -27,6 +28,7 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
 
 export interface StyledBoxProps extends BoxProps {
   $alignItems: BoxProps['alignItems'];
+  $background: BoxProps['background'];
   $border: BoxProps['border'];
   $borderColor: BoxProps['borderColor'];
   $display: BoxProps['display'];

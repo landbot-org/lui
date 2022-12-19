@@ -4,6 +4,14 @@ import { Theme } from '../shared/theme.types';
 import { BORDER_RADIUS_MAPPING, BOX_SHADOW_MAPPING } from './constants';
 import { StyledBoxProps } from './types';
 
+export const getBackgroundStyles = ({ $background, theme }: StyledBoxProps & { theme: Theme }) => {
+  if ($background) {
+    return css`
+      background-color: ${getColorFromTheme(theme, $background)};
+    `;
+  }
+};
+
 export const getElevationStyles = ({ $elevation = 0 }: StyledBoxProps) =>
   css`
     box-shadow: ${BOX_SHADOW_MAPPING[$elevation]};

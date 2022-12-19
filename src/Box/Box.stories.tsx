@@ -20,7 +20,6 @@ export default {
 } as ComponentMeta<typeof Box>;
 
 const Square = styled(Box)`
-  background-color: ${({ theme }) => theme.palette.blue[50]};
   width: 100px;
   height: 100px;
 `;
@@ -33,6 +32,7 @@ const Template: ComponentStory<typeof Box> = (args: BoxProps) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  background: 'blue.50',
   border: 1,
   borderColor: 'neutral.300',
   display: 'block',
