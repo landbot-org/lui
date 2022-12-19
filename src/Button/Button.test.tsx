@@ -51,6 +51,10 @@ describe('Button', () => {
     const { getByRole } = render(<Button disabled>test</Button>);
     expect(getByRole('button')).toBeDisabled();
   });
+  it('renders full width button', async () => {
+    const { getByRole } = render(<Button fullWidth>test</Button>);
+    expect(getByRole('button')).toBeInTheDocument();
+  });
   it('should call onClick handler', async () => {
     const onClickSpy = jest.fn();
     const { getByRole } = render(

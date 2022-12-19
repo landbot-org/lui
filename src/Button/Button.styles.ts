@@ -6,6 +6,7 @@ import { getButtonVariantStyles, getTypographyVariantStyles } from './utils';
 
 interface StyledButtonProps {
   $color: ColorTypes;
+  $fullWidth: boolean;
   $size: SizeTypes;
   $variant: ButtonVariants;
   disabled: boolean;
@@ -24,6 +25,7 @@ const BaseButtonStyles = css<StyledButtonProps>`
   align-items: center;
   display: inline-flex;
   justify-content: center;
+  width: ${({ $fullWidth }) => ($fullWidth ? '100%' : undefined)};
   height: ${({ $size }) => SIZES_MAPPING[$size]};
   min-width: 80px;
   padding: 0 16px;

@@ -12,6 +12,7 @@ export default {
   argTypes: {
     children: { control: 'text' },
     disabled: { control: 'boolean' },
+    fullWidth: { control: 'boolean' },
   },
   args: {
     children: 'Button',
@@ -19,6 +20,7 @@ export default {
     size: 'medium',
     variant: 'contained',
     disabled: false,
+    fullWidth: false,
   },
 } as ComponentMeta<typeof Button>;
 
