@@ -4,10 +4,10 @@ import { Theme } from '../shared/theme.types';
 import { BORDER_RADIUS_MAPPING, BOX_SHADOW_MAPPING } from './constants';
 import { StyledBoxProps } from './types';
 
-export const getBackgroundStyles = ({ $background, theme }: StyledBoxProps & { theme: Theme }) => {
-  if ($background) {
+export const getBackgroundStyles = ({ $backgroundColor, theme }: StyledBoxProps & { theme: Theme }) => {
+  if ($backgroundColor) {
     return css`
-      background-color: ${getColorFromTheme(theme, $background)};
+      background-color: ${getColorFromTheme(theme, $backgroundColor)};
     `;
   }
 };

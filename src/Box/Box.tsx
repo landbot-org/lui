@@ -5,7 +5,7 @@ import { BoxStyled } from './Box.styles';
 export const Box = ({
   alignItems,
   as = 'div',
-  background,
+  backgroundColor,
   border,
   borderColor,
   children,
@@ -22,7 +22,7 @@ export const Box = ({
     as={as}
     className={className}
     $alignItems={alignItems}
-    $background={background}
+    $backgroundColor={backgroundColor}
     $border={border}
     $borderColor={borderColor}
     $display={display}
