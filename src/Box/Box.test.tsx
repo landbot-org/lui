@@ -9,7 +9,7 @@ describe('Box', () => {
     expect(getByText('Test')).toBeInTheDocument();
   });
   it('should render with background', () => {
-    const { getByText } = render(<Box background="pink.main">Test</Box>);
+    const { getByText } = render(<Box backgroundColor="pink.main">Test</Box>);
     expect(getByText('Test')).toBeInTheDocument();
   });
   it('should render with elevation', () => {
