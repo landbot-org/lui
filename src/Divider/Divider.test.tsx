@@ -34,17 +34,17 @@ describe('Divider', () => {
   });
 
   it('should render vertical small divider', async () => {
-    const { findByRole } = render(<Divider orientation="vertical" size="small" data-testid="content-divider" />);
+    const { findByRole } = render(<Divider orientation="vertical" size="small" />);
     expect(await findByRole('separator')).toBeInTheDocument();
   });
 
   it('should render vertical medium divider', async () => {
-    const { findByRole } = render(<Divider orientation="vertical" size="medium" data-testid="content-divider" />);
+    const { findByRole } = render(<Divider orientation="vertical" size="medium" />);
     expect(await findByRole('separator')).toBeInTheDocument();
   });
 
   it('should render vertical large divider', async () => {
-    const { findByRole } = render(<Divider orientation="vertical" size="large" data-testid="content-divider" />);
+    const { findByRole } = render(<Divider orientation="vertical" size="large" />);
     expect(await findByRole('separator')).toBeInTheDocument();
   });
 });
