@@ -6,9 +6,10 @@ export type SizeTypes = 'small' | 'medium' | 'large';
 
 type ButtonPropsBase = {
   children: React.ReactNode;
-  disabled?: boolean;
-  href?: string;
   color?: ColorTypes;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  href?: string;
   size?: SizeTypes;
   variant?: ButtonVariants;
 };

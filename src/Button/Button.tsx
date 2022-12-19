@@ -7,6 +7,7 @@ export const Button = ({
   size = 'medium',
   variant = 'contained',
   disabled = false,
+  fullWidth = false,
   href,
   children,
   onClick,
@@ -17,6 +18,7 @@ export const Button = ({
   return (
     <BaseButton
       $color={color}
+      $fullWidth={fullWidth}
       $size={size}
       $variant={variant}
       disabled={disabled}
