@@ -48,6 +48,9 @@ Default.play = async ({ canvasElement }) => {
 export const Flexbox = Template.bind({});
 Flexbox.args = {
   alignItems: 'center',
+  background: 'blue.50',
+  border: 1,
+  borderColor: 'neutral.300',
   children: (
     <>
       <p>row1</p>
@@ -55,5 +58,6 @@ Flexbox.args = {
     </>
   ),
   display: 'flex',
+  elevation: 1,
   justifyContent: 'space-around',
 };
