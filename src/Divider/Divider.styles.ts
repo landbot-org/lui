@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { css } from 'styled-components';
+import { DividerSize } from './types';
 import { Theme } from '../shared/theme.types';
 
 interface Props {
-  $size: 'small' | 'medium' | 'large';
+  $size: DividerSize;
 }
 
 const DividerStyled = css`
