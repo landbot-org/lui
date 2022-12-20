@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { css } from 'styled-components';
 import { DividerSize } from './types';
 import { Theme } from '../shared/theme.types';
-
+import { DIMENSIONS } from './constants';
 interface Props {
   $size: DividerSize;
 }
@@ -18,13 +18,13 @@ const HorizontalDividerStyled = styled.hr<Props>`
   ${DividerStyled}
 
   width: auto;
-  height: ${({ $size }) => ({ small: '1px', medium: '2px', large: '4px' }[$size])};
+  height: ${({ $size }) => DIMENSIONS[$size]};
 `;
 
 const VerticalDividerStyled = styled.div<Props>`
   ${DividerStyled}
 
-  width: ${({ $size }) => ({ small: '1px', medium: '2px', large: '4px' }[$size])};
+  width: ${({ $size }) => DIMENSIONS[$size]};
   height: 100%;
 `;
 
