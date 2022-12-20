@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Typography } from '../Typography';
+import { TypographyVariants } from '../Typography/types';
 import { SIZES_MAPPING } from './constants';
 import { ButtonVariants, ColorTypes, SizeTypes } from './types';
 import { getButtonVariantStyles, getTypographyVariantStyles } from './utils';
@@ -16,8 +17,7 @@ interface StyledTypographyProps {
   $color: ColorTypes;
   $variant: ButtonVariants;
   disabled: boolean;
-  variant: string;
-  as: string;
+  variant: TypographyVariants;
 }
 
 const BaseButtonStyles = css<StyledButtonProps>`

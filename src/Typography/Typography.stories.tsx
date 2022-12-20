@@ -60,29 +60,29 @@ Subtitle2.args = {
   variant: 'subtitle2',
 };
 
-export const Body1 = Template.bind({});
-Body1.args = {
-  variant: 'body1',
+export const Text16 = Template.bind({});
+Text16.args = {
+  variant: 'text16',
 };
 
-export const Body2 = Template.bind({});
-Body2.args = {
-  variant: 'body2',
+export const Text14 = Template.bind({});
+Text14.args = {
+  variant: 'text14',
 };
 
-export const Caption = Template.bind({});
-Caption.args = {
-  variant: 'caption',
+export const Text12 = Template.bind({});
+Text12.args = {
+  variant: 'text12',
 };
 
-export const Overline = Template.bind({});
-Overline.args = {
-  variant: 'overline',
+export const Text10 = Template.bind({});
+Text10.args = {
+  variant: 'text10',
 };
 
 export const CustomColor = Template.bind({});
 CustomColor.args = {
-  color: 'neutral.800',
+  color: 'info.main',
   variant: 'h1',
 };
 

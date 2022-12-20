@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { RadioProps } from './types';
 import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './utils';
 
-export const StyledRadio = styled.input<RadioProps>`
+export const RadioStyled = styled.input<RadioProps>`
   appearance: none;
   border-radius: 50%;
   border: 1px solid ${getBorderColorFromState};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   flex: none;
   height: 16px;
   width: 16px;

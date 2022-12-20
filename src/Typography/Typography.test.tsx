@@ -73,24 +73,24 @@ describe('Typography', () => {
     expect(screen.getByText('Test').tagName).toBe('H6');
   });
 
-  it('should render an p tag when variant body1', () => {
-    render(<Typography variant="body1">Test</Typography>);
+  it('should render an p tag when variant text16', () => {
+    render(<Typography variant="text16">Test</Typography>);
     expect(screen.getByText('Test').tagName).toBe('P');
   });
 
-  it('should render an p tag when variant body2', () => {
-    render(<Typography variant="body2">Test</Typography>);
+  it('should render an p tag when variant text14', () => {
+    render(<Typography variant="text14">Test</Typography>);
     expect(screen.getByText('Test').tagName).toBe('P');
   });
 
-  it('should render an span tag when variant caption', () => {
-    render(<Typography variant="caption">Test</Typography>);
-    expect(screen.getByText('Test').tagName).toBe('SPAN');
+  it('should render a p tag when variant text12', () => {
+    render(<Typography variant="text12">Test</Typography>);
+    expect(screen.getByText('Test').tagName).toBe('P');
   });
 
-  it('should render an span tag when variant overline', () => {
-    render(<Typography variant="overline">Test</Typography>);
-    expect(screen.getByText('Test').tagName).toBe('SPAN');
+  it('should render a p tag when variant text10', () => {
+    render(<Typography variant="text10">Test</Typography>);
+    expect(screen.getByText('Test').tagName).toBe('P');
   });
 
   it('renders a text with diferent color', () => {
