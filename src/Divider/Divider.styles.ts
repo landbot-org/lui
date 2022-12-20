@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 import { css } from 'styled-components';
 import { DividerSize } from './types';
-import { Theme } from '../shared/theme.types';
+import { theme } from '../shared/theme';
+import { getColorFromTheme } from '../shared/mixins';
 import { DIMENSIONS } from './constants';
+import { ColorsTypes } from '../shared/theme.types';
+
 interface Props {
   $size: DividerSize;
+  $color: ColorsTypes;
 }
 
-const DividerStyled = css`
-  background-color: ${({ theme }: { theme: Theme }) => theme.palette.neutral[300]};
+const DividerStyled = css<Props>`
+  background-color: ${({ $color }) => getColorFromTheme(theme, $color)};
   border: none;
   margin: 0px;
   padding: 0px;
