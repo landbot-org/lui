@@ -9,6 +9,9 @@ import { TypographyProps } from './types';
 export default {
   title: 'Components/Typography',
   component: Typography,
+  argTypes: {
+    as: { control: 'text' },
+  },
 } as ComponentMeta<typeof Typography>;
 
 const Template: ComponentStory<typeof Typography> = (args: TypographyProps) => (
