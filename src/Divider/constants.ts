@@ -1,7 +1,7 @@
 import { DividerSize } from './types';
 
-export const DIMENSIONS: Record<DividerSize, string> = {
-  small: '1px',
-  medium: '2px',
-  large: '4px',
+export const DIMENSIONS: Record<DividerSize, number> = {
+  small: 1,
+  medium: 2,
+  large: 4,
 };
