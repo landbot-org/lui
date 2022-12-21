@@ -1,4 +1,4 @@
-# lui
+# LUI (Landbot UI)
 
 ## Build
 
