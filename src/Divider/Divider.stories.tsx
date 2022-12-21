@@ -15,6 +15,7 @@ export default {
   args: {
     orientation: 'horizontal',
     size: 'small',
+    color: 'neutral.300',
   },
 } as ComponentMeta<typeof Divider>;
 

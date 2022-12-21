@@ -47,4 +47,14 @@ describe('Divider', () => {
     const { findByRole } = render(<Divider orientation="vertical" size="large" />);
     expect(await findByRole('separator')).toBeInTheDocument();
   });
+
+  it('should render horizontal divider with color', async () => {
+    const { findByRole } = render(<Divider color="orange.main" />);
+    expect(await findByRole('separator')).toBeInTheDocument();
+  });
+
+  it('should render vertical divider with color', async () => {
+    const { findByRole } = render(<Divider orientation="vertical" color="orange.main" />);
+    expect(await findByRole('separator')).toBeInTheDocument();
+  });
 });
