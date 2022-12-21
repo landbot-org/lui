@@ -44,9 +44,9 @@ export const getButtonVariantStyles = (theme: Theme, color: ColorTypes, variant:
       }
     `,
     outlined: css`
-      background-color: white;
-      border-radius: 4px;
+      background-color: transparent;
       border: 1px solid ${getBorderColor(theme, color, disabled)};
+      border-radius: 4px;
       &:hover {
         background-color: ${getHoverBackgroundColor(variant, color, disabled)};
       }
@@ -55,9 +55,9 @@ export const getButtonVariantStyles = (theme: Theme, color: ColorTypes, variant:
       }
     `,
     text: css`
+      background-color: transparent;
       border-color: transparent;
       border-radius: 4px;
-      background-color: transparent;
       &:hover {
         background-color: ${getHoverBackgroundColor(variant, color, disabled)};
       }
