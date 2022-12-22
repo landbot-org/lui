@@ -36,7 +36,7 @@ const BaseButtonStyles = css<StyledButtonProps>`
 
 export const StyledLink = styled.a<StyledButtonProps>`
   ${BaseButtonStyles}
-  text-decoration: none;
+  text-decoration: none !important;
 `;
 
 export const StyledButton = styled.button<StyledButtonProps>`
