@@ -1,4 +1,5 @@
 import { theme } from '../shared/theme';
+import { TypographyVariants } from '../Typography/types';
 import { ColorTypes, SizeTypes } from './types';
 
 export const SIZES_MAPPING: Record<SizeTypes, string> = {
@@ -23,4 +24,10 @@ export const ACTIVE_MAPPING: Record<ColorTypes, string> = {
   'pink.main': theme.palette.pink[600],
   'blue.main': theme.palette.blue[600],
   'purple.main': theme.palette.purple[600],
+};
+
+export const TYPOGRAPHY_VARIANT_MAPPING: Record<SizeTypes, TypographyVariants> = {
+  small: 'text12',
+  medium: 'text14',
+  large: 'text16',
 };

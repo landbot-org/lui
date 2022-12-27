@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyledButton, StyledLink, StyledTypography } from './Button.styles';
+import { TYPOGRAPHY_VARIANT_MAPPING } from './constants';
 import { ButtonProps } from './types';
 
 export const Button = ({
@@ -26,7 +27,13 @@ export const Button = ({
       onClick={onClick}
       {...rest}
     >
-      <StyledTypography $color={color} $variant={variant} as="span" disabled={disabled} variant="body1">
+      <StyledTypography
+        $color={color}
+        $variant={variant}
+        disabled={disabled}
+        variant={TYPOGRAPHY_VARIANT_MAPPING[size]}
+        forwardedAs="span"
+      >
         {children}
       </StyledTypography>
     </BaseButton>

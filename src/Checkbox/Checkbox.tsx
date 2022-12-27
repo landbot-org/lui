@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { StyledCheckbox } from './Checkbox.styles';
+import { CheckboxStyled } from './Checkbox.styles';
 import { CheckboxProps } from './types';
 
 export const Checkbox = ({ indeterminate = false, checked, ...rest }: CheckboxProps) => {
@@ -12,6 +12,6 @@ export const Checkbox = ({ indeterminate = false, checked, ...rest }: CheckboxPr
   }, [indeterminate, checked]);
 
   return (
-    <StyledCheckbox ref={checkboxRef} checked={checked} $indeterminate={indeterminate} {...rest} type="checkbox" />
+    <CheckboxStyled ref={checkboxRef} checked={checked} $indeterminate={indeterminate} {...rest} type="checkbox" />
   );
 };

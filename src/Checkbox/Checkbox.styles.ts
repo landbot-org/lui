@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { CheckboxProps } from './types';
 import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './utils';
 
-interface StyledCheckboxProps extends CheckboxProps {
+interface CheckboxStyledProps extends CheckboxProps {
   $indeterminate?: boolean;
 }
 
-export const StyledCheckbox = styled.input<StyledCheckboxProps>`
+export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   appearance: none;
   border-radius: 2px;
   border: 1px solid ${getBorderColorFromState};

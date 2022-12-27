@@ -12,18 +12,25 @@ export type TypographyVariants =
   | 'h6'
   | 'subtitle1'
   | 'subtitle2'
-  | 'body1'
-  | 'body2'
-  | 'caption'
-  | 'overline';
+  | 'text16'
+  | 'text14'
+  | 'text12'
+  | 'text10';
 
 type FontWeightVariants = 400 | 500 | 700;
 
 export interface TypographyProps extends BaseSpacingProps, React.HTMLAttributes<HTMLParagraphElement> {
   as?: React.ElementType | keyof JSX.IntrinsicElements;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   color?: ColorsTypes;
   fontWeight?: FontWeightVariants;
   ellipsize?: boolean;
   variant?: TypographyVariants;
+}
+
+export interface TypographyStyledProps {
+  $color: TypographyProps['color'];
+  $ellipsize: TypographyProps['ellipsize'];
+  $fontWeight: TypographyProps['fontWeight'];
+  $variant: TypographyProps['variant'];
 }
