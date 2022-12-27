@@ -21,7 +21,7 @@ type FontWeightVariants = 400 | 500 | 700;
 
 export interface TypographyProps extends BaseSpacingProps, React.HTMLAttributes<HTMLParagraphElement> {
   as?: React.ElementType | keyof JSX.IntrinsicElements;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   color?: ColorsTypes;
   fontWeight?: FontWeightVariants;
   ellipsize?: boolean;
