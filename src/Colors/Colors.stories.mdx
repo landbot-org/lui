@@ -1,0 +1,13 @@
+import { ThemeProvider } from 'styled-components';
+import { ColorPalette, ColorItem } from '@storybook/addon-docs';
+import { theme } from '../shared/theme';
+
+<Meta title="Docs/Colors" />
+
+<ColorPalette>
+  {Object.entries(theme.palette).map((variant) =>
+    Object.entries(variant[1]).map((tint) => (
+      <ColorItem title={`theme.palette.${variant[0]}.${tint[0]}`} colors={[tint[1]]} />
+    ))
+  )}
+</ColorPalette>
