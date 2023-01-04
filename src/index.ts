@@ -3,6 +3,7 @@ export { Button } from './Button';
 export { Checkbox } from './Checkbox';
 export { Divider } from './Divider';
 export { Icon } from './Icon';
+export { Link } from './Link';
 export { Radio } from './Radio';
 export { Typography } from './Typography';
 export { theme } from './shared/theme';
