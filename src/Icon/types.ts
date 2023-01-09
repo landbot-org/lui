@@ -7,4 +7,12 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
   color?: ColorsTypes | 'inherit';
   icon: JSX.Element;
   size?: Size;
+  gridArea?: GRID_AREA;
+}
+
+export enum GRID_AREA {
+  FIXED_WIDTH = 'FIXED_WIDTH',
+  NONE = 'NONE',
+  ROOMY = 'ROOMY',
+  SQUARE = 'SQUARE',
 }

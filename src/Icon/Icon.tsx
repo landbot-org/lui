@@ -1,19 +1,10 @@
 import React from 'react';
-import { getColorFromTheme, pxToRem } from '../shared/mixins';
-import { DIMENSIONS } from './constants';
 import { StyledIconContainer } from './Icon.styles';
-import { IconProps } from './types';
-import { theme } from '../shared/theme';
+import { GRID_AREA, IconProps } from './types';
 
-export const Icon = ({ icon, size = '1x', color = 'inherit' }: IconProps) => {
-  const dimensions = pxToRem(DIMENSIONS[size]);
-
+export const Icon = ({ icon, size = '1x', gridArea = GRID_AREA.NONE, color = 'inherit' }: IconProps) => {
   return (
-    <StyledIconContainer
-      $width={dimensions}
-      $height={dimensions}
-      $color={color === 'inherit' ? color : getColorFromTheme(theme, color)}
-    >
+    <StyledIconContainer $color={color} $gridArea={gridArea} $size={size}>
       {icon}
     </StyledIconContainer>
   );
