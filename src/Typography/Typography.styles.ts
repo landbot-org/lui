@@ -10,7 +10,7 @@ export const BaseTypography = styled(BaseSpacing)<TypographyStyledProps>`
     font-family: ${theme.typography.font.primary};
   `}
 
-  ${({ $variant = 'text16' }) => STYLES[$variant]}
+  ${({ $variant }) => $variant && STYLES[$variant]}
 
   ${({ $color, theme }) =>
     $color &&
@@ -19,6 +19,7 @@ export const BaseTypography = styled(BaseSpacing)<TypographyStyledProps>`
     `}
 
   ${({ $fontWeight }) =>
+    $fontWeight &&
     css`
       font-weight: ${$fontWeight};
     `}
