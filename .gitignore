@@ -5,6 +5,7 @@ test-report.xml
 
 .npmrc
 .vscode/*
+.DS_Store
 
 # Storybook
 storybook-static

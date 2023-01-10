@@ -8,7 +8,7 @@ export const Typography = ({
   children,
   color,
   ellipsize,
-  fontWeight = 400,
+  fontWeight,
   variant = 'text16',
   ...rest
 }: TypographyProps) => {
