@@ -67,11 +67,43 @@ const TemplateFontAwesome: ComponentStory<typeof Icon> = (args: {
 
 export const FontAwesome = TemplateFontAwesome.bind({});
 
-const TemplateAllCustomIcons = ({ size, gridArea }: IconProps) => {
+const INTEGRATION_ICONS = [
+  'Airtable',
+  'Hubspot',
+  'Dialogflow',
+  'Zapier',
+  'GoogleSheets',
+  'Analytics',
+  'Sunco',
+  'Calendly',
+  'Salesforce',
+  'Segment',
+  'Airtable',
+  'Mailchimp',
+  'Stripe',
+  'Slack',
+  'Whatsapp',
+  'WhatsappTesting',
+  'Wix',
+  'MessengerNew',
+  'Messenger',
+  'API',
+  'MessageHooks',
+  'PlatformAPI',
+  'Brick',
+  'BrickBlue',
+  'BrickDefault',
+  'BrickOrange',
+  'BrickPink',
+  'BrickPurple',
+  'BrickTeal',
+];
+
+const TemplateIntegrationsandBricks = ({ size, gridArea }: IconProps) => {
   return (
     <ThemeProvider theme={theme}>
       <Box display="flex" flexDirection="row" flexWrap="wrap">
-        {Object.keys(icons).map((icon) => {
+        {INTEGRATION_ICONS.map((icon) => {
           const IconRender = icons[icon as keyof typeof icons];
           return (
             <Box key={icon} display="flex" flexDirection="column" alignItems="center" m={4} title={icon}>
@@ -85,4 +117,26 @@ const TemplateAllCustomIcons = ({ size, gridArea }: IconProps) => {
   );
 };
 
-export const AllCustomIcons = TemplateAllCustomIcons.bind({});
+export const IntegrationsAndBricks = TemplateIntegrationsandBricks.bind({});
+
+const TemplateEmojis = ({ size, gridArea }: IconProps) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Box display="flex" flexDirection="row" flexWrap="wrap">
+        {Object.keys(icons).map((icon) => {
+          if (!INTEGRATION_ICONS.includes(icon)) {
+            const IconRender = icons[icon as keyof typeof icons];
+            return (
+              <Box key={icon} display="flex" flexDirection="column" alignItems="center" m={4} title={icon}>
+                <Typography>{icon}</Typography>
+                <Icon icon={<IconRender />} size={size} gridArea={gridArea} />
+              </Box>
+            );
+          }
+        })}
+      </Box>
+    </ThemeProvider>
+  );
+};
+
+export const Emojis = TemplateEmojis.bind({});
