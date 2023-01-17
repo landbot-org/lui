@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MessageBubble = (props: React.SVGProps<SVGSVGElement>) => (
+export const BubbleChat = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M20 0C8.95444 0 0 7.37412 0 16.4706C0 21.6094 2.86 26.1976 7.33778 29.2176C6.75556 31.9341 5.39889 35.9635 2.22222 40C8.62 38.8706 12.71 35.5753 15.24 32.4518C16.7689 32.76 18.3567 32.9412 20 32.9412C31.0456 32.9412 40 25.5671 40 16.4706C40 7.37412 31.0456 0 20 0Z"

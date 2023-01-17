@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Timer = (props: React.SVGProps<SVGSVGElement>) => (
+export const Alarm = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M22.222 6.7133C22.222 7.94884 21.2187 8.95106 19.9998 8.95106C18.7809 8.95106 17.7776 7.94884 17.7776 6.7133V2.23777C17.7776 1.00111 18.7809 0 19.9998 0C21.2187 0 22.222 1.00111 22.222 2.23777V6.7133Z"

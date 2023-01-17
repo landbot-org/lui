@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Document = (props: React.SVGProps<SVGSVGElement>) => (
+export const Page = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M33.3368 10.6511L23.1368 0.651111C22.7277 0.25 22.1599 0 21.5332 0C20.282 0 19.2676 0.995556 19.2665 2.22222C19.2665 2.83556 19.5204 3.39222 19.9306 3.79444L15.5571 8.08222L25.7571 18.0822L30.1306 13.7944C30.5409 14.1956 31.1075 14.4444 31.7331 14.4444C32.9843 14.4444 34.0009 13.4489 33.9998 12.2222C33.9998 11.6089 33.7459 11.0533 33.3368 10.6511Z"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const TeacherWoman = (props: React.SVGProps<SVGSVGElement>) => (
+export const WomanTeacher = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M34.2857 28.8889C34.2857 31.3433 32.2389 33.3333 29.7143 33.3333H4.57143C2.04686 33.3333 0 31.3433 0 28.8889V4.44444C0 1.99 2.04686 0 4.57143 0H29.7143C32.2389 0 34.2857 1.99 34.2857 4.44444V28.8889Z"
