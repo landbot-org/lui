@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Archive = (props: React.SVGProps<SVGSVGElement>) => (
+export const FloppyDisk = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M4.44444 40C4.44444 40 0 40 0 35.5556V4.44444C0 4.44444 0 0 4.44444 0H33.3333C34.4444 0 35.5556 1.11111 35.5556 1.11111L38.8889 4.44444C38.8889 4.44444 40 5.55556 40 6.66667V35.5556C40 35.5556 40 40 35.5556 40H4.44444Z"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Flag = (props: React.SVGProps<SVGSVGElement>) => (
+export const FlagRed = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="26" height="40" viewBox="0 0 26 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M4.35821 37.7778C4.35821 37.7778 4.35821 40 2.17911 40C0 40 0 37.7778 0 37.7778V2.22222C0 2.22222 0 0 2.17911 0C4.35821 0 4.35821 2.22222 4.35821 2.22222V37.7778Z"

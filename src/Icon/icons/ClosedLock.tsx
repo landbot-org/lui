@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Lock = (props: React.SVGProps<SVGSVGElement>) => (
+export const ClosedLock = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M16.0001 0C9.20254 0 3.69238 5.42667 3.69238 12.1212V24.2424H8.61546V12.1212C8.61546 8.10545 11.9213 4.84848 16.0001 4.84848C20.0788 4.84848 23.3847 8.10545 23.3847 12.1212V24.2424H28.3078V12.1212C28.3078 5.42667 22.7976 0 16.0001 0Z"

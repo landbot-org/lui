@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SEOTracking = (props: React.SVGProps<SVGSVGElement>) => (
+export const BarChart = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M35.2351 1.17627H4.64684C2.69743 1.17627 1.11743 2.75627 1.11743 4.70568V35.2939C1.11743 37.2433 2.69743 38.8233 4.64684 38.8233H35.2351C37.1845 38.8233 38.7645 37.2433 38.7645 35.2939V4.70568C38.7645 2.75627 37.1845 1.17627 35.2351 1.17627Z"
