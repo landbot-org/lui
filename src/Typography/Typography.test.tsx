@@ -98,6 +98,11 @@ describe('Typography', () => {
     expect(screen.getByText('Test')).toBeTruthy();
   });
 
+  it('renders a text with diferent font weight', () => {
+    render(<Typography fontWeight={500}>Test</Typography>);
+    expect(screen.getByText('Test')).toBeTruthy();
+  });
+
   it('renders a text with ellipsize', () => {
     render(<Typography ellipsize>Test</Typography>);
     expect(screen.getByText('Test')).toBeTruthy();

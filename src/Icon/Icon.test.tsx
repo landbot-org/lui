@@ -4,6 +4,7 @@ import React from 'react';
 import { render } from '../test-utils';
 import { Icon } from './Icon';
 import * as icons from './icons';
+import { GRID_AREA } from './types';
 
 describe('Icon', () => {
   it('should render svg with custom icons', () => {
@@ -26,4 +27,11 @@ describe('Icon', () => {
     const { container } = render(<Icon icon={<FontAwesomeIcon icon={faRobot} />} size="1x" />);
     expect(container.querySelector('svg')).toBeInTheDocument();
   });
+  it.each(Object.values(GRID_AREA).map((gridAreaValue) => [gridAreaValue]))(
+    'should render svg with %s gridArea',
+    (gridArea) => {
+      const { container } = render(<Icon icon={<FontAwesomeIcon icon={faRobot} />} size="1x" gridArea={gridArea} />);
+      expect(container.querySelector('svg')).toBeInTheDocument();
+    }
+  );
 });
