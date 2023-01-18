@@ -66,12 +66,12 @@ interface BorderProps {
   $activeTab: number;
 }
 
-const slideInLeft = keyframes`
+const slideInRight = keyframes`
     from { transform: translateX(-50%); }
     to { transform: translateX(0); }
 `;
 
-const slideInRight = keyframes`
+const slideInLeft = keyframes`
     from { transform: translateX(100%); }
     to { transform: translateX(0); }
 `;
@@ -83,15 +83,8 @@ export const BorderBottom = styled.div<BorderProps>`
   bottom: 0;
   height: 2px;
   background-color: ${({ $active, theme }) => ($active ? theme.palette.pink.main : 'transparent')};
-  animation: ${({ $direction, $active }) => ($active ? ($direction === 'left' ? slideInRight : slideInLeft) : '')} 0.3s
-    ease;
+  animation: ${({ $direction, $active }) => $active && ($direction === 'left' ? slideInLeft : slideInRight)} 0.3s ease;
 `;
-
-/*
-const animationRule = css(['', ' 0.3s ease-out;'] as any as TemplateStringsArray, slideIn);
-*/
-
-//animation: ${slideIn} 0.3s ease-out;
 
 export const StyledTab = styled.div<{ $active: boolean; $size: SizeTypes; disabled: boolean }>`
   position: relative;

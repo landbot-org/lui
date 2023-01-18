@@ -65,7 +65,10 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, onChange, showScrollButtons = 
               className="tab"
               disabled={tab.disabled}
               label={tab.label}
-              onClick={() => handleTabChange('right', index, tab.disabled)}
+              onClick={() => {
+                const direction = activeTab > index ? 'left' : 'right';
+                handleTabChange(direction, index, tab.disabled);
+              }}
               ref={tabRef}
               size={size}
             />
