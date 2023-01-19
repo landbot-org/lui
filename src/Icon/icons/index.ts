@@ -22,6 +22,7 @@ export { Calendly } from './Calendly';
 export { Channel } from './Channel';
 export { CheckBox } from './CheckBox';
 export { CheckMark } from './CheckMark';
+export { ChequeredFlag } from './ChequeredFlag';
 export { ClosedLock } from './ClosedLock';
 export { Clouds } from './Clouds';
 export { Company } from './Company';
