@@ -10,6 +10,7 @@ interface StyledButtonProps {
   $fullWidth: boolean;
   $size: SizeTypes;
   $variant: ButtonVariants;
+  $isChildren: boolean;
   disabled: boolean;
 }
 
@@ -27,8 +28,8 @@ const BaseButtonStyles = css<StyledButtonProps>`
   justify-content: center;
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : undefined)};
   height: ${({ $size }) => SIZES_MAPPING[$size]};
-  min-width: 80px;
-  padding: 0 16px;
+  min-width: ${({ $isChildren }) => ($isChildren ? '80px' : 'auto')};
+  padding: ${({ $isChildren }) => ($isChildren ? '0 16px' : '0 8px')};
   &:hover {
     cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   }

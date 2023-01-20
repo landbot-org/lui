@@ -1,4 +1,5 @@
 import React from 'react';
+import { Robot } from '../Icon/icons';
 import { render } from '../test-utils';
 import { Button } from './Button';
 
@@ -65,5 +66,31 @@ describe('Button', () => {
     const buttonElement = getByRole('button');
     buttonElement.click();
     expect(onClickSpy).toHaveBeenCalled();
+  });
+  it('renders start icon and children', async () => {
+    const { container, getByRole, getByText } = render(<Button startIcon={<Robot />}>test</Button>);
+    expect(getByRole('button')).toBeInTheDocument();
+    expect(getByText('test')).toBeInTheDocument();
+    expect(container.querySelector('svg')).toBeInTheDocument();
+  });
+  it('renders end icon and children', async () => {
+    const { container, getByRole, getByText } = render(<Button endIcon={<Robot />}>test</Button>);
+    expect(getByRole('button')).toBeInTheDocument();
+    expect(getByText('test')).toBeInTheDocument();
+    expect(container.querySelector('svg')).toBeInTheDocument();
+  });
+  it('renders start and end icon and children', async () => {
+    const { container, getByRole, getByText } = render(
+      <Button startIcon={<Robot />} endIcon={<Robot />}>
+        test
+      </Button>
+    );
+    expect(getByRole('button')).toBeInTheDocument();
+    expect(getByText('test')).toBeInTheDocument();
+    expect(container.querySelectorAll('svg')).toHaveLength(2);
+  });
+  it('renders start icon without children', async () => {
+    const { container } = render(<Button startIcon={<Robot />} />);
+    expect(container.querySelector('svg')).toBeInTheDocument();
   });
 });
