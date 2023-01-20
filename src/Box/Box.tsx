@@ -14,7 +14,7 @@ export const Box = ({
   elevation = 0,
   flexDirection,
   flexWrap,
-  flexGap,
+  gap,
   justifyContent,
   radius = 0,
   ...other
@@ -30,7 +30,7 @@ export const Box = ({
     $elevation={elevation}
     $flexDirection={flexDirection}
     $flexWrap={flexWrap}
-    $flexGap={flexGap}
+    $gap={gap}
     $justifyContent={justifyContent}
     $radius={radius}
     {...other}
