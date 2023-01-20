@@ -10,6 +10,7 @@ export const BoxStyled = styled(BaseSpacing)<StyledBoxProps>`
   flex-direction: ${({ $flexDirection }) => $flexDirection};
   justify-content: ${({ $justifyContent }) => $justifyContent};
   flex-wrap: ${({ $flexWrap }) => $flexWrap};
+  gap: ${({ $gap }) => $gap && `${$gap}px`};
   ${getBackgroundStyles}
   ${getElevationStyles}
   ${getRadiusStyles}

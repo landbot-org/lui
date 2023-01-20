@@ -22,6 +22,7 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
   elevation?: ElevationType;
   flexDirection?: FlexDirectionType;
   flexWrap?: FlexWrapType;
+  gap?: number;
   justifyContent?: FlexJustifyType;
   radius?: RadiusType;
 }
@@ -35,6 +36,7 @@ export interface StyledBoxProps extends BoxProps {
   $elevation: BoxProps['elevation'];
   $flexDirection: BoxProps['flexDirection'];
   $flexWrap: BoxProps['flexWrap'];
+  $gap: BoxProps['gap'];
   $justifyContent: BoxProps['justifyContent'];
   $radius: BoxProps['radius'];
 }
