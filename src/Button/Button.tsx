@@ -27,7 +27,7 @@ export const Button = ({
     large: '1.5x',
   };
 
-  const isChildren = Boolean(children);
+  const hasChildren = Boolean(children);
 
   return (
     <BaseButton
@@ -35,18 +35,18 @@ export const Button = ({
       $fullWidth={fullWidth}
       $size={size}
       $variant={variant}
-      $isChildren={isChildren}
+      $hasChildren={hasChildren}
       disabled={disabled}
       href={href}
       onClick={onClick}
       {...rest}
     >
       {startIcon && (
-        <Box mr={isChildren ? 1 : undefined}>
+        <Box mr={hasChildren ? 1 : undefined}>
           <Icon icon={startIcon} size={sizeIcon[size]} />
         </Box>
       )}
-      {children && (
+      {hasChildren && (
         <StyledTypography
           $color={color}
           $variant={variant}
@@ -58,7 +58,7 @@ export const Button = ({
         </StyledTypography>
       )}
       {endIcon && (
-        <Box ml={isChildren ? 1 : undefined}>
+        <Box ml={hasChildren ? 1 : undefined}>
           <Icon icon={endIcon} size={sizeIcon[size]} />
         </Box>
       )}
