@@ -56,6 +56,7 @@ export { Home } from './Home';
 export { Hubspot } from './Hubspot';
 export { Inbox } from './Inbox';
 export { Joker } from './Joker';
+export { Key } from './Key';
 export { Keyboard } from './Keyboard';
 export { Laptop } from './Laptop';
 export { LaptopEmbed } from './LaptopEmbed';
