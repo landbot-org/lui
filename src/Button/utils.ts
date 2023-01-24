@@ -3,6 +3,20 @@ import type { Theme } from '../shared/theme.types';
 import { ACTIVE_MAPPING, CONTAINED_HOVER_BACKGROUND_MAPPING, DEFAULT_HOVER_BACKGROUND_MAPPING } from './constants';
 import { ButtonVariants, ColorTypes } from './types';
 
+export const getIconVariantStyles = (theme: Theme, color: ColorTypes, variant: ButtonVariants, disabled: boolean) => {
+  return {
+    contained: css`
+      color: ${getTypographyColorContained(theme, disabled)};
+    `,
+    outlined: css`
+      color: ${getTypographyColorDefault(theme, color, disabled)};
+    `,
+    text: css`
+      color: ${getTypographyColorDefault(theme, color, disabled)};
+    `,
+  }[variant];
+};
+
 export const getTypographyVariantStyles = (
   theme: Theme,
   color: ColorTypes,

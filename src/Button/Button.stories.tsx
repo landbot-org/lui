@@ -6,6 +6,9 @@ import { theme } from '../shared/theme';
 import { ThemeProvider } from 'styled-components';
 import { ButtonProps } from './types';
 import { Robot } from '../Icon/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { Icon } from '../Icon';
 
 export default {
   title: 'Components/Button',
@@ -69,5 +72,19 @@ export const ButtonBothIcons: ComponentStory<typeof Button> = (args: ButtonProps
 export const ButtonOnlyIcon: ComponentStory<typeof Button> = (args: ButtonProps) => (
   <ThemeProvider theme={theme}>
     <Button {...args} startIcon={<Robot />} />
+  </ThemeProvider>
+);
+
+export const ButtonIconFontAwesome: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <Button {...args} startIcon={<Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />}>
+      Button
+    </Button>
+  </ThemeProvider>
+);
+
+export const ButtonOnlyIconFontAwesome: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <Button {...args} startIcon={<Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />} />
   </ThemeProvider>
 );
