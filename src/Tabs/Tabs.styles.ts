@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 import { Theme } from '../shared/theme.types';
-import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { SizeTypes } from './types';
 import { getButtonSizeStyles, getTabSizeStyles } from './utils';
@@ -28,10 +27,6 @@ export const ArrowButton = styled.button<{ $size: SizeTypes }>`
   }
 `;
 
-export const Container = styled(Box)`
-  display: flex;
-`;
-
 export const StyledTypography = styled(Typography)<{ $active: boolean; $disabled: boolean }>`
   white-space: nowrap;
   ${({ $disabled, theme }) =>
@@ -56,16 +51,6 @@ export const StyledTypography = styled(Typography)<{ $active: boolean; $disabled
     `}
 `;
 
-/*
-  transform: ${(props) => (props.$active ? 'translateX(0)' : 'translateX(-100%)')};
-  animation: ${(props) => (props.$active ? animationRule : '')};
-  */
-interface BorderProps {
-  $active: boolean;
-  $index: number;
-  $activeTab: number;
-}
-
 const slideInRight = keyframes`
     from { transform: translateX(-50%); }
     to { transform: translateX(0); }
@@ -76,7 +61,12 @@ const slideInLeft = keyframes`
     to { transform: translateX(0); }
 `;
 
-export const BorderBottom = styled.div<BorderProps>`
+interface BorderBottomProps {
+  $active: boolean;
+  $direction: 'right' | 'left';
+}
+
+export const BorderBottom = styled.div<BorderBottomProps>`
   width: 100%;
   position: absolute;
   left: 0;
@@ -86,7 +76,7 @@ export const BorderBottom = styled.div<BorderProps>`
   animation: ${({ $direction, $active }) => $active && ($direction === 'left' ? slideInLeft : slideInRight)} 0.3s ease;
 `;
 
-export const StyledTab = styled.div<{ $active: boolean; $size: SizeTypes; disabled: boolean }>`
+export const StyledTab = styled.div<{ $active?: boolean; $size: SizeTypes; disabled?: boolean }>`
   position: relative;
   cursor: pointer;
   ${({ $size }) => getTabSizeStyles($size)}
@@ -118,12 +108,4 @@ export const TabsContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const Indicator = styled.span`
-  position: absolute;
-  top: 10px;
-  height: 2px;
-  width: ${({ $width }) => $width}px;
-  background-color: orange;
 `;

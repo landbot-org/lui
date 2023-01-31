@@ -1,4 +1,6 @@
 import { css } from 'styled-components';
+import { Size } from '../Icon/types';
+import { TypographyVariants } from '../Typography/types';
 import { SizeTypes } from './types';
 
 export const getTabSizeStyles = (size: SizeTypes) => {
@@ -15,19 +17,19 @@ export const getTabSizeStyles = (size: SizeTypes) => {
   }[size];
 };
 
-export const getTypographySizeStyles = (size: SizeTypes) => {
+export const getTypographyVariantBySize = (size: SizeTypes): TypographyVariants => {
   return {
-    small: 'text12',
-    medium: 'text16',
-    large: 'subtitle2',
+    small: 'text12' as TypographyVariants,
+    medium: 'text16' as TypographyVariants,
+    large: 'subtitle2' as TypographyVariants,
   }[size];
 };
 
-export const getButtonIconSizeStyles = (size: SizeTypes) => {
+export const getButtonIconSizeStyles = (size: SizeTypes): Size => {
   return {
-    small: '0.5x',
-    medium: '1x',
-    large: '1x',
+    small: '0.5x' as Size,
+    medium: '1x' as Size,
+    large: '1x' as Size,
   }[size];
 };
 
