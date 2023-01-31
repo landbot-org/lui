@@ -1,17 +1,23 @@
 export type SizeTypes = 'small' | 'medium' | 'large';
 
 export interface TabProps {
-  index: number;
-  label: string;
+  active?: boolean;
+  className: string;
   direction: 'right' | 'left';
   disabled?: boolean;
-  active?: boolean;
+  label: string;
+  onClick: () => void;
   ref: string;
   size: SizeTypes;
 }
 
+interface TabsArray {
+  label: string;
+  disabled?: boolean;
+}
+
 export interface TabsProps {
-  tabs: TabProps[];
+  tabs: TabsArray[];
   onChange: (number) => void;
   showScrollButtons?: boolean;
   size?: SizeTypes;

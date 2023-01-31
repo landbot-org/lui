@@ -8,16 +8,16 @@ import { TabsProps } from './types';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { getButtonIconSizeStyles } from './utils';
 
-export const Tabs: React.FC<TabsProps> = ({ tabs, onChange, showScrollButtons = true, size = 'medium' }: TabsProps) => {
+export const Tabs = ({ tabs, onChange, showScrollButtons = true, size = 'medium' }: TabsProps) => {
   const tabsContainerRef = useRef<HTMLDivElement>(null);
   const tabRef = useRef<HTMLDivElement>(null);
-  const [direction, setDirection] = useState('right');
+  const [direction, setDirection] = useState<'right' | 'left'>('right');
   const [activeTab, setActiveTab] = useState(0);
 
   useKeyboardEvent('ArrowRight', () => {
     if (tabsContainerRef.current) {
       if (activeTab < tabs.length - 1) {
-        handleTabChange('right', activeTab + 1);
+        handleTabChange('right', activeTab + 1, false);
       }
     }
   });
@@ -25,7 +25,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, onChange, showScrollButtons = 
   useKeyboardEvent('ArrowLeft', () => {
     if (tabsContainerRef.current) {
       if (activeTab > 0) {
-        handleTabChange('left', activeTab - 1);
+        handleTabChange('left', activeTab - 1, false);
       }
     }
   });
@@ -40,7 +40,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, onChange, showScrollButtons = 
     }
   }, [activeTab, tabRef, tabsContainerRef]);
 
-  const handleTabChange = (direction, newActiveTab, disabled = false) => {
+  const handleTabChange = (direction: 'right' | 'left', newActiveTab: number, disabled: boolean) => {
     if (disabled === false) {
       setDirection(direction);
       onChange(newActiveTab);
@@ -51,7 +51,11 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, onChange, showScrollButtons = 
   return (
     <Container display="flex">
       {showScrollButtons && (
-        <ArrowButton onClick={() => handleTabChange('left', activeTab - 1)} disabled={activeTab === 0} $size={size}>
+        <ArrowButton
+          onClick={() => handleTabChange('left', activeTab - 1, false)}
+          disabled={activeTab === 0}
+          $size={size}
+        >
           <Icon icon={<FontAwesomeIcon icon={faChevronLeft} />} size={getButtonIconSizeStyles(size)} />
         </ArrowButton>
       )}
@@ -67,7 +71,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, onChange, showScrollButtons = 
               label={tab.label}
               onClick={() => {
                 const direction = activeTab > index ? 'left' : 'right';
-                handleTabChange(direction, index, tab.disabled);
+                handleTabChange(direction, index, Boolean(tab.disabled));
               }}
               ref={tabRef}
               size={size}
@@ -77,7 +81,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, onChange, showScrollButtons = 
       </TabsContainer>
       {showScrollButtons && (
         <ArrowButton
-          onClick={() => handleTabChange('right', activeTab + 1)}
+          onClick={() => handleTabChange('right', activeTab + 1, false)}
           disabled={activeTab === tabs.length - 1}
           $size={size}
         >
