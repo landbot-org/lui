@@ -3,52 +3,39 @@ import { getColorFromTheme, pxToRem } from '../shared/mixins';
 import { SpinnerColor, SpinnerSize } from './types';
 
 import { NUMBER_OF_PILLS, DIMENSIONS } from './constants';
-import { theme } from '../shared/theme';
+import type { ColorsTypes, Theme } from '../shared/theme.types';
 
 const degrees = 360 / NUMBER_OF_PILLS;
 
-const backgroundColorLigth = getColorFromTheme(theme, 'neutral.300');
-const backgroundColorDark = getColorFromTheme(theme, 'blue.main');
-
-// const getMainColor = (theme: string): string => {
-//   return theme === 'ligth' ? backgroundColorLigth : backgroundColorDark;
-// };
-
-// const getSecondary = (theme: string) => {
-//   return theme === 'ligth' ? backgroundColorDark : backgroundColorLigth;
-// };
-
-// console.log({ backgroundColorLigth, backgroundColorDark });
-
-const changeColor = keyframes`
+const changeColor = ({ $color, theme }: { $color: ColorsTypes; theme: Theme }) => keyframes`
   0% {
-    background-color: ${backgroundColorLigth};
+    background-color: ${getColorFromTheme(theme, 'neutral.300')};
   }
   12% {
-    background-color: ${backgroundColorDark};    
+    background-color: ${getColorFromTheme(theme, $color)};    
   }
   100% {
-    background-color: ${backgroundColorLigth};
+    background-color: ${getColorFromTheme(theme, 'neutral.300')};
   }
 `;
 
-const changeColorDark = keyframes`
+const changeColorDark = ({ $color, theme }: { $color: ColorsTypes; theme: Theme }) => keyframes`
   0% {
-    background-color: ${backgroundColorDark};
+    background-color: ${getColorFromTheme(theme, $color)};
   }
   12% {
-    background-color: ${backgroundColorLigth};    
+    background-color: ${getColorFromTheme(theme, 'neutral.300')};    
   }
   100% {
-    background-color: ${backgroundColorDark};
+    background-color: ${getColorFromTheme(theme, $color)};
   }
 `;
 
-interface Props {
+interface SpinnerStyledProps {
   $size: SpinnerSize;
 }
 
-export const SpinnerStyled = styled.figure<Props>`
+export const SpinnerStyled = styled.figure<SpinnerStyledProps>`
   margin: 0;
   position: relative;
   width: ${({ $size }) => pxToRem(DIMENSIONS[$size ? $size : 'M'])}rem;
@@ -64,7 +51,8 @@ export const PillWrapperStyled = styled.div<{ $nth: number }>`
 `;
 
 export const PillStyled = styled.div<{ $nth: number; $color: SpinnerColor }>`
-  background-color: ${({ $color }) => ($color === 'main' ? backgroundColorDark : backgroundColorLigth)};
+  background-color: ${({ $color, theme }) =>
+    $color ? getColorFromTheme(theme, $color) : getColorFromTheme(theme, 'neutral.300')};
 
   height: 25%;
   width: 100%;
@@ -72,7 +60,8 @@ export const PillStyled = styled.div<{ $nth: number; $color: SpinnerColor }>`
   border-radius: 50%/20%;
   position: absolute;
 
-  animation: ${({ $color }) => ($color === 'main' ? changeColor : changeColorDark)} 1s step-end infinite;
+  animation: ${({ $color, theme }) => ($color ? changeColor({ theme, $color }) : changeColorDark({ theme, $color }))} 1s
+    step-end infinite;
 
   animation-delay: ${({ $nth }) => (1 / NUMBER_OF_PILLS) * $nth}s;
 `;
