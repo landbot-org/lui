@@ -6,4 +6,5 @@ export type SpinnerColor = ColorsTypes;
 export interface SpinnerProps {
   size?: SpinnerSize;
   color?: SpinnerColor;
+  spinnerColor?: SpinnerColor;
 }

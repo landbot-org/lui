@@ -15,6 +15,7 @@ export default {
   args: {
     size: 'M',
     color: 'blue.main',
+    spinnerColor: 'neutral.300',
   },
 } as ComponentMeta<typeof Spinner>;
 

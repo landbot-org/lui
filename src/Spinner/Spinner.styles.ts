@@ -7,27 +7,23 @@ import type { ColorsTypes, Theme } from '../shared/theme.types';
 
 const degrees = 360 / NUMBER_OF_PILLS;
 
-const changeColor = ({ $color, theme }: { $color: ColorsTypes; theme: Theme }) => keyframes`
+const changeColor = ({
+  $color,
+  $spinnerColor,
+  theme,
+}: {
+  $color: ColorsTypes;
+  $spinnerColor: ColorsTypes;
+  theme: Theme;
+}) => keyframes`
   0% {
-    background-color: ${getColorFromTheme(theme, 'neutral.300')};
+    background-color: ${getColorFromTheme(theme, $spinnerColor)};
   }
   12% {
     background-color: ${getColorFromTheme(theme, $color)};    
   }
   100% {
-    background-color: ${getColorFromTheme(theme, 'neutral.300')};
-  }
-`;
-
-const changeColorDark = ({ $color, theme }: { $color: ColorsTypes; theme: Theme }) => keyframes`
-  0% {
-    background-color: ${getColorFromTheme(theme, $color)};
-  }
-  12% {
-    background-color: ${getColorFromTheme(theme, 'neutral.300')};    
-  }
-  100% {
-    background-color: ${getColorFromTheme(theme, $color)};
+    background-color: ${getColorFromTheme(theme, $spinnerColor)};
   }
 `;
 
@@ -38,8 +34,8 @@ interface SpinnerStyledProps {
 export const SpinnerStyled = styled.figure<SpinnerStyledProps>`
   margin: 0;
   position: relative;
-  width: ${({ $size }) => pxToRem(DIMENSIONS[$size ? $size : 'M'])}rem;
-  height: ${({ $size }) => pxToRem(DIMENSIONS[$size ? $size : 'M'])}rem;
+  width: ${({ $size }) => pxToRem(DIMENSIONS[$size])}rem;
+  height: ${({ $size }) => pxToRem(DIMENSIONS[$size])}rem;
 `;
 
 export const PillWrapperStyled = styled.div<{ $nth: number }>`
@@ -50,9 +46,8 @@ export const PillWrapperStyled = styled.div<{ $nth: number }>`
   transform: translateX(-50%) rotate(${({ $nth }) => $nth * degrees}deg);
 `;
 
-export const PillStyled = styled.div<{ $nth: number; $color: SpinnerColor }>`
-  background-color: ${({ $color, theme }) =>
-    $color ? getColorFromTheme(theme, $color) : getColorFromTheme(theme, 'neutral.300')};
+export const PillStyled = styled.div<{ $nth: number; $color: SpinnerColor; $spinnerColor: SpinnerColor }>`
+  background-color: ${({ $color, theme }) => getColorFromTheme(theme, $color)};
 
   height: 25%;
   width: 100%;
@@ -60,8 +55,7 @@ export const PillStyled = styled.div<{ $nth: number; $color: SpinnerColor }>`
   border-radius: 50%/20%;
   position: absolute;
 
-  animation: ${({ $color, theme }) => ($color ? changeColor({ theme, $color }) : changeColorDark({ theme, $color }))} 1s
-    step-end infinite;
+  animation: ${({ $color, $spinnerColor, theme }) => changeColor({ theme, $color, $spinnerColor })} 1s step-end infinite;
 
   animation-delay: ${({ $nth }) => (1 / NUMBER_OF_PILLS) * $nth}s;
 `;
