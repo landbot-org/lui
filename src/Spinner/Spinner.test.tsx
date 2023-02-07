@@ -7,4 +7,19 @@ describe('Spinner', () => {
     const { findByRole } = render(<Spinner />);
     expect(await findByRole('figure')).toBeInTheDocument();
   });
+
+  it('renders small', async () => {
+    const { findByRole } = render(<Spinner size="XS" />);
+    expect(await findByRole('figure')).toBeInTheDocument();
+  });
+
+  it('renders large', async () => {
+    const { findByRole } = render(<Spinner size="XL" />);
+    expect(await findByRole('figure')).toBeInTheDocument();
+  });
+
+  it('renders with custom color', async () => {
+    const { findByRole } = render(<Spinner color="blue.50" spinnerColor="error.main" />);
+    expect(await findByRole('figure')).toBeInTheDocument();
+  });
 });
