@@ -1,5 +1,7 @@
+import { ColorsTypes } from '../shared/theme.types';
+
 export type SpinnerSize = 'XS' | 'S' | 'M' | 'L' | 'XL';
-export type SpinnerColor = 'main' | 'secondary';
+export type SpinnerColor = ColorsTypes;
 
 export interface SpinnerProps {
   size?: SpinnerSize;
