@@ -26,6 +26,7 @@ export default {
       },
       {
         label: 'Tab5',
+        disabled: true,
       },
       {
         label: 'Tab6',

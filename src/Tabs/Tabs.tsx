@@ -7,7 +7,7 @@ import { Icon } from '../Icon';
 import { ArrowButton, TabsContainer } from './Tabs.styles';
 import { TabsProps } from './types';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { getButtonIconSizeStyles } from './utils';
+import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './utils';
 
 export const Tabs = ({
   tabs,
@@ -25,7 +25,7 @@ export const Tabs = ({
   useKeyboardEvent('ArrowRight', () => {
     if (tabsContainerRef.current) {
       if (activeTab < tabs.length - 1) {
-        handleTabChange('right', activeTab + 1, false);
+        handleTabChange('right', getNextActiveTab(tabs, activeTab), false);
       }
     }
   });
@@ -33,7 +33,7 @@ export const Tabs = ({
   useKeyboardEvent('ArrowLeft', () => {
     if (tabsContainerRef.current) {
       if (activeTab > 0) {
-        handleTabChange('left', activeTab - 1, false);
+        handleTabChange('left', getPreviousActiveTab(tabs, activeTab), false);
       }
     }
   });
@@ -60,7 +60,7 @@ export const Tabs = ({
     <Box display="flex">
       {showScrollButtons && (
         <ArrowButton
-          onClick={() => handleTabChange('left', activeTab - 1, false)}
+          onClick={() => handleTabChange('left', getPreviousActiveTab(tabs, activeTab), false)}
           disabled={activeTab === 0}
           $size={size}
         >
@@ -90,7 +90,7 @@ export const Tabs = ({
       </TabsContainer>
       {showScrollButtons && (
         <ArrowButton
-          onClick={() => handleTabChange('right', activeTab + 1, false)}
+          onClick={() => handleTabChange('right', getNextActiveTab(tabs, activeTab), false)}
           disabled={activeTab === tabs.length - 1}
           $size={size}
         >

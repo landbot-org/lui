@@ -12,19 +12,14 @@ export interface TabProps {
   showBottomLine?: boolean;
 }
 
-interface TabsItem {
-  label: string;
-  disabled?: boolean;
-}
-
-interface TabsItem {
+export interface TabsItem {
   label: string;
   disabled?: boolean;
 }
 
 export interface TabsProps {
   tabs: TabsItem[];
-  onChange: (number) => void;
+  onChange: (activeItem: number) => void;
   showScrollButtons?: boolean;
   size?: SizeTypes;
   value?: number;
