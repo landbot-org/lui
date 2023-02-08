@@ -17,6 +17,11 @@ interface TabsItem {
   disabled?: boolean;
 }
 
+interface TabsItem {
+  label: string;
+  disabled?: boolean;
+}
+
 export interface TabsProps {
   tabs: TabsItem[];
   onChange: (number) => void;
