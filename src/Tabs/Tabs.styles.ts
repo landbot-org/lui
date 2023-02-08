@@ -77,8 +77,8 @@ export const BorderBottom = styled.div<BorderBottomProps>`
 `;
 
 export const StyledTab = styled.div<{
-  $showBottomline: boolean;
-  $active: boolean;
+  $showBottomLine: boolean;
+  $active?: boolean;
   $size: SizeTypes;
   disabled?: boolean;
 }>`
