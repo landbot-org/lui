@@ -60,6 +60,7 @@ export const Tabs = ({
     <Box display="flex">
       {showScrollButtons && (
         <ArrowButton
+          role="navigation"
           onClick={() => handleTabChange('left', getPreviousActiveTab(tabs, activeTab), false)}
           disabled={activeTab === 0}
           $size={size}
@@ -90,6 +91,7 @@ export const Tabs = ({
       </TabsContainer>
       {showScrollButtons && (
         <ArrowButton
+          role="navigation"
           onClick={() => handleTabChange('right', getNextActiveTab(tabs, activeTab), false)}
           disabled={activeTab === tabs.length - 1}
           $size={size}
