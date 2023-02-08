@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Spinner } from './Spinner';
+import { Spinner as SpinnerComponent } from './Spinner';
 import { SpinnerProps } from './types';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../shared/theme';
 
 export default {
   title: 'Components/Spinner',
-  component: Spinner,
+  component: SpinnerComponent,
   parameters: {
     componentSubtitle: 'Displays a Spinner',
   },
@@ -17,12 +17,10 @@ export default {
     color: 'blue.main',
     spinnerColor: 'neutral.300',
   },
-} as ComponentMeta<typeof Spinner>;
+} as ComponentMeta<typeof SpinnerComponent>;
 
-const Template: ComponentStory<typeof Spinner> = (args: SpinnerProps) => (
+export const Spinner: ComponentStory<typeof SpinnerComponent> = (args: SpinnerProps) => (
   <ThemeProvider theme={theme}>
-    <Spinner {...args} />
+    <SpinnerComponent {...args} />
   </ThemeProvider>
 );
-
-export const Default = Template.bind({});
