@@ -3,6 +3,15 @@ import { Size } from '../Icon/types';
 import { TypographyVariants } from '../Typography/types';
 import { SizeTypes, TabsItem } from './types';
 
+export const getNextActiveTab = (tabs: TabsItem[], activeTab: number) =>
+  tabs.slice(activeTab + 1).findIndex((tab) => !tab?.disabled) + activeTab + 1;
+
+export const getPreviousActiveTab = (tabs: TabsItem[], activeTab: number) => {
+  const previousTabs = tabs.slice(0, activeTab).reverse();
+  const previousActiveTab = previousTabs.findIndex((tab) => !tab.disabled);
+  return previousActiveTab === -1 ? activeTab : previousTabs.length - 1 - previousActiveTab;
+};
+
 export const getTabSizeStyles = (size: SizeTypes) => {
   return {
     small: css`

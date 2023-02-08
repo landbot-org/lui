@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 import { ArrowButton, TabsContainer } from './Tabs.styles';
 import { TabsProps } from './types';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { getButtonIconSizeStyles } from './utils';
+import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './utils';
 
 export const Tabs = ({
   tabs,
@@ -43,21 +43,22 @@ export const Tabs = ({
     <Box display="flex">
       {showScrollButtons && (
         <ArrowButton
+          aria-label="navigation-left"
           role="navigation"
           onClick={() => handleTabChange('left', getPreviousActiveTab(tabs, activeTab), false)}
-          disabled={activeTab === 0}
+          $disabled={activeTab === 0}
           $size={size}
         >
           <Icon icon={<FontAwesomeIcon icon={faChevronLeft} />} size={getButtonIconSizeStyles(size)} />
         </ArrowButton>
       )}
-      <TabsContainer role="tablist" ref={tabsContainerRef}>
+      <TabsContainer tabIndex={0} role="tablist" ref={tabsContainerRef}>
         {tabs?.map((tab, index) => {
           return (
             <Tab
               active={activeTab === index && !tab.disabled}
               direction={direction}
-              key={index}
+              key={tab.label}
               className="tab"
               disabled={tab.disabled}
               label={tab.label}
@@ -75,8 +76,9 @@ export const Tabs = ({
       {showScrollButtons && (
         <ArrowButton
           role="navigation"
+          aria-label="navigation-right"
           onClick={() => handleTabChange('right', getNextActiveTab(tabs, activeTab), false)}
-          disabled={activeTab === tabs.length - 1}
+          $disabled={activeTab === tabs.length - 1}
           $size={size}
         >
           <Icon icon={<FontAwesomeIcon icon={faChevronRight} />} size={getButtonIconSizeStyles(size)} />

@@ -4,25 +4,29 @@ import { Typography } from '../Typography';
 import { SizeTypes } from './types';
 import { getButtonSizeStyles, getTabSizeStyles } from './utils';
 
-export const ArrowButton = styled.button<{ $size: SizeTypes }>`
+export const ArrowButton = styled.div<{ $disabled: boolean; $size: SizeTypes }>`
   ${({ $size }) => getButtonSizeStyles($size)}
+  ${({ $disabled, theme }) =>
+    $disabled
+      ? css`
+          pointer-events: none;
+          color: ${theme.palette.neutral[300]};
+        `
+      : css`
+          color: ${theme.palette.blue.main};
+        `}
   align-self: center;
   background-color: transparent;
   border: none;
-  color: ${({ theme }: { theme: Theme }) => theme.palette.blue.main};
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 16px;
-  &:disabled {
-    cursor: default;
-    color: ${({ theme }: { theme: Theme }) => theme.palette.neutral[300]};
-  }
-  &:hover:enabled {
+  &:hover {
     color: ${({ theme }: { theme: Theme }) => theme.palette.pink.main};
   }
-  &:active:enabled {
+  &:active {
     background-color: ${({ theme }: { theme: Theme }) => theme.palette.blue[50]}};
   }
 `;
@@ -105,7 +109,9 @@ export const StyledTab = styled.div<{
     `}
 `;
 
-export const TabsContainer = styled.div`
+export const TabsContainer = styled.div.attrs(() => ({
+  tabIndex: 0,
+}))`
   width: 100%;
   display: flex;
   align-items: center;
