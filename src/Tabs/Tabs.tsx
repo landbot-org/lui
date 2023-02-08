@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useKeyboardEvent } from './hooks/useKeyboardEvent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box } from '../Box';
 import { Tab } from './Tab';
@@ -7,7 +6,7 @@ import { Icon } from '../Icon';
 import { ArrowButton, TabsContainer } from './Tabs.styles';
 import { TabsProps } from './types';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './utils';
+import { getButtonIconSizeStyles } from './utils';
 
 export const Tabs = ({
   tabs,
@@ -21,22 +20,6 @@ export const Tabs = ({
   const tabRef = useRef<HTMLDivElement>(null);
   const [direction, setDirection] = useState<'right' | 'left'>('right');
   const [activeTab, setActiveTab] = useState(value);
-
-  useKeyboardEvent('ArrowRight', () => {
-    if (tabsContainerRef.current) {
-      if (activeTab < tabs.length - 1) {
-        handleTabChange('right', getNextActiveTab(tabs, activeTab), false);
-      }
-    }
-  });
-
-  useKeyboardEvent('ArrowLeft', () => {
-    if (tabsContainerRef.current) {
-      if (activeTab > 0) {
-        handleTabChange('left', getPreviousActiveTab(tabs, activeTab), false);
-      }
-    }
-  });
 
   useEffect(() => {
     if (tabsContainerRef.current) {
