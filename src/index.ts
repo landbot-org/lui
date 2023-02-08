@@ -9,3 +9,4 @@ export { Toggle } from './Toggle';
 export { theme } from './shared/theme';
 export { Theme } from './shared/theme.types';
 export { Typography } from './Typography';
+export { Spinner } from './Spinner';
