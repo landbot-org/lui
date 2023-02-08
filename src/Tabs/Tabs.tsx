@@ -67,7 +67,7 @@ export const Tabs = ({
           <Icon icon={<FontAwesomeIcon icon={faChevronLeft} />} size={getButtonIconSizeStyles(size)} />
         </ArrowButton>
       )}
-      <TabsContainer ref={tabsContainerRef}>
+      <TabsContainer role="tablist" ref={tabsContainerRef}>
         {tabs?.map((tab, index) => {
           return (
             <Tab
