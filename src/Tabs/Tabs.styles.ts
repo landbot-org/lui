@@ -76,7 +76,12 @@ export const BorderBottom = styled.div<BorderBottomProps>`
   animation: ${({ $direction, $active }) => $active && ($direction === 'left' ? slideInLeft : slideInRight)} 0.3s ease;
 `;
 
-export const StyledTab = styled.div<{ $active?: boolean; $size: SizeTypes; disabled?: boolean }>`
+export const StyledTab = styled.div<{
+  $showBottomline: boolean;
+  $active: boolean;
+  $size: SizeTypes;
+  disabled?: boolean;
+}>`
   position: relative;
   cursor: pointer;
   ${({ $size }) => getTabSizeStyles($size)}
@@ -92,8 +97,9 @@ export const StyledTab = styled.div<{ $active?: boolean; $size: SizeTypes; disab
             background-color: ${theme.palette.blue[50]};
           }
         `}
-  ${({ $active, theme }) =>
+  ${({ $active, $showBottomLine, theme }) =>
     !$active &&
+    $showBottomLine &&
     css`
       border-bottom: 1px solid ${theme.palette.neutral[200]};
     `}

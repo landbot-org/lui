@@ -9,11 +9,18 @@ import { TabsProps } from './types';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { getButtonIconSizeStyles } from './utils';
 
-export const Tabs = ({ tabs, onChange, showScrollButtons = true, size = 'medium' }: TabsProps) => {
+export const Tabs = ({
+  tabs,
+  onChange,
+  showScrollButtons = true,
+  size = 'medium',
+  value = 0,
+  showBottomLine = true,
+}: TabsProps) => {
   const tabsContainerRef = useRef<HTMLDivElement>(null);
   const tabRef = useRef<HTMLDivElement>(null);
   const [direction, setDirection] = useState<'right' | 'left'>('right');
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(value);
 
   useKeyboardEvent('ArrowRight', () => {
     if (tabsContainerRef.current) {
@@ -76,6 +83,7 @@ export const Tabs = ({ tabs, onChange, showScrollButtons = true, size = 'medium'
               }}
               ref={tabRef}
               size={size}
+              showBottomLine={showBottomLine}
             />
           );
         })}

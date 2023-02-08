@@ -4,6 +4,7 @@ export { Checkbox } from './Checkbox';
 export { Divider } from './Divider';
 export { Icon } from './Icon';
 export { Radio } from './Radio';
+export { Tab } from './Tab';
 export { Typography } from './Typography';
 export { theme } from './shared/theme';
 export { Theme } from './shared/theme.types';

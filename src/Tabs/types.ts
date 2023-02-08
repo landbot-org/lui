@@ -9,16 +9,19 @@ export interface TabProps {
   onClick: () => void;
   ref: string;
   size: SizeTypes;
+  showBottomLine?: boolean;
 }
 
-interface TabsArray {
+interface TabsItem {
   label: string;
   disabled?: boolean;
 }
 
 export interface TabsProps {
-  tabs: TabsArray[];
+  tabs: TabsItem[];
   onChange: (number) => void;
   showScrollButtons?: boolean;
   size?: SizeTypes;
+  value?: number;
+  showBottomLine?: boolean;
 }

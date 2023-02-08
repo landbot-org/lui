@@ -40,6 +40,8 @@ export default {
     onChange: (newActiveTab) => newActiveTab,
     size: 'medium',
     showScrollButtons: true,
+    showBottomLine: false,
+    value: 3,
   },
 } as ComponentMeta<typeof TabsComponent>;
 
