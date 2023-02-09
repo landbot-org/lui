@@ -2,8 +2,9 @@ import React from 'react';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Size } from '../Icon/types';
-import { StyledButton, StyledLink, StyledTypography } from './Button.styles';
-import { TYPOGRAPHY_VARIANT_MAPPING } from './constants';
+import { Spinner } from '../Spinner';
+import { StyledButton, StyledLink, StyledTypography, StyledContent } from './Button.styles';
+import { TYPOGRAPHY_VARIANT_MAPPING, SPINNER_VARIANT_MAPPING } from './constants';
 import { ButtonProps, SizeTypes } from './types';
 
 export const Button = ({
@@ -13,6 +14,7 @@ export const Button = ({
   disabled = false,
   fullWidth = false,
   href,
+  isLoading = false,
   children,
   startIcon,
   endIcon,
@@ -36,32 +38,41 @@ export const Button = ({
       $size={size}
       $variant={variant}
       $hasChildren={hasChildren}
+      $isLoading={isLoading}
       disabled={disabled}
       href={href}
       onClick={onClick}
       {...rest}
     >
-      {startIcon && (
-        <Box mr={hasChildren ? 1 : undefined}>
-          <Icon icon={startIcon} size={sizeIcon[size]} />
-        </Box>
+      {isLoading && (
+        <div style={{ position: 'absolute' }}>
+          <Spinner size={SPINNER_VARIANT_MAPPING[size]} />
+        </div>
       )}
-      {hasChildren && (
-        <StyledTypography
-          $color={color}
-          $variant={variant}
-          disabled={disabled}
-          variant={TYPOGRAPHY_VARIANT_MAPPING[size]}
-          forwardedAs="span"
-        >
-          {children}
-        </StyledTypography>
-      )}
-      {endIcon && (
-        <Box ml={hasChildren ? 1 : undefined}>
-          <Icon icon={endIcon} size={sizeIcon[size]} />
-        </Box>
-      )}
+
+      <StyledContent isLoading={isLoading}>
+        {startIcon && (
+          <Box mr={hasChildren ? 1 : undefined}>
+            <Icon icon={startIcon} size={sizeIcon[size]} />
+          </Box>
+        )}
+        {hasChildren && (
+          <StyledTypography
+            $color={color}
+            $variant={variant}
+            disabled={disabled}
+            variant={TYPOGRAPHY_VARIANT_MAPPING[size]}
+            forwardedAs="span"
+          >
+            {children}
+          </StyledTypography>
+        )}
+        {endIcon && (
+          <Box ml={hasChildren ? 1 : undefined}>
+            <Icon icon={endIcon} size={sizeIcon[size]} />
+          </Box>
+        )}
+      </StyledContent>
     </BaseButton>
   );
 };

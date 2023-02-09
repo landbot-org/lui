@@ -22,6 +22,10 @@ interface StyledTypographyProps {
   variant: TypographyVariants;
 }
 
+interface StyledContentProps {
+  isLoading: boolean;
+}
+
 const BaseButtonStyles = css<StyledButtonProps>`
   ${({ theme, $color, $variant, disabled }) => getButtonVariantStyles(theme, $color, $variant, disabled)}
   align-items: center;
@@ -50,4 +54,15 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
 export const StyledTypography = styled(Typography)<StyledTypographyProps>`
   ${({ theme, $color, $variant, disabled }) => getTypographyVariantStyles(theme, $color, $variant, disabled)}
+`;
+
+// export const StyledSpinnerWrapper = styled.div`
+//   position: 'absolute';
+// `;
+
+export const StyledContent = styled.div<StyledContentProps>`
+  align-items: center;
+  display: inline-flex;
+
+  visibility: ${({ isLoading }) => (isLoading ? 'hidden' : 'visible')};
 `;

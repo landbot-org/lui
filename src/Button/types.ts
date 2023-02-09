@@ -10,6 +10,7 @@ type ButtonPropsBase = {
   disabled?: boolean;
   fullWidth?: boolean;
   href?: string;
+  isLoading?: boolean;
   size?: SizeTypes;
   variant?: ButtonVariants;
   startIcon?: JSX.Element;

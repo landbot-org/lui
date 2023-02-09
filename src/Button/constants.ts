@@ -1,5 +1,6 @@
 import { theme } from '../shared/theme';
 import { TypographyVariants } from '../Typography/types';
+import { SpinnerSize } from '../Spinner/types';
 import { ColorTypes, SizeTypes } from './types';
 
 export const SIZES_MAPPING: Record<SizeTypes, string> = {
@@ -30,4 +31,10 @@ export const TYPOGRAPHY_VARIANT_MAPPING: Record<SizeTypes, TypographyVariants> =
   small: 'text12',
   medium: 'text14',
   large: 'text16',
+};
+
+export const SPINNER_VARIANT_MAPPING: Record<SizeTypes, SpinnerSize> = {
+  small: 'XS',
+  medium: 'S',
+  large: 'S',
 };

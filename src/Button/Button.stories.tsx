@@ -34,6 +34,7 @@ export default {
     variant: 'contained',
     disabled: false,
     fullWidth: false,
+    isLoading: false,
   },
 } as ComponentMeta<typeof Button>;
 
@@ -86,5 +87,13 @@ export const ButtonIconFontAwesome: ComponentStory<typeof Button> = (args: Butto
 export const ButtonOnlyIconFontAwesome: ComponentStory<typeof Button> = (args: ButtonProps) => (
   <ThemeProvider theme={theme}>
     <Button {...args} startIcon={<Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />} />
+  </ThemeProvider>
+);
+
+export const ButtonLoading: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <Button {...args} isLoading={true}>
+      Button
+    </Button>
   </ThemeProvider>
 );
