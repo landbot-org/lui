@@ -1,4 +1,4 @@
-# LUI ([Landbot UI](https://landbot.io/)) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/landbot-org/lui/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/@landbot/lui)](https://www.npmjs.com/package/react) ![Test](https://github.com/landbot-org/lui/actions/workflows/tests.yml/badge.svg)
+# LUI ([Landbot UI](https://landbot.io/)) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/landbot-org/lui/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/@landbot/lui)](https://www.npmjs.com/package/react) [![Test](https://github.com/landbot-org/lui/actions/workflows/tests.yml/badge.svg)](https://github.com/landbot-org/lui/actions/workflows/tests.yml)
 
 ## Quick start
 
