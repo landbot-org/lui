@@ -12,7 +12,7 @@ Import on the root of the project
 
 ```
 import { ThemeProvider } from 'styled-components';
-import { Theme } from '@landbot/lui';
+import { theme } from '@landbot/lui';
 ```
 
 Wrap the project on the provider
@@ -20,7 +20,7 @@ Wrap the project on the provider
 ```
 function App() {
   return (
-    <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={theme}>
       <div className="App">
         //react app
       </div>
