@@ -1,6 +1,6 @@
 {
   "name": "@landbot/lui",
-  "version": "2.2.1",
+  "version": "3.7.0",
   "description": "",
   "main": "dist/index.js",
   "type": "module",
@@ -60,7 +60,6 @@
     "@babel/core": "^7.19.6",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@landbot/eslint-config": "^1.1.0",
     "@rollup/plugin-commonjs": "^23.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
@@ -102,6 +101,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0"
   }
 }

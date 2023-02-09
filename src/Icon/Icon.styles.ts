@@ -30,6 +30,8 @@ export const StyledIconContainer = styled.span<{
   $gridArea: GRID_AREA;
   $size: Size;
 }>`
+  display: inline-flex;
+
   svg {
     color: ${({ $color, theme }) => ($color === 'inherit' ? $color : getColorFromTheme(theme, $color))};
     ${dimensionsCss};
