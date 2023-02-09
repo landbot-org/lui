@@ -49,7 +49,7 @@ export default {
 export const Tabs: ComponentStory<typeof TabsComponent> = (args: TabsProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ width: '400px', backgroundColor: '#F0F5FF', padding: '64px 320px' }}>
+      <div style={{ width: '400px', backgroundColor: '#F7FAFF', padding: '64px 320px' }}>
         <TabsComponent {...args} />
       </div>
     </ThemeProvider>

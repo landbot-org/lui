@@ -16,6 +16,7 @@ export const Tab = forwardRef<HTMLDivElement, TabProps>(
       $size={size}
     >
       <StyledTypography
+        aria-disabled="true"
         color="blue.500"
         variant={getTypographyVariantBySize(size)}
         $active={Boolean(active)}

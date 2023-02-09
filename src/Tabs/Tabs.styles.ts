@@ -120,4 +120,5 @@ export const TabsContainer = styled.div.attrs(() => ({
   &::-webkit-scrollbar {
     display: none;
   }
+  scrollbar-width: none;
 `;
