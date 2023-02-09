@@ -29,6 +29,26 @@ function App() {
 }
 ```
 
+## Install
+
+```
+npm i
+```
+
+## Start
+
+```
+npm start
+```
+
+Storybook will be launched on http://localhost:6006/
+
+## Test
+
+```
+npm run test
+```
+
 ## Build
 
 ```
