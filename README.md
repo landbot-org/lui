@@ -15,7 +15,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '@landbot/lui';
 ```
 
-Wrap the project on the provider
+Wrap the project with the provider
 
 ```
 function App() {
