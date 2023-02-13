@@ -3,7 +3,7 @@ import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Size } from '../Icon/types';
 import { Spinner } from '../Spinner';
-import { StyledButton, StyledLink, StyledTypography, StyledContent } from './Button.styles';
+import { StyledButton, StyledLink, StyledTypography, StyledContent, StyledSpinnerWrapper } from './Button.styles';
 import { TYPOGRAPHY_VARIANT_MAPPING, SPINNER_VARIANT_MAPPING } from './constants';
 import { ButtonProps, SizeTypes } from './types';
 
@@ -39,15 +39,15 @@ export const Button = ({
       $variant={variant}
       $hasChildren={hasChildren}
       $isLoading={isLoading}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       href={href}
       onClick={onClick}
       {...rest}
     >
       {isLoading && (
-        <div style={{ position: 'absolute' }}>
+        <StyledSpinnerWrapper>
           <Spinner size={SPINNER_VARIANT_MAPPING[size]} />
-        </div>
+        </StyledSpinnerWrapper>
       )}
 
       <StyledContent isLoading={isLoading}>
@@ -58,7 +58,6 @@ export const Button = ({
         )}
         {hasChildren && (
           <StyledTypography
-            $color={color}
             $variant={variant}
             disabled={disabled}
             variant={TYPOGRAPHY_VARIANT_MAPPING[size]}

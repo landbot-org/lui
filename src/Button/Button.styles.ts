@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components';
-import { StyledIconContainer } from '../Icon/Icon.styles';
 import { Typography } from '../Typography';
 import { TypographyVariants } from '../Typography/types';
 import { SIZES_MAPPING } from './constants';
 import { ButtonVariants, ColorTypes, SizeTypes } from './types';
-import { getButtonVariantStyles, getTypographyVariantStyles, getIconVariantStyles } from './utils';
+import { getButtonVariantStyles, getTypographyVariantStyles } from './utils';
 
 interface StyledButtonProps {
   $color: ColorTypes;
@@ -16,7 +15,6 @@ interface StyledButtonProps {
 }
 
 interface StyledTypographyProps {
-  $color: ColorTypes;
   $variant: ButtonVariants;
   disabled: boolean;
   variant: TypographyVariants;
@@ -38,9 +36,6 @@ const BaseButtonStyles = css<StyledButtonProps>`
   &:hover {
     cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   }
-  ${StyledIconContainer} {
-    ${({ theme, $color, $variant, disabled }) => getIconVariantStyles(theme, $color, $variant, disabled)}
-  }
 `;
 
 export const StyledLink = styled.a<StyledButtonProps>`
@@ -53,12 +48,12 @@ export const StyledButton = styled.button<StyledButtonProps>`
 `;
 
 export const StyledTypography = styled(Typography)<StyledTypographyProps>`
-  ${({ theme, $color, $variant, disabled }) => getTypographyVariantStyles(theme, $color, $variant, disabled)}
+  ${({ $variant }) => getTypographyVariantStyles($variant)}
 `;
 
-// export const StyledSpinnerWrapper = styled.div`
-//   position: 'absolute';
-// `;
+export const StyledSpinnerWrapper = styled.div`
+  position: absolute;
+`;
 
 export const StyledContent = styled.div<StyledContentProps>`
   align-items: center;
