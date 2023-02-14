@@ -14,7 +14,10 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       className,
       display = 'block',
       elevation = 0,
+      flexBasis,
       flexDirection,
+      flexGrow,
+      flexShrink,
       flexWrap,
       gap,
       justifyContent,
@@ -32,7 +35,10 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       $borderColor={borderColor}
       $display={display}
       $elevation={elevation}
+      $flexBasis={flexBasis}
       $flexDirection={flexDirection}
+      $flexGrow={flexGrow}
+      $flexShrink={flexShrink}
       $flexWrap={flexWrap}
       $gap={gap}
       $justifyContent={justifyContent}

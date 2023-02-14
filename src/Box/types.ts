@@ -20,7 +20,10 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
   className?: string;
   display?: DisplayType;
   elevation?: ElevationType;
+  flexBasis?: string;
   flexDirection?: FlexDirectionType;
+  flexGrow?: number;
+  flexShrink?: number;
   flexWrap?: FlexWrapType;
   gap?: number;
   justifyContent?: FlexJustifyType;
@@ -34,7 +37,10 @@ export interface StyledBoxProps extends BoxProps {
   $borderColor: BoxProps['borderColor'];
   $display: BoxProps['display'];
   $elevation: BoxProps['elevation'];
+  $flexBasis: BoxProps['flexBasis'];
   $flexDirection: BoxProps['flexDirection'];
+  $flexGrow: BoxProps['flexGrow'];
+  $flexShrink: BoxProps['flexShrink'];
   $flexWrap: BoxProps['flexWrap'];
   $gap: BoxProps['gap'];
   $justifyContent: BoxProps['justifyContent'];
