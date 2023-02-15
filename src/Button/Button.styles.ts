@@ -11,6 +11,7 @@ interface StyledButtonProps {
   $size: SizeTypes;
   $variant: ButtonVariants;
   $hasChildren: boolean;
+  $isLoading: boolean;
   disabled: boolean;
 }
 
@@ -25,7 +26,8 @@ interface StyledContentProps {
 }
 
 const BaseButtonStyles = css<StyledButtonProps>`
-  ${({ theme, $color, $variant, disabled }) => getButtonVariantStyles(theme, $color, $variant, disabled)}
+  ${({ theme, $color, $variant, disabled, $isLoading }) =>
+    getButtonVariantStyles(theme, $color, $variant, disabled, $isLoading)}
   align-items: center;
   display: inline-flex;
   justify-content: center;
