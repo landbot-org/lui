@@ -1,7 +1,7 @@
 import React from 'react';
 
 export type ButtonVariants = 'contained' | 'outlined' | 'text';
-export type ColorTypes = 'pink.main' | 'blue.main' | 'purple.main';
+export type ColorTypes = 'pink.main' | 'blue.main' | 'purple.main' | 'white.main';
 export type SizeTypes = 'small' | 'medium' | 'large';
 
 type ButtonPropsBase = {
