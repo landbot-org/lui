@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { DividerSize } from './types';
 import { theme } from '../shared/theme';
 import { getColorFromTheme, pxToRem } from '../shared/mixins';
 import { DIMENSIONS } from './constants';
 import { ColorsTypes } from '../shared/theme.types';
+
 interface Props {
   $size: DividerSize;
   $color: ColorsTypes;

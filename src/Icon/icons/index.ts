@@ -75,6 +75,7 @@ export { MessengerNew } from './MessengerNew';
 export { Microscope } from './Microscope';
 export { NatureMedia } from './NatureMedia';
 export { Number } from './Number';
+export { OpenAI } from './OpenAI';
 export { Page } from './Page';
 export { PagePencil } from './PagePencil';
 export { PeopleWrestling } from './PeopleWrestling';

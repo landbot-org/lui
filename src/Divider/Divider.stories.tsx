@@ -1,14 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { Divider } from './Divider';
+import { Divider as DividerComponent } from './Divider';
 import { DividerProps } from './types';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../shared/theme';
 
 export default {
   title: 'Components/Divider',
-  component: Divider,
+  component: DividerComponent,
   parameters: {
     componentSubtitle: 'Displays a Divider',
   },
@@ -17,9 +16,9 @@ export default {
     size: 'small',
     color: 'neutral.300',
   },
-} as ComponentMeta<typeof Divider>;
+} as ComponentMeta<typeof DividerComponent>;
 
-const Template: ComponentStory<typeof Divider> = (args: DividerProps) => (
+export const Divider: ComponentStory<typeof DividerComponent> = (args: DividerProps) => (
   <ThemeProvider theme={theme}>
     <div style={{ minHeight: '100px' }}>
       {args.orientation === 'horizontal' ? (
@@ -33,9 +32,9 @@ const Template: ComponentStory<typeof Divider> = (args: DividerProps) => (
           }}
         >
           <p style={{ margin: 'auto' }}>item</p>
-          <Divider {...args} />
+          <DividerComponent {...args} />
           <p style={{ margin: 'auto' }}>item</p>
-          <Divider {...args} />
+          <DividerComponent {...args} />
           <p style={{ margin: 'auto' }}>item</p>
         </div>
       ) : (
@@ -48,34 +47,12 @@ const Template: ComponentStory<typeof Divider> = (args: DividerProps) => (
           }}
         >
           <p style={{ margin: 'auto' }}>item</p>
-          <Divider {...args} />
+          <DividerComponent {...args} />
           <p style={{ margin: 'auto' }}>item</p>
-          <Divider {...args} />
+          <DividerComponent {...args} />
           <p style={{ margin: 'auto' }}>item</p>
         </div>
       )}
     </div>
-
-    <br />
-
-    <div style={{ width: '250px' }}>
-      <Divider orientation="horizontal" size="small" />
-      <br />
-      <Divider orientation="horizontal" size="medium" />
-      <br />
-      <Divider orientation="horizontal" size="large" />
-    </div>
-
-    <br />
-
-    <div style={{ height: '100px', display: 'flex', gap: '30px' }}>
-      <Divider orientation="vertical" size="small" />
-
-      <Divider orientation="vertical" size="medium" />
-
-      <Divider orientation="vertical" size="large" />
-    </div>
   </ThemeProvider>
 );
-
-export const Default = Template.bind({});

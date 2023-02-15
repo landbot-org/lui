@@ -68,6 +68,7 @@ export const getTypographyColorDefault = (theme: Theme, color: ColorTypes, disab
     'pink.main': theme.palette.pink.main,
     'blue.main': theme.palette.blue.main,
     'purple.main': theme.palette.purple.main,
+    'white.main': theme.palette.white.main,
   }[color];
 };
 
@@ -79,6 +80,7 @@ export const getBackgroundColor = (theme: Theme, color: ColorTypes, disabled?: b
     'pink.main': theme.palette.pink.main,
     'blue.main': theme.palette.blue.main,
     'purple.main': theme.palette.purple.main,
+    'white.main': theme.palette.neutral[400],
   }[color];
 };
 
@@ -90,6 +92,7 @@ export const getBorderColor = (theme: Theme, color: ColorTypes, disabled?: boole
     'pink.main': theme.palette.pink.main,
     'blue.main': theme.palette.blue.main,
     'purple.main': theme.palette.purple.main,
+    'white.main': theme.palette.white.main,
   }[color];
 };
 
