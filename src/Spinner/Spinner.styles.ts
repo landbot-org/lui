@@ -10,7 +10,7 @@ const changeColor = keyframes`
   0% {
     opacity: ${SPECIAL_OPACITY};
   }
-  12% {
+  ${100 / NUMBER_OF_PILLS + '%'} {
     opacity: 1;
   }
   100% {
