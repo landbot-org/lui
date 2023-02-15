@@ -19,7 +19,7 @@ describe('Spinner', () => {
   });
 
   it('renders with custom color', async () => {
-    const { findByRole } = render(<Spinner color="blue.50" spinnerColor="error.main" />);
+    const { findByRole } = render(<Spinner color="blue.50" />);
     expect(await findByRole('figure')).toBeInTheDocument();
   });
 });

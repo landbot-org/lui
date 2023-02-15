@@ -2,20 +2,19 @@ import styled, { keyframes } from 'styled-components';
 import { getColorFromTheme, pxToRem } from '../shared/mixins';
 import { SpinnerColor, SpinnerSize } from './types';
 
-import { NUMBER_OF_PILLS, DIMENSIONS } from './constants';
-import type { ColorsTypes, Theme } from '../shared/theme.types';
+import { NUMBER_OF_PILLS, DIMENSIONS, SPIN_TIME, SPECIAL_OPACITY } from './constants';
 
 const degrees = 360 / NUMBER_OF_PILLS;
 
-const changeColor = ({ $spinnerColor, theme }: { $spinnerColor: ColorsTypes; theme: Theme }) => keyframes`
+const changeColor = keyframes`
   0% {
-    background-color: ${getColorFromTheme(theme, $spinnerColor)};
+    opacity: ${SPECIAL_OPACITY};
   }
   12% {
-    background-color: currentColor;    
+    opacity: 1;
   }
   100% {
-    background-color: ${getColorFromTheme(theme, $spinnerColor)};
+    opacity: ${SPECIAL_OPACITY};
   }
 `;
 
@@ -40,7 +39,7 @@ export const PillWrapperStyled = styled.div<{ $nth: number }>`
   transform: translateX(-50%) rotate(${({ $nth }) => $nth * degrees}deg);
 `;
 
-export const PillStyled = styled.div<{ $nth: number; $spinnerColor: SpinnerColor }>`
+export const PillStyled = styled.div<{ $nth: number }>`
   background-color: currentColor;
   height: 25%;
   width: 100%;
@@ -48,7 +47,7 @@ export const PillStyled = styled.div<{ $nth: number; $spinnerColor: SpinnerColor
   border-radius: 50%/20%;
   position: absolute;
 
-  animation: ${({ $spinnerColor, theme }) => changeColor({ theme, $spinnerColor })} 1s step-end infinite;
+  animation: ${changeColor} ${SPIN_TIME}s step-end infinite;
 
-  animation-delay: ${({ $nth }) => (1 / NUMBER_OF_PILLS) * $nth}s;
+  animation-delay: ${({ $nth }) => (1 / NUMBER_OF_PILLS) * $nth * SPIN_TIME}s;
 `;
