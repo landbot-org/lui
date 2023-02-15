@@ -47,7 +47,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
         ref={ref}
       >
         {startIcon && (
-          <Box mr={hasChildren ? 1 : undefined}>
+          <Box display="flex" mr={hasChildren ? 1 : undefined}>
             <Icon icon={startIcon} size={sizeIcon[size]} />
           </Box>
         )}
@@ -63,7 +63,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
           </StyledTypography>
         )}
         {endIcon && (
-          <Box ml={hasChildren ? 1 : undefined}>
+          <Box display="flex" ml={hasChildren ? 1 : undefined}>
             <Icon icon={endIcon} size={sizeIcon[size]} />
           </Box>
         )}
