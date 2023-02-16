@@ -1,9 +1,7 @@
 import styled, { css } from 'styled-components';
-import { Typography } from '../Typography';
-import { TypographyVariants } from '../Typography/types';
 import { SIZES_MAPPING } from './constants';
 import { ButtonVariants, ColorTypes, SizeTypes } from './types';
-import { getButtonVariantStyles, getTypographyVariantStyles } from './utils';
+import { getButtonVariantStyles } from './utils';
 
 interface StyledButtonProps {
   $color: ColorTypes;
@@ -13,12 +11,6 @@ interface StyledButtonProps {
   $hasChildren: boolean;
   $isLoading: boolean;
   disabled: boolean;
-}
-
-interface StyledTypographyProps {
-  $variant: ButtonVariants;
-  disabled: boolean;
-  variant: TypographyVariants;
 }
 
 interface StyledContentProps {
@@ -47,10 +39,6 @@ export const StyledLink = styled.a<StyledButtonProps>`
 
 export const StyledButton = styled.button<StyledButtonProps>`
   ${BaseButtonStyles}
-`;
-
-export const StyledTypography = styled(Typography)<StyledTypographyProps>`
-  ${({ $variant }) => getTypographyVariantStyles($variant)}
 `;
 
 export const StyledSpinnerWrapper = styled.div`
