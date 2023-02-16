@@ -86,7 +86,7 @@ export const STYLES: Record<TypographyVariants, ReturnType<typeof css>> = {
   text10: css`
     font-size: 0.625rem;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
     line-height: 18px;
   `,
 };
