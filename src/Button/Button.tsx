@@ -63,7 +63,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
             </Box>
           )}
           {hasChildren && (
-            <Typography variant={TYPOGRAPHY_VARIANT_MAPPING[size]} fontWeight={700}>
+            <Typography as={'span'} variant={TYPOGRAPHY_VARIANT_MAPPING[size]} fontWeight={700}>
               {children}
             </Typography>
           )}
