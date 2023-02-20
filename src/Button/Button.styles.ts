@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components';
-import { StyledIconContainer } from '../Icon/Icon.styles';
-import { Typography } from '../Typography';
-import { TypographyVariants } from '../Typography/types';
 import { SIZES_MAPPING } from './constants';
 import { ButtonVariants, ColorTypes, SizeTypes } from './types';
-import { getButtonVariantStyles, getTypographyVariantStyles, getIconVariantStyles } from './utils';
+import { getButtonVariantStyles } from './utils';
 
 interface StyledButtonProps {
   $color: ColorTypes;
@@ -12,18 +9,17 @@ interface StyledButtonProps {
   $size: SizeTypes;
   $variant: ButtonVariants;
   $hasChildren: boolean;
+  $isLoading: boolean;
   disabled: boolean;
 }
 
-interface StyledTypographyProps {
-  $color: ColorTypes;
-  $variant: ButtonVariants;
-  disabled: boolean;
-  variant: TypographyVariants;
+interface StyledContentProps {
+  isLoading: boolean;
 }
 
 const BaseButtonStyles = css<StyledButtonProps>`
-  ${({ theme, $color, $variant, disabled }) => getButtonVariantStyles(theme, $color, $variant, disabled)}
+  ${({ theme, $color, $variant, disabled, $isLoading }) =>
+    getButtonVariantStyles(theme, $color, $variant, disabled, $isLoading)}
   align-items: center;
   display: inline-flex;
   justify-content: center;
@@ -33,9 +29,6 @@ const BaseButtonStyles = css<StyledButtonProps>`
   padding: ${({ $hasChildren }) => ($hasChildren ? '0 16px' : '0 8px')};
   &:hover {
     cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-  }
-  ${StyledIconContainer} {
-    ${({ theme, $color, $variant, disabled }) => getIconVariantStyles(theme, $color, $variant, disabled)}
   }
 `;
 
@@ -48,6 +41,13 @@ export const StyledButton = styled.button<StyledButtonProps>`
   ${BaseButtonStyles}
 `;
 
-export const StyledTypography = styled(Typography)<StyledTypographyProps>`
-  ${({ theme, $color, $variant, disabled }) => getTypographyVariantStyles(theme, $color, $variant, disabled)}
+export const StyledSpinnerWrapper = styled.div`
+  position: absolute;
+`;
+
+export const StyledContent = styled.div<StyledContentProps>`
+  align-items: center;
+  display: inline-flex;
+
+  visibility: ${({ isLoading }) => (isLoading ? 'hidden' : 'visible')};
 `;

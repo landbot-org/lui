@@ -2,8 +2,10 @@ import React from 'react';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Size } from '../Icon/types';
-import { StyledButton, StyledLink, StyledTypography } from './Button.styles';
-import { TYPOGRAPHY_VARIANT_MAPPING } from './constants';
+import { Spinner } from '../Spinner';
+import { Typography } from '../Typography';
+import { StyledButton, StyledLink, StyledContent, StyledSpinnerWrapper } from './Button.styles';
+import { TYPOGRAPHY_VARIANT_MAPPING, SPINNER_VARIANT_MAPPING } from './constants';
 import { ButtonProps, SizeTypes } from './types';
 
 export const Button = React.forwardRef<HTMLElement, ButtonProps>(
@@ -15,6 +17,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       disabled = false,
       fullWidth = false,
       href,
+      isLoading = false,
       children,
       startIcon,
       endIcon,
@@ -40,33 +43,36 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
         $size={size}
         $variant={variant}
         $hasChildren={hasChildren}
-        disabled={disabled}
+        $isLoading={isLoading}
+        disabled={disabled || isLoading}
         href={href}
         onClick={onClick}
         {...rest}
         ref={ref}
       >
-        {startIcon && (
-          <Box display="flex" mr={hasChildren ? 1 : undefined}>
-            <Icon icon={startIcon} size={sizeIcon[size]} />
-          </Box>
+        {isLoading && (
+          <StyledSpinnerWrapper>
+            <Spinner size={SPINNER_VARIANT_MAPPING[size]} />
+          </StyledSpinnerWrapper>
         )}
-        {hasChildren && (
-          <StyledTypography
-            $color={color}
-            $variant={variant}
-            disabled={disabled}
-            variant={TYPOGRAPHY_VARIANT_MAPPING[size]}
-            forwardedAs="span"
-          >
-            {children}
-          </StyledTypography>
-        )}
-        {endIcon && (
-          <Box display="flex" ml={hasChildren ? 1 : undefined}>
-            <Icon icon={endIcon} size={sizeIcon[size]} />
-          </Box>
-        )}
+
+        <StyledContent isLoading={isLoading}>
+          {startIcon && (
+            <Box display="flex" mr={hasChildren ? 1 : undefined}>
+              <Icon icon={startIcon} size={sizeIcon[size]} />
+            </Box>
+          )}
+          {hasChildren && (
+            <Typography as={'span'} variant={TYPOGRAPHY_VARIANT_MAPPING[size]} fontWeight={700}>
+              {children}
+            </Typography>
+          )}
+          {endIcon && (
+            <Box display="flex" ml={hasChildren ? 1 : undefined}>
+              <Icon icon={endIcon} size={sizeIcon[size]} />
+            </Box>
+          )}
+        </StyledContent>
       </BaseButton>
     );
   }
