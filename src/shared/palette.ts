@@ -77,7 +77,7 @@ export const INFO = {
 export const WARNING = {
   dark: '#B58816',
   main: '#FCCC2D',
-  light: '#FEF9D40',
+  light: '#FEF9D4',
 };
 
 export const ERROR = {
