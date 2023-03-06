@@ -59,7 +59,6 @@ export const getTypographyColorContained = (theme: Theme, disabled: boolean, isL
 };
 
 export const getTypographyColorDefault = (theme: Theme, color: ColorTypes, disabled: boolean, isLoading: boolean) => {
-  console.log({ isLoading, color });
   if (isLoading) {
     return theme.palette.white.main;
   }
