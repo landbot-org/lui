@@ -10,13 +10,9 @@ export const TextField = ({
   endAdornment,
   helperText,
   id,
-  inputProps,
   label,
-  name,
-  onChange,
-  placeholder,
   startAdornment,
-  value,
+  ...rest
 }: TextFieldProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -42,16 +38,7 @@ export const TextField = ({
             {startAdornment}
           </Box>
         )}
-        <StyledInput
-          {...inputProps}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onChange={onChange}
-          placeholder={placeholder}
-          ref={inputRef}
-          value={value}
-        />
+        <StyledInput {...rest} disabled={disabled} id={id} ref={inputRef} />
         {endAdornment && (
           <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} ml={1}>
             {endAdornment}

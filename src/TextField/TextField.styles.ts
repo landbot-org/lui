@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
+import { pxToRem } from '../shared/mixins';
 import { Typography } from '../Typography';
 
 export const FormInput = styled.div<{ $disabled?: boolean }>`
-  padding: 0 16px;
-  border: 1px solid ${({ theme }) => theme.palette.neutral[300]};
-  border-radius: 4px;
-  height: 40px;
+  padding: 0 ${pxToRem(16)}rem;
+  border: ${pxToRem(1)}rem solid ${({ theme }) => theme.palette.neutral[300]};
+  border-radius: ${pxToRem(4)}rem;
+  height: ${pxToRem(40)}rem;
   display: flex;
   align-items: center;
   cursor: text;
@@ -38,7 +39,7 @@ export const StyledInput = styled.input`
   border: 0;
   outline: 0;
   flex-grow: 1;
-  font-size: 16px;
+  font-size: ${pxToRem(16)}rem;
   color: ${({ theme }) => theme.palette.blue.main};
   background-color: transparent;
 
@@ -53,10 +54,10 @@ export const StyledInput = styled.input`
 `;
 
 export const FormHelperText = styled(Typography)`
-  margin-top: 4px;
+  margin-top: ${pxToRem(4)}rem;
 `;
 
 export const StyledLabel = styled.label`
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: ${pxToRem(4)}rem;
 `;
