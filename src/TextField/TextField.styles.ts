@@ -51,6 +51,10 @@ export const StyledInput = styled.input`
     color: ${({ theme }) => theme.palette.neutral[300]};
     cursor: not-allowed;
   }
+
+  :read-only {
+    color: ${({ theme }) => theme.palette.neutral[400]};
+  }
 `;
 
 export const FormHelperText = styled(Typography)`
