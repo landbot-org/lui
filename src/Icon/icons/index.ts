@@ -4,6 +4,7 @@ export { Alien } from './Alien';
 export { Analytics } from './Analytics';
 export { API } from './API';
 export { BarChart } from './BarChart';
+export { Basket } from './Basket';
 export { Bell } from './Bell';
 export { BookOpen } from './BookOpen';
 export { Brain } from './Brain';
