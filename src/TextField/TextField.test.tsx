@@ -82,4 +82,10 @@ describe('TextField', () => {
 
     expect(getByRole('textbox')).not.toHaveFocus();
   });
+
+  it('should render on error state', () => {
+    const { getByRole } = render(<TextField error />);
+
+    expect(getByRole('textbox')).toBeInTheDocument();
+  });
 });
