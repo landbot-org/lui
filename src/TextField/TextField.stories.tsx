@@ -68,3 +68,11 @@ Labeled.args = {
   description: 'Description',
   helperText: 'Helper text',
 };
+
+export const Error = Template.bind({});
+Error.args = {
+  error: true,
+  description: 'Description',
+  helperText: 'Helper text',
+  label: 'Label',
+};

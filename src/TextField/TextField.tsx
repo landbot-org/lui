@@ -8,6 +8,7 @@ export const TextField = ({
   description,
   disabled,
   endAdornment,
+  error,
   helperText,
   id,
   label,
@@ -32,7 +33,7 @@ export const TextField = ({
           {description && <Typography variant="text14">{description}</Typography>}
         </StyledLabel>
       )}
-      <FormInput $disabled={disabled} onClick={focusInput}>
+      <FormInput $disabled={disabled} $error={error} onClick={focusInput}>
         {startAdornment && (
           <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} mr={1}>
             {startAdornment}
@@ -46,7 +47,7 @@ export const TextField = ({
         )}
       </FormInput>
       {helperText && (
-        <FormHelperText variant="text12" color="neutral.main">
+        <FormHelperText variant="text12" color={error ? 'error.main' : 'neutral.main'}>
           {helperText}
         </FormHelperText>
       )}

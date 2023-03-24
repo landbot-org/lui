@@ -1,10 +1,31 @@
 import styled, { css } from 'styled-components';
+import type { Theme } from '../shared/theme.types';
 import { pxToRem } from '../shared/mixins';
 import { Typography } from '../Typography';
 
-export const FormInput = styled.div<{ $disabled?: boolean }>`
+interface FormInputProps {
+  theme: Theme;
+  $disabled?: boolean;
+  $error?: boolean;
+}
+
+const getBorderStyle = ({ $error, theme }: FormInputProps) => css`
+  border-color: ${$error ? theme.palette.error.main : theme.palette.neutral[300]};
+
+  :hover {
+    border-color: ${$error ? theme.palette.error.main : theme.palette.neutral.main};
+  }
+
+  :focus-within {
+    border-color: ${$error ? theme.palette.error.main : theme.palette.purple.main};
+    outline: 2px solid ${$error ? theme.palette.error.light : theme.palette.blue[300]};
+  }
+`;
+
+export const FormInput = styled.div<FormInputProps>`
   padding: 0 ${pxToRem(16)}rem;
-  border: ${pxToRem(1)}rem solid ${({ theme }) => theme.palette.neutral[300]};
+  border-width: ${pxToRem(1)}rem;
+  border-style: solid;
   border-radius: ${pxToRem(4)}rem;
   height: ${pxToRem(40)}rem;
   display: flex;
@@ -13,13 +34,7 @@ export const FormInput = styled.div<{ $disabled?: boolean }>`
   background-color: ${({ theme }) => theme.palette.white.main};
   color: ${({ theme }) => theme.palette.neutral[400]};
 
-  :hover {
-    border-color: ${({ theme }) => theme.palette.neutral.main};
-  }
-
-  :focus-within {
-    border-color: ${({ theme }) => theme.palette.purple.main};
-  }
+  ${getBorderStyle}
 
   ${({ $disabled, theme }) =>
     $disabled &&
@@ -28,8 +43,7 @@ export const FormInput = styled.div<{ $disabled?: boolean }>`
       background-color: ${theme.palette.neutral[100]};
       cursor: not-allowed;
 
-      :hover,
-      :focus-within {
+      :hover {
         border-color: ${theme.palette.neutral[300]};
       }
     `}
