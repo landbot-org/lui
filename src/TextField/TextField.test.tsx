@@ -1,91 +1,96 @@
 import React from 'react';
-import { fireEvent } from '@testing-library/react';
-import { render } from '../test-utils';
-
+import { render, screen } from '../test-utils';
 import { TextField } from './TextField';
 
 describe('TextField', () => {
   it('should render textbox', () => {
-    const { getByRole } = render(<TextField />);
+    render(<TextField />);
 
-    expect(getByRole('textbox')).toBeInTheDocument();
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
   it('should be disabled', () => {
-    const { getByRole } = render(<TextField disabled />);
+    render(<TextField disabled />);
 
-    expect(getByRole('textbox')).toBeDisabled();
+    expect(screen.getByRole('textbox')).toBeDisabled();
   });
 
   it('should display value', () => {
-    const { getByDisplayValue } = render(<TextField value="Value" />);
+    render(<TextField value="Value" />);
 
-    expect(getByDisplayValue('Value')).toBeInTheDocument();
+    expect(screen.getByDisplayValue('Value')).toBeInTheDocument();
   });
 
   it('should render label', () => {
-    const { getByLabelText } = render(<TextField id="textfield-id" label="Label" />);
+    render(<TextField id="textfield-id" label="Label" />);
 
-    expect(getByLabelText('Label')).toBeInTheDocument();
+    expect(screen.getByLabelText('Label')).toBeInTheDocument();
   });
 
   it('should render description', () => {
-    const { getByLabelText } = render(<TextField id="textfield-id" description="Description" />);
+    render(<TextField id="textfield-id" description="Description" />);
 
-    expect(getByLabelText('Description')).toBeInTheDocument();
+    expect(screen.getByLabelText('Description')).toBeInTheDocument();
   });
 
   it('should render label and description', () => {
-    const { getByLabelText } = render(<TextField id="textfield-id" label="Label" description="Description" />);
+    render(<TextField id="textfield-id" label="Label" description="Description" />);
 
-    expect(getByLabelText('LabelDescription')).toBeInTheDocument();
+    expect(screen.getByLabelText('LabelDescription')).toBeInTheDocument();
   });
 
   it('should render start adornment', () => {
-    const { getByRole } = render(<TextField startAdornment={<button />} />);
+    render(<TextField startAdornment={<button />} />);
 
-    expect(getByRole('button')).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   it('should render end adornment', () => {
-    const { getByRole } = render(<TextField endAdornment={<span role="img" />} />);
+    render(<TextField endAdornment={<span role="img" />} />);
 
-    expect(getByRole('img')).toBeInTheDocument();
+    expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
   it('should render helper text', () => {
-    const { getByText } = render(<TextField helperText="Helper text" />);
+    render(<TextField helperText="Helper text" />);
 
-    expect(getByText('Helper text')).toBeInTheDocument();
+    expect(screen.getByText('Helper text')).toBeInTheDocument();
   });
 
-  it('should focus input on inner click', () => {
-    const { getByRole } = render(<TextField />);
-    const input = getByRole('textbox');
-    fireEvent.click(input);
+  it('should focus input on inner click', async () => {
+    const { user } = render(<TextField />);
+    const input = screen.getByRole('textbox');
+
+    await user.click(input);
 
     expect(input).toHaveFocus();
   });
 
-  it('should not focus input on start adornment click', () => {
-    const { getByRole } = render(<TextField startAdornment={<button />} />);
+  it('should not focus input on start adornment click', async () => {
+    const { user } = render(<TextField startAdornment={<button />} />);
 
-    fireEvent.click(getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
-    expect(getByRole('textbox')).not.toHaveFocus();
+    expect(screen.getByRole('textbox')).not.toHaveFocus();
   });
 
-  it('should not focus input on end adornment click', () => {
-    const { getByRole } = render(<TextField endAdornment={<button />} />);
+  it('should not focus input on end adornment click', async () => {
+    const { user } = render(<TextField endAdornment={<button />} />);
 
-    fireEvent.click(getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
-    expect(getByRole('textbox')).not.toHaveFocus();
+    expect(screen.getByRole('textbox')).not.toHaveFocus();
   });
 
   it('should render on error state', () => {
-    const { getByRole } = render(<TextField error />);
+    render(<TextField error />);
 
-    expect(getByRole('textbox')).toBeInTheDocument();
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  });
+
+  it('should render helper text on error state', () => {
+    render(<TextField helperText="Helper text" error />);
+
+    expect(screen.getByText('Helper text')).toBeInTheDocument();
   });
 });
