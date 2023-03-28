@@ -1,7 +1,6 @@
 import React from 'react';
-import { render } from '../test-utils';
+import { render, screen } from '../test-utils';
 import { cleanup } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { Tabs } from './Tabs';
 
 afterEach(cleanup);
@@ -25,22 +24,27 @@ describe('Tabs component', () => {
   ];
 
   it('should render the correct number of tabs', () => {
-    const utils = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
-    const tabs = utils.getAllByRole('tab');
+    render(<Tabs tabs={tabProps} onChange={jest.fn} />);
+    const tabs = screen.getAllByRole('tab');
+
     expect(tabs).toHaveLength(tabs.length);
   });
 
-  it('should set the correct active tab when clicked', () => {
-    const utils = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
-    const tabs = utils.getAllByRole('tab');
-    userEvent.click(tabs[1]);
+  it('should set the correct active tab when clicked', async () => {
+    const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
+    const tabs = screen.getAllByRole('tab');
+
+    await user.click(tabs[1]);
+
     expect(tabs[1]).toHaveAttribute('aria-selected', 'true');
   });
 
-  it('should not set active tab when a disabled tab is clicked', () => {
-    const utils = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
-    const tabs = utils.getAllByRole('tab');
-    userEvent.click(tabs[2]);
+  it('should not set active tab when a disabled tab is clicked', async () => {
+    const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
+    const tabs = screen.getAllByRole('tab');
+
+    await user.click(tabs[2]);
+
     expect(tabs[2]).not.toHaveAttribute('aria-selected', 'true');
   });
 });

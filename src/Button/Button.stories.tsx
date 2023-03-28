@@ -97,3 +97,13 @@ export const ButtonLoading: ComponentStory<typeof Button> = (args: ButtonProps) 
     </Button>
   </ThemeProvider>
 );
+
+export const ButtonLink: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <Button {...args}>Button</Button>
+  </ThemeProvider>
+);
+ButtonLink.args = {
+  href: '#',
+  target: '_blank',
+};

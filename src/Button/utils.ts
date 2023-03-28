@@ -17,6 +17,7 @@ export const getButtonVariantStyles = (
       border-color: transparent;
       border-radius: 4px;
       &:hover {
+        color: ${getTypographyColorContained(theme, disabled, isLoading)};
         background-color: ${getHoverBackgroundColor(variant, color, disabled)};
       }
       &:active {
@@ -29,6 +30,7 @@ export const getButtonVariantStyles = (
       border: 1px solid ${getBorderColor(theme, color, disabled)};
       border-radius: 4px;
       &:hover {
+        color: ${getTypographyColorDefault(theme, color, disabled, isLoading)};
         background-color: ${getHoverBackgroundColor(variant, color, disabled)};
       }
       &:active {
@@ -41,6 +43,7 @@ export const getButtonVariantStyles = (
       border-color: transparent;
       border-radius: 4px;
       &:hover {
+        color: ${getTypographyColorDefault(theme, color, disabled, isLoading)};
         background-color: ${getHoverBackgroundColor(variant, color, disabled)};
       }
     `,
@@ -59,7 +62,6 @@ export const getTypographyColorContained = (theme: Theme, disabled: boolean, isL
 };
 
 export const getTypographyColorDefault = (theme: Theme, color: ColorTypes, disabled: boolean, isLoading: boolean) => {
-  console.log({ isLoading, color });
   if (isLoading) {
     return theme.palette.white.main;
   }
