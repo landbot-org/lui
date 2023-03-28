@@ -1,18 +1,17 @@
+import React from 'react';
 import { ColorsTypes } from '../shared/theme.types';
 
 export type SizeTypes = 'small' | 'medium' | 'large';
 
 export type VariantTypes = 'filled' | 'outlined';
 
-export type TagProps = {
+export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
-  textColor?: ColorsTypes;
+  color?: ColorsTypes;
   backgroundColor?: ColorsTypes;
   borderColor?: ColorsTypes;
-  iconColor?: ColorsTypes;
-  onClickEndIcon?: () => void;
   variant?: VariantTypes;
-  startIcon?: JSX.Element;
-  endIcon?: JSX.Element;
+  startAdornment?: React.ReactNode;
+  endAdornment?: React.ReactNode;
   size?: SizeTypes;
-};
+}

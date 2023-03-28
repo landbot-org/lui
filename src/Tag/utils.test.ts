@@ -1,19 +1,4 @@
-import { getTagIconSize, getTagTypographyVariant } from './utils';
-import { Size } from '../Icon/types';
-
-describe('getTagIconSize', () => {
-  it('returns correct size for small tag', () => {
-    expect(getTagIconSize('small')).toBe('0.5x' as Size);
-  });
-
-  it('returns correct size for medium tag', () => {
-    expect(getTagIconSize('medium')).toBe('0.5x' as Size);
-  });
-
-  it('returns correct size for large tag', () => {
-    expect(getTagIconSize('large')).toBe('1x' as Size);
-  });
-});
+import { getTagTypographyVariant } from './utils';
 
 describe('getTagTypographyVariant', () => {
   it('returns correct typography variant for small tag', () => {

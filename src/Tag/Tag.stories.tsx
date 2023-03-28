@@ -1,69 +1,52 @@
 import React from 'react';
-import * as icons from '@fortawesome/free-solid-svg-icons';
 import { theme } from '../shared/theme';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expect } from '@storybook/jest';
-import { userEvent, within } from '@storybook/testing-library';
+import userEvent from '@testing-library/user-event';
+import { within } from '@storybook/testing-library';
 import { ThemeProvider } from 'styled-components';
 import { Icon } from '../Icon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Tag as TagComponent } from './Tag';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ColorsTypes } from '../shared/theme.types';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
-
-const iconsMap = (textColor: ColorsTypes = 'white.main') =>
-  Object.keys(icons).reduce((acc, key) => {
-    const IconComponent = icons[key];
-    return {
-      ...acc,
-      [key]: (
-        <Icon
-          icon={<FontAwesomeIcon icon={IconComponent} />}
-          size="0.5x"
-          color={textColor ? textColor : 'white.main'}
-        />
-      ),
-    };
-  }, {});
 
 export default {
   title: 'Components/Tag',
   component: TagComponent,
   argTypes: {
-    variant: {
-      options: ['filled', 'outlined'],
+    size: {
+      options: ['small', 'medium', 'large'],
       control: { type: 'radio' },
-    },
-    startIcon: {
-      options: Object.keys(iconsMap()),
-      mapping: {
-        ...iconsMap(),
-      },
-    },
-    endIcon: {
-      options: Object.keys(iconsMap()),
-      mapping: {
-        ...iconsMap(),
-      },
     },
   },
   args: {
+    size: 'medium',
     label: 'Tag Name',
-    startIcon: <FontAwesomeIcon aria-label="start icon" icon={faCheck} />,
-    endIcon: <FontAwesomeIcon aria-label="end icon" icon={faXmark} />,
+    startAdornment: <Icon icon={<FontAwesomeIcon icon={faCheck} />} aria-label="start adornment" />,
+    endAdornment: <Icon icon={<FontAwesomeIcon icon={faXmark} />} aria-label="end adornment" />,
   },
 } as ComponentMeta<typeof TagComponent>;
 
 export const Tag: ComponentStory<typeof TagComponent> = ({ ...args }) => {
+  const adornmentSize = args.size === 'large' ? '1x' : '0.5x';
   return (
     <ThemeProvider theme={theme}>
-      <TagComponent {...args} />
+      <TagComponent
+        {...args}
+        startAdornment={
+          <Icon icon={<FontAwesomeIcon icon={faCheck} />} aria-label="start adornment" size={adornmentSize} />
+        }
+        endAdornment={
+          <Icon icon={<FontAwesomeIcon icon={faXmark} />} aria-label="end adornment" size={adornmentSize} />
+        }
+      />
     </ThemeProvider>
   );
 };
+
 Tag.play = ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  userEvent.click(canvas.getByLabelText(/end icon/i));
-  expect(canvas.getByLabelText(/end icon/i)).toBeInTheDocument();
+  userEvent.click(canvas.getByLabelText(/end adornment/i));
+  expect(canvas.getByLabelText(/end adornment/i)).toBeInTheDocument();
 };
