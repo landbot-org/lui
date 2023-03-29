@@ -9,7 +9,7 @@ describe('TextArea', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  it('should be disabled', () => {
+  it('can be disabled with the prop "disabled"', () => {
     render(<TextArea disabled />);
 
     expect(screen.getByRole('textbox')).toBeDisabled();
@@ -43,12 +43,6 @@ describe('TextArea', () => {
     render(<TextArea helperText="Helper text" />);
 
     expect(screen.getByText('Helper text')).toBeInTheDocument();
-  });
-
-  it('should render on error state', () => {
-    render(<TextArea error />);
-
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
   it('should render helper text on error state', () => {
