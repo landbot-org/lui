@@ -10,28 +10,20 @@ import {
 } from '../shared/inputStyles';
 import { pxToRem } from '../shared/mixins';
 
-interface FormInputProps {
-  theme: Theme;
+interface StyledTextAreaProps {
   $disabled?: boolean;
   $error?: boolean;
+  theme: Theme;
 }
 
-export const StyledInputGroup = styled.div<FormInputProps>`
+export const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   ${inputBorderStyle}
   ${inputBackgroundStyle}
   ${inputGroupColorStyle}
   ${inputCursorStyle}
-  height: ${pxToRem(40)}rem;
-  padding: 0 ${pxToRem(16)}rem;
-  display: flex;
-  align-items: center;
-`;
-
-export const StyledInput = styled.input<FormInputProps>`
   ${inputColorStyle}
   ${inputFontStyles}
   flex-grow: 1;
-  border: 0;
-  outline: 0;
-  background-color: transparent;
+  min-height: ${pxToRem(80)}rem;
+  padding: ${pxToRem(8)}rem ${pxToRem(16)}rem;
 `;
