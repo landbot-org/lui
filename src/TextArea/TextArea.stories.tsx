@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { theme } from '../shared/theme';
 import { TextArea } from './TextArea';
-import { ThemeProvider } from 'styled-components';
 import { TextAreaProps } from './types';
 
 export default {
@@ -23,11 +21,7 @@ const Template: ComponentStory<typeof TextArea> = (args: TextAreaProps) => {
     args.onChange && args.onChange(e);
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <TextArea {...args} value={value} onChange={_onChange} />
-    </ThemeProvider>
-  );
+  return <TextArea {...args} value={value} onChange={_onChange} />;
 };
 
 export const Default = Template.bind({});
