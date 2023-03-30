@@ -1,8 +1,13 @@
 import styled, { css, keyframes } from 'styled-components';
+import { Box } from '../Box';
 import { Theme } from '../shared/theme.types';
 import { Typography } from '../Typography';
 import { SizeTypes } from './types';
 import { getButtonSizeStyles, getTabSizeStyles } from './utils';
+
+export const Container = styled(Box)`
+  height: 48px;
+`;
 
 export const ArrowButton = styled.div<{ $disabled: boolean; $size: SizeTypes }>`
   ${({ $size }) => getButtonSizeStyles($size)}

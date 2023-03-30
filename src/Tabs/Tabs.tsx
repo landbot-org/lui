@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box } from '../Box';
 import { Tab } from './Tab';
 import { Icon } from '../Icon';
-import { ArrowButton, TabsContainer } from './Tabs.styles';
+import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 import { TabsProps } from './types';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './utils';
@@ -40,7 +39,7 @@ export const Tabs = ({
   };
 
   return (
-    <Box display="flex">
+    <Container display="flex">
       {showScrollButtons && (
         <ArrowButton
           aria-label="navigation-left"
@@ -84,6 +83,6 @@ export const Tabs = ({
           <Icon icon={<FontAwesomeIcon icon={faChevronRight} />} size={getButtonIconSizeStyles(size)} />
         </ArrowButton>
       )}
-    </Box>
+    </Container>
   );
 };
