@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
-import { FormHelperText, FormInput, StyledInput, StyledLabel } from './TextField.styles';
+import { FormHelperText } from '../FormHelperText';
+import { FormLabel } from '../FormLabel';
+import { StyledInputGroup, StyledInput } from './TextField.styles';
 import { TextFieldProps } from './types';
 
 export const TextField = ({
@@ -24,16 +26,16 @@ export const TextField = ({
   return (
     <div>
       {(label || description) && (
-        <StyledLabel htmlFor={id}>
+        <FormLabel htmlFor={id}>
           {label && (
             <Typography variant="text14" fontWeight={700}>
               {label}
             </Typography>
           )}
           {description && <Typography variant="text14">{description}</Typography>}
-        </StyledLabel>
+        </FormLabel>
       )}
-      <FormInput $disabled={disabled} $error={error} onClick={focusInput}>
+      <StyledInputGroup $disabled={disabled} $error={error} onClick={focusInput}>
         {startAdornment && (
           <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} mr={1}>
             {startAdornment}
@@ -45,7 +47,7 @@ export const TextField = ({
             {endAdornment}
           </Box>
         )}
-      </FormInput>
+      </StyledInputGroup>
       {helperText && (
         <FormHelperText variant="text12" color={error ? 'error.main' : 'neutral.main'}>
           {helperText}

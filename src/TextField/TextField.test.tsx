@@ -9,7 +9,7 @@ describe('TextField', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  it('should be disabled', () => {
+  it('can be disabled with the prop "disabled"', () => {
     render(<TextField disabled />);
 
     expect(screen.getByRole('textbox')).toBeDisabled();
@@ -80,12 +80,6 @@ describe('TextField', () => {
     await user.click(screen.getByRole('button'));
 
     expect(screen.getByRole('textbox')).not.toHaveFocus();
-  });
-
-  it('should render on error state', () => {
-    render(<TextField error />);
-
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
   it('should render helper text on error state', () => {
