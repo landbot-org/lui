@@ -55,6 +55,10 @@ export const Tooltip = ({
   }, []);
 
   useEffect(() => {
+    const newPosition = getPositionTooltip(placement, target, tooltipElement);
+    if (newPosition) {
+      setPosition(newPosition);
+    }
     setIsShown(isOpen);
   }, [isOpen]);
 
