@@ -7,6 +7,7 @@ export { Link } from './Link';
 export { Radio } from './Radio';
 export { Spinner } from './Spinner';
 export { Tabs } from './Tabs';
+export { TextArea } from './TextArea';
 export { TextField } from './TextField';
 export { Toggle } from './Toggle';
 export { Typography } from './Typography';
