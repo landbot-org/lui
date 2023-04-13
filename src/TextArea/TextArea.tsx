@@ -6,25 +6,29 @@ import { Typography } from '../Typography';
 import { StyledTextArea } from './TextArea.styles';
 import { TextAreaProps } from './types';
 
-export const TextArea = ({ description, disabled, error, helperText, id, label, ...rest }: TextAreaProps) => (
-  <div>
-    {(label || description) && (
-      <FormLabel htmlFor={id}>
-        {label && (
-          <Typography variant="text14" fontWeight={700}>
-            {label}
-          </Typography>
-        )}
-        {description && <Typography variant="text14">{description}</Typography>}
-      </FormLabel>
-    )}
-    <Box display="flex">
-      <StyledTextArea {...rest} disabled={disabled} $disabled={disabled} $error={error} id={id} />
-    </Box>
-    {helperText && (
-      <FormHelperText variant="text12" color={error ? 'error.main' : 'neutral.main'}>
-        {helperText}
-      </FormHelperText>
-    )}
-  </div>
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ description, disabled, error, helperText, id, label, ...rest }, ref) => (
+    <div>
+      {(label || description) && (
+        <FormLabel htmlFor={id}>
+          {label && (
+            <Typography variant="text14" fontWeight={700}>
+              {label}
+            </Typography>
+          )}
+          {description && <Typography variant="text14">{description}</Typography>}
+        </FormLabel>
+      )}
+      <Box display="flex">
+        <StyledTextArea {...rest} disabled={disabled} $disabled={disabled} $error={error} id={id} ref={ref} />
+      </Box>
+      {helperText && (
+        <FormHelperText variant="text12" color={error ? 'error.main' : 'neutral.main'}>
+          {helperText}
+        </FormHelperText>
+      )}
+    </div>
+  )
 );
+
+TextArea.displayName = 'TextArea';
