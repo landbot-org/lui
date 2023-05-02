@@ -3,8 +3,7 @@ import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Size } from '../Icon/types';
 import { Spinner } from '../Spinner';
-import { Typography } from '../Typography';
-import { StyledButton, StyledLink, StyledContent, StyledSpinnerWrapper } from './Button.styles';
+import { StyledButton, StyledLink, StyledContent, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
 import { TYPOGRAPHY_VARIANT_MAPPING, SPINNER_VARIANT_MAPPING } from './constants';
 import { ButtonProps, SizeTypes } from './types';
 
@@ -22,6 +21,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       startIcon,
       endIcon,
       onClick,
+      textAlign = 'center',
       ...rest
     },
     ref
@@ -63,9 +63,14 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
             </Box>
           )}
           {hasChildren && (
-            <Typography as={'span'} variant={TYPOGRAPHY_VARIANT_MAPPING[size]} fontWeight={700}>
+            <StyledTypography
+              $textAlign={textAlign}
+              forwardedAs={'span'}
+              variant={TYPOGRAPHY_VARIANT_MAPPING[size]}
+              fontWeight={700}
+            >
               {children}
-            </Typography>
+            </StyledTypography>
           )}
           {endIcon && (
             <Box display="flex" ml={hasChildren ? 1 : undefined}>

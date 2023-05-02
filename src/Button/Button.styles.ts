@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
+import { Typography } from '../Typography';
+import type { TypographyProps } from '../Typography/types';
 import { SIZES_MAPPING } from './constants';
-import { ButtonVariants, ColorTypes, SizeTypes } from './types';
+import { ButtonVariants, ColorTypes, SizeTypes, TextAlignTypes } from './types';
 import { getButtonVariantStyles } from './utils';
 
 interface StyledButtonProps {
@@ -48,8 +50,18 @@ export const StyledSpinnerWrapper = styled.div`
 `;
 
 export const StyledContent = styled.div<StyledContentProps>`
+  flex-grow: 1;
   align-items: center;
   display: inline-flex;
 
   visibility: ${({ isLoading }) => (isLoading ? 'hidden' : 'visible')};
+`;
+
+interface StyledTypographyProps extends TypographyProps {
+  $textAlign?: TextAlignTypes;
+}
+
+export const StyledTypography = styled(Typography)<StyledTypographyProps>`
+  flex-grow: 1;
+  text-align: ${({ $textAlign }) => $textAlign};
 `;
