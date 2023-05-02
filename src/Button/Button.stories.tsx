@@ -107,3 +107,27 @@ ButtonLink.args = {
   href: '#',
   target: '_blank',
 };
+
+export const ButtonFullWidth: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <Button {...args}>Button</Button>
+  </ThemeProvider>
+);
+ButtonFullWidth.args = {
+  fullWidth: true,
+  size: 'large',
+};
+
+export const ButtonFullWidthBothIcons: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <Button {...args}>Select a date range</Button>
+  </ThemeProvider>
+);
+ButtonFullWidthBothIcons.args = {
+  color: 'white.main',
+  fullWidth: true,
+  textAlign: 'left',
+  size: 'large',
+  startIcon: <Robot />,
+  endIcon: <Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />,
+};
