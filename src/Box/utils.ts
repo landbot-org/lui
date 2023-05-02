@@ -12,6 +12,14 @@ export const getBackgroundStyles = ({ $backgroundColor, theme }: StyledBoxProps 
   }
 };
 
+export const getColorStyles = ({ $color, theme }: StyledBoxProps & { theme: Theme }) => {
+  if ($color) {
+    return css`
+      color: ${getColorFromTheme(theme, $color)};
+    `;
+  }
+};
+
 export const getElevationStyles = ({ $elevation = 0 }: StyledBoxProps) =>
   css`
     box-shadow: ${BOX_SHADOW_MAPPING[$elevation]};

@@ -37,6 +37,7 @@ Default.args = {
   borderColor: 'neutral.300',
   display: 'block',
   elevation: 1,
+  radius: 0,
 };
 
 Default.play = async ({ canvasElement }) => {
@@ -57,7 +58,9 @@ Flexbox.args = {
       <p>row2</p>
     </>
   ),
+  color: 'blue.main',
   display: 'flex',
   elevation: 1,
   justifyContent: 'space-around',
+  radius: 0,
 };

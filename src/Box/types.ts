@@ -18,6 +18,7 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
   borderColor?: ColorsTypes;
   children?: React.ReactNode;
   className?: string;
+  color?: ColorsTypes;
   display?: DisplayType;
   elevation?: ElevationType;
   flexBasis?: string;
@@ -35,6 +36,7 @@ export interface StyledBoxProps extends BoxProps {
   $backgroundColor: BoxProps['backgroundColor'];
   $border: BoxProps['border'];
   $borderColor: BoxProps['borderColor'];
+  $color: BoxProps['color'];
   $display: BoxProps['display'];
   $elevation: BoxProps['elevation'];
   $flexBasis: BoxProps['flexBasis'];
