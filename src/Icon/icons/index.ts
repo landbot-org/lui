@@ -65,6 +65,7 @@ export { Inbox } from './Inbox';
 export { Joker } from './Joker';
 export { Key } from './Key';
 export { Keyboard } from './Keyboard';
+export { Landbot } from './Landbot';
 export { Laptop } from './Laptop';
 export { LaptopEmbed } from './LaptopEmbed';
 export { Lightning } from './Lightning';
