@@ -59,5 +59,6 @@ Flexbox.args = {
   ),
   display: 'flex',
   elevation: 1,
+  hoverElevation: 4,
   justifyContent: 'space-around',
 };

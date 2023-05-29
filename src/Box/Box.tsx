@@ -20,6 +20,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       flexShrink,
       flexWrap,
       gap,
+      hoverElevation,
       justifyContent,
       radius = 0,
       ...other
@@ -41,6 +42,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       $flexShrink={flexShrink}
       $flexWrap={flexWrap}
       $gap={gap}
+      $hoverElevation={hoverElevation}
       $justifyContent={justifyContent}
       $radius={radius}
       {...other}
