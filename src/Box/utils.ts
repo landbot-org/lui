@@ -12,9 +12,13 @@ export const getBackgroundStyles = ({ $backgroundColor, theme }: StyledBoxProps 
   }
 };
 
-export const getElevationStyles = ({ $elevation = 0 }: StyledBoxProps) =>
+export const getElevationStyles = ({ $elevation = 0, $hoverElevation }: StyledBoxProps) =>
   css`
     box-shadow: ${BOX_SHADOW_MAPPING[$elevation]};
+
+    &:hover {
+      box-shadow: ${BOX_SHADOW_MAPPING[$hoverElevation ?? $elevation]};
+    }
   `;
 
 export const getRadiusStyles = ({ $radius = 0 }: StyledBoxProps) =>
