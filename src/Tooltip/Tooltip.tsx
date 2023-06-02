@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { arrow, FloatingArrow, offset, useFloating, useHover, useInteractions } from '@floating-ui/react';
 import { TooltipProps } from './types';
 import { StyledContent, StyledWrapperChildren } from './Tooltip.styles';
@@ -7,13 +7,13 @@ import { theme } from '../shared/theme';
 const ARROW_HEIGHT = 7;
 const GAP = 2;
 
-export const Tooltip = ({ content, color, children, placement = 'bottom', isOpen }: TooltipProps) => {
+export const Tooltip = ({ content, color, children, placement = 'bottom' }: TooltipProps) => {
   const arrowRef = useRef(null);
-  const [isShown, setIsShown] = useState(isOpen);
+  const [isShown, setIsShown] = useState(false);
 
   const { refs, floatingStyles, context } = useFloating({
     placement,
-    open: isOpen,
+    open: isShown,
     onOpenChange: setIsShown,
     middleware: [
       offset(ARROW_HEIGHT + GAP),
@@ -22,10 +22,6 @@ export const Tooltip = ({ content, color, children, placement = 'bottom', isOpen
       }),
     ],
   });
-
-  useEffect(() => {
-    setIsShown(isOpen);
-  }, [isOpen]);
 
   const hover = useHover(context);
 
