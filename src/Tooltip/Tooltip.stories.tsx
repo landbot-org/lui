@@ -51,37 +51,3 @@ export const LargeTooltip: ComponentStory<typeof Tooltip> = (args: TooltipProps)
     </Box>
   </ThemeProvider>
 );
-
-export const TooltipScroll: ComponentStory<typeof Tooltip> = (args: TooltipProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <div style={{ height: '1500px', overflow: 'auto' }}>
-        <Box display="flex" justifyContent="center" m={10}>
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          <Tooltip
-            {...args}
-            content={
-              <Typography color={args.color === 'white' ? 'blue.main' : 'white.main'} variant="text12">
-                Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo
-                hac.
-              </Typography>
-            }
-          >
-            <Button size="large">Interact with me!</Button>
-          </Tooltip>
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-          Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
-        </Box>
-      </div>
-    </ThemeProvider>
-  );
-};
