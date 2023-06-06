@@ -24,7 +24,25 @@ export const Default: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
         {...args}
         content={
           <Typography color={args.color === 'white' ? 'blue.main' : 'white.main'} variant="text12">
-            Hello Tooltip!
+            This is the content of Tooltip!
+          </Typography>
+        }
+      >
+        <Button size="large">Interact with me!</Button>
+      </Tooltip>
+    </Box>
+  </ThemeProvider>
+);
+
+export const LargeTooltip: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
+  <ThemeProvider theme={theme}>
+    <Box display="flex" justifyContent="center" m={10}>
+      <Tooltip
+        {...args}
+        content={
+          <Typography color={args.color === 'white' ? 'blue.main' : 'white.main'} variant="text12">
+            This is the content of Tooltip! This is the content of Tooltip! This is the content of Tooltip! This is the
+            content of Tooltip! This is the content of Tooltip! This is the content of Tooltip!
           </Typography>
         }
       >
