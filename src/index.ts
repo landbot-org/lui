@@ -11,6 +11,7 @@ export { Tag } from './Tag';
 export { TextArea } from './TextArea';
 export { TextField } from './TextField';
 export { Toggle } from './Toggle';
+export { Tooltip } from './Tooltip';
 export { Typography } from './Typography';
 export { theme } from './shared/theme';
 export { Theme } from './shared/theme.types';
