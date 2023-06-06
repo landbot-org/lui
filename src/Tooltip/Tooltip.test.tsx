@@ -7,6 +7,23 @@ import { Typography } from '../Typography';
 import { Tooltip } from './Tooltip';
 import { TooltipProps } from './types';
 
+class ResizeObserver {
+  callback: globalThis.ResizeObserverCallback;
+  constructor(callback: globalThis.ResizeObserverCallback) {
+    this.callback = callback;
+  }
+  observe(target: Element) {
+    this.callback([{ target } as globalThis.ResizeObserverEntry], this);
+  }
+  //eslint-disable-next-line @typescript-eslint/no-empty-function
+  unobserve() {}
+
+  //eslint-disable-next-line @typescript-eslint/no-empty-function
+  disconnect() {}
+}
+
+global.ResizeObserver = ResizeObserver;
+
 const renderComponent = (props: Partial<TooltipProps> = {}) =>
   render(
     <Tooltip interaction="hover" content={<Typography>This is the content of tooltip</Typography>} {...props}>
