@@ -55,27 +55,25 @@ export const Tooltip = ({
         {children}
       </StyledWrapperChildren>
       {isShown && (
-        <>
-          <StyledContent
-            py={1}
-            px={2}
-            $color={color}
-            ref={refs.setFloating}
-            style={floatingStyles}
-            elevation={2}
-            {...getFloatingProps()}
-          >
-            {content}
-            <FloatingArrow
-              ref={arrowRef}
-              context={context}
-              fill={color === 'blue' ? theme.palette.blue[800] : theme.palette.white.main}
-              stroke={color === 'blue' ? theme.palette.blue[800] : theme.palette.neutral[300]}
-              strokeWidth={1}
-              tipRadius={1}
-            />
-          </StyledContent>
-        </>
+        <StyledContent
+          py={1}
+          px={2}
+          $color={color}
+          ref={refs.setFloating}
+          style={floatingStyles}
+          elevation={2}
+          {...getFloatingProps()}
+        >
+          {content}
+          <FloatingArrow
+            ref={arrowRef}
+            context={context}
+            fill={color === 'blue' ? theme.palette.blue[800] : theme.palette.white.main}
+            stroke={color === 'blue' ? theme.palette.blue[800] : theme.palette.neutral[300]}
+            strokeWidth={1}
+            tipRadius={1}
+          />
+        </StyledContent>
       )}
     </>
   );
