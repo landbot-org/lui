@@ -4,7 +4,8 @@ import { pxToRem } from '../shared/mixins';
 import { StylesProps } from './types';
 
 export const StyledWrapperChildren = styled.span`
-  display: block;
+  display: inline-block;
+  height: fit-content;
 `;
 
 export const StyledContent = styled(Box)<StylesProps>`

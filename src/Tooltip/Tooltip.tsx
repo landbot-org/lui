@@ -1,5 +1,17 @@
 import React, { useRef, useState } from 'react';
-import { arrow, FloatingArrow, offset, useFloating, useHover, useClick, useInteractions } from '@floating-ui/react';
+import {
+  arrow,
+  FloatingArrow,
+  offset,
+  useFloating,
+  useHover,
+  useInteractions,
+  flip,
+  useRole,
+  autoUpdate,
+  useClick,
+  useDismiss,
+} from '@floating-ui/react';
 import { TooltipProps } from './types';
 import { StyledContent, StyledWrapperChildren } from './Tooltip.styles';
 import { theme } from '../shared/theme';
@@ -21,18 +33,21 @@ export const Tooltip = ({
     placement,
     open: isShown,
     onOpenChange: setIsShown,
+    whileElementsMounted: autoUpdate,
     middleware: [
       offset(ARROW_HEIGHT + GAP),
       arrow({
         element: arrowRef,
       }),
+      flip(),
     ],
   });
-
+  const role = useRole(context, { role: 'tooltip' });
   const hover = useHover(context, { enabled: interaction === 'hover' });
   const click = useClick(context, { enabled: interaction === 'click' });
+  const dismiss = useDismiss(context);
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover, click]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover, click, role, dismiss]);
 
   return (
     <>
@@ -47,6 +62,7 @@ export const Tooltip = ({
             $color={color}
             ref={refs.setFloating}
             style={floatingStyles}
+            elevation={2}
             {...getFloatingProps()}
           >
             {content}
