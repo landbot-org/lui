@@ -8,7 +8,7 @@ export type StylesProps = {
 export type TooltipProps = {
   children: ReactNode;
   content: ReactNode;
-  placement: Placement;
-  color: 'blue' | 'white';
-  isOpen: boolean;
+  placement?: Placement;
+  color?: 'blue' | 'white';
+  interaction?: 'click' | 'hover';
 };

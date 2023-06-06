@@ -6,12 +6,14 @@ import { Tooltip } from './Tooltip';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { TooltipProps } from './types';
+import { Button } from '../Button';
 
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   args: {
     color: 'blue',
+    interaction: 'hover',
   },
 } as ComponentMeta<typeof Tooltip>;
 
@@ -26,9 +28,7 @@ export const Default: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
           </Typography>
         }
       >
-        <button>
-          <Box p={2}>Mouse over me!</Box>
-        </button>
+        <Button size="large">Interact with me!</Button>
       </Tooltip>
     </Box>
   </ThemeProvider>
@@ -53,9 +53,7 @@ export const TooltipScroll: ComponentStory<typeof Tooltip> = (args: TooltipProps
               </Typography>
             }
           >
-            <button>
-              <Box p={2}>Mouse over me!</Box>
-            </button>
+            <Button size="large">Interact with me!</Button>
           </Tooltip>
           Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.
           Lorem ipsum dolor sit amet consectetur. Commodo tempus hendrerit id nunc magnis faucibus consectetur leo hac.

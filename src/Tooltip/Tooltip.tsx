@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { arrow, FloatingArrow, offset, useFloating, useHover, useInteractions } from '@floating-ui/react';
+import { arrow, FloatingArrow, offset, useFloating, useHover, useClick, useInteractions } from '@floating-ui/react';
 import { TooltipProps } from './types';
 import { StyledContent, StyledWrapperChildren } from './Tooltip.styles';
 import { theme } from '../shared/theme';
@@ -7,7 +7,13 @@ import { theme } from '../shared/theme';
 const ARROW_HEIGHT = 7;
 const GAP = 2;
 
-export const Tooltip = ({ content, color, children, placement = 'bottom' }: TooltipProps) => {
+export const Tooltip = ({
+  content,
+  color = 'blue',
+  children,
+  placement = 'bottom',
+  interaction = 'hover',
+}: TooltipProps) => {
   const arrowRef = useRef(null);
   const [isShown, setIsShown] = useState(false);
 
@@ -23,9 +29,10 @@ export const Tooltip = ({ content, color, children, placement = 'bottom' }: Tool
     ],
   });
 
-  const hover = useHover(context);
+  const hover = useHover(context, { enabled: interaction === 'hover' });
+  const click = useClick(context, { enabled: interaction === 'click' });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover, click]);
 
   return (
     <>
