@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Icon } from '../Icon';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
-export const Link = ({ bold = false, children, containsIcon = false, ...rest }: LinkProps) => (
+export const Link = ({ bold = false, children, containsIcon = false, variant, ...rest }: LinkProps) => (
   <BaseLink {...rest}>
-    <Typography fontWeight={bold ? 700 : 400} variant="text16" as="span">
+    <Typography fontWeight={bold ? 700 : 400} variant={variant} as="span">
       {children}
     </Typography>
     {containsIcon && (
