@@ -8,7 +8,7 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 export const Link = ({ bold = false, children, containsIcon = false, ...rest }: LinkProps) => (
   <BaseLink {...rest}>
-    <Typography fontWeight={bold ? 700 : 400} variant="text16">
+    <Typography fontWeight={bold ? 700 : 400} variant="text16" as="span">
       {children}
     </Typography>
     {containsIcon && (
