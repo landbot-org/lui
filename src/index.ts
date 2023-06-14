@@ -4,6 +4,7 @@ export { Checkbox } from './Checkbox';
 export { Divider } from './Divider';
 export { Icon, GRID_AREA } from './Icon';
 export { Link } from './Link';
+export * from './Popover';
 export { Radio } from './Radio';
 export { Spinner } from './Spinner';
 export { Tabs } from './Tabs';
