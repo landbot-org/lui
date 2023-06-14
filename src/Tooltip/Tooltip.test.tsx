@@ -2,27 +2,10 @@ import { screen } from '@testing-library/react';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { Button } from '../Button';
-import { render } from '../test-utils';
+import { mockResizeObserver, render } from '../test-utils';
 import { Typography } from '../Typography';
 import { Tooltip } from './Tooltip';
 import { TooltipProps } from './types';
-
-class ResizeObserver {
-  callback: globalThis.ResizeObserverCallback;
-  constructor(callback: globalThis.ResizeObserverCallback) {
-    this.callback = callback;
-  }
-  observe(target: Element) {
-    this.callback([{ target } as globalThis.ResizeObserverEntry], this);
-  }
-  //eslint-disable-next-line @typescript-eslint/no-empty-function
-  unobserve() {}
-
-  //eslint-disable-next-line @typescript-eslint/no-empty-function
-  disconnect() {}
-}
-
-global.ResizeObserver = ResizeObserver;
 
 const renderComponent = (props: Partial<TooltipProps> = {}) =>
   render(
@@ -32,6 +15,10 @@ const renderComponent = (props: Partial<TooltipProps> = {}) =>
   );
 
 describe('Tooltip', () => {
+  beforeEach(() => {
+    mockResizeObserver();
+  });
+
   it('should render children', () => {
     renderComponent();
 
