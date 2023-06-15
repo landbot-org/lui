@@ -7,7 +7,6 @@ const PopoverContentBase = (props: HTMLProps<HTMLDivElement>, propRef: Forwarded
     const { context: floatingContext, ...context } = usePopoverContext();
     const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
-    console.log({ floatingStyles: context.floatingStyles, props: props.style });
     if (!floatingContext.open) return null;
 
     return (
