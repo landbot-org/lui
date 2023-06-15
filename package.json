@@ -7,6 +7,7 @@
   "sideEffects": false,
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watchAll",
     "test:ci": "jest --collect-coverage --ci",
     "test-storybook": "test-storybook",
     "lint": "eslint --ext=.tsx,.ts  src",
