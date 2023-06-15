@@ -2,7 +2,7 @@ import React, { ForwardedRef, HTMLProps, forwardRef } from 'react';
 import { usePopoverContext } from './PopoverContext';
 import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 
-const PopoverContentBase = (props: HTMLProps<HTMLDivElement>, propRef: ForwardedRef<HTMLDivElement>) => {
+const PopoverContentBase = ({ style, ...props }: HTMLProps<HTMLDivElement>, propRef: ForwardedRef<HTMLDivElement>) => {
   {
     const { context: floatingContext, ...context } = usePopoverContext();
     const ref = useMergeRefs([context.refs.setFloating, propRef]);
@@ -15,9 +15,8 @@ const PopoverContentBase = (props: HTMLProps<HTMLDivElement>, propRef: Forwarded
           <div
             ref={ref}
             style={{
-              zIndex: 2_000_000,
               ...context.floatingStyles,
-              ...props.style,
+              ...style,
             }}
             aria-labelledby={context.labelId}
             aria-describedby={context.descriptionId}
