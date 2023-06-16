@@ -69,3 +69,20 @@ export const FlipTooltip: ComponentStory<typeof Tooltip> = (args: TooltipProps) 
     </Box>
   </ThemeProvider>
 );
+
+export const ClickableContentTooltip: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
+  <ThemeProvider theme={theme}>
+    <Box display="flex" justifyContent="center" py={20} m={10} style={{ height: '550px', overflowY: 'hidden' }}>
+      <Tooltip
+        {...args}
+        content={
+          <Typography color={args.color === 'white' ? 'blue.main' : 'white.main'} variant="text12">
+            This is the content of Tooltip! <a href="https://www.google.com">This is a link</a>
+          </Typography>
+        }
+      >
+        <Button size="large">Interact with me and click the link!</Button>
+      </Tooltip>
+    </Box>
+  </ThemeProvider>
+);

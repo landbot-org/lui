@@ -11,6 +11,7 @@ import {
   autoUpdate,
   useClick,
   useDismiss,
+  safePolygon,
 } from '@floating-ui/react';
 import { TooltipProps } from './types';
 import { StyledContent, StyledWrapperChildren } from './Tooltip.styles';
@@ -43,7 +44,10 @@ export const Tooltip = ({
     ],
   });
   const role = useRole(context, { role: 'tooltip' });
-  const hover = useHover(context, { enabled: interaction === 'hover' });
+  const hover = useHover(context, {
+    enabled: interaction === 'hover',
+    handleClose: safePolygon({ buffer: -Infinity, blockPointerEvents: true }),
+  });
   const click = useClick(context, { enabled: interaction === 'click' });
   const dismiss = useDismiss(context);
 
