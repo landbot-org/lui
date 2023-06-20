@@ -22,7 +22,7 @@ export default {
     startAdornment: <Icon icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} color="blue.main" />,
     endAdornment: <Icon icon={<FontAwesomeIcon icon={faAngleDown} />} color="blue.main" />,
     onSelectItem: (item) => console.log('Selected item: ', item),
-    onChangeInput: (event) => console.log('Changed input: ', event.target.value),
+    onChange: (event) => console.log('Changed input: ', event.target.value),
   },
   argTypes: {
     startAdornment: {
@@ -63,9 +63,12 @@ export const Searchable: ComponentStory<typeof Autocomplete> = (args: Autocomple
     { id: '3', value: 'Option 3' },
   ];
   const [itemsState, setItemsState] = useState(items);
+  const [inputValue, setInputValue] = useState('');
   const [selectedItem, setSelectedItem] = useState<{ id: string; value: string } | null>(null);
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedItem(null);
+    setInputValue(event.target.value);
     setItemsState(items.filter((item) => item.value.includes(event.target.value)));
   };
 
@@ -78,9 +81,9 @@ export const Searchable: ComponentStory<typeof Autocomplete> = (args: Autocomple
       <Autocomplete
         {...args}
         items={itemsState}
-        onChangeInput={handleChangeInput}
+        onChange={handleChangeInput}
         onSelectItem={handleSelectItem}
-        inputValue={selectedItem?.value || ''}
+        inputValue={selectedItem?.value || inputValue}
       />
     </ThemeProvider>
   );

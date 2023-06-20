@@ -53,7 +53,7 @@ export const Autocomplete = ({
   items,
   placeholder,
   startAdornment,
-  onChangeInput,
+  onChange,
   onSelectItem,
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
@@ -93,7 +93,7 @@ export const Autocomplete = ({
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    onChangeInput(event);
+    onChange(event);
 
     if (value) {
       setOpen(true);

@@ -12,6 +12,6 @@ export interface AutocompleteProps {
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
   inputValue?: string;
-  onChangeInput: NonNullable<TextFieldProps['onChange']>;
+  onChange: NonNullable<TextFieldProps['onChange']>;
   onSelectItem: (item: AutoCompleteItem) => void;
 }
