@@ -143,8 +143,8 @@ export const Autocomplete = ({
               <Box border={1} radius={1} p={1}>
                 {items.length > 0 ? (
                   items.map((item, index) => (
-                    //eslint-disable-next-line react/jsx-key
                     <OptionItem
+                      key={item.id}
                       {...getItemProps({
                         key: item.id,
                         ref(node) {
