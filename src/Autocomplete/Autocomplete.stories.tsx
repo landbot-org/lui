@@ -63,14 +63,25 @@ export const Searchable: ComponentStory<typeof Autocomplete> = (args: Autocomple
     { id: '3', value: 'Option 3' },
   ];
   const [itemsState, setItemsState] = useState(items);
+  const [selectedItem, setSelectedItem] = useState<{ id: string; value: string } | null>(null);
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setItemsState(items.filter((item) => item.value.includes(event.target.value)));
   };
 
+  const handleSelectItem = (item: { id: string; value: string }) => {
+    setSelectedItem(item);
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Autocomplete {...args} items={itemsState} onChangeInput={handleChangeInput} />
+      <Autocomplete
+        {...args}
+        items={itemsState}
+        onChangeInput={handleChangeInput}
+        onSelectItem={handleSelectItem}
+        inputValue={selectedItem?.value || ''}
+      />
     </ThemeProvider>
   );
 };
