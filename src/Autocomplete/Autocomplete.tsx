@@ -53,6 +53,7 @@ export const Autocomplete = ({
   items,
   placeholder,
   startAdornment,
+  selectedItemId,
   onChange,
   onSelectItem,
 }: AutocompleteProps) => {
@@ -156,7 +157,7 @@ export const Autocomplete = ({
                           refs.domReference.current?.focus();
                         },
                       })}
-                      active={activeIndex === index}
+                      active={activeIndex === index || selectedItemId === item.id}
                     >
                       {item.value}
                     </OptionItem>

@@ -8,6 +8,7 @@ export interface AutoCompleteItem {
 
 export interface AutocompleteProps {
   items: AutoCompleteItem[];
+  selectedItemId?: AutoCompleteItem['id'];
   placeholder?: string;
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
