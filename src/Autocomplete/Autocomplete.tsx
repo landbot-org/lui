@@ -140,7 +140,7 @@ export const Autocomplete = ({
                 },
               })}
             >
-              <Box border={1} radius={1} p={1}>
+              <Box border={1} radius={1} p={1} backgroundColor="white.main">
                 {items.length > 0 ? (
                   items.map((item, index) => (
                     <OptionItem
