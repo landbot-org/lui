@@ -17,7 +17,7 @@ import { BoxProps } from '../Box/types';
 import { TextField } from '../TextField';
 import { Typography } from '../Typography';
 import { StyledOption } from './Autocomplete.styles';
-import { AutocompleteProps } from './types';
+import { AutoCompleteItem, AutocompleteProps } from './types';
 
 interface ItemProps {
   children: React.ReactNode;
@@ -109,6 +109,12 @@ export const Autocomplete = ({
     setOpen(true);
   };
 
+  const handleSelectItem = (item: AutoCompleteItem) => {
+    onSelectItem(item);
+    setActiveIndex(null);
+    setOpen(false);
+  };
+
   return (
     <>
       <TextField
@@ -123,22 +129,21 @@ export const Autocomplete = ({
           'aria-autocomplete': 'list',
           onKeyDown(event) {
             if (event.key === 'Enter' && activeIndex != null && items[activeIndex]) {
-              onSelectItem(items[activeIndex]);
-              setActiveIndex(null);
-              setOpen(false);
+              handleSelectItem(items[activeIndex]);
             }
           },
         })}
       />
       <FloatingPortal>
         {open && (
-          <FloatingFocusManager context={context} initialFocus={-1} visuallyHiddenDismiss>
+          <FloatingFocusManager context={context} visuallyHiddenDismiss>
             <div
               {...getFloatingProps({
                 ref: refs.setFloating,
                 style: {
                   ...floatingStyles,
                   overflowY: 'auto',
+                  zIndex: 1000,
                 },
               })}
             >
@@ -146,6 +151,7 @@ export const Autocomplete = ({
                 {items.length > 0 ? (
                   items.map((item, index) => (
                     <OptionItem
+                      tabIndex={activeIndex === index ? 0 : -1}
                       key={item.id}
                       {...getItemProps({
                         key: item.id,
@@ -153,9 +159,7 @@ export const Autocomplete = ({
                           listRef.current[index] = node;
                         },
                         onClick() {
-                          onSelectItem(item);
-                          setOpen(false);
-                          refs.domReference.current?.focus();
+                          handleSelectItem(item);
                         },
                       })}
                       active={activeIndex === index || selectedItemId === item.id}
