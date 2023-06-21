@@ -99,7 +99,7 @@ export const Autocomplete = ({
 
     if (value) {
       setOpen(true);
-      setActiveIndex(0);
+      setActiveIndex(null);
     } else {
       setOpen(false);
     }
@@ -117,26 +117,27 @@ export const Autocomplete = ({
 
   return (
     <>
-      <TextField
-        startAdornment={startAdornment}
-        endAdornment={endAdornment}
-        {...getReferenceProps({
-          onChange: handleChangeInput,
-          onFocus: handleFocusInput,
-          value: inputValue,
-          ref: refs.setReference,
-          placeholder,
-          'aria-autocomplete': 'list',
-          onKeyDown(event) {
-            if (event.key === 'Enter' && activeIndex != null && items[activeIndex]) {
-              handleSelectItem(items[activeIndex]);
-            }
-          },
-        })}
-      />
+      <div onMouseDown={handleFocusInput}>
+        <TextField
+          startAdornment={startAdornment}
+          endAdornment={endAdornment}
+          {...getReferenceProps({
+            onChange: handleChangeInput,
+            value: inputValue,
+            ref: refs.setReference,
+            placeholder,
+            'aria-autocomplete': 'list',
+            onKeyDown(event) {
+              if (event.key === 'Enter' && activeIndex != null && items[activeIndex]) {
+                handleSelectItem(items[activeIndex]);
+              }
+            },
+          })}
+        />
+      </div>
       <FloatingPortal>
         {open && (
-          <FloatingFocusManager context={context} visuallyHiddenDismiss>
+          <FloatingFocusManager context={context} visuallyHiddenDismiss initialFocus={-1}>
             <div
               {...getFloatingProps({
                 ref: refs.setFloating,
@@ -151,7 +152,6 @@ export const Autocomplete = ({
                 {items.length > 0 ? (
                   items.map((item, index) => (
                     <OptionItem
-                      tabIndex={activeIndex === index ? 0 : -1}
                       key={item.id}
                       {...getItemProps({
                         key: item.id,
@@ -160,6 +160,7 @@ export const Autocomplete = ({
                         },
                         onClick() {
                           handleSelectItem(item);
+                          refs.domReference.current?.focus();
                         },
                       })}
                       active={activeIndex === index || selectedItemId === item.id}
