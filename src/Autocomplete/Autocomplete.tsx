@@ -6,11 +6,12 @@ import {
   size,
   useDismiss,
   useFloating,
+  useId,
   useInteractions,
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
-import React, { useId, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Box } from '../Box';
 import { BoxProps } from '../Box/types';
 import { TextField } from '../TextField';
