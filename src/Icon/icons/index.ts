@@ -48,6 +48,7 @@ export { FaceSad } from './FaceSad';
 export { FaceSmile } from './FaceSmile';
 export { FaceSmiling } from './FaceSmiling';
 export { Faq } from './Faq';
+export { FaqLine } from './FaqLine';
 export { FlagRed } from './FlagRed';
 export { FloppyDisk } from './FloppyDisk';
 export { Folder } from './Folder';
