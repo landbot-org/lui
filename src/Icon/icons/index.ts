@@ -53,6 +53,7 @@ export { FlagRed } from './FlagRed';
 export { FloppyDisk } from './FloppyDisk';
 export { Folder } from './Folder';
 export { Forms } from './Forms';
+export { Funnel } from './Funnel';
 export { GearTool } from './GearTool';
 export { GoldMedal } from './GoldMedal';
 export { Golf } from './Golf';
