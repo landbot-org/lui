@@ -22,6 +22,9 @@ export const usePopover = ({
   open: controlledOpen,
   onOpenChange: setControlledOpen,
   preventClose = false,
+  hasArrow,
+  onOpenChange,
+  hasCloseButton,
 }: PopoverProps = {}) => {
   const arrowRef = useRef(null);
   const [uncontrolledOpen, setUncontrolledOpen] = useState(initialOpen);
@@ -62,7 +65,11 @@ export const usePopover = ({
       descriptionId,
       setLabelId,
       setDescriptionId,
+      arrowRef,
+      hasArrow,
+      onOpenChange,
+      hasCloseButton,
     }),
-    [open, setOpen, interactions, data, modal, labelId, descriptionId]
+    [open, setOpen, interactions, data, modal, labelId, descriptionId, hasArrow, onOpenChange, hasCloseButton]
   );
 };
