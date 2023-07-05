@@ -7,28 +7,45 @@ import { Box } from '../Box';
 import { PopoverProps } from './types';
 import { PopoverTrigger } from './PopoverTrigger';
 import { PopoverContent } from './PopoverContent';
-import { PopoverClose } from './PopoverClose';
 import { Typography } from '../Typography';
+import { Button } from '../Button';
+import { Link } from '../Link';
 
 export default {
   title: 'Components/Popover',
   component: Popover,
+  args: {
+    placement: 'right',
+    open: true,
+    hasArrow: true,
+    hasCloseButton: true,
+    preventClose: false,
+  },
 } as ComponentMeta<typeof Popover>;
 
 export const Default: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(args.open);
 
   return (
     <ThemeProvider theme={theme}>
-      <Box display="flex" justifyContent="center" m={10}>
-        <Popover {...args} open={open} onOpenChange={setOpen} preventClose>
+      <Box display="flex" justifyContent="flex-start" m={20}>
+        <Popover {...args} open={open} onOpenChange={setOpen}>
           <PopoverTrigger onClick={() => setOpen(true)}>Click here to open</PopoverTrigger>
           <PopoverContent>
-            <Box display="flex" justifyContent="center" p={10} gap={12} backgroundColor="blue.50">
-              <Typography color="blue.main" variant="text12">
-                This is the popover content
+            <Box style={{ width: '252px' }} display="flex" flexDirection="column" gap={8}>
+              <Typography variant="text14" fontWeight={700} color="blue.main">
+                Title
               </Typography>
-              <PopoverClose onClick={() => setOpen(false)}>X</PopoverClose>
+              <Typography variant="text12" fontWeight={400} color="blue.main">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </Typography>
+              <Link containsIcon={true}>Text link</Link>
+            </Box>
+            <Box display="flex" my={2} style={{ height: '100px', backgroundColor: 'LightSlateGrey' }}></Box>
+
+            <Box display="flex" justifyContent="flex-end" pt={2}>
+              <Button size="small">Primary small</Button>
             </Box>
           </PopoverContent>
         </Popover>

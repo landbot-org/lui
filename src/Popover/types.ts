@@ -7,4 +7,6 @@ export interface PopoverProps {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   preventClose?: boolean;
+  hasArrow?: boolean;
+  hasCloseButton?: boolean;
 }
