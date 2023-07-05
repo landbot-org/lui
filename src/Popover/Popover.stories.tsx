@@ -55,13 +55,13 @@ export const Default: ComponentStory<typeof Popover> = (args: PopoverProps) => {
   );
 };
 
-export const PopoverWithCustomClose: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+export const PopoverWithCustomClose: ComponentStory<typeof Popover> = () => {
   const [open, setOpen] = useState(true);
 
   return (
     <ThemeProvider theme={theme}>
       <Box display="flex" justifyContent="flex-start" m={20}>
-        <Popover {...args} open={open} onOpenChange={setOpen} preventClose>
+        <Popover hasCloseButton={false} open={open} onOpenChange={setOpen} preventClose={true}>
           <PopoverTrigger onClick={() => setOpen(true)}>Click here to open</PopoverTrigger>
           <PopoverContent>
             <Box style={{ width: '252px' }} display="flex" flexDirection="column" gap={8}>
@@ -79,8 +79,4 @@ export const PopoverWithCustomClose: ComponentStory<typeof Popover> = (args: Pop
       </Box>
     </ThemeProvider>
   );
-};
-PopoverWithCustomClose.args = {
-  hasCloseButton: false,
-  preventClose: true,
 };
