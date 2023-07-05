@@ -56,7 +56,7 @@ export const Default: ComponentStory<typeof Popover> = (args: PopoverProps) => {
 };
 
 export const PopoverWithCustomClose: ComponentStory<typeof Popover> = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
