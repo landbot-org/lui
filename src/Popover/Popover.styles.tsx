@@ -15,3 +15,12 @@ export const StyledCloseButton = styled(Button)`
   height: ${pxToRem(16)}rem;
   width: ${pxToRem(16)}rem; ;
 `;
+
+export const StyledButtonDefaultRemoved = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+`;

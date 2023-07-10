@@ -31,7 +31,9 @@ export const Default: ComponentStory<typeof Popover> = (args: PopoverProps) => {
     <ThemeProvider theme={theme}>
       <Box display="flex" justifyContent="flex-start" m={20}>
         <Popover {...args} open={open} onOpenChange={setOpen}>
-          <PopoverTrigger onClick={() => setOpen(true)}>Click here to open</PopoverTrigger>
+          <PopoverTrigger onClick={() => setOpen(true)}>
+            <Button> Click here to open</Button>
+          </PopoverTrigger>
           <PopoverContent>
             <Box style={{ width: '252px' }} display="flex" flexDirection="column" gap={8}>
               <Typography variant="text14" fontWeight={700} color="blue.main">
@@ -62,7 +64,9 @@ export const PopoverWithCustomClose: ComponentStory<typeof Popover> = () => {
     <ThemeProvider theme={theme}>
       <Box display="flex" justifyContent="flex-start" m={20}>
         <Popover hasCloseButton={false} open={open} onOpenChange={setOpen} preventClose={true}>
-          <PopoverTrigger onClick={() => setOpen(true)}>Click here to open</PopoverTrigger>
+          <PopoverTrigger onClick={() => setOpen(true)}>
+            <Button>Click here to open</Button>
+          </PopoverTrigger>
           <PopoverContent>
             <Box style={{ width: '252px' }} display="flex" flexDirection="column" gap={8}>
               <Typography variant="text14" fontWeight={700} color="blue.main">
@@ -72,7 +76,9 @@ export const PopoverWithCustomClose: ComponentStory<typeof Popover> = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua.
               </Typography>
-              <PopoverClose>Close Me!</PopoverClose>
+              <PopoverClose>
+                <Button>Close Me!</Button>
+              </PopoverClose>
             </Box>
           </PopoverContent>
         </Popover>

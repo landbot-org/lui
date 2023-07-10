@@ -1,10 +1,11 @@
 import React, { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react';
 import { usePopoverContext } from './PopoverContext';
+import { StyledButtonDefaultRemoved } from './Popover.styles';
 
 const PopoverCloseBase = (props: ButtonHTMLAttributes<HTMLButtonElement>, ref: ForwardedRef<HTMLButtonElement>) => {
   const { setOpen } = usePopoverContext();
   return (
-    <button
+    <StyledButtonDefaultRemoved
       type="button"
       ref={ref}
       {...props}
