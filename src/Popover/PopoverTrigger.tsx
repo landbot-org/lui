@@ -1,7 +1,7 @@
 import React, { ForwardedRef, HTMLProps, ReactNode, forwardRef } from 'react';
 import { usePopoverContext } from './PopoverContext';
 import { useMergeRefs } from '@floating-ui/react';
-import { StyledButtonDefaultRemoved } from './Popover.styles';
+
 interface PopoverTriggerProps {
   children: ReactNode;
 }
@@ -15,9 +15,9 @@ const PopoverTriggerBase = (
   const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
 
   return (
-    <StyledButtonDefaultRemoved ref={ref} type="button" {...context.getReferenceProps(props)}>
+    <span ref={ref} {...context.getReferenceProps(props)}>
       {children}
-    </StyledButtonDefaultRemoved>
+    </span>
   );
 };
 

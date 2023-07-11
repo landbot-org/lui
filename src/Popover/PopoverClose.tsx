@@ -1,12 +1,10 @@
-import React, { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react';
+import React, { HTMLAttributes, ForwardedRef, forwardRef } from 'react';
 import { usePopoverContext } from './PopoverContext';
-import { StyledButtonDefaultRemoved } from './Popover.styles';
 
-const PopoverCloseBase = (props: ButtonHTMLAttributes<HTMLButtonElement>, ref: ForwardedRef<HTMLButtonElement>) => {
+const PopoverCloseBase = (props: HTMLAttributes<HTMLSpanElement>, ref: ForwardedRef<HTMLSpanElement>) => {
   const { setOpen } = usePopoverContext();
   return (
-    <StyledButtonDefaultRemoved
-      type="button"
+    <span
       ref={ref}
       {...props}
       onClick={(event) => {
@@ -16,4 +14,5 @@ const PopoverCloseBase = (props: ButtonHTMLAttributes<HTMLButtonElement>, ref: F
     />
   );
 };
-export const PopoverClose = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(PopoverCloseBase);
+
+export const PopoverClose = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(PopoverCloseBase);
