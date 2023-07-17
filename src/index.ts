@@ -2,6 +2,7 @@ export { Autocomplete } from './Autocomplete';
 export { Box } from './Box';
 export { Button } from './Button';
 export { Checkbox } from './Checkbox';
+export { Dialog, DialogContent, DialogClose } from './Dialog';
 export { Divider } from './Divider';
 export { Icon, GRID_AREA } from './Icon';
 export { Link } from './Link';
