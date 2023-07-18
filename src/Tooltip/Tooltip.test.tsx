@@ -24,8 +24,8 @@ describe('Tooltip', () => {
   it('should open Tooltip when hover in trigger button', async () => {
     const { user } = renderComponent();
 
-    await user.click(screen.getByRole('button', { name: 'Open Popover' }));
+    await user.hover(screen.getByRole('button', { name: 'Open Tooltip' }));
 
-    expect(screen.getByText('Popover content')).toBeVisible();
+    expect(screen.getByText('Tooltip content')).toBeVisible();
   });
 });
