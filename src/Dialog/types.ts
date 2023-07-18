@@ -1,7 +1,8 @@
 export interface DialogProps {
-  children?: React.ReactNode;
-  open: boolean;
-  setOpen: (open: boolean) => void;
+  canEscapeClose?: boolean;
   hasCloseButton?: boolean;
+  open: boolean;
+  preventClose?: boolean;
+  setOpen: (open: boolean) => void;
   width?: number;
 }

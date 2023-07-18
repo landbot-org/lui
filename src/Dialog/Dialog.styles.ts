@@ -10,7 +10,8 @@ export const StyledFloatingOverlay = styled(FloatingOverlay)`
 
 export const StyledContent = styled(Box)<{ $width?: number }>`
   position: relative;
-  width: ${({ $width }) => `${$width}px`};
+  z-index: 1000;
+  width: ${({ $width }) => $width && `${$width}px`};
   max-width: 95vw;
   max-height: 95vh;
   overflow: auto;

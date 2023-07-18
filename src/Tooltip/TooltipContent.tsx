@@ -1,11 +1,10 @@
 import React, { HTMLProps } from 'react';
-import { usePopoverContext } from './PopoverContext';
+import { usePopoverContext } from '../Popover/PopoverContext';
 import { FloatingFocusManager, FloatingPortal, FloatingArrow } from '@floating-ui/react';
 import { theme } from '../shared/theme';
-import { StyledPopoverContent, StyledPopoverCloseWrapper } from './Popover.styles';
-import { PopoverClose } from './PopoverClose';
+import { StyledPopoverContent } from '../Popover/Popover.styles';
 
-export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
+export const TooltipContent = (props: HTMLProps<HTMLDivElement>) => {
   const { context: floatingContext, ...context } = usePopoverContext();
 
   if (!floatingContext.open) return null;
@@ -15,6 +14,8 @@ export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
       <FloatingFocusManager context={floatingContext}>
         <StyledPopoverContent
           $color={context.color}
+          py={1}
+          px={2}
           border={1}
           radius={2}
           elevation={2}
@@ -22,18 +23,13 @@ export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
           style={context.floatingStyles}
           {...context.getFloatingProps(props)}
         >
-          {context.hasCloseButton && (
-            <StyledPopoverCloseWrapper p={1}>
-              <PopoverClose />
-            </StyledPopoverCloseWrapper>
-          )}
           {props.children}
           {context.hasArrow && (
             <FloatingArrow
               ref={context.arrowRef}
               context={floatingContext}
-              fill={theme.palette.white.main}
-              stroke={theme.palette.neutral[300]}
+              fill={context.color === 'blue' ? theme.palette.blue[800] : theme.palette.white.main}
+              stroke={context.color === 'blue' ? theme.palette.blue[800] : theme.palette.neutral[300]}
               strokeWidth={1}
               tipRadius={1}
             />

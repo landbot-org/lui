@@ -1,12 +1,7 @@
 import React, { useContext } from 'react';
 import { usePopover } from './usePopover';
 
-type ContextType =
-  | (ReturnType<typeof usePopover> & {
-      setLabelId: React.Dispatch<React.SetStateAction<string | undefined>>;
-      setDescriptionId: React.Dispatch<React.SetStateAction<string | undefined>>;
-    })
-  | null;
+type ContextType = ReturnType<typeof usePopover> | null;
 
 export const PopoverContext = React.createContext<ContextType>(null);
 
@@ -14,7 +9,7 @@ export const usePopoverContext = () => {
   const context = useContext(PopoverContext);
 
   if (context === null) {
-    throw new Error('Popover components must be wrapped in <Popover />');
+    throw new Error('Popover components must be wrapped in <Popover />, <Tooltip /> or a corresponding parent.');
   }
 
   return context;

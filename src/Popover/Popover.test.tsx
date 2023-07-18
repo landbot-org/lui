@@ -1,40 +1,25 @@
-import React, { ReactNode, useState } from 'react';
-import { Popover } from './Popover';
-import { PopoverTrigger } from './PopoverTrigger';
-import { PopoverContent } from './PopoverContent';
-import { PopoverClose } from './PopoverClose';
-import { act, mockResizeObserver, render, screen } from '../test-utils';
+import React, { useState } from 'react';
+import { Popover, PopoverContent, PopoverTrigger } from '.';
+import { mockResizeObserver, render, screen } from '../test-utils';
+import { PopoverProps } from './types';
 
-interface SUTProps {
-  triggerContent: ReactNode;
-  popoverContent: ReactNode;
-  closeButtonContent: ReactNode;
-}
-
-const SUT = ({ triggerContent, popoverContent, closeButtonContent }: SUTProps) => {
+const SUTControlled = (props: Partial<PopoverProps> = {}) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger onClick={() => setOpen(true)}>{triggerContent}</PopoverTrigger>
+    <Popover {...props} open={open} setOpen={setOpen}>
+      <PopoverTrigger>
+        <button onClick={() => setOpen(true)}>Open Popover</button>
+      </PopoverTrigger>
       <PopoverContent>
-        <div>
-          <div>{popoverContent}</div>
-          <PopoverClose onClick={() => setOpen(false)}>{closeButtonContent}</PopoverClose>
-        </div>
+        <div>Popover content</div>
       </PopoverContent>
     </Popover>
   );
 };
 
-const renderComponent = (props: Partial<SUTProps> = {}) => {
-  const defaultProps: SUTProps = {
-    popoverContent: <>Popover content</>,
-    triggerContent: <>Open popover</>,
-    closeButtonContent: <>Click to close</>,
-  };
-
-  return render(<SUT {...defaultProps} {...props} />);
+const renderComponent = (props: Partial<PopoverProps> = {}) => {
+  return render(<SUTControlled {...props} />);
 };
 
 describe('Popover', () => {
@@ -42,43 +27,60 @@ describe('Popover', () => {
     mockResizeObserver();
   });
 
-  it('shows button to open popover', () => {
-    const popoverContent = 'popover.content';
-    const triggerContent = 'click-to-open';
+  it('should open Popover when click in trigger button', async () => {
+    const { user } = renderComponent();
 
-    renderComponent({ popoverContent, triggerContent });
+    await user.click(screen.getByRole('button', { name: 'Open Popover' }));
 
-    expect(screen.getByRole('button', { name: triggerContent })).toBeVisible();
-    expect(screen.queryByText(popoverContent)).not.toBeInTheDocument();
+    expect(screen.getByText('Popover content')).toBeVisible();
   });
 
-  it('shows popover content on click', async () => {
-    const popoverContent = 'popover.content';
-    const triggerContent = 'click-to-open';
-    const { user } = renderComponent({ popoverContent, triggerContent });
+  it('should open Popover when hover in trigger button if interaction is hover', async () => {
+    const { user } = renderComponent({ interaction: 'hover' });
 
-    // TODO - review this act upgrade to last version
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: triggerContent }));
-    });
+    await user.hover(screen.getByRole('button', { name: 'Open Popover' }));
 
-    expect(screen.getByText(popoverContent)).toBeVisible();
+    expect(screen.getByText('Popover content')).toBeVisible();
   });
 
-  it('hides popover content on close click', async () => {
-    const popoverContent = 'popover.content';
-    const triggerContent = 'click-to-open';
-    const closeButtonContent = 'click-to-close';
-    const { user } = renderComponent({ popoverContent, triggerContent, closeButtonContent });
+  it('should open Popover when click in trigger button (uncontrolled)', async () => {
+    const { user } = render(
+      <Popover>
+        <PopoverTrigger>
+          <button>Open Popover</button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <div>Popover content</div>
+        </PopoverContent>
+      </Popover>
+    );
 
-    // TODO - review this act upgrade to last version
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: triggerContent }));
-    });
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: closeButtonContent }));
-    });
+    await user.click(screen.getByRole('button', { name: 'Open Popover' }));
 
-    expect(screen.queryByText(popoverContent)).not.toBeInTheDocument();
+    expect(screen.getByText('Popover content')).toBeVisible();
+  });
+
+  it('should render opened Popover when defaultOpen is true (uncontrolled)', () => {
+    render(
+      <Popover defaultOpen>
+        <PopoverTrigger>
+          <button>Open Popover</button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <div>Popover content</div>
+        </PopoverContent>
+      </Popover>
+    );
+
+    expect(screen.getByText('Popover content')).toBeVisible();
+  });
+
+  it('should render close button when hasCloseButton is true', async () => {
+    const { user } = renderComponent({ hasCloseButton: true });
+
+    await user.click(screen.getByRole('button', { name: 'Open Popover' }));
+    await user.click(screen.getByRole('button', { name: 'popover-close' }));
+
+    expect(screen.queryByText('Popover content')).toBeNull();
   });
 });

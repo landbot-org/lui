@@ -1,18 +1,25 @@
-import React, { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '../Button';
 import { usePopoverContext } from './PopoverContext';
+import type { ButtonProps } from '../Button/types';
 
-const PopoverCloseBase = (props: ButtonHTMLAttributes<HTMLButtonElement>, ref: ForwardedRef<HTMLButtonElement>) => {
+export const PopoverClose = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { setOpen } = usePopoverContext();
+
   return (
-    <button
+    <Button
+      aria-label="popover-close"
       type="button"
-      ref={ref}
+      startIcon={<FontAwesomeIcon icon={faXmark} />}
+      color="blue.main"
+      variant="text"
       {...props}
-      onClick={(event) => {
-        props.onClick?.(event);
-        setOpen(false);
-      }}
+      ref={ref}
+      onClick={() => setOpen(false)}
     />
   );
-};
-export const PopoverClose = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(PopoverCloseBase);
+});
+
+PopoverClose.displayName = 'PopoverClose';
