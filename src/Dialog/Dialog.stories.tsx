@@ -11,7 +11,6 @@ import { Button } from '../Button';
 import { Divider } from '../Divider';
 import { Popover, PopoverContent, PopoverTrigger } from '../Popover';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltip';
-import { Joker } from '../Icon/icons';
 
 export default {
   title: 'Components/Dialog',
