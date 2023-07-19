@@ -78,6 +78,9 @@ export const WithFooter: ComponentStory<typeof Dialog> = (args: DialogProps) => 
     </ThemeProvider>
   );
 };
+WithFooter.args = {
+  hasCloseButton: false,
+};
 
 export const WithHugeContent: ComponentStory<typeof Dialog> = (args: DialogProps) => {
   return (
@@ -169,6 +172,7 @@ export const WithCustomContent: ComponentStory<typeof Dialog> = (args: DialogPro
 };
 WithCustomContent.args = {
   width: 600,
+  hasCloseButton: false,
 };
 
 export const WithInnerPopovers: ComponentStory<typeof Dialog> = (args: DialogProps) => {
