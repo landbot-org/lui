@@ -1,24 +1,28 @@
-import React, { ForwardedRef, HTMLProps, ReactNode, forwardRef } from 'react';
+import React from 'react';
 import { usePopoverContext } from './PopoverContext';
 import { useMergeRefs } from '@floating-ui/react';
 
-interface PopoverTriggerProps {
-  children: ReactNode;
+export interface PopoverTriggerProps {
+  children: JSX.Element;
 }
 
-const PopoverTriggerBase = (
-  { children, ...props }: HTMLProps<HTMLElement> & PopoverTriggerProps,
-  propRef: ForwardedRef<HTMLElement>
-) => {
+export const PopoverTrigger = ({ children }: PopoverTriggerProps) => {
   const context = usePopoverContext();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const childrenRef = (children as any).ref;
-  const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
+  const ref = useMergeRefs([context.refs.setReference, childrenRef]);
 
-  return (
-    <button ref={ref} type="button" {...context.getReferenceProps(props)}>
-      {children}
-    </button>
-  );
+  if (React.isValidElement(children)) {
+    return React.cloneElement(
+      children,
+      context.getReferenceProps({
+        ref,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ...(children as any).props,
+        'data-state': context.open ? 'open' : 'closed',
+      })
+    );
+  }
+
+  return null;
 };
-
-export const PopoverTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement> & PopoverTriggerProps>(PopoverTriggerBase);

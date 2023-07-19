@@ -9,6 +9,8 @@ import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Divider } from '../Divider';
+import { Popover, PopoverContent, PopoverTrigger } from '../Popover';
+import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltip';
 
 export default {
   title: 'Components/Dialog',
@@ -75,6 +77,9 @@ export const WithFooter: ComponentStory<typeof Dialog> = (args: DialogProps) => 
       </Dialog>
     </ThemeProvider>
   );
+};
+WithFooter.args = {
+  hasCloseButton: false,
 };
 
 export const WithHugeContent: ComponentStory<typeof Dialog> = (args: DialogProps) => {
@@ -167,4 +172,43 @@ export const WithCustomContent: ComponentStory<typeof Dialog> = (args: DialogPro
 };
 WithCustomContent.args = {
   width: 600,
+  hasCloseButton: false,
+};
+
+export const WithInnerPopovers: ComponentStory<typeof Dialog> = (args: DialogProps) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Dialog {...args}>
+        <DialogContent>
+          <Box display="flex" gap={8} p={4}>
+            <Popover placement="bottom-start" hasArrow={false}>
+              <PopoverTrigger>
+                <Button variant="outlined" color="purple.main">
+                  Click to expand popover
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent>
+                <Box p={2}>
+                  <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                  </Typography>
+                </Box>
+              </PopoverContent>
+            </Popover>
+            <Tooltip>
+              <TooltipTrigger>
+                <Button variant="outlined" color="blue.main">
+                  Tooltip
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <Typography variant="text12">A basic tooltip</Typography>
+              </TooltipContent>
+            </Tooltip>
+          </Box>
+        </DialogContent>
+      </Dialog>
+    </ThemeProvider>
+  );
 };

@@ -1,4 +1,4 @@
-export * from './Popover';
-export * from './PopoverClose';
-export * from './PopoverContent';
-export * from './PopoverTrigger';
+export { Popover } from './Popover';
+export { PopoverClose } from './PopoverClose';
+export { PopoverContent } from './PopoverContent';
+export { PopoverTrigger } from './PopoverTrigger';

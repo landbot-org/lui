@@ -1,20 +1,25 @@
 import React from 'react';
 import { useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
+import { DialogProps } from './types';
 
-interface UseDialogProps {
-  hasCloseButton?: boolean;
-  open: boolean;
-  setOpen: (open: boolean) => void;
-  width?: number;
-}
-
-export const useDialog = ({ hasCloseButton, width, open, setOpen }: UseDialogProps) => {
+export const useDialog = ({
+  canEscapeClose = true,
+  hasCloseButton = true,
+  width = 500,
+  open,
+  preventClose = false,
+  setOpen,
+}: DialogProps) => {
   const data = useFloating({ open, onOpenChange: setOpen });
 
   const { context } = data;
   const click = useClick(context);
-  const dismiss = useDismiss(context, { outsidePressEvent: 'mousedown' });
-  const role = useRole(context);
+  const dismiss = useDismiss(context, {
+    escapeKey: canEscapeClose,
+    outsidePress: !preventClose,
+    outsidePressEvent: 'mousedown',
+  });
+  const role = useRole(context, { role: 'dialog' });
 
   const interactions = useInteractions([click, dismiss, role]);
 

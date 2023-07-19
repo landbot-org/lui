@@ -5,9 +5,11 @@ import {
   flip,
   arrow,
   useClick,
+  useHover,
   useDismiss,
   useRole,
   useInteractions,
+  safePolygon,
 } from '@floating-ui/react';
 import React, { useRef, useState } from 'react';
 import { PopoverProps } from './types';
@@ -16,20 +18,20 @@ const ARROW_HEIGHT = 7;
 const GAP = 2;
 
 export const usePopover = ({
-  initialOpen = false,
-  placement = 'bottom',
-  modal,
+  canEscapeClose = true,
+  color,
+  defaultOpen,
+  hasArrow = true,
+  hasCloseButton = false,
+  interaction = 'click',
   open: controlledOpen,
-  onOpenChange: setControlledOpen,
+  setOpen: setControlledOpen,
+  placement = 'top',
   preventClose = false,
-  hasArrow,
-  onOpenChange,
-  hasCloseButton,
-}: PopoverProps = {}) => {
+  role: roleType,
+}: PopoverProps) => {
   const arrowRef = useRef(null);
-  const [uncontrolledOpen, setUncontrolledOpen] = useState(initialOpen);
-  const [labelId, setLabelId] = useState<string | undefined>();
-  const [descriptionId, setDescriptionId] = useState<string | undefined>();
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
 
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
@@ -40,7 +42,7 @@ export const usePopover = ({
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset(ARROW_HEIGHT + GAP),
+      offset(hasArrow ? ARROW_HEIGHT + GAP : 0),
       arrow({
         element: arrowRef,
       }),
@@ -48,11 +50,18 @@ export const usePopover = ({
     ],
   });
 
-  const click = useClick(data.context, { enabled: controlledOpen === null });
-  const dismiss = useDismiss(data.context, { enabled: !preventClose });
-  const role = useRole(data.context);
+  const click = useClick(data.context, { enabled: interaction === 'click' });
+  const hover = useHover(data.context, {
+    enabled: interaction === 'hover',
+    handleClose: preventClose ? safePolygon() : null,
+  });
+  const dismiss = useDismiss(data.context, {
+    escapeKey: canEscapeClose,
+    outsidePress: !preventClose,
+  });
+  const role = useRole(data.context, { enabled: Boolean(roleType), role: roleType });
 
-  const interactions = useInteractions([click, dismiss, role]);
+  const interactions = useInteractions([click, hover, dismiss, role]);
 
   return React.useMemo(
     () => ({
@@ -60,16 +69,11 @@ export const usePopover = ({
       setOpen,
       ...interactions,
       ...data,
-      modal,
-      labelId,
-      descriptionId,
-      setLabelId,
-      setDescriptionId,
       arrowRef,
+      color,
       hasArrow,
-      onOpenChange,
       hasCloseButton,
     }),
-    [open, setOpen, interactions, data, modal, labelId, descriptionId, hasArrow, onOpenChange, hasCloseButton]
+    [open, setOpen, interactions, data, color, hasArrow, hasCloseButton]
   );
 };
