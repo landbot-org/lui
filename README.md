@@ -41,7 +41,7 @@ npm i
 npm start
 ```
 
-Storybook will be launched on http://localhost:6006/
+Storybook will be launched at http://localhost:6006/
 
 ## Test
 
