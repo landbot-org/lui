@@ -3,7 +3,7 @@ import { usePopoverContext } from './PopoverContext';
 import { useMergeRefs } from '@floating-ui/react';
 
 export interface PopoverTriggerProps {
-  children: React.ReactNode;
+  children: JSX.Element;
 }
 
 export const PopoverTrigger = ({ children }: PopoverTriggerProps) => {
@@ -17,7 +17,8 @@ export const PopoverTrigger = ({ children }: PopoverTriggerProps) => {
       children,
       context.getReferenceProps({
         ref,
-        ...children.props,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ...(children as any).props,
         'data-state': context.open ? 'open' : 'closed',
       })
     );

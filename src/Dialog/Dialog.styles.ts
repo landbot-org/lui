@@ -8,10 +8,10 @@ export const StyledFloatingOverlay = styled(FloatingOverlay)`
   place-items: center;
 `;
 
-export const StyledContent = styled(Box)<{ $width?: number }>`
+export const StyledContent = styled(Box)<{ $width: number }>`
   position: relative;
   z-index: 1000;
-  width: ${({ $width }) => $width && `${$width}px`};
+  width: ${({ $width }) => `${$width}px`};
   max-width: 95vw;
   max-height: 95vh;
   overflow: auto;

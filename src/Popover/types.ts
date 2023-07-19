@@ -1,7 +1,9 @@
+import React from 'react';
 import { Placement } from '@floating-ui/react';
 
 export interface PopoverProps {
   canEscapeClose?: boolean;
+  children?: React.ReactNode;
   color?: 'blue' | 'white';
   defaultOpen?: boolean;
   hasArrow?: boolean;
