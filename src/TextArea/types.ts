@@ -3,4 +3,5 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   description?: string;
   error?: boolean;
   helperText?: string;
+  fullHeight?: boolean;
 }
