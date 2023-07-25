@@ -7,8 +7,8 @@ import { StyledTextArea } from './TextArea.styles';
 import { TextAreaProps } from './types';
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ description, disabled, error, helperText, id, label, ...rest }, ref) => (
-    <div>
+  ({ description, disabled, error, helperText, id, label, fullHeight, ...rest }, ref) => (
+    <Box display="flex" flexDirection="column" flexGrow={fullHeight ? 1 : undefined}>
       {(label || description) && (
         <FormLabel htmlFor={id}>
           {label && (
@@ -19,7 +19,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           {description && <Typography variant="text14">{description}</Typography>}
         </FormLabel>
       )}
-      <Box display="flex">
+      <Box display="flex" flexGrow={fullHeight ? 1 : undefined}>
         <StyledTextArea {...rest} disabled={disabled} $disabled={disabled} $error={error} id={id} ref={ref} />
       </Box>
       {helperText && (
@@ -27,7 +27,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           {helperText}
         </FormHelperText>
       )}
-    </div>
+    </Box>
   )
 );
 TextArea.displayName = 'TextArea';
