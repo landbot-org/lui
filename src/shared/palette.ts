@@ -56,6 +56,7 @@ export const PURPLE = {
 
 export const ORANGE = {
   main: '#F58B0B',
+  100: '#FFE0A9',
   200: '#FCC76B',
   400: '#F9B96D',
   600: '#B05305',
