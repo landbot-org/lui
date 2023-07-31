@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const WebChannel = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none"  xmlns="http://www.w3.org/2000/svg" {...props}>
+export const WebChat = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none"  xmlns="http://www.w3.org/2000/svg" {...props}>
     <g clipPath="url(#clip0_980_176)">
       <path 
         d="M43.8066 37.5573C46.5482 33.5646 48.0107 28.8326 47.9999 23.9893C47.9999 10.7307 37.2493 0 24.0106 0C10.7707 0 0 10.7507 0 23.9893C0 37.2293 10.7507 47.9999 24.0106 47.9999C27.4426 47.9999 30.712 47.2799 33.672 45.9853C34.0213 45.8413 34.3506 45.6773 34.6986 45.5119C37.1453 45.9439 46.7866 47.5266 45.0399 45.3479C44.2586 44.3813 43.2933 40.5786 43.8066 37.5573Z" 
@@ -14,7 +14,7 @@ export const WebChannel = (props: React.SVGProps<SVGSVGElement>) => (
     </g>
     <defs>
       <clipPath id="clip0_980_176">
-        <rect width="48" height="48" fill="white"/>
+        <rect width="40" height="40" fill="white"/>
       </clipPath>
     </defs>
   </svg>
