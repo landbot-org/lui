@@ -6,6 +6,7 @@ export const StyledFloatingOverlay = styled(FloatingOverlay)`
   background-color: rgba(16, 22, 26, 0.7);
   display: grid;
   place-items: center;
+  z-index: 10;
 `;
 
 export const StyledContent = styled(Box)<{ $width: number }>`
