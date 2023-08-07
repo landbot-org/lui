@@ -13,5 +13,6 @@ export interface PopoverProps {
   setOpen?: (open: boolean) => void;
   placement?: Placement;
   preventClose?: boolean;
+  closeOnScroll?: boolean;
   role?: 'dialog' | 'alertdialog' | 'tooltip' | 'menu' | 'listbox' | 'grid' | 'tree';
 }
