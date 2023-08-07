@@ -11,7 +11,7 @@ import {
   useInteractions,
   safePolygon,
 } from '@floating-ui/react';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { PopoverProps } from './types';
 
 const ARROW_HEIGHT = 7;
@@ -29,12 +29,27 @@ export const usePopover = ({
   placement = 'top',
   preventClose = false,
   role: roleType,
+  closeOnScroll,
 }: PopoverProps) => {
   const arrowRef = useRef(null);
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
 
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
+
+  useEffect(() => {
+    if (!closeOnScroll) return;
+
+    const close = () => {
+      setOpen(false);
+    };
+
+    window.addEventListener('scroll', close);
+
+    return () => {
+      window.removeEventListener('scroll', close);
+    };
+  }, [setOpen, closeOnScroll]);
 
   const data = useFloating({
     placement,

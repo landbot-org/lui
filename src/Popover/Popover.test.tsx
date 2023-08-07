@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '.';
-import { mockResizeObserver, render, screen } from '../test-utils';
+import { fireEvent, mockResizeObserver, render, screen } from '../test-utils';
 import { PopoverProps } from './types';
 
 const SUTControlled = (props: Partial<PopoverProps> = {}) => {
@@ -82,5 +82,25 @@ describe('Popover', () => {
     await user.click(screen.getByRole('button', { name: 'popover-close' }));
 
     expect(screen.queryByText('Popover content')).toBeNull();
+  });
+
+  describe('closeOnScroll', () => {
+    it('can be closed on scroll event', async () => {
+      const { user } = renderComponent({ closeOnScroll: true });
+
+      await user.click(screen.getByRole('button', { name: 'Open Popover' }));
+      fireEvent.scroll(window);
+
+      expect(screen.queryByText('Popover content')).not.toBeInTheDocument();
+    });
+
+    it('remains open on scroll if not specified', async () => {
+      const { user } = renderComponent({ closeOnScroll: false });
+
+      await user.click(screen.getByRole('button', { name: 'Open Popover' }));
+      fireEvent.scroll(window);
+
+      expect(screen.getByText('Popover content')).toBeVisible();
+    });
   });
 });

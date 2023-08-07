@@ -116,6 +116,39 @@ export const UncontrolledOnAbsolutePositionedElement: ComponentStory<typeof Popo
     </ThemeProvider>
   );
 };
+
+export const CloseOnScroll: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <div style={{ height: '2000px' }}>
+        <Popover {...args} closeOnScroll>
+          <PopoverTrigger>
+            <Button>Click here to open</Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <Box p={2}>
+              <Typography variant="text14" fontWeight={700} color="blue.main" mb={1}>
+                Title
+              </Typography>
+              <Typography variant="text12" fontWeight={400} color="blue.main" mb={1}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </Typography>
+              <Box mb={1}>
+                <Link containsIcon={true}>Text link</Link>
+              </Box>
+              <Box display="flex" backgroundColor="neutral.300" mb={2} style={{ height: '100px' }} />
+              <Box display="flex" justifyContent="flex-end">
+                <Button size="small">Primary small</Button>
+              </Box>
+            </Box>
+          </PopoverContent>
+        </Popover>
+      </div>
+    </ThemeProvider>
+  );
+};
+
 UncontrolledOnAbsolutePositionedElement.args = {
   placement: 'bottom-end',
 };
