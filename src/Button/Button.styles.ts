@@ -54,7 +54,7 @@ export const StyledContent = styled.div<StyledContentProps>`
   align-items: center;
   display: inline-flex;
 
-  visibility: ${({ isLoading }) => (isLoading ? 'hidden' : 'visible')};
+  visibility: ${({ isLoading }) => (isLoading ? 'hidden' : 'inherit')};
 `;
 
 interface StyledTypographyProps extends TypographyProps {
