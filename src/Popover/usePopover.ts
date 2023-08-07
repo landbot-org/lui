@@ -49,7 +49,7 @@ export const usePopover = ({
     return () => {
       window.removeEventListener('scroll', close);
     };
-  }, [setOpen]);
+  }, [closeOnScroll]);
 
   const data = useFloating({
     placement,

@@ -27,7 +27,7 @@ describe('Popover', () => {
     mockResizeObserver();
   });
 
-  it.only('should open Popover when click in trigger button', async () => {
+  it('should open Popover when click in trigger button', async () => {
     const { user } = renderComponent();
 
     await user.click(screen.getByRole('button', { name: 'Open Popover' }));
