@@ -114,12 +114,7 @@ export const StyledTab = styled.div<{
     `}
 `;
 
-export const TabsContainer = styled.div.attrs(() => ({
-  tabIndex: 0,
-}))`
-  width: 100%;
-  display: flex;
-  align-items: center;
+export const TabsContainer = styled(Box)`
   overflow-x: auto;
   scroll-behavior: smooth;
   &::-webkit-scrollbar {
