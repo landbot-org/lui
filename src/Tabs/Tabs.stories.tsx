@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { Tabs as TabsComponent } from './Tabs';
 import { TabsProps } from './types';
+import { Box } from '../Box';
 
 export default {
   title: 'Components/Tabs',
@@ -49,9 +50,9 @@ export default {
 export const Tabs: ComponentStory<typeof TabsComponent> = (args: TabsProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ width: '400px', backgroundColor: '#F7FAFF', padding: '64px 320px' }}>
+      <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: '400px' }}>
         <TabsComponent {...args} />
-      </div>
+      </Box>
     </ThemeProvider>
   );
 };
