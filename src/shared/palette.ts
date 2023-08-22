@@ -84,7 +84,7 @@ export const WARNING = {
 export const ERROR = {
   dark: '#BE0A19',
   main: '#DD0E0E',
-  light: '#FFC799',
+  light: '#FDDECD',
 };
 
 export const WHITE = {
