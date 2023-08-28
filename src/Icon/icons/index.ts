@@ -93,6 +93,7 @@ export { OpenAI } from './OpenAI';
 export { Page } from './Page';
 export { PagePencil } from './PagePencil';
 export { Parachute } from './Parachute';
+export { Please } from './Please';
 export { People } from './People';
 export { PeopleWrestling } from './PeopleWrestling';
 export { Phone } from './Phone';
