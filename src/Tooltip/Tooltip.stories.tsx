@@ -13,7 +13,9 @@ import { TooltipContent } from './TooltipContent';
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
-  args: {},
+  args: {
+    arrowPadding: 0,
+  },
 } as ComponentMeta<typeof Tooltip>;
 
 export const Uncontrolled: ComponentStory<typeof Tooltip> = (args: PopoverProps) => {

@@ -30,6 +30,7 @@ export const usePopover = ({
   preventClose = false,
   role: roleType,
   closeOnScroll,
+  arrowPadding,
 }: PopoverProps) => {
   const arrowRef = useRef(null);
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
@@ -60,6 +61,7 @@ export const usePopover = ({
       offset(hasArrow ? ARROW_HEIGHT + GAP : 0),
       arrow({
         element: arrowRef,
+        padding: arrowPadding,
       }),
       flip(),
     ],

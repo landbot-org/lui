@@ -16,6 +16,7 @@ export default {
   component: Popover,
   args: {
     placement: 'top',
+    arrowPadding: 0,
   },
 } as ComponentMeta<typeof Popover>;
 
