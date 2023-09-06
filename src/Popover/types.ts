@@ -15,4 +15,5 @@ export interface PopoverProps {
   preventClose?: boolean;
   closeOnScroll?: boolean;
   role?: 'dialog' | 'alertdialog' | 'tooltip' | 'menu' | 'listbox' | 'grid' | 'tree';
+  crossAxisOffset?: number;
 }
