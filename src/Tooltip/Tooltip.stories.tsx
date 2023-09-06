@@ -14,7 +14,7 @@ export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   args: {
-    arrowPadding: 0,
+    crossAxisOffset: 0,
   },
 } as ComponentMeta<typeof Tooltip>;
 
