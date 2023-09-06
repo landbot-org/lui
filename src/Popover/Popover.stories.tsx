@@ -16,7 +16,6 @@ export default {
   component: Popover,
   args: {
     placement: 'top',
-    crossAxisOffset: 0,
   },
 } as ComponentMeta<typeof Popover>;
 

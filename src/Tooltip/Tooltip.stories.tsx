@@ -13,9 +13,7 @@ import { TooltipContent } from './TooltipContent';
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
-  args: {
-    crossAxisOffset: 0,
-  },
+  args: {},
 } as ComponentMeta<typeof Tooltip>;
 
 export const Uncontrolled: ComponentStory<typeof Tooltip> = (args: PopoverProps) => {
