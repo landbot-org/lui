@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import BaseSpacing from '../BaseSpacing';
 
 import { StyledBoxProps } from './types';
-import { getBackgroundStyles, getBorderStyles, getElevationStyles, getRadiusStyles } from './utils';
+import { getBackgroundStyles, getBorderStyles, getElevationStyles, getPositionStyles, getRadiusStyles } from './utils';
 
 export const BoxStyled = styled(BaseSpacing)<StyledBoxProps>`
   align-items: ${({ $alignItems }) => $alignItems};
@@ -14,6 +14,7 @@ export const BoxStyled = styled(BaseSpacing)<StyledBoxProps>`
   flex-wrap: ${({ $flexWrap }) => $flexWrap};
   justify-content: ${({ $justifyContent }) => $justifyContent};
   gap: ${({ $gap }) => $gap && `${$gap}px`};
+  ${getPositionStyles}
   ${getBackgroundStyles}
   ${getElevationStyles}
   ${getRadiusStyles}

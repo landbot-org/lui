@@ -23,6 +23,11 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       hoverElevation,
       justifyContent,
       radius = 0,
+      position,
+      top,
+      left,
+      right,
+      bottom,
       ...other
     },
     ref
@@ -44,7 +49,12 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       $gap={gap}
       $hoverElevation={hoverElevation}
       $justifyContent={justifyContent}
+      $position={position}
       $radius={radius}
+      $top={top}
+      $left={left}
+      $right={right}
+      $bottom={bottom}
       {...other}
       ref={ref}
     >
