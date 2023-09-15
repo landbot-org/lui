@@ -40,7 +40,7 @@ export const getBorderStyles = ({
 
 export const getPositionStyles = ({ $position, $top, $right, $bottom, $left }: StyledBoxProps) => {
   return css`
-    ${$position !== undefined && `position: ${$position};`}
+    ${$position && `position: ${$position};`}
     ${$top !== undefined && `top: ${$top}px;`}
     ${$right !== undefined && `right: ${$right}px;`}
     ${$bottom !== undefined && `bottom: ${$bottom}px;`}
