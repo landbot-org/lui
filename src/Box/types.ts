@@ -9,6 +9,7 @@ export type DisplayType = 'block' | 'flex' | 'inline' | 'inline-block' | 'inline
 export type ElevationType = 0 | 1 | 2 | 3 | 4;
 export type RadiusType = 0 | 1 | 2 | 3 | 4 | 5;
 export type BorderType = 0 | 1 | 2;
+export type PositionType = 'relative' | 'absolute' | 'fixed' | 'sticky';
 
 export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDivElement> {
   alignItems?: FlexAlignType;
@@ -28,6 +29,11 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
   gap?: number;
   hoverElevation?: ElevationType;
   justifyContent?: FlexJustifyType;
+  position?: PositionType;
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
   radius?: RadiusType;
 }
 
@@ -46,5 +52,10 @@ export interface StyledBoxProps extends BoxProps {
   $gap: BoxProps['gap'];
   $hoverElevation: BoxProps['hoverElevation'];
   $justifyContent: BoxProps['justifyContent'];
+  $position: BoxProps['position'];
+  $top: BoxProps['top'];
+  $right: BoxProps['right'];
+  $bottom: BoxProps['bottom'];
+  $left: BoxProps['left'];
   $radius: BoxProps['radius'];
 }
