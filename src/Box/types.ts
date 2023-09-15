@@ -9,7 +9,7 @@ export type DisplayType = 'block' | 'flex' | 'inline' | 'inline-block' | 'inline
 export type ElevationType = 0 | 1 | 2 | 3 | 4;
 export type RadiusType = 0 | 1 | 2 | 3 | 4 | 5;
 export type BorderType = 0 | 1 | 2;
-export type PositionType = 'relative' | 'absolute' | 'fixed' | 'sticky';
+export type PositionType = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 
 export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDivElement> {
   alignItems?: FlexAlignType;
