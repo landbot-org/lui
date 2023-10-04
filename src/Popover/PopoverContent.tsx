@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps, useMemo } from 'react';
 import { usePopoverContext } from './PopoverContext';
 import { FloatingFocusManager, FloatingPortal, FloatingArrow } from '@floating-ui/react';
 import { theme } from '../shared/theme';
@@ -7,11 +7,12 @@ import { PopoverClose } from './PopoverClose';
 
 export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
   const { context: floatingContext, ...context } = usePopoverContext();
+  const FloatingWrapper = useMemo(() => (context.usePortal ? FloatingPortal : React.Fragment), [context.usePortal]);
 
   if (!floatingContext.open) return null;
 
   return (
-    <FloatingPortal>
+    <FloatingWrapper>
       <FloatingFocusManager context={floatingContext}>
         <StyledPopoverContent
           $color={context.color}
@@ -40,6 +41,6 @@ export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
           )}
         </StyledPopoverContent>
       </FloatingFocusManager>
-    </FloatingPortal>
+    </FloatingWrapper>
   );
 };

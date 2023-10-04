@@ -31,6 +31,7 @@ export const usePopover = ({
   role: roleType,
   closeOnScroll,
   crossAxisOffset,
+  usePortal = true,
 }: PopoverProps) => {
   const arrowRef = useRef(null);
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
@@ -89,7 +90,8 @@ export const usePopover = ({
       color,
       hasArrow,
       hasCloseButton,
+      usePortal,
     }),
-    [open, setOpen, interactions, data, color, hasArrow, hasCloseButton]
+    [open, setOpen, interactions, data, color, hasArrow, hasCloseButton, usePortal]
   );
 };
