@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tab } from './Tab';
 import { Icon } from '../Icon';
@@ -16,25 +16,23 @@ export const Tabs = ({
   showBottomLine = true,
 }: TabsProps) => {
   const tabsContainerRef = useRef<HTMLDivElement>(null);
-  const tabRef = useRef<HTMLDivElement>(null);
+  const tabRef = useMemo(() => tabs.map(() => React.createRef<HTMLDivElement>()), [tabs]);
   const [direction, setDirection] = useState<'right' | 'left'>('right');
-  const [activeTab, setActiveTab] = useState(value);
-
+  
   useEffect(() => {
-    if (tabsContainerRef.current) {
-      const offsetWidth = tabRef.current?.offsetWidth || 0;
+    if (tabsContainerRef.current && tabsContainerRef.current.scrollTo) {
+      const offsetWidth = tabRef[value]?.current?.offsetWidth || 0;
       tabsContainerRef.current.scrollTo({
-        left: activeTab * offsetWidth,
+        left: value * offsetWidth,
         behavior: 'smooth',
       });
     }
-  }, [activeTab, tabRef, tabsContainerRef]);
+  }, [value, tabRef, tabsContainerRef]);
 
   const handleTabChange = (direction: 'right' | 'left', newActiveTab: number, disabled: boolean) => {
     if (disabled === false) {
       setDirection(direction);
       onChange(newActiveTab);
-      setActiveTab(newActiveTab);
     }
   };
 
@@ -44,40 +42,35 @@ export const Tabs = ({
         <ArrowButton
           aria-label="navigation-left"
           role="navigation"
-          onClick={() => handleTabChange('left', getPreviousActiveTab(tabs, activeTab), false)}
-          $disabled={activeTab === 0}
+          onClick={() => handleTabChange('left', getPreviousActiveTab(tabs, value), false)}
+          $disabled={value === 0}
           $size={size}
         >
           <Icon icon={<FontAwesomeIcon icon={faChevronLeft} />} size={getButtonIconSizeStyles(size)} />
         </ArrowButton>
       )}
       <TabsContainer display="flex" alignItems="center" tabIndex={0} role="tablist" ref={tabsContainerRef}>
-        {tabs?.map((tab, index) => {
-          return (
-            <Tab
-              active={activeTab === index && !tab.disabled}
-              direction={direction}
-              key={tab.label}
-              className="tab"
-              disabled={tab.disabled}
-              label={tab.label}
-              onClick={() => {
-                const direction = activeTab > index ? 'left' : 'right';
-                handleTabChange(direction, index, Boolean(tab.disabled));
-              }}
-              ref={tabRef}
-              size={size}
-              showBottomLine={showBottomLine}
-            />
-          );
-        })}
+        {tabs?.map((tab, index) => (
+          <Tab
+            active={value === index && !tab.disabled}
+            direction={direction}
+            className="tab"
+            key={tab.label}
+            disabled={tab.disabled}
+            label={tab.label}
+            onClick={() => handleTabChange(value > index ? 'left' : 'right', index, Boolean(tab.disabled))}
+            ref={tabRef[index]}
+            size={size}
+            showBottomLine={showBottomLine}
+          />
+        ))}
       </TabsContainer>
       {showScrollButtons && (
         <ArrowButton
           role="navigation"
           aria-label="navigation-right"
-          onClick={() => handleTabChange('right', getNextActiveTab(tabs, activeTab), false)}
-          $disabled={activeTab === tabs.length - 1}
+          onClick={() => handleTabChange('right', getNextActiveTab(tabs, value), false)}
+          $disabled={value === tabs.length - 1}
           $size={size}
         >
           <Icon icon={<FontAwesomeIcon icon={faChevronRight} />} size={getButtonIconSizeStyles(size)} />

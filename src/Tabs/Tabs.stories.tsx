@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { theme } from '../shared/theme';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
@@ -48,10 +48,11 @@ export default {
 } as ComponentMeta<typeof TabsComponent>;
 
 export const Tabs: ComponentStory<typeof TabsComponent> = (args: TabsProps) => {
+  const [active, setActive] = useState<number>(3);
   return (
     <ThemeProvider theme={theme}>
       <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: '400px' }}>
-        <TabsComponent {...args} />
+        <TabsComponent {...args} value={active} onChange={(newActive) => setActive(newActive)} />
       </Box>
     </ThemeProvider>
   );
