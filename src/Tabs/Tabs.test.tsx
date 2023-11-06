@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '../test-utils';
-import { cleanup } from '@testing-library/react';
+import { act, cleanup } from '@testing-library/react';
 import { Tabs } from './Tabs';
 
 afterEach(cleanup);
@@ -23,28 +23,36 @@ describe('Tabs component', () => {
     },
   ];
 
-  it('should render the correct number of tabs', () => {
-    render(<Tabs tabs={tabProps} onChange={jest.fn} />);
+  it('should show the configured tabs when it is loaded', () => {
+    render(<Tabs tabs={tabProps} onChange={jest.fn} value={0} />);
     const tabs = screen.getAllByRole('tab');
 
     expect(tabs).toHaveLength(tabs.length);
   });
 
-  it('should set the correct active tab when clicked', async () => {
-    const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
+  it('should show as selected the active tab', () => {
+    render(<Tabs tabs={tabProps} onChange={jest.fn} value={1} />);
     const tabs = screen.getAllByRole('tab');
-
-    await user.click(tabs[1]);
 
     expect(tabs[1]).toHaveAttribute('aria-selected', 'true');
   });
 
-  it('should not set active tab when a disabled tab is clicked', async () => {
-    const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
-    const tabs = screen.getAllByRole('tab');
+  it('should fire an onChange event when user clicks on a tab', async () => {
+    const onChangeSpy = jest.fn();
+    const { user } = render(<Tabs tabs={tabProps} onChange={onChangeSpy} value={0} />);
+    
+    await act(async () => await user.click(screen.getByRole('tab', { name: 'Tab 2'})));
 
-    await user.click(tabs[2]);
+    expect(onChangeSpy).toHaveBeenCalledTimes(1);
+    expect(onChangeSpy).toHaveBeenCalledWith(1);
+  });
 
-    expect(tabs[2]).not.toHaveAttribute('aria-selected', 'true');
+  it('should not fire an onChange event when user clicks a disabled tab', async () => {
+    const onChangeSpy = jest.fn();
+    const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn}  />);
+
+    await act(async () => await user.click(screen.getByRole('tab', { name: 'Tab 3'})));
+
+    expect(onChangeSpy).toHaveBeenCalledTimes(0);
   });
 });
