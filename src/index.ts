@@ -9,6 +9,7 @@ export { Icon, GRID_AREA } from './Icon';
 export { Link } from './Link';
 export { Popover, PopoverContent, PopoverTrigger } from './Popover';
 export { Radio } from './Radio';
+export { Select } from './Select';
 export { Spinner } from './Spinner';
 export { Tabs } from './Tabs';
 export { Tag } from './Tag';
