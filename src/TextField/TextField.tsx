@@ -5,17 +5,37 @@ import { FormHelperText } from '../FormHelperText';
 import { FormLabel } from '../FormLabel';
 import { StyledInputGroup, StyledInput } from './TextField.styles';
 import { TextFieldProps } from './types';
+import { useMergeRefs } from '@floating-ui/react';
 
 export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
-  ({ description, disabled, endAdornment, error, helperText, id, label, startAdornment, ...rest }, ref) => {
-    const inputRef = useRef<HTMLInputElement>(null);
+  (
+    {
+      className,
+      description,
+      disabled,
+      endAdornment,
+      error,
+      helperText,
+      id,
+      label,
+      startAdornment,
+      inputRef: propInputRef = null,
+      inputGroupProps,
+      readOnly,
+      ...rest
+    },
+    ref
+  ) => {
+    const innerInputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useMergeRefs([propInputRef, innerInputRef]);
 
-    const focusInput = () => {
-      inputRef.current?.focus();
+    const handleInputGroupClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
+      innerInputRef.current?.focus();
+      inputGroupProps?.onClick?.(event);
     };
 
     return (
-      <div ref={ref}>
+      <div className={className} ref={ref}>
         {(label || description) && (
           <FormLabel htmlFor={id}>
             {label && (
@@ -26,13 +46,13 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
             {description && <Typography variant="text14">{description}</Typography>}
           </FormLabel>
         )}
-        <StyledInputGroup $disabled={disabled} $error={error} onClick={focusInput}>
+        <StyledInputGroup {...inputGroupProps} $disabled={disabled} $error={error} onClick={handleInputGroupClick}>
           {startAdornment && (
             <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} mr={1}>
               {startAdornment}
             </Box>
           )}
-          <StyledInput {...rest} disabled={disabled} id={id} ref={inputRef} />
+          <StyledInput {...rest} readOnly={readOnly} disabled={disabled} id={id} ref={inputRef} />
           {endAdornment && (
             <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} ml={1}>
               {endAdornment}
