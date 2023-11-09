@@ -31,6 +31,8 @@ export const StyledInput = styled.input<FormInputProps>`
   ${inputColorStyle}
   ${inputFontStyles}
   flex-grow: 1;
+  /* fixes flex grow */
+  min-width: 0;
   border: 0;
   outline: 0;
   background-color: transparent;
