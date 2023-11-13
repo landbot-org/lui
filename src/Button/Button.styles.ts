@@ -50,6 +50,7 @@ export const StyledSpinnerWrapper = styled.div`
 `;
 
 export const StyledContent = styled.div<StyledContentProps>`
+  min-width: 0;
   flex-grow: 1;
   align-items: center;
   display: inline-flex;

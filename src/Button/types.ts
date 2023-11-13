@@ -17,6 +17,7 @@ type ButtonPropsBase = {
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
   textAlign?: TextAlignTypes;
+  ellipsize?: boolean;
 };
 
 export type ButtonProps = ButtonPropsBase & (JSX.IntrinsicElements['a'] | JSX.IntrinsicElements['button']);

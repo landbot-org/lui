@@ -22,6 +22,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       endIcon,
       onClick,
       textAlign = 'center',
+      ellipsize,
       ...rest
     },
     ref
@@ -68,6 +69,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
               forwardedAs={'span'}
               variant={TYPOGRAPHY_VARIANT_MAPPING[size]}
               fontWeight={700}
+              ellipsize={ellipsize}
             >
               {children}
             </StyledTypography>
