@@ -131,3 +131,17 @@ ButtonFullWidthBothIcons.args = {
   startIcon: <Robot />,
   endIcon: <Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />,
 };
+
+export const ButtonWithTextEllipsized: ComponentStory<typeof Button> = (args: ButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <div style={{ width: 200 }}>
+      <Button {...args}>Button with large content that needs ellipsis</Button>
+    </div>
+  </ThemeProvider>
+);
+ButtonWithTextEllipsized.args = {
+  startIcon: <Robot />,
+  endIcon: <Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />,
+  fullWidth: true,
+  ellipsize: true,
+};
