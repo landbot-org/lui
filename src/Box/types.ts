@@ -18,7 +18,7 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
   backgroundColor?: ColorsTypes;
   border?: BorderType;
   borderColor?: ColorsTypes;
-  bottom?: number;
+  bottom?: number | string;
   children?: React.ReactNode;
   className?: string;
   display?: DisplayType;
@@ -45,7 +45,7 @@ export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDiv
    * 0: 0px | 1: 2px | 2: 4px | 3: 8px | 4: 16px | 5: 24px
    */
   radius?: RadiusType;
-  right?: number;
+  right?: number | string;
   top?: number | string;
   width?: number | string;
 }
