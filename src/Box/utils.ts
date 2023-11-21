@@ -40,10 +40,51 @@ export const getBorderStyles = ({
 
 export const getPositionStyles = ({ $position, $top, $right, $bottom, $left }: StyledBoxProps) => {
   return css`
-    ${$position && `position: ${$position};`}
-    ${$top !== undefined && `top: ${$top}px;`}
-    ${$right !== undefined && `right: ${$right}px;`}
-    ${$bottom !== undefined && `bottom: ${$bottom}px;`}
-    ${$left !== undefined && `left: ${$left}px;`}
+    position: ${$position};
+    top: ${typeof $top === 'number' ? `${$top}px;` : $top};
+    right: ${typeof $right === 'number' ? `${$right}px;` : $right};
+    bottom: ${typeof $bottom === 'number' ? `${$bottom}px;` : $bottom};
+    left: ${typeof $left === 'number' ? `${$left}px;` : $left};
+  `;
+};
+
+export const getFlexboxStyles = ({
+  $alignItems,
+  $flexBasis,
+  $flexDirection,
+  $flexGrow,
+  $flexShrink,
+  $flexWrap,
+  $justifyContent,
+  $gap,
+}: StyledBoxProps) => {
+  return css`
+    align-items: ${$alignItems};
+    flex-basis: ${typeof $flexBasis === 'number' ? `${$flexBasis}px` : $flexBasis};
+    flex-direction: ${$flexDirection};
+    flex-grow: ${$flexGrow};
+    flex-shrink: ${$flexShrink};
+    flex-wrap: ${$flexWrap};
+    justify-content: ${$justifyContent};
+    gap: ${typeof $gap === 'number' ? `${$gap}px` : $gap};
+  `;
+};
+
+export const getOverflowStyles = ({ $overflow, $overflowX, $overflowY }: StyledBoxProps) => {
+  return css`
+    overflow: ${$overflow};
+    overflow-x: ${$overflowX};
+    overflow-y: ${$overflowY};
+  `;
+};
+
+export const getSizeStyles = ({ $maxHeight, $maxWidth, $minHeight, $minWidth, $height, $width }: StyledBoxProps) => {
+  return css`
+    max-height: ${typeof $maxHeight === 'number' ? `${$maxHeight}px` : $maxHeight};
+    max-width: ${typeof $maxWidth === 'number' ? `${$maxWidth}px` : $maxWidth};
+    min-height: ${typeof $minHeight === 'number' ? `${$minHeight}px` : $minHeight};
+    min-width: ${typeof $minWidth === 'number' ? `${$minWidth}px` : $minWidth};
+    height: ${typeof $height === 'number' ? `${$height}px` : $height};
+    width: ${typeof $width === 'number' ? `${$width}px` : $width};
   `;
 };

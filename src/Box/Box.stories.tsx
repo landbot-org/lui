@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../shared/theme';
 import { BoxProps } from './types';
@@ -13,20 +13,25 @@ export default {
   component: Box,
   argTypes: {
     as: { control: 'text' },
+    bottom: { control: 'number' },
+    height: { control: 'number' },
+    left: { control: 'number' },
+    maxHeight: { control: 'number' },
+    maxWidth: { control: 'number' },
+    minHeight: { control: 'number' },
+    minWidth: { control: 'number' },
+    right: { control: 'number' },
+    top: { control: 'number' },
+    width: { control: 'number' },
   },
   parameters: {
     componentSubtitle: 'Add spacing everywhere you need',
   },
 } as ComponentMeta<typeof Box>;
 
-const Square = styled(Box)`
-  width: 100px;
-  height: 100px;
-`;
-
-const Template: ComponentStory<typeof Box> = (args: BoxProps) => (
+const Template: ComponentStory<typeof Box> = ({ width = 100, height = 100, ...args }: BoxProps) => (
   <ThemeProvider theme={theme}>
-    <Square role="figure" {...args} />
+    <Box role="figure" width={width} height={height} {...args} />
   </ThemeProvider>
 );
 

@@ -10,6 +10,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       backgroundColor,
       border,
       borderColor,
+      bottom,
       children,
       className,
       display = 'block',
@@ -20,14 +21,22 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       flexShrink,
       flexWrap,
       gap,
+      height,
       hoverElevation,
       justifyContent,
-      radius = 0,
-      position,
-      top,
       left,
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+      overflow,
+      overflowX,
+      overflowY,
+      position,
+      radius = 0,
       right,
-      bottom,
+      top,
+      width,
       ...other
     },
     ref
@@ -39,6 +48,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       $backgroundColor={backgroundColor}
       $border={border}
       $borderColor={borderColor}
+      $bottom={bottom}
       $display={display}
       $elevation={elevation}
       $flexBasis={flexBasis}
@@ -47,14 +57,22 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       $flexShrink={flexShrink}
       $flexWrap={flexWrap}
       $gap={gap}
+      $height={height}
       $hoverElevation={hoverElevation}
       $justifyContent={justifyContent}
+      $left={left}
+      $maxHeight={maxHeight}
+      $maxWidth={maxWidth}
+      $minHeight={minHeight}
+      $minWidth={minWidth}
+      $overflow={overflow}
+      $overflowX={overflowX}
+      $overflowY={overflowY}
       $position={position}
       $radius={radius}
-      $top={top}
-      $left={left}
       $right={right}
-      $bottom={bottom}
+      $top={top}
+      $width={width}
       {...other}
       ref={ref}
     >
