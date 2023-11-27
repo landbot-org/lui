@@ -127,6 +127,7 @@ export { Trigger } from './Trigger';
 export { Url } from './Url';
 export { Users } from './Users';
 export { Warning } from './Warning';
+export { WAAppointments } from './WAAppointments';
 export { WebChat } from './WebChat';
 export { Whatsapp } from './Whatsapp';
 export { WhatsappTesting } from './WhatsappTesting';
