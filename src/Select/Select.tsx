@@ -33,6 +33,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
       error,
       helperText,
       label,
+      noResults = 'NO RESULTS...',
     }: SelectProps,
     ref
   ) => {
@@ -134,7 +135,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                     ))
                   ) : (
                     <Typography variant="text12" color="neutral.400" p={1}>
-                      NO RESULTS...
+                      {noResults}
                     </Typography>
                   )}
                 </Box>
