@@ -50,6 +50,7 @@ export const Default = Template.bind({});
 export const NoResults = Template.bind({});
 NoResults.args = {
   items: [],
+  noResults: 'You must fetch your data first!',
 };
 
 export const Labeled = Template.bind({});
