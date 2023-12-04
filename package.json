@@ -49,7 +49,7 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^6.1.1"
   },
   "husky": {
     "hooks": {
@@ -83,7 +83,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.2.0",
     "@types/react": "^18.0.21",
-    "@types/styled-components": "^5.1.26",
+    "@types/styled-components": "^5.1.30",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.10.4",
     "eslint": "^8.25.0",
@@ -95,7 +95,7 @@
     "react-dom": "^18.2.0",
     "rollup": "^3.1.0",
     "semantic-release": "^19.0.5",
-    "styled-components": "^5.3.6",
+    "styled-components": "^6.1.1",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
