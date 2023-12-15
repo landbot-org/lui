@@ -16,7 +16,7 @@ interface StyledButtonProps {
 }
 
 interface StyledContentProps {
-  isLoading: boolean;
+  $isLoading: boolean;
 }
 
 const BaseButtonStyles = css<StyledButtonProps>`
@@ -55,7 +55,7 @@ export const StyledContent = styled.div<StyledContentProps>`
   align-items: center;
   display: inline-flex;
 
-  visibility: ${({ isLoading }) => (isLoading ? 'hidden' : 'inherit')};
+  visibility: ${({ $isLoading }) => ($isLoading ? 'hidden' : 'inherit')};
 `;
 
 interface StyledTypographyProps extends TypographyProps {
