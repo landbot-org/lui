@@ -57,7 +57,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
           </StyledSpinnerWrapper>
         )}
 
-        <StyledContent isLoading={isLoading}>
+        <StyledContent $isLoading={isLoading}>
           {startIcon && (
             <Box display="flex" mr={hasChildren ? 1 : undefined}>
               <Icon icon={startIcon} size={sizeIcon[size]} />
