@@ -5,7 +5,7 @@ import { pxToRem } from './mixins';
 interface InputStylesProps {
   theme: Theme;
   $disabled?: boolean;
-  $error?: boolean;
+  $error?: boolean | null;
 }
 
 export const inputBorderStyle = css<InputStylesProps>`

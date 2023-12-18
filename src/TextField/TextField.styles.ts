@@ -13,7 +13,7 @@ import { pxToRem } from '../shared/mixins';
 interface FormInputProps {
   theme: Theme;
   $disabled?: boolean;
-  $error?: boolean;
+  $error?: boolean | null;
 }
 
 export const StyledInputGroup = styled.div<FormInputProps>`
