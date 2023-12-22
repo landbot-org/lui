@@ -1,24 +1,17 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { theme } from '../shared/theme';
-import { Link as LinkComponent } from './Link';
-import { ThemeProvider } from 'styled-components';
-import { LinkProps } from './types';
+import { Meta, StoryObj } from '@storybook/react';
+import { Link } from './Link';
 
-export default {
-  title: 'Components/Link',
-  component: LinkComponent,
+const meta: Meta<typeof Link> = {
+  component: Link,
+  tags: ['autodocs'],
   args: {
-    bold: false,
-    containsIcon: false,
     children: 'Text link',
-    href: 'https://www.landbot.io',
+    href: '#',
     target: '_self',
   },
-} as ComponentMeta<typeof LinkComponent>;
+};
 
-export const Link: ComponentStory<typeof LinkComponent> = (args: LinkProps) => (
-  <ThemeProvider theme={theme}>
-    <LinkComponent {...args} />
-  </ThemeProvider>
-);
+export default meta;
+type Story = StoryObj<typeof Link>;
+
+export const Default: Story = {};

@@ -1,19 +1,17 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
-import { theme } from '../shared/theme';
 import { Icon } from './Icon';
 import * as icons from './icons';
-import { IconProps } from './types';
 import { Typography } from '../Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Divider } from '../Divider';
 import { Box } from '../Box';
+import styled from 'styled-components';
 
-export default {
-  title: 'Components/Icon',
+const meta: Meta<typeof Icon> = {
   component: Icon,
+  tags: ['autodocs'],
   argTypes: {
     icon: {
       control: {
@@ -21,17 +19,19 @@ export default {
       },
     },
   },
-  parameters: {
-    componentSubtitle: 'Displays a landbot icon',
+  args: {
+    size: '2x',
   },
-  decorators: [
-    (Story) => (
-      <ThemeProvider theme={theme}>
-        <Story />
-      </ThemeProvider>
-    ),
-  ],
-} as ComponentMeta<typeof Icon>;
+};
+
+export default meta;
+type Story = StoryObj<typeof Icon>;
+
+export const Default: Story = {
+  args: {
+    icon: <icons.Landbot />,
+  },
+};
 
 const GridBox = styled.div`
   display: grid;
@@ -54,39 +54,39 @@ const GridItem = styled(Box).attrs({
   }
 `;
 
-export const Icons: ComponentStory<typeof Icon> = (args: IconProps) => {
-  const handleClick = (iconName: string) => navigator.clipboard.writeText(`<${iconName} />`);
+export const Icons: Story = {
+  args: {
+    size: '2x',
+  },
+  render: (args) => {
+    const handleClick = (iconName: string) => navigator.clipboard.writeText(`<${iconName} />`);
 
-  return (
-    <>
-      <Typography variant="subtitle2">Click to copy an icon component (e.g. &lt;Calendly /&gt;)</Typography>
-      <Box mt={1} mb={3}>
-        <Divider />
-      </Box>
-      <GridBox>
-        {Object.keys(icons).map((iconName) => {
-          const IconRender = icons[iconName as keyof typeof icons];
-          return (
-            <GridItem key={iconName} title={iconName} onClick={() => handleClick(iconName)}>
-              <Icon {...args} icon={<IconRender />} />
-              <Typography ellipsize>{iconName}</Typography>
-            </GridItem>
-          );
-        })}
-      </GridBox>
-    </>
-  );
+    return (
+      <>
+        <Typography variant="subtitle2">Click to copy an icon component (e.g. &lt;Calendly /&gt;)</Typography>
+        <Box mt={1} mb={3}>
+          <Divider />
+        </Box>
+        <GridBox>
+          {Object.keys(icons).map((iconName) => {
+            const IconRender = icons[iconName as keyof typeof icons];
+            return (
+              <GridItem key={iconName} title={iconName} onClick={() => handleClick(iconName)}>
+                <Icon {...args} icon={<IconRender />} />
+                <Typography ellipsize>{iconName}</Typography>
+              </GridItem>
+            );
+          })}
+        </GridBox>
+      </>
+    );
+  },
 };
 
-Icons.args = {
-  size: '2x',
-};
-
-export const FontAwesomeExample: ComponentStory<typeof Icon> = (args: IconProps) => {
-  return <Icon {...args} icon={<FontAwesomeIcon icon={faRobot} />} />;
-};
-
-FontAwesomeExample.args = {
-  size: '2x',
-  color: 'pink.main',
+export const FontAwesomeExample: Story = {
+  args: {
+    size: '2x',
+    color: 'pink.main',
+    icon: <FontAwesomeIcon icon={faRobot} />,
+  },
 };

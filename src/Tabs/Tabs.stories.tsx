@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { theme } from '../shared/theme';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
-
-import { Tabs as TabsComponent } from './Tabs';
-import { TabsProps } from './types';
+import { Meta, StoryObj } from '@storybook/react';
+import { Tabs } from './Tabs';
 import { Box } from '../Box';
 
-export default {
-  title: 'Components/Tabs',
-  component: TabsComponent,
+const meta: Meta<typeof Tabs> = {
+  component: Tabs,
+  tags: ['autodocs'],
   args: {
     tabs: [
       {
@@ -39,21 +35,30 @@ export default {
         label: 'Tab8',
       },
     ],
-    onChange: (newActiveTab) => newActiveTab,
     size: 'medium',
     showScrollButtons: true,
     showBottomLine: false,
     value: 3,
   },
-} as ComponentMeta<typeof TabsComponent>;
+};
 
-export const Tabs: ComponentStory<typeof TabsComponent> = (args: TabsProps) => {
-  const [active, setActive] = useState<number>(3);
-  return (
-    <ThemeProvider theme={theme}>
-      <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: '400px' }}>
-        <TabsComponent {...args} value={active} onChange={(newActive) => setActive(newActive)} />
+export default meta;
+type Story = StoryObj<typeof Tabs>;
+
+export const Default: Story = {
+  args: {
+    value: 3,
+  },
+  decorators: [
+    (Story) => (
+      <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: 400 }}>
+        <Story />
       </Box>
-    </ThemeProvider>
-  );
+    ),
+  ],
+  render: (args) => {
+    const [active, setActive] = useState<number>(args.value as number);
+
+    return <Tabs {...args} value={active} onChange={(newActive) => setActive(newActive)} />;
+  },
 };
