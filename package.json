@@ -14,6 +14,7 @@
     "clean": "npx rimraf ./dist",
     "build": "npm run clean && npm run build:prod",
     "build:prod": "rollup -c",
+    "pack": "npm run build && npm pack",
     "start": "start-storybook -p 6006",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
