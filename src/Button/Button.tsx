@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Size } from '../Icon/types';
 import { Spinner } from '../Spinner';
-import { StyledButton, StyledLink, StyledContent, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
-import { TYPOGRAPHY_VARIANT_MAPPING, SPINNER_VARIANT_MAPPING } from './constants';
+import { StyledButton, StyledContent, StyledLink, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
+import { SPINNER_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_MAPPING } from './constants';
 import { ButtonProps, SizeTypes } from './types';
 
 export const Button = React.forwardRef<HTMLElement, ButtonProps>(
@@ -25,7 +26,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       ellipsize,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const BaseButton = (href ? StyledLink : StyledButton) as React.ElementType;
 
@@ -82,7 +83,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
         </StyledContent>
       </BaseButton>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';

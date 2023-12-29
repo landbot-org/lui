@@ -1,8 +1,6 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
 
-import { theme } from '../shared/theme';
 import { Typography } from './Typography';
 import { TypographyProps } from './types';
 
@@ -12,87 +10,117 @@ export default {
   argTypes: {
     as: { control: 'text' },
   },
-} as ComponentMeta<typeof Typography>;
+} as Meta<typeof Typography>;
 
-const Template: ComponentStory<typeof Typography> = (args: TypographyProps) => (
-  <ThemeProvider theme={theme}>
-    <Typography {...args}>The Most Powerful No-Code Chatbot Builder</Typography>
-  </ThemeProvider>
-);
+type Story = StoryObj<typeof Typography>;
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const H1 = Template.bind({});
-H1.args = {
-  variant: 'h1',
+const Template = (args: TypographyProps) => {
+  return <Typography {...args}>The Most Powerful No-Code Chatbot Builder</Typography>;
 };
 
-export const H2 = Template.bind({});
-H2.args = {
-  variant: 'h2',
+export const Default: Story = {
+  render: (args) => <Template {...args} />,
 };
 
-export const H3 = Template.bind({});
-H3.args = {
-  variant: 'h3',
+export const H1: Story = {
+  args: {
+    variant: 'h1',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const H4 = Template.bind({});
-H4.args = {
-  variant: 'h4',
+export const H2: Story = {
+  args: {
+    variant: 'h2',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const H5 = Template.bind({});
-H5.args = {
-  variant: 'h5',
+export const H3: Story = {
+  args: {
+    variant: 'h3',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const H6 = Template.bind({});
-H6.args = {
-  variant: 'h6',
+export const H4: Story = {
+  args: {
+    variant: 'h4',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Subtitle1 = Template.bind({});
-Subtitle1.args = {
-  variant: 'subtitle1',
+export const H5: Story = {
+  args: {
+    variant: 'h5',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Subtitle2 = Template.bind({});
-Subtitle2.args = {
-  variant: 'subtitle2',
+export const H6: Story = {
+  args: {
+    variant: 'h6',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Text16 = Template.bind({});
-Text16.args = {
-  variant: 'text16',
+export const Subtitle1: Story = {
+  args: {
+    variant: 'subtitle1',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Text14 = Template.bind({});
-Text14.args = {
-  variant: 'text14',
+export const Subtitle2: Story = {
+  args: {
+    variant: 'subtitle2',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Text12 = Template.bind({});
-Text12.args = {
-  variant: 'text12',
+export const Text16: Story = {
+  args: {
+    variant: 'text16',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Text10 = Template.bind({});
-Text10.args = {
-  variant: 'text10',
+export const Text14: Story = {
+  args: {
+    variant: 'text14',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const CustomColor = Template.bind({});
-CustomColor.args = {
-  color: 'info.main',
-  variant: 'h1',
+export const Text12: Story = {
+  args: {
+    variant: 'text12',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Ellipsize = () => (
-  <ThemeProvider theme={theme}>
+export const Text10: Story = {
+  args: {
+    variant: 'text10',
+  },
+  render: (args) => <Template {...args} />,
+};
+
+export const CustomColor: Story = {
+  args: {
+    color: 'info.main',
+    variant: 'h1',
+  },
+  render: (args) => <Template {...args} />,
+};
+
+export const Ellipsize: Story = {
+  args: {
+    ellipsize: true,
+  },
+  render: (args) => (
     <div style={{ maxWidth: '150px' }}>
-      <Typography ellipsize>The Most Powerful No-Code Chatbot Builder</Typography>
+      <Template {...args} />
     </div>
-  </ThemeProvider>
-);
+  ),
+};

@@ -1,6 +1,7 @@
 import React from 'react';
-import { BoxProps } from './types';
+
 import { BoxStyled } from './Box.styles';
+import { BoxProps } from './types';
 
 export const Box = React.forwardRef<HTMLElement, BoxProps>(
   (
@@ -30,7 +31,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
       bottom,
       ...other
     },
-    ref
+    ref,
   ) => (
     <BoxStyled
       as={as}
@@ -60,7 +61,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>(
     >
       {children}
     </BoxStyled>
-  )
+  ),
 );
 
 Box.displayName = 'Box';

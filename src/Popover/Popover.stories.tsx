@@ -1,15 +1,14 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../shared/theme';
-import { Popover } from './Popover';
+
 import { Box } from '../Box';
-import { PopoverProps } from './types';
-import { PopoverTrigger } from './PopoverTrigger';
-import { PopoverContent } from './PopoverContent';
-import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Link } from '../Link';
+import { Typography } from '../Typography';
+import { Popover } from './Popover';
+import { PopoverContent } from './PopoverContent';
+import { PopoverTrigger } from './PopoverTrigger';
+import { PopoverProps } from './types';
 
 export default {
   title: 'Components/Popover',
@@ -17,7 +16,9 @@ export default {
   args: {
     placement: 'top',
   },
-} as ComponentMeta<typeof Popover>;
+} as Meta<typeof Popover>;
+
+type Story = StoryObj<typeof Popover>;
 
 const commonPopoverContent = (
   <Box p={2}>
@@ -37,89 +38,83 @@ const commonPopoverContent = (
   </Box>
 );
 
-export const Controlled: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+const TemplateWithHooks = (args: PopoverProps) => {
   const [open, setOpen] = useState(args.open);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args} open={open} setOpen={setOpen}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
+    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
+      <Popover {...args} open={open} setOpen={setOpen}>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </Popover>
+    </Box>
   );
 };
 
-export const Uncontrolled: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
-  );
+export const Controlled: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const UncontrolledOnAbsolutePositionedElement: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button style={{ position: 'absolute', bottom: 50, right: 50 }}>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
-  );
-};
-UncontrolledOnAbsolutePositionedElement.args = {
-  placement: 'bottom-end',
+export const Uncontrolled: Story = {
+  render: (args) => (
+    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
+      <Popover {...args}>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </Popover>
+    </Box>
+  ),
 };
 
-export const CloseOnScroll: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <div style={{ height: '2000px' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </div>
-    </ThemeProvider>
-  );
-};
-CloseOnScroll.args = {
-  closeOnScroll: true,
-  placement: 'bottom-start',
+export const UncontrolledOnAbsolutePositionedElement: Story = {
+  args: {
+    placement: 'bottom-end',
+  },
+  render: (args) => (
+    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
+      <Popover {...args}>
+        <PopoverTrigger>
+          <Button style={{ position: 'absolute', bottom: 50, right: 50 }}>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </Popover>
+    </Box>
+  ),
 };
 
-export const UncontrolledWithoutPortal: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
-  );
+export const CloseOnScroll: Story = {
+  args: {
+    closeOnScroll: true,
+    placement: 'bottom-start',
+  },
+  render: (args) => (
+    <div style={{ height: '2000px' }}>
+      <Popover {...args}>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </Popover>
+    </div>
+  ),
 };
-UncontrolledWithoutPortal.args = {
-  usePortal: false,
+
+export const UncontrolledWithoutPortal: Story = {
+  args: {
+    usePortal: false,
+  },
+  render: (args) => (
+    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
+      <Popover {...args}>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </Popover>
+    </Box>
+  ),
 };

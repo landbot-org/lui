@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { Popover, PopoverContent, PopoverTrigger } from '.';
 import { fireEvent, mockResizeObserver, render, screen } from '../test-utils';
 import { PopoverProps } from './types';
@@ -52,7 +53,7 @@ describe('Popover', () => {
         <PopoverContent>
           <div>Popover content</div>
         </PopoverContent>
-      </Popover>
+      </Popover>,
     );
 
     await user.click(screen.getByRole('button', { name: 'Open Popover' }));
@@ -69,7 +70,7 @@ describe('Popover', () => {
         <PopoverContent>
           <div>Popover content</div>
         </PopoverContent>
-      </Popover>
+      </Popover>,
     );
 
     expect(screen.getByText('Popover content')).toBeVisible();

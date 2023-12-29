@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import BaseSpacing from '../BaseSpacing';
 
+import BaseSpacing from '../BaseSpacing';
 import { StyledBoxProps } from './types';
 import { getBackgroundStyles, getBorderStyles, getElevationStyles, getPositionStyles, getRadiusStyles } from './utils';
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { Dialog, DialogContent } from '.';
 import { mockResizeObserver, render, screen } from '../test-utils';
 import { DialogProps } from './types';
@@ -29,7 +30,7 @@ describe('Dialog', () => {
     const { user } = renderComponent(
       <DialogContent>
         <div>Dialog content</div>
-      </DialogContent>
+      </DialogContent>,
     );
 
     await user.click(screen.getByRole('button', { name: 'Open Dialog' }));
@@ -41,7 +42,7 @@ describe('Dialog', () => {
     const { user } = renderComponent(
       <DialogContent>
         <div>Dialog content</div>
-      </DialogContent>
+      </DialogContent>,
     );
 
     await user.click(screen.getByRole('button', { name: 'Open Dialog' }));
@@ -55,7 +56,7 @@ describe('Dialog', () => {
       <DialogContent>
         <div>Dialog content</div>
       </DialogContent>,
-      { props: { hasCloseButton: false } }
+      { props: { hasCloseButton: false } },
     );
 
     await user.click(screen.getByRole('button', { name: 'Open Dialog' }));

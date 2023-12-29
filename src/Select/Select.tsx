@@ -1,8 +1,8 @@
 import {
-  autoUpdate,
-  flip,
   FloatingFocusManager,
   FloatingPortal,
+  autoUpdate,
+  flip,
   size,
   useClick,
   useDismiss,
@@ -12,12 +12,13 @@ import {
   useRole,
 } from '@floating-ui/react';
 import React, { useRef, useState } from 'react';
+
 import { Box } from '../Box';
+import { TextField } from '../TextField';
 import { Typography } from '../Typography';
 import { StyledSelect } from './Select.styles';
-import { SelectItemProps, SelectProps } from './types';
 import { SelectItem } from './SelectItem';
-import { TextField } from '../TextField';
+import { SelectItemProps, SelectProps } from './types';
 
 export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
   (
@@ -35,7 +36,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
       label,
       noResults = 'NO RESULTS...',
     }: SelectProps,
-    ref
+    ref,
   ) => {
     const [open, setOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -145,7 +146,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
         </FloatingPortal>
       </StyledSelect>
     );
-  }
+  },
 );
 
 Select.displayName = 'Select';

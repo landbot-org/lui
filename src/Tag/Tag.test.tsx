@@ -1,7 +1,8 @@
-import React from 'react';
-import { render, screen } from '../test-utils';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+
+import { render, screen } from '../test-utils';
 import { Tag } from './Tag';
 
 describe('Tag component', () => {
@@ -42,7 +43,7 @@ describe('Tag component', () => {
         label="Tag Label"
         startAdornment={<FontAwesomeIcon aria-label="start adornment" icon={faXmark} onClick={handleClick} />}
         endAdornment={<FontAwesomeIcon aria-label="end adornment" icon={faXmark} onClick={handleClick} />}
-      />
+      />,
     );
     expect(screen.getByText(/Tag Label/i)).toBeInTheDocument();
   });

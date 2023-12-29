@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import { useCollapse } from './useCollapse';
 
 type ContextType = ReturnType<typeof useCollapse> | null;

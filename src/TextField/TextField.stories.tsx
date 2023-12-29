@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { theme } from '../shared/theme';
-import { TextField } from './TextField';
-import { ThemeProvider } from 'styled-components';
-import { TextFieldProps } from './types';
-import { Button } from '../Button';
-import { GearTool } from '../Icon/icons';
-import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useEffect, useState } from 'react';
+
+import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { GearTool } from '../Icon/icons';
+import { TextField } from './TextField';
+import { TextFieldProps } from './types';
 
 export default {
   title: 'Components/TextField',
   component: TextField,
   args: {},
-} as ComponentMeta<typeof TextField>;
+} as Meta<typeof TextField>;
 
-const Template: ComponentStory<typeof TextField> = (args: TextFieldProps) => {
+type Story = StoryObj<typeof TextField>;
+
+const TemplateWithHooks = (args: TextFieldProps) => {
   const [value, setValue] = useState(args.value);
 
   useEffect(() => {
@@ -28,51 +29,61 @@ const Template: ComponentStory<typeof TextField> = (args: TextFieldProps) => {
     args.onChange && args.onChange(e);
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <TextField {...args} value={value} onChange={_onChange} />
-    </ThemeProvider>
-  );
+  return <TextField {...args} value={value} onChange={_onChange} />;
 };
 
-export const Default = Template.bind({});
-
-export const Placeholder = Template.bind({});
-Placeholder.args = {
-  placeholder: 'Placeholder text',
+export const Default: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Value = Template.bind({});
-Value.args = {
-  value: 'Input value',
+export const Placeholder: Story = {
+  args: {
+    placeholder: 'Placeholder text',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-  placeholder: 'Placeholder text',
-  value: 'Input value',
+export const Value: Story = {
+  args: {
+    value: 'Input value',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Adornments = Template.bind({});
-Adornments.args = {
-  endAdornment: <Button color="purple.main" variant="text" startIcon={<GearTool />} />,
-  placeholder: 'Placeholder text',
-  startAdornment: <Icon icon={<FontAwesomeIcon icon={faSearch} />} />,
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    placeholder: 'Placeholder text',
+    value: 'Input value',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Labeled = Template.bind({});
-Labeled.args = {
-  id: 'textfield-id',
-  label: 'Label',
-  description: 'Description',
-  helperText: 'Helper text',
+export const Adornments: Story = {
+  args: {
+    endAdornment: <Button color="purple.main" variant="text" startIcon={<GearTool />} />,
+    placeholder: 'Placeholder text',
+    startAdornment: <Icon icon={<FontAwesomeIcon icon={faSearch} />} />,
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  error: true,
-  description: 'Description',
-  helperText: 'Helper text',
-  label: 'Label',
+export const Labeled: Story = {
+  args: {
+    id: 'textfield-id',
+    label: 'Label',
+    description: 'Description',
+    helperText: 'Helper text',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
+};
+
+export const Error: Story = {
+  args: {
+    error: true,
+    description: 'Description',
+    helperText: 'Helper text',
+    label: 'Label',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };

@@ -1,15 +1,14 @@
-import React from 'react';
-import { theme } from '../shared/theme';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { expect } from '@storybook/jest';
-import userEvent from '@testing-library/user-event';
-import { within } from '@storybook/testing-library';
-import { ThemeProvider } from 'styled-components';
-import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { Tag as TagComponent } from './Tag';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { expect } from '@storybook/jest';
+import { Meta, StoryObj } from '@storybook/react';
+import { within } from '@storybook/testing-library';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+
+import { Icon } from '../Icon';
+import { Tag as TagComponent } from './Tag';
+import { TagProps } from './types';
 
 export default {
   title: 'Components/Tag',
@@ -26,27 +25,32 @@ export default {
     startAdornment: <Icon icon={<FontAwesomeIcon icon={faCheck} />} aria-label="start adornment" />,
     endAdornment: <Icon icon={<FontAwesomeIcon icon={faXmark} />} aria-label="end adornment" />,
   },
-} as ComponentMeta<typeof TagComponent>;
+} as Meta<typeof TagComponent>;
 
-export const Tag: ComponentStory<typeof TagComponent> = ({ ...args }) => {
+type Story = StoryObj<typeof TagComponent>;
+
+const Template = (args: TagProps) => {
   const adornmentSize = args.size === 'large' ? '1x' : '0.5x';
+
   return (
-    <ThemeProvider theme={theme}>
-      <TagComponent
-        {...args}
-        startAdornment={
-          <Icon icon={<FontAwesomeIcon icon={faCheck} />} aria-label="start adornment" size={adornmentSize} />
-        }
-        endAdornment={
-          <Icon icon={<FontAwesomeIcon icon={faXmark} />} aria-label="end adornment" size={adornmentSize} />
-        }
-      />
-    </ThemeProvider>
+    <TagComponent
+      {...args}
+      startAdornment={
+        <Icon icon={<FontAwesomeIcon icon={faCheck} />} aria-label="start adornment" size={adornmentSize} />
+      }
+      endAdornment={<Icon icon={<FontAwesomeIcon icon={faXmark} />} aria-label="end adornment" size={adornmentSize} />}
+    />
   );
 };
 
-Tag.play = ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  userEvent.click(canvas.getByLabelText(/end adornment/i));
-  expect(canvas.getByLabelText(/end adornment/i)).toBeInTheDocument();
+export const Figure: Story = {
+  args: {
+    size: 'large',
+  },
+  render: (args) => <Template {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    userEvent.click(canvas.getByLabelText(/end adornment/i));
+    expect(canvas.getByLabelText(/end adornment/i)).toBeInTheDocument();
+  },
 };

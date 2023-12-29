@@ -1,14 +1,11 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { Button } from './Button';
-import { theme } from '../shared/theme';
-import { ThemeProvider } from 'styled-components';
-import { ButtonProps } from './types';
-import { Robot } from '../Icon/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+
 import { Icon } from '../Icon';
+import { Robot } from '../Icon/icons';
+import { Button } from './Button';
 
 export default {
   title: 'Components/Button',
@@ -36,112 +33,96 @@ export default {
     fullWidth: false,
     isLoading: false,
   },
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <Button {...args}>Button</Button>
-  </ThemeProvider>
-);
+type Story = StoryObj<typeof Button>;
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: (args) => <Button {...args} />,
+};
 
-export const ButtonStartIcon: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
+export const ButtonStartIcon: Story = {
+  render: (args) => (
     <Button {...args} startIcon={<Robot />}>
       Button
     </Button>
-  </ThemeProvider>
-);
+  ),
+};
 
-export const ButtonEndIcon: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
+export const ButtonEndIcon: Story = {
+  render: (args) => (
     <Button {...args} endIcon={<Robot />}>
       Button
     </Button>
-  </ThemeProvider>
-);
+  ),
+};
 
-export const ButtonBothIcons: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
+export const ButtonBothIcons: Story = {
+  render: (args) => (
     <Button {...args} startIcon={<Robot />} endIcon={<Robot />}>
       Button
     </Button>
-  </ThemeProvider>
-);
+  ),
+};
 
-export const ButtonOnlyIcon: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <Button {...args} startIcon={<Robot />} />
-  </ThemeProvider>
-);
+export const ButtonOnlyIcon: Story = {
+  render: (args) => <Button {...args} startIcon={<Robot />} />,
+};
 
-export const ButtonIconFontAwesome: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
+export const ButtonIconFontAwesome: Story = {
+  render: (args) => (
     <Button {...args} startIcon={<Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />}>
       Button
     </Button>
-  </ThemeProvider>
-);
+  ),
+};
 
-export const ButtonOnlyIconFontAwesome: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <Button {...args} startIcon={<Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />} />
-  </ThemeProvider>
-);
+export const ButtonOnlyIconFontAwesome: Story = {
+  render: (args) => <Button {...args} startIcon={<Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />} />,
+};
 
-export const ButtonLoading: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
+export const ButtonLoading: Story = {
+  render: (args) => (
     <Button {...args} isLoading={true}>
       Button
     </Button>
-  </ThemeProvider>
-);
-
-export const ButtonLink: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <Button {...args}>Button</Button>
-  </ThemeProvider>
-);
-ButtonLink.args = {
-  href: '#',
-  target: '_blank',
+  ),
 };
 
-export const ButtonFullWidth: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <Button {...args}>Button</Button>
-  </ThemeProvider>
-);
-ButtonFullWidth.args = {
-  fullWidth: true,
-  size: 'large',
+export const ButtonLink: Story = {
+  args: {
+    href: '#',
+    target: '_blank',
+  },
+  render: (args) => <Button {...args}>Button</Button>,
 };
 
-export const ButtonFullWidthBothIcons: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <Button {...args}>Select a date range</Button>
-  </ThemeProvider>
-);
-ButtonFullWidthBothIcons.args = {
-  color: 'white.main',
-  fullWidth: true,
-  textAlign: 'left',
-  size: 'large',
-  startIcon: <Robot />,
-  endIcon: <Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />,
+export const ButtonFullWidth: Story = {
+  args: {
+    fullWidth: true,
+    size: 'large',
+  },
+  render: (args) => <Button {...args}>Button</Button>,
 };
 
-export const ButtonWithTextEllipsized: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <div style={{ width: 200 }}>
-      <Button {...args}>Button with large content that needs ellipsis</Button>
-    </div>
-  </ThemeProvider>
-);
-ButtonWithTextEllipsized.args = {
-  startIcon: <Robot />,
-  endIcon: <Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />,
-  fullWidth: true,
-  ellipsize: true,
+export const ButtonFullWidthBothIcons: Story = {
+  args: {
+    color: 'white.main',
+    fullWidth: true,
+    textAlign: 'left',
+    size: 'large',
+    startIcon: <Robot />,
+    endIcon: <Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />,
+  },
+  render: (args) => <Button {...args}>Select a date range</Button>,
+};
+
+export const ButtonWithTextEllipsized: Story = {
+  args: {
+    startIcon: <Robot />,
+    endIcon: <Icon icon={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />,
+    fullWidth: true,
+    ellipsize: true,
+  },
+  render: (args) => <Button {...args}>Button with large content that needs ellipsis</Button>,
 };

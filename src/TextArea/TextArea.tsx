@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Box } from '../Box';
 import { FormHelperText } from '../FormHelperText';
 import { FormLabel } from '../FormLabel';
@@ -28,6 +29,6 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         </FormHelperText>
       )}
     </Box>
-  )
+  ),
 );
 TextArea.displayName = 'TextArea';

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Robot } from '../Icon/icons';
 import { render } from '../test-utils';
 import { Button } from './Button';
@@ -61,7 +62,7 @@ describe('Button', () => {
     const { getByRole } = render(
       <Button onClick={onClickSpy} variant="text">
         test
-      </Button>
+      </Button>,
     );
     const buttonElement = getByRole('button');
     buttonElement.click();
@@ -83,7 +84,7 @@ describe('Button', () => {
     const { container, getByRole, getByText } = render(
       <Button startIcon={<Robot />} endIcon={<Robot />}>
         test
-      </Button>
+      </Button>,
     );
     expect(getByRole('button')).toBeInTheDocument();
     expect(getByText('test')).toBeInTheDocument();

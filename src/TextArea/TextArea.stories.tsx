@@ -1,5 +1,6 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { TextArea } from './TextArea';
 import { TextAreaProps } from './types';
 
@@ -7,9 +8,11 @@ export default {
   title: 'Components/TextArea',
   component: TextArea,
   args: {},
-} as ComponentMeta<typeof TextArea>;
+} as Meta<typeof TextArea>;
 
-const Template: ComponentStory<typeof TextArea> = (args: TextAreaProps) => {
+type Story = StoryObj<typeof TextArea>;
+
+const TemplateWithHooks = (args: TextAreaProps) => {
   const [value, setValue] = useState(args.value);
 
   useEffect(() => {
@@ -24,37 +27,49 @@ const Template: ComponentStory<typeof TextArea> = (args: TextAreaProps) => {
   return <TextArea {...args} value={value} onChange={_onChange} />;
 };
 
-export const Default = Template.bind({});
-
-export const Placeholder = Template.bind({});
-Placeholder.args = {
-  placeholder: 'Placeholder text',
+export const Default: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Value = Template.bind({});
-Value.args = {
-  value: 'Input value',
+export const Placeholder: Story = {
+  args: {
+    placeholder: 'Placeholder text',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-  placeholder: 'Placeholder text',
-  value: 'Input value',
+export const Value: Story = {
+  args: {
+    value: 'Input value',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Labeled = Template.bind({});
-Labeled.args = {
-  id: 'textfield-id',
-  label: 'Label',
-  description: 'Description',
-  helperText: 'Helper text',
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    placeholder: 'Placeholder text',
+    value: 'Input value',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  error: true,
-  description: 'Description',
-  helperText: 'Helper text',
-  label: 'Label',
+export const Labeled: Story = {
+  args: {
+    id: 'textfield-id',
+    label: 'Label',
+    description: 'Description',
+    helperText: 'Helper text',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
+};
+
+export const Error: Story = {
+  args: {
+    error: true,
+    description: 'Description',
+    helperText: 'Helper text',
+    label: 'Label',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };

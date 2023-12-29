@@ -1,11 +1,12 @@
+import { useMergeRefs } from '@floating-ui/react';
 import React, { useRef } from 'react';
+
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { FormHelperText } from '../FormHelperText';
 import { FormLabel } from '../FormLabel';
-import { StyledInputGroup, StyledInput } from './TextField.styles';
+import { Typography } from '../Typography';
+import { StyledInput, StyledInputGroup } from './TextField.styles';
 import { TextFieldProps } from './types';
-import { useMergeRefs } from '@floating-ui/react';
 
 export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
   (
@@ -24,7 +25,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
       readOnly,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const innerInputRef = useRef<HTMLInputElement>(null);
     const inputRef = useMergeRefs([propInputRef, innerInputRef]);
@@ -66,7 +67,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 TextField.displayName = 'TextField';

@@ -1,5 +1,6 @@
-import React from 'react';
 import { useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
+import React from 'react';
+
 import { DialogProps } from './types';
 
 export const useDialog = ({
@@ -32,6 +33,6 @@ export const useDialog = ({
       ...interactions,
       ...data,
     }),
-    [hasCloseButton, width, open, setOpen, interactions, data]
+    [hasCloseButton, width, open, setOpen, interactions, data],
   );
 };

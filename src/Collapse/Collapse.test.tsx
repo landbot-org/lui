@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { render, screen } from '../test-utils';
 import { Collapse } from './Collapse';
-import { CollapseSummary } from './CollapseSummary';
 import { CollapseContent } from './CollapseContent';
+import { CollapseSummary } from './CollapseSummary';
 
 describe('Collapse', () => {
   it('should render Collapse when uncontrolled mode', () => {
@@ -10,7 +11,7 @@ describe('Collapse', () => {
       <Collapse>
         <CollapseSummary>Summary</CollapseSummary>
         <CollapseContent>Content</CollapseContent>
-      </Collapse>
+      </Collapse>,
     );
 
     expect(screen.getByText('Summary')).toBeVisible();
@@ -22,7 +23,7 @@ describe('Collapse', () => {
       <Collapse>
         <CollapseSummary>Summary</CollapseSummary>
         <CollapseContent>Content</CollapseContent>
-      </Collapse>
+      </Collapse>,
     );
 
     await user.click(screen.getByRole('button', { name: 'Summary' }));
@@ -35,7 +36,7 @@ describe('Collapse', () => {
       <Collapse open={false} setOpen={jest.fn()}>
         <CollapseSummary>Summary</CollapseSummary>
         <CollapseContent>Content</CollapseContent>
-      </Collapse>
+      </Collapse>,
     );
 
     expect(screen.getByText('Summary')).toBeVisible();
@@ -48,7 +49,7 @@ describe('Collapse', () => {
       <Collapse open setOpen={setOpenMock}>
         <CollapseSummary>Summary</CollapseSummary>
         <CollapseContent>Content</CollapseContent>
-      </Collapse>
+      </Collapse>,
     );
 
     await user.click(screen.getByRole('button', { name: 'Summary' }));

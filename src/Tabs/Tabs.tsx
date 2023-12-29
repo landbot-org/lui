@@ -1,10 +1,11 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Tab } from './Tab';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+
 import { Icon } from '../Icon';
+import { Tab } from './Tab';
 import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 import { TabsProps } from './types';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './utils';
 
 export const Tabs = ({
@@ -18,7 +19,7 @@ export const Tabs = ({
   const tabsContainerRef = useRef<HTMLDivElement>(null);
   const tabRef = useMemo(() => tabs.map(() => React.createRef<HTMLDivElement>()), [tabs]);
   const [direction, setDirection] = useState<'right' | 'left'>('right');
-  
+
   useEffect(() => {
     if (tabsContainerRef.current && tabsContainerRef.current.scrollTo) {
       const offsetWidth = tabRef[value]?.current?.offsetWidth || 0;

@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { getColorFromTheme, pxToRem } from '../shared/mixins';
-import { SpinnerColor, SpinnerSize } from './types';
 
-import { NUMBER_OF_PILLS, DIMENSIONS, SPIN_TIME, SPECIAL_OPACITY } from './constants';
+import { getColorFromTheme, pxToRem } from '../shared/mixins';
+import { DIMENSIONS, NUMBER_OF_PILLS, SPECIAL_OPACITY, SPIN_TIME } from './constants';
+import { SpinnerColor, SpinnerSize } from './types';
 
 const degrees = 360 / NUMBER_OF_PILLS;
 

@@ -1,12 +1,10 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import { ThemeProvider } from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
+import { within } from '@storybook/testing-library';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
-import { theme } from '../shared/theme';
-import { ToggleProps } from './types';
 import { Toggle } from './Toggle';
+import { ToggleProps } from './types';
 
 export default {
   title: 'Components/Toggle',
@@ -23,9 +21,11 @@ export default {
   parameters: {
     componentSubtitle: 'Displays a toggle switch',
   },
-} as ComponentMeta<typeof Toggle>;
+} as Meta<typeof Toggle>;
 
-const Template: ComponentStory<typeof Toggle> = (args: ToggleProps) => {
+type Story = StoryObj<typeof Toggle>;
+
+const TemplateWithHooks = (args: ToggleProps) => {
   const [checked, setChecked] = useState(args.checked);
 
   useEffect(() => {
@@ -37,17 +37,14 @@ const Template: ComponentStory<typeof Toggle> = (args: ToggleProps) => {
     args.onChange && args.onChange(e);
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Toggle {...args} checked={checked} onChange={_onChange} />
-    </ThemeProvider>
-  );
+  return <Toggle {...args} checked={checked} onChange={_onChange} />;
 };
 
-export const Default = Template.bind({});
-
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  // await userEvent.click(canvas.getByRole('checkbox'));
-  await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
+export const Default: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // await userEvent.click(canvas.getByRole('checkbox'));
+    await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
+  },
 };

@@ -1,5 +1,5 @@
-import React from 'react';
 import { Placement } from '@floating-ui/react';
+import React from 'react';
 
 export interface PopoverProps {
   canEscapeClose?: boolean;

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { render } from '../test-utils';
 import { Link } from './Link';
 
@@ -11,7 +12,7 @@ describe('Link', () => {
     const { getByText } = render(
       <Link bold href="https://www.landbot.io">
         Text link
-      </Link>
+      </Link>,
     );
     expect(getByText(/text link/i)).toBeInTheDocument();
   });
@@ -19,7 +20,7 @@ describe('Link', () => {
     const { getByText } = render(
       <Link containsIcon href="https://www.landbot.io">
         Text link
-      </Link>
+      </Link>,
     );
     expect(getByText(/text link/i)).toBeInTheDocument();
   });
@@ -27,7 +28,7 @@ describe('Link', () => {
     const { getByText } = render(
       <Link target="_blank" href="https://www.landbot.io">
         Text link
-      </Link>
+      </Link>,
     );
     expect(getByText(/text link/i)).toBeInTheDocument();
   });

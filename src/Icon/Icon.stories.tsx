@@ -1,15 +1,16 @@
+import { faRobot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { faRobot } from '@fortawesome/free-solid-svg-icons';
+
+import { Box } from '../Box';
+import { Divider } from '../Divider';
+import { Typography } from '../Typography';
 import { theme } from '../shared/theme';
 import { Icon } from './Icon';
 import * as icons from './icons';
 import { IconProps } from './types';
-import { Typography } from '../Typography';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Divider } from '../Divider';
-import { Box } from '../Box';
 
 export default {
   title: 'Components/Icon',
@@ -31,7 +32,9 @@ export default {
       </ThemeProvider>
     ),
   ],
-} as ComponentMeta<typeof Icon>;
+} as Meta<typeof Icon>;
+
+type Story = StoryObj<typeof Icon>;
 
 const GridBox = styled.div`
   display: grid;
@@ -54,7 +57,7 @@ const GridItem = styled(Box).attrs({
   }
 `;
 
-export const Icons: ComponentStory<typeof Icon> = (args: IconProps) => {
+const Template = (args: IconProps) => {
   const handleClick = (iconName: string) => navigator.clipboard.writeText(`<${iconName} />`);
 
   return (
@@ -78,15 +81,17 @@ export const Icons: ComponentStory<typeof Icon> = (args: IconProps) => {
   );
 };
 
-Icons.args = {
-  size: '2x',
+export const Default: Story = {
+  args: {
+    size: '2x',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const FontAwesomeExample: ComponentStory<typeof Icon> = (args: IconProps) => {
-  return <Icon {...args} icon={<FontAwesomeIcon icon={faRobot} />} />;
-};
-
-FontAwesomeExample.args = {
-  size: '2x',
-  color: 'pink.main',
+export const FontAwesomeExample: Story = {
+  args: {
+    size: '2x',
+    color: 'pink.main',
+  },
+  render: (args) => <Icon {...args} icon={<FontAwesomeIcon icon={faRobot} />} />,
 };

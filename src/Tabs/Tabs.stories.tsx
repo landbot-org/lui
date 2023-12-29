@@ -1,11 +1,9 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { theme } from '../shared/theme';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
 
+import { Box } from '../Box';
 import { Tabs as TabsComponent } from './Tabs';
 import { TabsProps } from './types';
-import { Box } from '../Box';
 
 export default {
   title: 'Components/Tabs',
@@ -45,15 +43,20 @@ export default {
     showBottomLine: false,
     value: 3,
   },
-} as ComponentMeta<typeof TabsComponent>;
+} as Meta<typeof TabsComponent>;
 
-export const Tabs: ComponentStory<typeof TabsComponent> = (args: TabsProps) => {
+type Story = StoryObj<typeof TabsComponent>;
+
+const TemplateWithHooks = (args: TabsProps) => {
   const [active, setActive] = useState<number>(3);
+
   return (
-    <ThemeProvider theme={theme}>
-      <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: '400px' }}>
-        <TabsComponent {...args} value={active} onChange={(newActive) => setActive(newActive)} />
-      </Box>
-    </ThemeProvider>
+    <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: '400px' }}>
+      <TabsComponent {...args} value={active} onChange={(newActive) => setActive(newActive)} />
+    </Box>
   );
+};
+
+export const Default: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
 };

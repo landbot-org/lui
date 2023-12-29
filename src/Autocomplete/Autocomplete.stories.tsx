@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
-
-import { theme } from '../shared/theme';
-import { AutocompleteProps } from './types';
-import { Autocomplete } from './Autocomplete';
-import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
+
+import { Icon } from '../Icon';
+import { Autocomplete } from './Autocomplete';
+import { AutocompleteProps } from './types';
 
 export default {
   title: 'Components/Autocomplete',
@@ -41,22 +39,19 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Autocomplete>;
+} as Meta<typeof Autocomplete>;
 
-const Template: ComponentStory<typeof Autocomplete> = (args: AutocompleteProps) => (
-  <ThemeProvider theme={theme}>
-    <Autocomplete {...args} />
-  </ThemeProvider>
-);
+type Story = StoryObj<typeof Autocomplete>;
 
-export const Default = Template.bind({});
-
-export const NoResults = Template.bind({});
-NoResults.args = {
-  items: [],
+export const Default: Story = {
+  render: (args) => <Autocomplete {...args} />,
 };
 
-export const Searchable: ComponentStory<typeof Autocomplete> = (args: AutocompleteProps) => {
+export const NoResults: Story = {
+  render: (args) => <Autocomplete {...args} items={[]} />,
+};
+
+const TemplateWithHooks = (args: AutocompleteProps) => {
   const items = [
     { id: '1', value: 'Option 1' },
     { id: '2', value: 'Option 2' },
@@ -77,14 +72,16 @@ export const Searchable: ComponentStory<typeof Autocomplete> = (args: Autocomple
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Autocomplete
-        {...args}
-        items={itemsState}
-        onChange={handleChangeInput}
-        onSelectItem={handleSelectItem}
-        inputValue={selectedItem?.value || inputValue}
-      />
-    </ThemeProvider>
+    <Autocomplete
+      {...args}
+      items={itemsState}
+      onChange={handleChangeInput}
+      onSelectItem={handleSelectItem}
+      inputValue={selectedItem?.value || inputValue}
+    />
   );
+};
+
+export const Searchable: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
 };

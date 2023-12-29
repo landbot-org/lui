@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { fireEvent } from '@testing-library/react';
-import { render } from '../test-utils';
+import React, { useState } from 'react';
 
+import { render } from '../test-utils';
 import { Radio } from './Radio';
 
 const StatefulRadioGroup = () => {
@@ -31,7 +31,7 @@ describe('Radio', () => {
   });
 
   it('should be checked', () => {
-    const { getByRole } = render(<Radio checked />);
+    const { getByRole } = render(<Radio checked onChange={jest.fn()} />);
     expect(getByRole('radio')).toBeChecked();
   });
 

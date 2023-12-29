@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { CheckboxProps } from './types';
 import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './utils';
 

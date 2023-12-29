@@ -1,5 +1,5 @@
-import { Theme } from './theme.types';
 import { BLUE, ERROR, INFO, NEUTRAL, ORANGE, PINK, PURPLE, SUCCESS, TEAL, WARNING, WHITE } from './palette';
+import { Theme } from './theme.types';
 
 export const theme: Theme = {
   base_spacing: 8,

@@ -1,17 +1,18 @@
 import {
-  useFloating,
-  autoUpdate,
-  offset,
-  flip,
   arrow,
-  useClick,
-  useHover,
-  useDismiss,
-  useRole,
-  useInteractions,
+  autoUpdate,
+  flip,
+  offset,
   safePolygon,
+  useClick,
+  useDismiss,
+  useFloating,
+  useHover,
+  useInteractions,
+  useRole,
 } from '@floating-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
+
 import { PopoverProps } from './types';
 
 const ARROW_HEIGHT = 7;
@@ -92,6 +93,6 @@ export const usePopover = ({
       hasCloseButton,
       usePortal,
     }),
-    [open, setOpen, interactions, data, color, hasArrow, hasCloseButton, usePortal]
+    [open, setOpen, interactions, data, color, hasArrow, hasCloseButton, usePortal],
   );
 };

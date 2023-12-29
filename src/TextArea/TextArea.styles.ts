@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import type { Theme } from '../shared/theme.types';
+
 import {
   inputBackgroundStyle,
   inputBorderStyle,
   inputColorStyle,
   inputCursorStyle,
-  inputGroupColorStyle,
   inputFontStyles,
+  inputGroupColorStyle,
 } from '../shared/inputStyles';
 import { pxToRem } from '../shared/mixins';
+import type { Theme } from '../shared/theme.types';
 
 interface StyledTextAreaProps {
   $disabled?: boolean;

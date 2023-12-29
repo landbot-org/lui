@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { render, screen } from '../test-utils';
 import { TextArea } from './TextArea';
 
@@ -16,7 +17,7 @@ describe('TextArea', () => {
   });
 
   it('should display value', () => {
-    render(<TextArea value="Value" />);
+    render(<TextArea value="Value" onChange={jest.fn()} />);
 
     expect(screen.getByDisplayValue('Value')).toBeInTheDocument();
   });

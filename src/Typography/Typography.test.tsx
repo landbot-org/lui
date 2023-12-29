@@ -1,7 +1,8 @@
-import React from 'react';
 import { screen } from '@testing-library/react';
-import { Typography } from './Typography';
+import React from 'react';
+
 import { render } from '../test-utils';
+import { Typography } from './Typography';
 
 describe('Typography', () => {
   it('renders a text by default', () => {
@@ -33,7 +34,7 @@ describe('Typography', () => {
     render(
       <Typography variant="h1" as="h3">
         Test
-      </Typography>
+      </Typography>,
     );
     expect(screen.getByText('Test').tagName).toBe('H3');
   });

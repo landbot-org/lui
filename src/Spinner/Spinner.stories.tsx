@@ -1,10 +1,7 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Spinner as SpinnerComponent } from './Spinner';
-import { SpinnerProps } from './types';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../shared/theme';
 
 export default {
   title: 'Components/Spinner',
@@ -16,10 +13,10 @@ export default {
     size: 'M',
     color: 'blue.main',
   },
-} as ComponentMeta<typeof SpinnerComponent>;
+} as Meta<typeof SpinnerComponent>;
 
-export const Spinner: ComponentStory<typeof SpinnerComponent> = (args: SpinnerProps) => (
-  <ThemeProvider theme={theme}>
-    <SpinnerComponent {...args} />
-  </ThemeProvider>
-);
+type Story = StoryObj<typeof SpinnerComponent>;
+
+export const Default: Story = {
+  render: (args) => <SpinnerComponent {...args} />,
+};

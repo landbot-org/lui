@@ -1,9 +1,7 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { Divider as DividerComponent } from './Divider';
-import { DividerProps } from './types';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../shared/theme';
 
 export default {
   title: 'Components/Divider',
@@ -16,10 +14,12 @@ export default {
     size: 'small',
     color: 'neutral.300',
   },
-} as ComponentMeta<typeof DividerComponent>;
+} as Meta<typeof DividerComponent>;
 
-export const Divider: ComponentStory<typeof DividerComponent> = (args: DividerProps) => (
-  <ThemeProvider theme={theme}>
+type Story = StoryObj<typeof DividerComponent>;
+
+export const Default: Story = {
+  render: (args) => (
     <div style={{ minHeight: '100px' }}>
       {args.orientation === 'horizontal' ? (
         <div
@@ -54,5 +54,5 @@ export const Divider: ComponentStory<typeof DividerComponent> = (args: DividerPr
         </div>
       )}
     </div>
-  </ThemeProvider>
-);
+  ),
+};

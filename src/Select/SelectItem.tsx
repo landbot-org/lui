@@ -1,7 +1,8 @@
 import React, { useId } from 'react';
+
 import { BoxProps } from '../Box/types';
-import { StyledOption } from './Select.styles';
 import { Typography } from '../Typography';
+import { StyledOption } from './Select.styles';
 
 interface ItemProps {
   children: React.ReactNode;

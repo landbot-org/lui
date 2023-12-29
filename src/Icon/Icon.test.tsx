@@ -1,6 +1,7 @@
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+
 import { render } from '../test-utils';
 import { Icon } from './Icon';
 import * as icons from './icons';
@@ -32,6 +33,6 @@ describe('Icon', () => {
     (gridArea) => {
       const { container } = render(<Icon icon={<FontAwesomeIcon icon={faRobot} />} size="1x" gridArea={gridArea} />);
       expect(container.querySelector('svg')).toBeInTheDocument();
-    }
+    },
   );
 });

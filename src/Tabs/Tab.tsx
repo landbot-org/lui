@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+
 import { BorderBottom, StyledTab, StyledTypography } from './Tabs.styles';
 import { TabProps } from './types';
 import { getTypographyVariantBySize } from './utils';
@@ -26,7 +27,7 @@ export const Tab = forwardRef<HTMLDivElement, TabProps>(
       </StyledTypography>
       {active && <BorderBottom $direction={direction} $active={active} />}
     </StyledTab>
-  )
+  ),
 );
 
 Tab.displayName = 'Tab';

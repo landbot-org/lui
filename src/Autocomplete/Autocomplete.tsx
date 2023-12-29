@@ -1,8 +1,8 @@
 import {
-  autoUpdate,
-  flip,
   FloatingFocusManager,
   FloatingPortal,
+  autoUpdate,
+  flip,
   size,
   useDismiss,
   useFloating,
@@ -12,6 +12,7 @@ import {
   useRole,
 } from '@floating-ui/react';
 import React, { useRef, useState } from 'react';
+
 import { Box } from '../Box';
 import { BoxProps } from '../Box/types';
 import { TextField } from '../TextField';

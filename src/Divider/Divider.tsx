@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { HorizontalDividerStyled, VerticalDividerStyled } from './Divider.styles';
 import { DividerProps } from './types';
 

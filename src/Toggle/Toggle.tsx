@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ToggleStyled } from './Toggle.styles';
 import { ToggleProps } from './types';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { StyledIconContainer } from './Icon.styles';
 import { GRID_AREA, IconProps } from './types';
 

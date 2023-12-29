@@ -1,64 +1,61 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import styled, { ThemeProvider } from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
+import React from 'react';
+import styled from 'styled-components';
 
-import { theme } from '../shared/theme';
-import { BoxProps } from './types';
 import { Box } from './Box';
 
 export default {
   title: 'Components/Box',
   component: Box,
+  args: {
+    backgroundColor: 'blue.50',
+    border: 1,
+    borderColor: 'neutral.300',
+    display: 'block',
+    elevation: 1,
+  },
   argTypes: {
     as: { control: 'text' },
   },
   parameters: {
     componentSubtitle: 'Add spacing everywhere you need',
   },
-} as ComponentMeta<typeof Box>;
+} as Meta<typeof Box>;
 
 const Square = styled(Box)`
   width: 100px;
   height: 100px;
 `;
 
-const Template: ComponentStory<typeof Box> = (args: BoxProps) => (
-  <ThemeProvider theme={theme}>
-    <Square role="figure" {...args} />
-  </ThemeProvider>
-);
+type Story = StoryObj<typeof Box>;
 
-export const Default = Template.bind({});
-Default.args = {
-  backgroundColor: 'blue.50',
-  border: 1,
-  borderColor: 'neutral.300',
-  display: 'block',
-  elevation: 1,
+export const Figure: Story = {
+  render: (args) => <Square role="figure" {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('figure'));
+    await expect(canvas.getByRole('figure')).toBeInTheDocument();
+  },
 };
 
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByRole('figure'));
-  await expect(canvas.getByRole('figure')).toBeInTheDocument();
-};
-
-export const Flexbox = Template.bind({});
-Flexbox.args = {
-  alignItems: 'center',
-  backgroundColor: 'blue.50',
-  border: 1,
-  borderColor: 'neutral.300',
-  children: (
-    <>
-      <p>row1</p>
-      <p>row2</p>
-    </>
-  ),
-  display: 'flex',
-  elevation: 1,
-  hoverElevation: 4,
-  justifyContent: 'space-around',
+export const Flexbox: Story = {
+  args: {
+    alignItems: 'center',
+    backgroundColor: 'blue.50',
+    border: 1,
+    borderColor: 'neutral.300',
+    children: (
+      <>
+        <p>row1</p>
+        <p>row2</p>
+      </>
+    ),
+    display: 'flex',
+    elevation: 1,
+    hoverElevation: 4,
+    justifyContent: 'space-around',
+  },
+  render: (args) => <Box role="figure" {...args} />,
 };

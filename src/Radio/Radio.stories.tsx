@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from 'styled-components';
 import { expect } from '@storybook/jest';
+import { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { theme } from '../shared/theme';
+import React, { useEffect, useState } from 'react';
+
 import { Radio } from './Radio';
 import type { RadioProps } from './types';
 
 export default {
   title: 'Components/Radio',
   component: Radio,
+  args: {
+    checked: false,
+    disabled: false,
+  },
   argTypes: {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },
@@ -17,9 +20,11 @@ export default {
   parameters: {
     componentSubtitle: 'Displays a radio input',
   },
-} as ComponentMeta<typeof Radio>;
+} as Meta<typeof Radio>;
 
-const Template: ComponentStory<typeof Radio> = (args: RadioProps) => {
+type Story = StoryObj<typeof Radio>;
+
+const TemplateWithHooks = (args: RadioProps) => {
   const [checked, setChecked] = useState(args.checked);
 
   useEffect(() => {
@@ -31,16 +36,13 @@ const Template: ComponentStory<typeof Radio> = (args: RadioProps) => {
     args.onChange && args.onChange(e);
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Radio {...args} checked={checked} onChange={_onChange} />
-    </ThemeProvider>
-  );
+  return <Radio {...args} checked={checked} onChange={_onChange} />;
 };
 
-export const Default = Template.bind({});
-
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  await expect(canvas.getByRole('radio')).toBeInTheDocument();
+export const Default: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio')).toBeInTheDocument();
+  },
 };

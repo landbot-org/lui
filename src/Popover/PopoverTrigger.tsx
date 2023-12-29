@@ -1,6 +1,7 @@
-import React from 'react';
-import { usePopoverContext } from './PopoverContext';
 import { useMergeRefs } from '@floating-ui/react';
+import React from 'react';
+
+import { usePopoverContext } from './PopoverContext';
 
 export interface PopoverTriggerProps {
   children: JSX.Element;
@@ -20,7 +21,7 @@ export const PopoverTrigger = ({ children }: PopoverTriggerProps) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(children as any).props,
         'data-state': context.open ? 'open' : 'closed',
-      })
+      }),
     );
   }
 

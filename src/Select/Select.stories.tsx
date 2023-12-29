@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
-
-import { theme } from '../shared/theme';
-import { SelectProps } from './types';
-import { Select } from './Select';
-import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
+
+import { Icon } from '../Icon';
+import { Select } from './Select';
+import { SelectProps } from './types';
 
 export default {
   title: 'Components/Select',
@@ -33,37 +31,43 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args: SelectProps) => {
+type Story = StoryObj<typeof Select>;
+
+const TemplateWithHooks = (args: SelectProps) => {
   const [value, setValue] = useState(args.value || '');
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Select {...args} value={value} onChange={setValue} />
-    </ThemeProvider>
-  );
+  return <Select {...args} value={value} onChange={setValue} />;
 };
 
-export const Default = Template.bind({});
-
-export const NoResults = Template.bind({});
-NoResults.args = {
-  items: [],
-  noResults: 'You must fetch your data first!',
+export const Default: Story = {
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Labeled = Template.bind({});
-Labeled.args = {
-  label: 'Label',
-  description: 'Description',
-  helperText: 'Helper text',
+export const NoResults: Story = {
+  args: {
+    items: [],
+    noResults: 'You must fetch your data first!',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  error: true,
-  description: 'Description',
-  helperText: 'Helper text',
-  label: 'Label',
+export const Labeled: Story = {
+  args: {
+    label: 'Label',
+    description: 'Description',
+    helperText: 'Helper text',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
+};
+
+export const Error: Story = {
+  args: {
+    error: true,
+    description: 'Description',
+    helperText: 'Helper text',
+    label: 'Label',
+  },
+  render: (args) => <TemplateWithHooks {...args} />,
 };
