@@ -8,7 +8,7 @@ const config: StorybookConfig = {
   },
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   // Optional
-  addons: ['@storybook/addon-essentials', '@storybook/addon-mdx-gfm', '@storybook/addon-themes'],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-themes'],
   docs: {
     autodocs: 'tag',
   },
