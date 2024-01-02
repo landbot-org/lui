@@ -22,8 +22,7 @@ npm install
 npm run storybook
 ```
 
-For more information about Storybook, please visit the [Storybook
-website](https://storybook.js.org/).
+For more information about Storybook, please visit the [Storybook website](https://storybook.js.org/).
 
 ## Test
 
