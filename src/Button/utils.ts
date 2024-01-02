@@ -48,7 +48,7 @@ export const getButtonVariantStyles = (
         background-color: ${getHoverBackgroundColor(variant, color, disabled)};
       }
     `,
-  }[variant]);
+  })[variant];
 
 export const getTypographyColorContained = (theme: Theme, disabled: boolean, isLoading: boolean) => {
   if (isLoading) {

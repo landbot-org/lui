@@ -1,37 +1,37 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: 'weekly'
+      day: 'wednesday'
     labels:
-      - "dependencies"
+      - 'dependencies'
     versioning-strategy: increase
     groups:
       babel:
         patterns:
-          - "@babel/*"
-          - "babel-*"
+          - '@babel/*'
+          - 'babel-*'
       storybook:
         patterns:
-          - "@storybook/*"
-          - "storybook"
+          - '@storybook/*'
+          - 'storybook'
       rollup:
         patterns:
-          - "@rollup/*"
-          - "@types/rollup-*"
-          - "rollup"
-          - "rollup-plugin-*"
+          - '@rollup/*'
+          - '@types/rollup-*'
+          - 'rollup'
+          - 'rollup-plugin-*'
       testing:
         patterns:
-          - "@testing-library/*"
-          - "@storybook/testing-library"
-          - "@types/jest"
-          - "jest"
-          - "jest-*"
+          - '@testing-library/*'
+          - '@storybook/testing-library'
+          - '@types/jest'
+          - 'jest'
+          - 'jest-*'
       react:
         patterns:
-          - "react"
-          - "react-dom"
-          - "@types/react"
+          - 'react'
+          - 'react-dom'
+          - '@types/react'

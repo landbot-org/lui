@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { getColorFromTheme, pxToRem } from '../shared/mixins';
 import { theme } from '../shared/theme';

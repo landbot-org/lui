@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 
 import { getColorFromTheme, pxToRem } from '../shared/mixins';
 import { DIMENSIONS, NUMBER_OF_PILLS, SPECIAL_OPACITY, SPIN_TIME } from './constants';

@@ -1,22 +1,18 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 
-import { Link as LinkComponent } from './Link';
+import { Link } from './Link';
 
-export default {
-  title: 'Components/Link',
-  component: LinkComponent,
+const meta: Meta<typeof Link> = {
+  component: Link,
+  tags: ['autodocs'],
   args: {
-    bold: false,
-    containsIcon: false,
     children: 'Text link',
-    href: 'https://www.landbot.io',
+    href: '#',
     target: '_self',
   },
-} as Meta<typeof LinkComponent>;
-
-type Story = StoryObj<typeof LinkComponent>;
-
-export const Default: Story = {
-  render: (args) => <LinkComponent {...args} />,
 };
+
+export default meta;
+type Story = StoryObj<typeof Link>;
+
+export const Default: Story = {};

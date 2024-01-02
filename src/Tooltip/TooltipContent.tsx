@@ -1,5 +1,6 @@
-import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 import React, { HTMLProps } from 'react';
+
+import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 
 import { StyledPopoverContent } from '../Popover/Popover.styles';
 import { usePopoverContext } from '../Popover/PopoverContext';

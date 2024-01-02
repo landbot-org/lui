@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes, styled } from 'styled-components';
 
 import { Box } from '../Box';
 import { Typography } from '../Typography';

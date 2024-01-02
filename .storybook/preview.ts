@@ -12,11 +12,6 @@ const GlobalStyles = createGlobalStyle`
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      date: /Date$/,
-    },
-  },
 };
 
 export const decorators = [

@@ -1,3 +1,5 @@
 module.exports = {
-  extends: ['@landbot/eslint-config'],
+  root: true,
+  extends: ['@landbot/typescript-react', 'plugin:storybook/recommended'],
+  ignorePatterns: ['/*', '!/src'],
 };

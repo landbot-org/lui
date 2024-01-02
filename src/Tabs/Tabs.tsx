@@ -1,6 +1,7 @@
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { Icon } from '../Icon';
 import { Tab } from './Tab';

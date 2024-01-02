@@ -51,8 +51,8 @@ npm install @landbot/lui
 Import on the root of the project
 
 ```js
-import { ThemeProvider } from 'styled-components';
 import { theme } from '@landbot/lui';
+import { ThemeProvider } from 'styled-components';
 ```
 
 Wrap the project with the provider
@@ -61,9 +61,7 @@ Wrap the project with the provider
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        //react app
-      </div>
+      <div className="App">//react app</div>
     </ThemeProvider>
   );
 }

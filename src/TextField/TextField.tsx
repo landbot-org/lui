@@ -1,5 +1,6 @@
-import { useMergeRefs } from '@floating-ui/react';
 import React, { useRef } from 'react';
+
+import { useMergeRefs } from '@floating-ui/react';
 
 import { Box } from '../Box';
 import { FormHelperText } from '../FormHelperText';

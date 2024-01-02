@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
+
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -8,16 +9,20 @@ import { Typography } from '../Typography';
 import { Popover } from './Popover';
 import { PopoverContent } from './PopoverContent';
 import { PopoverTrigger } from './PopoverTrigger';
-import { PopoverProps } from './types';
 
-export default {
-  title: 'Components/Popover',
+const meta: Meta<typeof Popover> = {
   component: Popover,
-  args: {
-    placement: 'top',
+  tags: ['autodocs'],
+  argTypes: {
+    children: {
+      control: {
+        type: null,
+      },
+    },
   },
-} as Meta<typeof Popover>;
+};
 
+export default meta;
 type Story = StoryObj<typeof Popover>;
 
 const commonPopoverContent = (
@@ -33,88 +38,95 @@ const commonPopoverContent = (
     </Box>
     <Box display="flex" backgroundColor="neutral.300" mb={2} style={{ height: '50px' }} />
     <Box display="flex" justifyContent="flex-end">
-      <Button size="small">Primary small</Button>
+      <Button size="small" tabIndex={-1}>
+        Primary small
+      </Button>
     </Box>
   </Box>
 );
 
-const TemplateWithHooks = (args: PopoverProps) => {
-  const [open, setOpen] = useState(args.open);
-
-  return (
-    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-      <Popover {...args} open={open} setOpen={setOpen}>
+export const Uncontrolled: Story = {
+  args: {
+    children: (
+      <>
         <PopoverTrigger>
           <Button>Click here to open</Button>
         </PopoverTrigger>
         <PopoverContent>{commonPopoverContent}</PopoverContent>
-      </Popover>
-    </Box>
-  );
+      </>
+    ),
+  },
 };
 
 export const Controlled: Story = {
-  render: (args) => <TemplateWithHooks {...args} />,
-};
-
-export const Uncontrolled: Story = {
-  render: (args) => (
-    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-      <Popover {...args}>
+  args: {
+    open: true,
+    children: (
+      <>
         <PopoverTrigger>
           <Button>Click here to open</Button>
         </PopoverTrigger>
         <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </>
+    ),
+  },
+  render: function Render(args) {
+    const [open, setOpen] = useState(args.open);
+
+    return (
+      <Popover {...args} open={open} setOpen={setOpen}>
+        {args.children}
       </Popover>
-    </Box>
-  ),
+    );
+  },
 };
 
 export const UncontrolledOnAbsolutePositionedElement: Story = {
   args: {
     placement: 'bottom-end',
-  },
-  render: (args) => (
-    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-      <Popover {...args}>
+    children: (
+      <>
         <PopoverTrigger>
-          <Button style={{ position: 'absolute', bottom: 50, right: 50 }}>Click here to open</Button>
+          <Button style={{ position: 'absolute', bottom: 0, right: 50 }}>Click here to open</Button>
         </PopoverTrigger>
         <PopoverContent>{commonPopoverContent}</PopoverContent>
-      </Popover>
-    </Box>
-  ),
+      </>
+    ),
+  },
 };
 
 export const CloseOnScroll: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ height: '2000px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     closeOnScroll: true,
     placement: 'bottom-start',
-  },
-  render: (args) => (
-    <div style={{ height: '2000px' }}>
-      <Popover {...args}>
+    children: (
+      <>
         <PopoverTrigger>
           <Button>Click here to open</Button>
         </PopoverTrigger>
         <PopoverContent>{commonPopoverContent}</PopoverContent>
-      </Popover>
-    </div>
-  ),
+      </>
+    ),
+  },
 };
 
 export const UncontrolledWithoutPortal: Story = {
   args: {
     usePortal: false,
-  },
-  render: (args) => (
-    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-      <Popover {...args}>
+    children: (
+      <>
         <PopoverTrigger>
           <Button>Click here to open</Button>
         </PopoverTrigger>
         <PopoverContent>{commonPopoverContent}</PopoverContent>
-      </Popover>
-    </Box>
-  ),
+      </>
+    ),
+  },
 };

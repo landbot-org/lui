@@ -1,5 +1,6 @@
-import { fireEvent } from '@testing-library/react';
 import React, { useState } from 'react';
+
+import { fireEvent } from '@testing-library/react';
 
 import { render } from '../test-utils';
 import { Radio } from './Radio';

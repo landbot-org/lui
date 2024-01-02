@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { Box } from '../Box';
-import { Tabs as TabsComponent } from './Tabs';
-import { TabsProps } from './types';
+import { Meta, StoryObj } from '@storybook/react';
 
-export default {
-  title: 'Components/Tabs',
-  component: TabsComponent,
+import { Box } from '../Box';
+import { Tabs } from './Tabs';
+
+const meta: Meta<typeof Tabs> = {
+  component: Tabs,
+  tags: ['autodocs'],
   args: {
     tabs: [
       {
@@ -37,26 +37,30 @@ export default {
         label: 'Tab8',
       },
     ],
-    onChange: (newActiveTab) => newActiveTab,
     size: 'medium',
     showScrollButtons: true,
     showBottomLine: false,
     value: 3,
   },
-} as Meta<typeof TabsComponent>;
-
-type Story = StoryObj<typeof TabsComponent>;
-
-const TemplateWithHooks = (args: TabsProps) => {
-  const [active, setActive] = useState<number>(3);
-
-  return (
-    <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: '400px' }}>
-      <TabsComponent {...args} value={active} onChange={(newActive) => setActive(newActive)} />
-    </Box>
-  );
 };
 
+export default meta;
+type Story = StoryObj<typeof Tabs>;
+
 export const Default: Story = {
-  render: (args) => <TemplateWithHooks {...args} />,
+  args: {
+    value: 3,
+  },
+  decorators: [
+    (Story) => (
+      <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: 400 }}>
+        <Story />
+      </Box>
+    ),
+  ],
+  render: function Render(args) {
+    const [active, setActive] = useState<number>(args.value as number);
+
+    return <Tabs {...args} value={active} onChange={(newActive) => setActive(newActive)} />;
+  },
 };

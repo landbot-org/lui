@@ -8,28 +8,9 @@ const config: StorybookConfig = {
   },
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   // Optional
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
-    '@storybook/addon-mdx-gfm',
-    '@storybook/addon-themes',
-    '@storybook/themes',
-  ],
-  typescript: {
-    check: true,
-    reactDocgenTypescriptOptions: {
-      propFilter: (prop) => ['label', 'disabled'].includes(prop.name),
-    },
-  },
+  addons: ['@storybook/addon-essentials', '@storybook/addon-mdx-gfm', '@storybook/addon-themes'],
   docs: {
-    autodocs: false,
-  },
-  features: {
-    storyStoreV7: !global.navigator?.userAgent?.match?.('jsdom'),
-    buildStoriesJson: true,
-    warnOnLegacyHierarchySeparator: false,
+    autodocs: 'tag',
   },
 };
 

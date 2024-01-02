@@ -1,3 +1,5 @@
+import React, { useRef, useState } from 'react';
+
 import {
   FloatingFocusManager,
   FloatingPortal,
@@ -11,7 +13,6 @@ import {
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
-import React, { useRef, useState } from 'react';
 
 import { Box } from '../Box';
 import { TextField } from '../TextField';

@@ -1,3 +1,5 @@
+import React, { useEffect, useRef, useState } from 'react';
+
 import {
   arrow,
   autoUpdate,
@@ -11,7 +13,6 @@ import {
   useInteractions,
   useRole,
 } from '@floating-ui/react';
-import React, { useEffect, useRef, useState } from 'react';
 
 import { PopoverProps } from './types';
 

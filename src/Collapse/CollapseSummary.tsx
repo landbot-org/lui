@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
 
 import { Box } from '../Box';
 import { BoxProps } from '../Box/types';

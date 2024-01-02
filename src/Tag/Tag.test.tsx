@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
 
 import { render, screen } from '../test-utils';
 import { Tag } from './Tag';

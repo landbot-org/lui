@@ -1,5 +1,6 @@
-import { useMergeRefs } from '@floating-ui/react';
 import React from 'react';
+
+import { useMergeRefs } from '@floating-ui/react';
 
 import { usePopoverContext } from './PopoverContext';
 

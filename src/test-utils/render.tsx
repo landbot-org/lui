@@ -1,6 +1,7 @@
-import { RenderOptions, render as rtlRender } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import React, { ReactElement } from 'react';
+
+import { RenderOptions, render as rtlRender } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../shared/theme';

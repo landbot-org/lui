@@ -1,15 +1,15 @@
+import React from 'react';
+
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
 
 import { Icon } from '../Icon';
 import { Select } from './Select';
-import { SelectProps } from './types';
 
-export default {
-  title: 'Components/Select',
+const meta: Meta<typeof Select> = {
   component: Select,
+  tags: ['autodocs'],
   args: {
     placeholder: 'Choose an option',
     items: [
@@ -31,26 +31,18 @@ export default {
       },
     },
   },
-} as Meta<typeof Select>;
+};
 
+export default meta;
 type Story = StoryObj<typeof Select>;
 
-const TemplateWithHooks = (args: SelectProps) => {
-  const [value, setValue] = useState(args.value || '');
-
-  return <Select {...args} value={value} onChange={setValue} />;
-};
-
-export const Default: Story = {
-  render: (args) => <TemplateWithHooks {...args} />,
-};
+export const Default: Story = {};
 
 export const NoResults: Story = {
   args: {
     items: [],
     noResults: 'You must fetch your data first!',
   },
-  render: (args) => <TemplateWithHooks {...args} />,
 };
 
 export const Labeled: Story = {
@@ -59,7 +51,6 @@ export const Labeled: Story = {
     description: 'Description',
     helperText: 'Helper text',
   },
-  render: (args) => <TemplateWithHooks {...args} />,
 };
 
 export const Error: Story = {
@@ -69,5 +60,4 @@ export const Error: Story = {
     helperText: 'Helper text',
     label: 'Label',
   },
-  render: (args) => <TemplateWithHooks {...args} />,
 };

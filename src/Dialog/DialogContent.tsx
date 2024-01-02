@@ -1,5 +1,6 @@
-import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import React from 'react';
+
+import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 
 import { StyledContent, StyledDialogCloseWrapper, StyledFloatingOverlay } from './Dialog.styles';
 import { DialogClose } from './DialogClose';

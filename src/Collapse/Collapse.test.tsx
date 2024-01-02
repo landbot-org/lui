@@ -43,7 +43,7 @@ describe('Collapse', () => {
     expect(screen.queryByText('Content')).not.toBeInTheDocument();
   });
 
-  it('should render Collapse when controlled mode', async () => {
+  it('should render Collapse when controlled mode and user clicks', async () => {
     const setOpenMock = jest.fn();
     const { user } = render(
       <Collapse open setOpen={setOpenMock}>

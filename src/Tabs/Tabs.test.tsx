@@ -1,5 +1,6 @@
-import { act, cleanup } from '@testing-library/react';
 import React from 'react';
+
+import { act, cleanup } from '@testing-library/react';
 
 import { render, screen } from '../test-utils';
 import { Tabs } from './Tabs';

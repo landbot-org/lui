@@ -1,5 +1,6 @@
-import { useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
 import React from 'react';
+
+import { useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
 
 import { DialogProps } from './types';
 

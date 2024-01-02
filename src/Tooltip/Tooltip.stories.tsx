@@ -1,40 +1,66 @@
-import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Box } from '../Box';
+import { Meta, StoryObj } from '@storybook/react';
+
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { Tooltip } from './Tooltip';
 import { TooltipContent } from './TooltipContent';
 import { TooltipTrigger } from './TooltipTrigger';
 
-export default {
-  title: 'Components/Tooltip',
+const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
-  args: {},
-} as Meta<typeof Tooltip>;
+  tags: ['autodocs'],
+  argTypes: {
+    children: {
+      control: {
+        type: null,
+      },
+    },
+  },
+  args: {
+    placement: 'top-start',
+  },
+};
 
+export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
 export const Uncontrolled: Story = {
-  render: (args) => (
-    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-      <Tooltip {...args}>
+  args: {
+    children: (
+      <>
         <TooltipTrigger>
           <Button>Hover to open</Button>
         </TooltipTrigger>
         <TooltipContent>
           <Typography variant="text12">Lorem ipsum dolor sit amet</Typography>
         </TooltipContent>
-      </Tooltip>
-    </Box>
-  ),
+      </>
+    ),
+  },
+};
+
+export const Controlled: Story = {
+  args: {
+    open: true,
+    children: (
+      <>
+        <TooltipTrigger>
+          <Button>Hover to open</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <Typography variant="text12">Lorem ipsum dolor sit amet</Typography>
+        </TooltipContent>
+      </>
+    ),
+  },
 };
 
 export const UncontrolledWithLargeContent: Story = {
-  render: (args) => (
-    <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-      <Tooltip {...args}>
+  args: {
+    children: (
+      <>
         <TooltipTrigger>
           <Button>Hover to open</Button>
         </TooltipTrigger>
@@ -45,7 +71,7 @@ export const UncontrolledWithLargeContent: Story = {
             ea commodo consequat.
           </Typography>
         </TooltipContent>
-      </Tooltip>
-    </Box>
-  ),
+      </>
+    ),
+  },
 };
