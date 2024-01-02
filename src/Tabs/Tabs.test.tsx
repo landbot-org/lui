@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { act, cleanup } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 
 import { render, screen } from '../test-utils';
 import { Tabs } from './Tabs';
@@ -43,7 +43,7 @@ describe('Tabs component', () => {
     const onChangeSpy = jest.fn();
     const { user } = render(<Tabs tabs={tabProps} onChange={onChangeSpy} value={0} />);
 
-    await act(async () => await user.click(screen.getByRole('tab', { name: 'Tab 2' })));
+    await user.click(screen.getByRole('tab', { name: 'Tab 2' }));
 
     expect(onChangeSpy).toHaveBeenCalledTimes(1);
     expect(onChangeSpy).toHaveBeenCalledWith(1);
@@ -53,7 +53,7 @@ describe('Tabs component', () => {
     const onChangeSpy = jest.fn();
     const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
 
-    await act(async () => await user.click(screen.getByRole('tab', { name: 'Tab 3' })));
+    await user.click(screen.getByRole('tab', { name: 'Tab 3' }));
 
     expect(onChangeSpy).toHaveBeenCalledTimes(0);
   });

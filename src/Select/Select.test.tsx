@@ -35,7 +35,7 @@ describe('Select', () => {
       ],
     });
 
-    user.click(screen.getByPlaceholderText('Choose an option'));
+    await user.click(screen.getByPlaceholderText('Choose an option'));
 
     expect(screen.getByRole('option', { name: 'Option 1', selected: true })).toBeVisible();
     expect(screen.getByRole('option', { name: 'Option 2', selected: false })).toBeVisible();
@@ -53,8 +53,8 @@ describe('Select', () => {
     });
     const input = screen.getByPlaceholderText('Choose an option');
 
-    user.click(input);
-    user.click(screen.getByRole('option', { name: 'Option 2' }));
+    await user.click(input);
+    await user.click(screen.getByRole('option', { name: 'Option 2' }));
 
     expect(input).toHaveValue('Option 2');
   });
