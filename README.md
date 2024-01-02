@@ -1,4 +1,4 @@
-# LUI ([Landbot UI](https://landbot.io/))
+# LUI ([Landbot UI](https://landbot.io/)) ✨
 
 [![GitHub
 license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/landbot-org/lui/blob/main/LICENSE)
