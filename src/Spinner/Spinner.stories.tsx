@@ -1,25 +1,16 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
+import { Spinner } from './Spinner';
 
-import { Spinner as SpinnerComponent } from './Spinner';
-import { SpinnerProps } from './types';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../shared/theme';
-
-export default {
-  title: 'Components/Spinner',
-  component: SpinnerComponent,
-  parameters: {
-    componentSubtitle: 'Displays a Spinner',
-  },
+const meta: Meta<typeof Spinner> = {
+  component: Spinner,
+  tags: ['autodocs'],
   args: {
     size: 'M',
     color: 'blue.main',
   },
-} as ComponentMeta<typeof SpinnerComponent>;
+};
 
-export const Spinner: ComponentStory<typeof SpinnerComponent> = (args: SpinnerProps) => (
-  <ThemeProvider theme={theme}>
-    <SpinnerComponent {...args} />
-  </ThemeProvider>
-);
+export default meta;
+type Story = StoryObj<typeof Spinner>;
+
+export const Default: Story = {};

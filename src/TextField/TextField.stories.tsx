@@ -1,78 +1,78 @@
 import React, { useEffect, useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { theme } from '../shared/theme';
+import { Meta, StoryObj } from '@storybook/react';
 import { TextField } from './TextField';
-import { ThemeProvider } from 'styled-components';
-import { TextFieldProps } from './types';
 import { Button } from '../Button';
 import { GearTool } from '../Icon/icons';
 import { Icon } from '../Icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-export default {
-  title: 'Components/TextField',
+const meta: Meta<typeof TextField> = {
   component: TextField,
-  args: {},
-} as ComponentMeta<typeof TextField>;
+  tags: ['autodocs'],
+  render: (args) => {
+    const [value, setValue] = useState(args.value || '');
 
-const Template: ComponentStory<typeof TextField> = (args: TextFieldProps) => {
-  const [value, setValue] = useState(args.value);
+    useEffect(() => {
+      setValue(args.value || '');
+    }, [args.value]);
 
-  useEffect(() => {
-    setValue(args.value);
-  }, [args.value]);
+    const _onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setValue(e.target.value);
+      args.onChange && args.onChange(e);
+    };
 
-  const _onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    args.onChange && args.onChange(e);
-  };
-
-  return (
-    <ThemeProvider theme={theme}>
-      <TextField {...args} value={value} onChange={_onChange} />
-    </ThemeProvider>
-  );
+    return <TextField {...args} value={value} onChange={_onChange} />;
+  },
 };
 
-export const Default = Template.bind({});
+export default meta;
+type Story = StoryObj<typeof TextField>;
 
-export const Placeholder = Template.bind({});
-Placeholder.args = {
-  placeholder: 'Placeholder text',
+export const Default: Story = {};
+
+export const Placeholder: Story = {
+  args: {
+    placeholder: 'Placeholder text',
+  },
 };
 
-export const Value = Template.bind({});
-Value.args = {
-  value: 'Input value',
+export const Value: Story = {
+  args: {
+    value: 'Input value',
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-  placeholder: 'Placeholder text',
-  value: 'Input value',
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    placeholder: 'Placeholder text',
+    value: 'Input value',
+  },
 };
 
-export const Adornments = Template.bind({});
-Adornments.args = {
-  endAdornment: <Button color="purple.main" variant="text" startIcon={<GearTool />} />,
-  placeholder: 'Placeholder text',
-  startAdornment: <Icon icon={<FontAwesomeIcon icon={faSearch} />} />,
+export const Adornments: Story = {
+  args: {
+    endAdornment: <Button color="purple.main" variant="text" startIcon={<GearTool />} />,
+    placeholder: 'Placeholder text',
+    startAdornment: <Icon icon={<FontAwesomeIcon icon={faSearch} />} />,
+  },
 };
 
-export const Labeled = Template.bind({});
-Labeled.args = {
-  id: 'textfield-id',
-  label: 'Label',
-  description: 'Description',
-  helperText: 'Helper text',
+export const Labeled: Story = {
+  args: {
+    id: 'textfield-id',
+    label: 'Label',
+    description: 'Description',
+    helperText: 'Helper text',
+  },
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  error: true,
-  description: 'Description',
-  helperText: 'Helper text',
-  label: 'Label',
+export const Error: Story = {
+  args: {
+    error: true,
+    description: 'Description',
+    helperText: 'Helper text',
+    label: 'Label',
+  },
 };

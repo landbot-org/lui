@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../shared/theme';
+import { Meta, StoryObj } from '@storybook/react';
 import { Popover } from './Popover';
-import { Box } from '../Box';
-import { PopoverProps } from './types';
 import { PopoverTrigger } from './PopoverTrigger';
 import { PopoverContent } from './PopoverContent';
+import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Link } from '../Link';
 
-export default {
-  title: 'Components/Popover',
+const meta: Meta<typeof Popover> = {
   component: Popover,
-  args: {
-    placement: 'top',
+  tags: ['autodocs'],
+  argTypes: {
+    children: {
+      control: {
+        type: null,
+      },
+    },
   },
-} as ComponentMeta<typeof Popover>;
+};
+
+export default meta;
+type Story = StoryObj<typeof Popover>;
 
 const commonPopoverContent = (
   <Box p={2}>
@@ -32,94 +36,95 @@ const commonPopoverContent = (
     </Box>
     <Box display="flex" backgroundColor="neutral.300" mb={2} style={{ height: '50px' }} />
     <Box display="flex" justifyContent="flex-end">
-      <Button size="small">Primary small</Button>
+      <Button size="small" tabIndex={-1}>
+        Primary small
+      </Button>
     </Box>
   </Box>
 );
 
-export const Controlled: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  const [open, setOpen] = useState(args.open);
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args} open={open} setOpen={setOpen}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
-  );
+export const Uncontrolled: Story = {
+  args: {
+    children: (
+      <>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </>
+    ),
+  },
 };
 
-export const Uncontrolled: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
-  );
+export const Controlled: Story = {
+  args: {
+    open: true,
+    children: (
+      <>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </>
+    ),
+  },
+  render: (args) => {
+    const [open, setOpen] = useState(args.open);
+
+    return (
+      <Popover {...args} open={open} setOpen={setOpen}>
+        {args.children}
+      </Popover>
+    );
+  },
 };
 
-export const UncontrolledOnAbsolutePositionedElement: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button style={{ position: 'absolute', bottom: 50, right: 50 }}>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
-  );
-};
-UncontrolledOnAbsolutePositionedElement.args = {
-  placement: 'bottom-end',
+export const UncontrolledOnAbsolutePositionedElement: Story = {
+  args: {
+    placement: 'bottom-end',
+    children: (
+      <>
+        <PopoverTrigger>
+          <Button style={{ position: 'absolute', bottom: 0, right: 50 }}>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </>
+    ),
+  },
 };
 
-export const CloseOnScroll: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
+export const CloseOnScroll: Story = {
+  decorators: [
+    (Story) => (
       <div style={{ height: '2000px' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
+        <Story />
       </div>
-    </ThemeProvider>
-  );
-};
-CloseOnScroll.args = {
-  closeOnScroll: true,
-  placement: 'bottom-start',
+    ),
+  ],
+  args: {
+    closeOnScroll: true,
+    placement: 'bottom-start',
+    children: (
+      <>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </>
+    ),
+  },
 };
 
-export const UncontrolledWithoutPortal: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" justifyContent="center" style={{ height: 'calc(100vh - 2rem)' }}>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button>Click here to open</Button>
-          </PopoverTrigger>
-          <PopoverContent>{commonPopoverContent}</PopoverContent>
-        </Popover>
-      </Box>
-    </ThemeProvider>
-  );
-};
-UncontrolledWithoutPortal.args = {
-  usePortal: false,
+export const UncontrolledWithoutPortal: Story = {
+  args: {
+    usePortal: false,
+    children: (
+      <>
+        <PopoverTrigger>
+          <Button>Click here to open</Button>
+        </PopoverTrigger>
+        <PopoverContent>{commonPopoverContent}</PopoverContent>
+      </>
+    ),
+  },
 };
