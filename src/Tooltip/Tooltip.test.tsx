@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { Tooltip, TooltipContent, TooltipTrigger } from '.';
-import { mockResizeObserver, render, screen } from '../test-utils';
 import { PopoverProps } from '../Popover/types';
+import { mockResizeObserver, render, screen } from '../test-utils';
 
 const renderComponent = (props: Partial<PopoverProps> = {}) => {
   return render(
@@ -12,7 +13,7 @@ const renderComponent = (props: Partial<PopoverProps> = {}) => {
       <TooltipContent>
         <div>Tooltip content</div>
       </TooltipContent>
-    </Tooltip>
+    </Tooltip>,
   );
 };
 

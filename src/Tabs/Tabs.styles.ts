@@ -1,7 +1,8 @@
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes, styled } from 'styled-components';
+
 import { Box } from '../Box';
-import { Theme } from '../shared/theme.types';
 import { Typography } from '../Typography';
+import { Theme } from '../shared/theme.types';
 import { SizeTypes } from './types';
 import { getButtonSizeStyles, getTabSizeStyles } from './utils';
 

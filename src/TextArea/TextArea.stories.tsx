@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
+
 import { TextArea } from './TextArea';
 
 const meta: Meta<typeof TextArea> = {
@@ -8,7 +10,7 @@ const meta: Meta<typeof TextArea> = {
   args: {
     value: '',
   },
-  render: (args) => {
+  render: function Render(args) {
     const [value, setValue] = useState(args.value || '');
 
     useEffect(() => {

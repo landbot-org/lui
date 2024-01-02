@@ -1,8 +1,14 @@
 import React from 'react';
+
 import { HorizontalDividerStyled, VerticalDividerStyled } from './Divider.styles';
 import { DividerProps } from './types';
 
-export const Divider = ({ orientation = 'horizontal', size = 'small', color = 'neutral.300', ...rest }: DividerProps) =>
+export const Divider = ({
+  orientation = 'horizontal',
+  size = 'small',
+  color = 'neutral.300',
+  ...rest
+}: DividerProps) =>
   orientation === 'vertical' ? (
     <VerticalDividerStyled role="separator" aria-orientation="vertical" $color={color} $size={size} {...rest} />
   ) : (

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
-import { Collapse } from './Collapse';
-import { CollapseSummary } from './CollapseSummary';
-import { CollapseContent } from './CollapseContent';
+
 import { Divider } from '../Divider';
 import { Typography } from '../Typography';
+import { Collapse } from './Collapse';
+import { CollapseContent } from './CollapseContent';
+import { CollapseSummary } from './CollapseSummary';
 
 const meta: Meta<typeof Collapse> = {
   component: Collapse,
@@ -49,7 +51,7 @@ export const Controlled: Story = {
   args: {
     children: <Content />,
   },
-  render: (args) => {
+  render: function Render(args) {
     const [open, setOpen] = useState(Boolean(args.open));
 
     useEffect(() => {

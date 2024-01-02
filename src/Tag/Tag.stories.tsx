@@ -1,9 +1,11 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import { Tag } from './Tag';
-import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+
+import { Icon } from '../Icon';
+import { Tag } from './Tag';
 
 const meta: Meta<typeof Tag> = {
   component: Tag,

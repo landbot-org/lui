@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { CollapseContext } from './CollapseContext';
 import { CollapseProps } from './types';
 import { useCollapse } from './useCollapse';

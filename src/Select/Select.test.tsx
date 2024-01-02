@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { act, mockResizeObserver, render, screen } from '../test-utils';
+
+import { mockResizeObserver, render, screen } from '../test-utils';
 import { Select } from './Select';
 import { SelectProps } from './types';
 
@@ -34,14 +35,14 @@ describe('Select', () => {
       ],
     });
 
-    await act(async () => user.click(screen.getByPlaceholderText('Choose an option')));
+    await user.click(screen.getByPlaceholderText('Choose an option'));
 
     expect(screen.getByRole('option', { name: 'Option 1', selected: true })).toBeVisible();
     expect(screen.getByRole('option', { name: 'Option 2', selected: false })).toBeVisible();
     expect(screen.getByRole('option', { name: 'Option 3', selected: false })).toBeVisible();
   });
 
-  it('should render options when click on input', async () => {
+  it('should render options when click on input and select an option', async () => {
     const { user } = renderComponent({
       placeholder: 'Choose an option',
       items: [
@@ -52,8 +53,8 @@ describe('Select', () => {
     });
     const input = screen.getByPlaceholderText('Choose an option');
 
-    await act(async () => user.click(input));
-    await act(async () => user.click(screen.getByRole('option', { name: 'Option 2' })));
+    await user.click(input);
+    await user.click(screen.getByRole('option', { name: 'Option 2' }));
 
     expect(input).toHaveValue('Option 2');
   });

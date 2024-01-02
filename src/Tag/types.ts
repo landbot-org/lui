@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ColorsTypes } from '../shared/theme.types';
 
 export type SizeTypes = 'small' | 'medium' | 'large';

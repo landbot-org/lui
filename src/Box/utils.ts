@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+
 import { getColorFromTheme } from '../shared/mixins';
 import { Theme } from '../shared/theme.types';
 import { BORDER_RADIUS_MAPPING, BOX_SHADOW_MAPPING } from './constants';
@@ -12,19 +13,17 @@ export const getBackgroundStyles = ({ $backgroundColor, theme }: StyledBoxProps 
   }
 };
 
-export const getElevationStyles = ({ $elevation = 0, $hoverElevation }: StyledBoxProps) =>
-  css`
-    box-shadow: ${BOX_SHADOW_MAPPING[$elevation]};
+export const getElevationStyles = ({ $elevation = 0, $hoverElevation }: StyledBoxProps) => css`
+  box-shadow: ${BOX_SHADOW_MAPPING[$elevation]};
 
-    &:hover {
-      box-shadow: ${BOX_SHADOW_MAPPING[$hoverElevation ?? $elevation]};
-    }
-  `;
+  &:hover {
+    box-shadow: ${BOX_SHADOW_MAPPING[$hoverElevation ?? $elevation]};
+  }
+`;
 
-export const getRadiusStyles = ({ $radius = 0 }: StyledBoxProps) =>
-  css`
-    border-radius: ${BORDER_RADIUS_MAPPING[$radius]}px;
-  `;
+export const getRadiusStyles = ({ $radius = 0 }: StyledBoxProps) => css`
+  border-radius: ${BORDER_RADIUS_MAPPING[$radius]}px;
+`;
 
 export const getBorderStyles = ({
   $border = 0,

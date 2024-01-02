@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { fireEvent, screen } from '@testing-library/react';
-import { Toggle } from './Toggle';
+
 import { render } from '../test-utils';
+import { Toggle } from './Toggle';
 
 describe('Toggle', () => {
   it('renders default', () => {

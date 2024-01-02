@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
-import { Popover } from './Popover';
-import { PopoverTrigger } from './PopoverTrigger';
-import { PopoverContent } from './PopoverContent';
+
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Link } from '../Link';
+import { Typography } from '../Typography';
+import { Popover } from './Popover';
+import { PopoverContent } from './PopoverContent';
+import { PopoverTrigger } from './PopoverTrigger';
 
 const meta: Meta<typeof Popover> = {
   component: Popover,
@@ -68,7 +70,7 @@ export const Controlled: Story = {
       </>
     ),
   },
-  render: (args) => {
+  render: function Render(args) {
     const [open, setOpen] = useState(args.open);
 
     return (

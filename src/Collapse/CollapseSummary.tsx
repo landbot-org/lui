@@ -1,11 +1,13 @@
 import React from 'react';
+
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { Box } from '../Box';
 import { BoxProps } from '../Box/types';
-import { useCollapseContext } from './CollapseContext';
 import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { StyledCollapseSummary } from './Collapse.styles';
+import { useCollapseContext } from './CollapseContext';
 
 export const CollapseSummary = ({ children, ...props }: BoxProps) => {
   const { open, setOpen } = useCollapseContext();

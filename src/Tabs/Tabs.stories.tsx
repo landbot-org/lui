@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
-import { Tabs } from './Tabs';
+
 import { Box } from '../Box';
+import { Tabs } from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
@@ -56,7 +58,7 @@ export const Default: Story = {
       </Box>
     ),
   ],
-  render: (args) => {
+  render: function Render(args) {
     const [active, setActive] = useState<number>(args.value as number);
 
     return <Tabs {...args} value={active} onChange={(newActive) => setActive(newActive)} />;

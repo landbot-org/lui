@@ -1,8 +1,10 @@
+import React, { useRef, useState } from 'react';
+
 import {
-  autoUpdate,
-  flip,
   FloatingFocusManager,
   FloatingPortal,
+  autoUpdate,
+  flip,
   size,
   useDismiss,
   useFloating,
@@ -11,7 +13,7 @@ import {
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
-import React, { useRef, useState } from 'react';
+
 import { Box } from '../Box';
 import { BoxProps } from '../Box/types';
 import { TextField } from '../TextField';

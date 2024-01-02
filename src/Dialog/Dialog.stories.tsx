@@ -1,13 +1,15 @@
 import React from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
-import { Dialog } from './Dialog';
-import { DialogContent } from './DialogContent';
+
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Divider } from '../Divider';
 import { Popover, PopoverContent, PopoverTrigger } from '../Popover';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltip';
+import { Typography } from '../Typography';
+import { Dialog } from './Dialog';
+import { DialogContent } from './DialogContent';
 
 const meta: Meta<typeof Dialog> = {
   component: Dialog,

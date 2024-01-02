@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import { TextField } from './TextField';
-import { Button } from '../Button';
-import { GearTool } from '../Icon/icons';
-import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+
+import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { GearTool } from '../Icon/icons';
+import { TextField } from './TextField';
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
   tags: ['autodocs'],
-  render: (args) => {
+  render: function Render(args) {
     const [value, setValue] = useState(args.value || '');
 
     useEffect(() => {

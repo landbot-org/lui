@@ -1,56 +1,67 @@
-# LUI ([Landbot UI](https://landbot.io/)) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/landbot-org/lui/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/@landbot/lui)](https://www.npmjs.com/package/@landbot/lui) [![Test](https://github.com/landbot-org/lui/actions/workflows/tests.yml/badge.svg)](https://github.com/landbot-org/lui/actions/workflows/tests.yml)
+# LUI ([Landbot UI](https://landbot.io/)) ✨
 
-## Quick start
+[![GitHub
+license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/landbot-org/lui/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@landbot/lui)](https://www.npmjs.com/package/@landbot/lui)
+[![Test](https://github.com/landbot-org/lui/actions/workflows/tests.yml/badge.svg)](https://github.com/landbot-org/lui/actions/workflows/tests.yml)
 
-Install
+## What is a UI components library?
 
-```
-npm i @landbot/lui
-```
+A UI component library is a robust set of ready-made UI components such as buttons, inputs, dialogs, scrolling lists,
+and more.
 
-Import on the root of the project
+## Preparation and prerequisites
 
-```
-import { ThemeProvider } from 'styled-components';
-import { theme } from '@landbot/lui';
-```
-
-Wrap the project with the provider
-
-```
-function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        //react app
-      </div>
-    </ThemeProvider>
-  );
-}
+```shell
+npm install
 ```
 
-## Install
+## Start the component explorer
 
-```
-npm i
-```
-
-## Start
-
-```
-npm start
+```shell
+npm run storybook
 ```
 
-Storybook will be launched at http://localhost:6006/
+For more information about Storybook, please visit the [Storybook website](https://storybook.js.org/).
 
 ## Test
 
-```
+Component tests are written using [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/).
+
+```shell
 npm run test
 ```
 
 ## Build
 
-```
+Package is built using [Rollup](https://rollupjs.org/guide/en/). The build is configured to generate an ES module
+(`esm`) package.
+
+```shell
 npm run build
+```
+
+## Installation and usage
+
+```shell
+npm install @landbot/lui
+```
+
+Import on the root of the project
+
+```js
+import { theme } from '@landbot/lui';
+import { ThemeProvider } from 'styled-components';
+```
+
+Wrap the project with the provider
+
+```js
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <div className="App">//react app</div>
+    </ThemeProvider>
+  );
+}
 ```

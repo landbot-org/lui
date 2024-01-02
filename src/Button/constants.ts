@@ -1,6 +1,6 @@
-import { theme } from '../shared/theme';
-import { TypographyVariants } from '../Typography/types';
 import { SpinnerSize } from '../Spinner/types';
+import { TypographyVariants } from '../Typography/types';
+import { theme } from '../shared/theme';
 import { ColorTypes, SizeTypes } from './types';
 
 export const SIZES_MAPPING: Record<SizeTypes, string> = {

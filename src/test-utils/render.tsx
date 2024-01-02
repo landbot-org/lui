@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react';
-import { render as rtlRender, RenderOptions } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+
+import { RenderOptions, render as rtlRender } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { ThemeProvider } from 'styled-components';
+
 import { theme } from '../shared/theme';
 
 export const render = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) => {

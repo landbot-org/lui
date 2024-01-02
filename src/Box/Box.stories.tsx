@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
+
 import { Box } from './Box';
 
 const meta: Meta<typeof Box> = {

@@ -1,5 +1,7 @@
-import { fireEvent, waitFor } from '@testing-library/dom';
 import React from 'react';
+
+import { fireEvent, waitFor } from '@testing-library/dom';
+
 import { render } from '../test-utils';
 import { Checkbox } from './Checkbox';
 

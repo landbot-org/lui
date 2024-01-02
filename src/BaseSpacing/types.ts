@@ -1,19 +1,4 @@
-type SPACING_OPTIONS =
-  | 0.25
-  | 0.5
-  | 1
-  | 1.5
-  | 2
-  | 3
-  | 4
-  | 5
-  | 6
-  | 7
-  | 8
-  | 9
-  | 10
-  | 15
-  | 20;
+type SPACING_OPTIONS = 0.25 | 0.5 | 1 | 1.5 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 15 | 20;
 
 export interface BaseSpacingProps {
   m?: SPACING_OPTIONS;

@@ -1,13 +1,15 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+import { styled } from 'styled-components';
+
+import { Box } from '../Box';
+import { Divider } from '../Divider';
+import { Typography } from '../Typography';
 import { Icon } from './Icon';
 import * as icons from './icons';
-import { Typography } from '../Typography';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Divider } from '../Divider';
-import { Box } from '../Box';
-import styled from 'styled-components';
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
@@ -69,6 +71,7 @@ export const Icons: Story = {
         </Box>
         <GridBox>
           {Object.keys(icons).map((iconName) => {
+            // eslint-disable-next-line import/namespace
             const IconRender = icons[iconName as keyof typeof icons];
             return (
               <GridItem key={iconName} title={iconName} onClick={() => handleClick(iconName)}>

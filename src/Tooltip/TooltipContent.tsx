@@ -1,8 +1,10 @@
 import React, { HTMLProps } from 'react';
-import { usePopoverContext } from '../Popover/PopoverContext';
-import { FloatingFocusManager, FloatingPortal, FloatingArrow } from '@floating-ui/react';
-import { theme } from '../shared/theme';
+
+import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
+
 import { StyledPopoverContent } from '../Popover/Popover.styles';
+import { usePopoverContext } from '../Popover/PopoverContext';
+import { theme } from '../shared/theme';
 
 export const TooltipContent = (props: HTMLProps<HTMLDivElement>) => {
   const { context: floatingContext, ...context } = usePopoverContext();

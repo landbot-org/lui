@@ -1,6 +1,8 @@
+import React from 'react';
+
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+
 import { render } from '../test-utils';
 import { Icon } from './Icon';
 import * as icons from './icons';
@@ -9,6 +11,7 @@ import { GRID_AREA } from './types';
 describe('Icon', () => {
   it('should render svg with custom icons', () => {
     Object.keys(icons).map((icon) => {
+      // eslint-disable-next-line import/namespace
       const IconRender = icons[icon as keyof typeof icons];
       const { container } = render(<Icon icon={<IconRender />} size="1x" color="blue.main" />);
       expect(container.querySelector('svg')).toBeInTheDocument();
@@ -32,6 +35,6 @@ describe('Icon', () => {
     (gridArea) => {
       const { container } = render(<Icon icon={<FontAwesomeIcon icon={faRobot} />} size="1x" gridArea={gridArea} />);
       expect(container.querySelector('svg')).toBeInTheDocument();
-    }
+    },
   );
 });

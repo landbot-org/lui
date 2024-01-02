@@ -1,5 +1,5 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+
 import { mockResizeObserver, render, screen } from '../test-utils';
 import { Autocomplete } from './Autocomplete';
 import { AutocompleteProps } from './types';
@@ -27,9 +27,7 @@ describe('Autocomplete', () => {
       ],
     });
 
-    await act(async () => {
-      await user.type(screen.getByPlaceholderText('Write something here'), '1');
-    });
+    await user.type(screen.getByPlaceholderText('Write something here'), '1');
 
     expect(screen.getByRole('option', { name: 'Option 1' })).toBeVisible();
   });
@@ -44,9 +42,7 @@ describe('Autocomplete', () => {
       ],
     });
 
-    await act(async () => {
-      await user.type(screen.getByPlaceholderText('Write something here'), '1');
-    });
+    await user.type(screen.getByPlaceholderText('Write something here'), '1');
 
     expect(screen.getByRole('option', { name: 'Option 1', selected: true })).toBeVisible();
     expect(screen.getByRole('option', { name: 'Option 2', selected: false })).toBeVisible();
@@ -58,9 +54,7 @@ describe('Autocomplete', () => {
       items: [],
     });
 
-    await act(async () => {
-      await user.type(screen.getByPlaceholderText('Write something here'), '1');
-    });
+    await user.type(screen.getByPlaceholderText('Write something here'), '1');
 
     expect(screen.getByText('NO RESULTS...')).toBeVisible();
   });

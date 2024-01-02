@@ -1,10 +1,12 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
-import { Robot } from '../Icon/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+
 import { Icon } from '../Icon';
+import { Robot } from '../Icon/icons';
+import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
   component: Button,

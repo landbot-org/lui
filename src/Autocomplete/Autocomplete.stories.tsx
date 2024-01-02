@@ -1,9 +1,11 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import { Autocomplete } from './Autocomplete';
-import { Icon } from '../Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faAngleDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Meta, StoryObj } from '@storybook/react';
+
+import { Icon } from '../Icon';
+import { Autocomplete } from './Autocomplete';
 
 const meta: Meta<typeof Autocomplete> = {
   component: Autocomplete,

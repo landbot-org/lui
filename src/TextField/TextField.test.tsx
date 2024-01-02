@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { render, screen } from '../test-utils';
 import { TextField } from './TextField';
 
@@ -16,7 +17,7 @@ describe('TextField', () => {
   });
 
   it('should display value', () => {
-    render(<TextField value="Value" />);
+    render(<TextField value="Value" onChange={jest.fn()} />);
 
     expect(screen.getByDisplayValue('Value')).toBeInTheDocument();
   });

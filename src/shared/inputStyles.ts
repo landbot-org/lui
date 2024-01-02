@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
-import type { Theme } from './theme.types';
+
 import { pxToRem } from './mixins';
+import type { Theme } from './theme.types';
 
 interface InputStylesProps {
   theme: Theme;

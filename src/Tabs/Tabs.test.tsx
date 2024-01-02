@@ -1,6 +1,8 @@
 import React from 'react';
+
+import { cleanup } from '@testing-library/react';
+
 import { render, screen } from '../test-utils';
-import { act, cleanup } from '@testing-library/react';
 import { Tabs } from './Tabs';
 
 afterEach(cleanup);
@@ -40,8 +42,8 @@ describe('Tabs component', () => {
   it('should fire an onChange event when user clicks on a tab', async () => {
     const onChangeSpy = jest.fn();
     const { user } = render(<Tabs tabs={tabProps} onChange={onChangeSpy} value={0} />);
-    
-    await act(async () => await user.click(screen.getByRole('tab', { name: 'Tab 2'})));
+
+    await user.click(screen.getByRole('tab', { name: 'Tab 2' }));
 
     expect(onChangeSpy).toHaveBeenCalledTimes(1);
     expect(onChangeSpy).toHaveBeenCalledWith(1);
@@ -49,9 +51,9 @@ describe('Tabs component', () => {
 
   it('should not fire an onChange event when user clicks a disabled tab', async () => {
     const onChangeSpy = jest.fn();
-    const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn}  />);
+    const { user } = render(<Tabs tabs={tabProps} onChange={jest.fn} />);
 
-    await act(async () => await user.click(screen.getByRole('tab', { name: 'Tab 3'})));
+    await user.click(screen.getByRole('tab', { name: 'Tab 3' }));
 
     expect(onChangeSpy).toHaveBeenCalledTimes(0);
   });

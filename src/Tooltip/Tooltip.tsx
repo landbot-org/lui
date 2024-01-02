@@ -1,7 +1,8 @@
 import React from 'react';
+
+import { PopoverContext } from '../Popover/PopoverContext';
 import { PopoverProps } from '../Popover/types';
 import { usePopover } from '../Popover/usePopover';
-import { PopoverContext } from '../Popover/PopoverContext';
 
 export const Tooltip = ({
   children,

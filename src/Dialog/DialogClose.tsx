@@ -1,9 +1,11 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { Button } from '../Button';
-import { useDialogContext } from './DialogContext';
 import { ButtonProps } from '../Button/types';
+import { useDialogContext } from './DialogContext';
 
 export const DialogClose = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { setOpen } = useDialogContext();

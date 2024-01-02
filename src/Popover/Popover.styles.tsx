@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
+
 import { Box } from '../Box';
 import { pxToRem } from '../shared/mixins';
 

@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
+
 import { Typography } from '../Typography';
 import type { TypographyProps } from '../Typography/types';
 import { SIZES_MAPPING } from './constants';

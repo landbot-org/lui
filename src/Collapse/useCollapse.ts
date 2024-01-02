@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+
 import { CollapseProps } from './types';
 
 export const useCollapse = ({ open: controlledOpen, setOpen: setControlledOpen }: CollapseProps) => {
@@ -12,6 +13,6 @@ export const useCollapse = ({ open: controlledOpen, setOpen: setControlledOpen }
       open,
       setOpen,
     }),
-    [open, setOpen]
+    [open, setOpen],
   );
 };

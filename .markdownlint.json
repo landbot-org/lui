@@ -1,0 +1,17 @@
+{
+  "default": true,
+  "ul-indent": {
+    "indent": 4
+  },
+  "line-length": {
+    "line_length": 120,
+    "code_blocks": false,
+    "tables": false
+  },
+  "no-inline-html": {
+    "allowed_elements": ["br"]
+  },
+  "no-duplicate-heading": {
+    "allow_different_nesting": true
+  }
+}

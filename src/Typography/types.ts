@@ -1,6 +1,6 @@
 import React from 'react';
-import { BaseSpacingProps } from '../BaseSpacing';
 
+import { BaseSpacingProps } from '../BaseSpacing';
 import { ColorsTypes } from '../shared/theme.types';
 
 export type TypographyVariants =

@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+
 import type { Theme } from '../shared/theme.types';
 import { ACTIVE_MAPPING, CONTAINED_HOVER_BACKGROUND_MAPPING, DEFAULT_HOVER_BACKGROUND_MAPPING } from './constants';
 import { ButtonVariants, ColorTypes } from './types';
@@ -8,7 +9,7 @@ export const getButtonVariantStyles = (
   color: ColorTypes,
   variant: ButtonVariants,
   disabled: boolean,
-  isLoading: boolean
+  isLoading: boolean,
 ) =>
   ({
     contained: css`
@@ -47,7 +48,7 @@ export const getButtonVariantStyles = (
         background-color: ${getHoverBackgroundColor(variant, color, disabled)};
       }
     `,
-  }[variant]);
+  })[variant];
 
 export const getTypographyColorContained = (theme: Theme, disabled: boolean, isLoading: boolean) => {
   if (isLoading) {
