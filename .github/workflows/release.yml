@@ -1,7 +1,10 @@
 name: Publish package
 
 on:
-  push:
+  workflow_run:
+    workflows: ['Build']
+    types:
+      - completed
     branches:
       - main
 
