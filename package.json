@@ -23,12 +23,12 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./icons": "./dist/icon/icons/index.js"
+    "./icons": "./dist/Icon/icons/index.js"
   },
   "typesVersions": {
     "*": {
       "icons": [
-        "dist/icon/icons/index.d.ts"
+        "dist/Icon/icons/index.d.ts"
       ]
     }
   },
