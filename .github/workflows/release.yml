@@ -1,13 +1,12 @@
 name: Publish package
 
 on:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows: ['Build']
     types:
       - completed
+    branches:
+      - main
 
 jobs:
   release:
