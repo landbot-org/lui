@@ -1,7 +1,10 @@
 name: Chromatic
 
 on:
-  push:
+  workflow_run:
+    workflows: ['Build']
+    types:
+      - completed
     branches:
       - main
 
