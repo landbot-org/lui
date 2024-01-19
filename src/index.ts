@@ -1,5 +1,6 @@
 export * from './components/autocomplete';
 export * from './components/avatar';
+export * from './components/banner';
 export * from './components/box';
 export * from './components/button';
 export * from './components/checkbox';
