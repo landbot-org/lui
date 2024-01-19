@@ -4,9 +4,10 @@ import { Box } from '../box';
 import { Icon } from '../icon';
 import { Size } from '../icon/types';
 import { Spinner } from '../spinner';
-import { StyledButton, StyledContent, StyledLink, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
 import { SPINNER_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_MAPPING } from './constants';
 import { ButtonProps, SizeTypes } from './types';
+
+import { StyledButton, StyledContent, StyledLink, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
 
 export const Button = React.forwardRef<HTMLElement, ButtonProps>(
   (

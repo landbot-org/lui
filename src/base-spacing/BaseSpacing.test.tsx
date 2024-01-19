@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from '../test-utils';
-import BaseSpacing from './BaseSpacing';
+import { BaseSpacing } from './BaseSpacing';
 
 describe('BaseSpacing', () => {
   it('renders by default', () => {

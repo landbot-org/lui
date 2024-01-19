@@ -3,7 +3,7 @@ repos:
     rev: v4.5.0
     hooks:
       - id: no-commit-to-branch
-        args: ["--branch", "main"]
+        args: ['--branch', 'main']
       - id: end-of-file-fixer
         exclude: \.svg$
       - id: trailing-whitespace
@@ -12,7 +12,7 @@ repos:
     rev: v0.38.0
     hooks:
       - id: markdownlint
-        args: ["--fix", "--config", ".markdownlint.json"]
+        args: ['--fix', '--config', '.markdownlint.json']
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v3.0.0
     hooks:

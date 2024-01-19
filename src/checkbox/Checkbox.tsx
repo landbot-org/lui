@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
-import { CheckboxStyled } from './Checkbox.styles';
 import { CheckboxProps } from './types';
+
+import { CheckboxStyled } from './Checkbox.styles';
 
 export const Checkbox = ({ indeterminate = false, checked, ...rest }: CheckboxProps) => {
   const checkboxRef = useRef<HTMLInputElement>(null);

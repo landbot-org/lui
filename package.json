@@ -60,7 +60,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@landbot/eslint-config-typescript-react": "^2.0.2",
+    "@landbot/eslint-config-typescript-react": "^2.1.2",
     "@rollup/plugin-commonjs": "^23.0.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.0",

@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Box } from '../box';
 import { Typography } from '../typography';
-import { TagWrapper } from './Tag.styles';
 import { TagProps } from './types';
 import { getTagTypographyVariant } from './utils';
+
+import { TagWrapper } from './Tag.styles';
 
 export const Tag = ({
   label,

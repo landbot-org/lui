@@ -18,8 +18,9 @@ import { Box } from '../box';
 import { BoxProps } from '../box/types';
 import { TextField } from '../text-field';
 import { Typography } from '../typography';
-import { StyledOption } from './Autocomplete.styles';
 import { AutoCompleteItem, AutocompleteProps } from './types';
+
+import { StyledOption } from './Autocomplete.styles';
 
 interface ItemProps {
   children: React.ReactNode;

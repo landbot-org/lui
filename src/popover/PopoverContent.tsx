@@ -3,9 +3,10 @@ import React, { HTMLProps, useMemo } from 'react';
 import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 
 import { theme } from '../shared/theme';
-import { StyledPopoverCloseWrapper, StyledPopoverContent } from './Popover.styles';
 import { PopoverClose } from './PopoverClose';
 import { usePopoverContext } from './PopoverContext';
+
+import { StyledPopoverCloseWrapper, StyledPopoverContent } from './Popover.styles';
 
 export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
   const { context: floatingContext, ...context } = usePopoverContext();

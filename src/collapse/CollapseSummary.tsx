@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box } from '../box';
 import { BoxProps } from '../box/types';
 import { Icon } from '../icon';
-import { StyledCollapseSummary } from './Collapse.styles';
 import { useCollapseContext } from './CollapseContext';
+
+import { StyledCollapseSummary } from './Collapse.styles';
 
 export const CollapseSummary = ({ children, ...props }: BoxProps) => {
   const { open, setOpen } = useCollapseContext();

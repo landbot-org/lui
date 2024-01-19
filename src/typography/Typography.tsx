@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { BaseTypography } from './Typography.styles';
 import { VARIANT_MAPPING } from './constants';
 import { TypographyProps } from './types';
+
+import { BaseTypography } from './Typography.styles';
 
 export const Typography = ({
   as,

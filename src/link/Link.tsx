@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Icon } from '../icon';
 import { Typography } from '../typography';
-import { BaseLink } from './Link.styles';
 import { LinkProps } from './types';
+
+import { BaseLink } from './Link.styles';
 
 export const Link = ({ bold = false, children, containsIcon = false, variant, ...rest }: LinkProps) => (
   <BaseLink {...rest}>

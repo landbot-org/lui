@@ -5,9 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Icon } from '../icon';
 import { Tab } from './Tab';
-import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 import { TabsProps } from './types';
 import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './utils';
+
+import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 
 export const Tabs = ({
   tabs,

@@ -3,7 +3,7 @@ import { css, styled } from 'styled-components';
 import { pxToRem } from '../shared/mixins';
 import { BaseSpacingProps } from './types';
 
-const BaseSpacing = styled.div<BaseSpacingProps>`
+export const BaseSpacing = styled.div<BaseSpacingProps>`
   ${({ m }) =>
     m === undefined
       ? css`
@@ -98,5 +98,3 @@ const BaseSpacing = styled.div<BaseSpacingProps>`
       padding-bottom: ${({ theme }) => pxToRem(theme.base_spacing * py)}rem;
     `}
 `;
-
-export default BaseSpacing;

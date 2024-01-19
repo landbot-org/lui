@@ -6,8 +6,9 @@ import { Box } from '../box';
 import { FormHelperText } from '../form-helper-text';
 import { FormLabel } from '../form-label';
 import { Typography } from '../typography';
-import { StyledInput, StyledInputGroup } from './TextField.styles';
 import { TextFieldProps } from './types';
+
+import { StyledInput, StyledInputGroup } from './TextField.styles';
 
 export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
   (

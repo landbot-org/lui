@@ -2,9 +2,10 @@ import React from 'react';
 
 import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 
-import { StyledContent, StyledDialogCloseWrapper, StyledFloatingOverlay } from './Dialog.styles';
 import { DialogClose } from './DialogClose';
 import { useDialogContext } from './DialogContext';
+
+import { StyledContent, StyledDialogCloseWrapper, StyledFloatingOverlay } from './Dialog.styles';
 
 export const DialogContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>((props, propRef) => {
   const { context: floatingContext, ...context } = useDialogContext();

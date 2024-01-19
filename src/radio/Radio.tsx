@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { RadioStyled } from './Radio.styles';
 import type { RadioProps } from './types';
+
+import { RadioStyled } from './Radio.styles';
 
 export const Radio = (props: RadioProps) => {
   return <RadioStyled {...props} type="radio" />;

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { HorizontalDividerStyled, VerticalDividerStyled } from './Divider.styles';
 import { DividerProps } from './types';
+
+import { HorizontalDividerStyled, VerticalDividerStyled } from './Divider.styles';
 
 export const Divider = ({
   orientation = 'horizontal',

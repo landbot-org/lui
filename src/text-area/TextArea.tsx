@@ -4,8 +4,9 @@ import { Box } from '../box';
 import { FormHelperText } from '../form-helper-text';
 import { FormLabel } from '../form-label';
 import { Typography } from '../typography';
-import { StyledTextArea } from './TextArea.styles';
 import { TextAreaProps } from './types';
+
+import { StyledTextArea } from './TextArea.styles';
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ description, disabled, error, helperText, id, label, fullHeight, ...rest }, ref) => (
