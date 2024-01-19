@@ -3,13 +3,13 @@ import { css, styled } from 'styled-components';
 import { Typography } from '../typography';
 import type { TypographyProps } from '../typography/Typography.types';
 import { SIZES_MAPPING } from './Button.constants';
-import { ButtonVariants, ColorTypes, SizeTypes, TextAlignTypes } from './Button.types';
+import { ButtonColorTypes, ButtonSizeTypes, ButtonTextAlignTypes, ButtonVariants } from './Button.types';
 import { getButtonVariantStyles } from './Button.utils';
 
 interface StyledButtonProps {
-  $color: ColorTypes;
+  $color: ButtonColorTypes;
   $fullWidth: boolean;
-  $size: SizeTypes;
+  $size: ButtonSizeTypes;
   $variant: ButtonVariants;
   $hasChildren: boolean;
   $isLoading: boolean;
@@ -60,7 +60,7 @@ export const StyledContent = styled.div<StyledContentProps>`
 `;
 
 interface StyledTypographyProps extends TypographyProps {
-  $textAlign?: TextAlignTypes;
+  $textAlign?: ButtonTextAlignTypes;
 }
 
 export const StyledTypography = styled(Typography)<StyledTypographyProps>`

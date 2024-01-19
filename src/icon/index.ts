@@ -1,2 +1,3 @@
 export { Icon } from './Icon';
-export { GRID_AREA } from './Icon.types';
+
+export * from './Icon.types';

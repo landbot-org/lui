@@ -3,14 +3,14 @@ import { css, keyframes, styled } from 'styled-components';
 import { Box } from '../box';
 import { Theme } from '../shared/theme.types';
 import { Typography } from '../typography';
-import { SizeTypes } from './Tabs.types';
+import { TabSizeTypes } from './Tabs.types';
 import { getButtonSizeStyles, getTabSizeStyles } from './Tabs.utils';
 
 export const Container = styled(Box)`
   height: 48px;
 `;
 
-export const ArrowButton = styled.div<{ $disabled: boolean; $size: SizeTypes }>`
+export const ArrowButton = styled.div<{ $disabled: boolean; $size: TabSizeTypes }>`
   ${({ $size }) => getButtonSizeStyles($size)}
   ${({ $disabled, theme }) =>
     $disabled
@@ -89,7 +89,7 @@ export const BorderBottom = styled.div<BorderBottomProps>`
 export const StyledTab = styled.div<{
   $showBottomLine: boolean;
   $active?: boolean;
-  $size: SizeTypes;
+  $size: TabSizeTypes;
   disabled?: boolean;
 }>`
   position: relative;

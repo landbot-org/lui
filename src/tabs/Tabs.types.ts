@@ -1,4 +1,4 @@
-export type SizeTypes = 'small' | 'medium' | 'large';
+export type TabSizeTypes = 'small' | 'medium' | 'large';
 
 export interface TabProps {
   active?: boolean;
@@ -8,7 +8,7 @@ export interface TabProps {
   label: string;
   onClick: () => void;
   ref: string;
-  size: SizeTypes;
+  size: TabSizeTypes;
   showBottomLine?: boolean;
 }
 
@@ -21,7 +21,7 @@ export interface TabsProps {
   tabs: TabsItem[];
   onChange: (activeItem: number) => void;
   showScrollButtons?: boolean;
-  size?: SizeTypes;
+  size?: TabSizeTypes;
   value?: number;
   showBottomLine?: boolean;
 }

@@ -2,14 +2,14 @@ import { css, styled } from 'styled-components';
 
 import { getColorFromTheme } from '../shared/mixins';
 import { ColorsTypes } from '../shared/theme.types';
-import { SizeTypes, VariantTypes } from './Tag.types';
+import { TagSizeTypes, TagVariantTypes } from './Tag.types';
 
 interface TagWrapperProps {
   $backgroundColor: ColorsTypes;
   $borderColor: ColorsTypes;
   $color: ColorsTypes;
-  $variant: VariantTypes;
-  $size: SizeTypes;
+  $variant: TagVariantTypes;
+  $size: TagSizeTypes;
 }
 
 export const TagWrapper = styled.div<TagWrapperProps>`

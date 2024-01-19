@@ -1,7 +1,7 @@
 import { TypographyVariants } from '../typography/Typography.types';
-import { SizeTypes } from './Tag.types';
+import { TagSizeTypes } from './Tag.types';
 
-export const getTagTypographyVariant = (size: SizeTypes) =>
+export const getTagTypographyVariant = (size: TagSizeTypes) =>
   ({
     small: 'text10' as TypographyVariants,
     medium: 'text12' as TypographyVariants,

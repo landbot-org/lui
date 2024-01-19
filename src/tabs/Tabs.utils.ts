@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { Size } from '../icon/Icon.types';
 import { TypographyVariants } from '../typography/Typography.types';
-import { SizeTypes, TabsItem } from './Tabs.types';
+import { TabSizeTypes, TabsItem } from './Tabs.types';
 
 export const getNextActiveTab = (tabs: TabsItem[], activeTab: number) =>
   tabs.slice(activeTab + 1).findIndex((tab) => !tab?.disabled) + activeTab + 1;
@@ -13,7 +13,7 @@ export const getPreviousActiveTab = (tabs: TabsItem[], activeTab: number) => {
   return previousActiveTab === -1 ? activeTab : previousTabs.length - 1 - previousActiveTab;
 };
 
-export const getTabSizeStyles = (size: SizeTypes) => {
+export const getTabSizeStyles = (size: TabSizeTypes) => {
   return {
     small: css`
       padding: 0.5rem 1rem;
@@ -27,7 +27,7 @@ export const getTabSizeStyles = (size: SizeTypes) => {
   }[size];
 };
 
-export const getTypographyVariantBySize = (size: SizeTypes): TypographyVariants => {
+export const getTypographyVariantBySize = (size: TabSizeTypes): TypographyVariants => {
   return {
     small: 'text12' as TypographyVariants,
     medium: 'text16' as TypographyVariants,
@@ -35,7 +35,7 @@ export const getTypographyVariantBySize = (size: SizeTypes): TypographyVariants 
   }[size];
 };
 
-export const getButtonIconSizeStyles = (size: SizeTypes): Size => {
+export const getButtonIconSizeStyles = (size: TabSizeTypes): Size => {
   return {
     small: '0.5x' as Size,
     medium: '1x' as Size,
@@ -43,7 +43,7 @@ export const getButtonIconSizeStyles = (size: SizeTypes): Size => {
   }[size];
 };
 
-export const getButtonSizeStyles = (size: SizeTypes) => {
+export const getButtonSizeStyles = (size: TabSizeTypes) => {
   return {
     small: css`
       padding: 0.5rem 0.25rem;

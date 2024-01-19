@@ -6,11 +6,11 @@ import {
   CONTAINED_HOVER_BACKGROUND_MAPPING,
   DEFAULT_HOVER_BACKGROUND_MAPPING,
 } from './Button.constants';
-import { ButtonVariants, ColorTypes } from './Button.types';
+import { ButtonColorTypes, ButtonVariants } from './Button.types';
 
 export const getButtonVariantStyles = (
   theme: Theme,
-  color: ColorTypes,
+  color: ButtonColorTypes,
   variant: ButtonVariants,
   disabled: boolean,
   isLoading: boolean,
@@ -66,7 +66,12 @@ export const getTypographyColorContained = (theme: Theme, disabled: boolean, isL
   return theme.palette.white.main;
 };
 
-export const getTypographyColorDefault = (theme: Theme, color: ColorTypes, disabled: boolean, isLoading: boolean) => {
+export const getTypographyColorDefault = (
+  theme: Theme,
+  color: ButtonColorTypes,
+  disabled: boolean,
+  isLoading: boolean,
+) => {
   if (isLoading) {
     return theme.palette.white.main;
   }
@@ -83,7 +88,7 @@ export const getTypographyColorDefault = (theme: Theme, color: ColorTypes, disab
   }[color];
 };
 
-export const getBackgroundColor = (theme: Theme, color: ColorTypes, disabled?: boolean) => {
+export const getBackgroundColor = (theme: Theme, color: ButtonColorTypes, disabled?: boolean) => {
   if (disabled) {
     return theme.palette.neutral[300];
   }
@@ -96,7 +101,7 @@ export const getBackgroundColor = (theme: Theme, color: ColorTypes, disabled?: b
   }[color];
 };
 
-export const getBorderColor = (theme: Theme, color: ColorTypes, disabled?: boolean) => {
+export const getBorderColor = (theme: Theme, color: ButtonColorTypes, disabled?: boolean) => {
   if (disabled) {
     return theme.palette.neutral[300];
   }
@@ -109,7 +114,7 @@ export const getBorderColor = (theme: Theme, color: ColorTypes, disabled?: boole
   }[color];
 };
 
-export const getHoverBackgroundColor = (variant: ButtonVariants, color: ColorTypes, disabled?: boolean) => {
+export const getHoverBackgroundColor = (variant: ButtonVariants, color: ButtonColorTypes, disabled?: boolean) => {
   if (disabled) {
     return null;
   }
@@ -120,7 +125,7 @@ export const getHoverBackgroundColor = (variant: ButtonVariants, color: ColorTyp
   }[variant];
 };
 
-export const getActiveColor = (variant: ButtonVariants, color: ColorTypes, disabled?: boolean) => {
+export const getActiveColor = (variant: ButtonVariants, color: ButtonColorTypes, disabled?: boolean) => {
   if (disabled) {
     return null;
   }

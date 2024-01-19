@@ -5,7 +5,7 @@ import { Icon } from '../icon';
 import { Size } from '../icon/Icon.types';
 import { Spinner } from '../spinner';
 import { SPINNER_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_MAPPING } from './Button.constants';
-import { ButtonProps, SizeTypes } from './Button.types';
+import { ButtonProps, ButtonSizeTypes } from './Button.types';
 
 import { StyledButton, StyledContent, StyledLink, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
 
@@ -31,7 +31,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
   ) => {
     const BaseButton = (href ? StyledLink : StyledButton) as React.ElementType;
 
-    const sizeIcon: Record<SizeTypes, Size> = {
+    const sizeIcon: Record<ButtonSizeTypes, Size> = {
       small: '0.5x',
       medium: '1x',
       large: '1.5x',

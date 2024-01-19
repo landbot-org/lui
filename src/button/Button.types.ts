@@ -1,22 +1,22 @@
 import React from 'react';
 
 export type ButtonVariants = 'contained' | 'outlined' | 'text';
-export type ColorTypes = 'pink.main' | 'blue.main' | 'purple.main' | 'white.main';
-export type SizeTypes = 'small' | 'medium' | 'large';
-export type TextAlignTypes = 'left' | 'center' | 'right';
+export type ButtonColorTypes = 'pink.main' | 'blue.main' | 'purple.main' | 'white.main';
+export type ButtonSizeTypes = 'small' | 'medium' | 'large';
+export type ButtonTextAlignTypes = 'left' | 'center' | 'right';
 
 type ButtonPropsBase = {
   children?: React.ReactNode;
-  color?: ColorTypes;
+  color?: ButtonColorTypes;
   disabled?: boolean;
   fullWidth?: boolean;
   href?: string;
   isLoading?: boolean;
-  size?: SizeTypes;
+  size?: ButtonSizeTypes;
   variant?: ButtonVariants;
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
-  textAlign?: TextAlignTypes;
+  textAlign?: ButtonTextAlignTypes;
   ellipsize?: boolean;
 };
 
