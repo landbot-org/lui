@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Icon } from '../icon';
 import { Typography } from '../typography';
-import { LinkProps } from './types';
+import { LinkProps } from './Link.types';
 
 import { BaseLink } from './Link.styles';
 

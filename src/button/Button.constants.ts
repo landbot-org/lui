@@ -1,7 +1,7 @@
 import { theme } from '../shared/theme';
-import { SpinnerSize } from '../spinner/types';
-import { TypographyVariants } from '../typography/types';
-import { ColorTypes, SizeTypes } from './types';
+import { SpinnerSize } from '../spinner/Spinner.types';
+import { TypographyVariants } from '../typography/Typography.types';
+import { ColorTypes, SizeTypes } from './Button.types';
 
 export const SIZES_MAPPING: Record<SizeTypes, string> = {
   small: '24px',

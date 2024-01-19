@@ -17,8 +17,8 @@ import {
 import { Box } from '../box';
 import { TextField } from '../text-field';
 import { Typography } from '../typography';
+import { SelectItemProps, SelectProps } from './Select.types';
 import { SelectItem } from './SelectItem';
-import { SelectItemProps, SelectProps } from './types';
 
 import { StyledSelect } from './Select.styles';
 

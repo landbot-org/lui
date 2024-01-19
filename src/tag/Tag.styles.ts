@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { getColorFromTheme } from '../shared/mixins';
 import { ColorsTypes } from '../shared/theme.types';
-import { SizeTypes, VariantTypes } from './types';
+import { SizeTypes, VariantTypes } from './Tag.types';
 
 interface TagWrapperProps {
   $backgroundColor: ColorsTypes;

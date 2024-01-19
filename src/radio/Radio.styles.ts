@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-import { RadioProps } from './types';
-import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './utils';
+import { RadioProps } from './Radio.types';
+import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './Radio.utils';
 
 export const RadioStyled = styled.input<RadioProps>`
   appearance: none;

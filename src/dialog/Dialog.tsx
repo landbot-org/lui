@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { DialogProps } from './Dialog.types';
 import { DialogContext } from './DialogContext';
-import { DialogProps } from './types';
 import { useDialog } from './useDialog';
 
 export const Dialog = ({ children, ...props }: DialogProps) => {

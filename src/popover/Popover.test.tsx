@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Popover, PopoverContent, PopoverTrigger } from '.';
 import { fireEvent, mockResizeObserver, render, screen } from '../test-utils';
-import { PopoverProps } from './types';
+import { PopoverProps } from './Popover.types';
 
 const SUTControlled = (props: Partial<PopoverProps> = {}) => {
   const [open, setOpen] = useState(false);

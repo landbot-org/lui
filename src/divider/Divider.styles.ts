@@ -3,8 +3,8 @@ import { css, styled } from 'styled-components';
 import { getColorFromTheme, pxToRem } from '../shared/mixins';
 import { theme } from '../shared/theme';
 import { ColorsTypes } from '../shared/theme.types';
-import { DIMENSIONS } from './constants';
-import { DividerSize } from './types';
+import { DIMENSIONS } from './Divider.constants';
+import { DividerSize } from './Divider.types';
 
 interface Props {
   $size: DividerSize;

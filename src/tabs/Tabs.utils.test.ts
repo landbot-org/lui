@@ -1,4 +1,4 @@
-import { getNextActiveTab, getPreviousActiveTab } from './utils';
+import { getNextActiveTab, getPreviousActiveTab } from './Tabs.utils';
 
 describe('getPreviousActiveTab', () => {
   const tabs = [

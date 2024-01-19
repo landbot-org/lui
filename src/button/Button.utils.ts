@@ -1,8 +1,12 @@
 import { css } from 'styled-components';
 
 import type { Theme } from '../shared/theme.types';
-import { ACTIVE_MAPPING, CONTAINED_HOVER_BACKGROUND_MAPPING, DEFAULT_HOVER_BACKGROUND_MAPPING } from './constants';
-import { ButtonVariants, ColorTypes } from './types';
+import {
+  ACTIVE_MAPPING,
+  CONTAINED_HOVER_BACKGROUND_MAPPING,
+  DEFAULT_HOVER_BACKGROUND_MAPPING,
+} from './Button.constants';
+import { ButtonVariants, ColorTypes } from './Button.types';
 
 export const getButtonVariantStyles = (
   theme: Theme,

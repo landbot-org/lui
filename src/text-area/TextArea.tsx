@@ -4,7 +4,7 @@ import { Box } from '../box';
 import { FormHelperText } from '../form-helper-text';
 import { FormLabel } from '../form-label';
 import { Typography } from '../typography';
-import { TextAreaProps } from './types';
+import { TextAreaProps } from './TextArea.types';
 
 import { StyledTextArea } from './TextArea.styles';
 

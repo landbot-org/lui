@@ -1,4 +1,4 @@
-import { getTagTypographyVariant } from './utils';
+import { getTagTypographyVariant } from './Tag.utils';
 
 describe('getTagTypographyVariant', () => {
   it('returns correct typography variant for small tag', () => {

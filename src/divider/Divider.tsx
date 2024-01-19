@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DividerProps } from './types';
+import { DividerProps } from './Divider.types';
 
 import { HorizontalDividerStyled, VerticalDividerStyled } from './Divider.styles';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box } from '../box';
-import { BoxProps } from '../box/types';
+import { BoxProps } from '../box/Box.types';
 import { useCollapseContext } from './CollapseContext';
 
 export const CollapseContent = ({ children, ...props }: BoxProps) => {

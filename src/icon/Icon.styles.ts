@@ -2,8 +2,8 @@ import { css, styled } from 'styled-components';
 
 import { getColorFromTheme, pxToRem } from '../shared/mixins';
 import { ColorsTypes } from '../shared/theme.types';
-import { DIMENSIONS, PADDING } from './constants';
-import { GRID_AREA, Size } from './types';
+import { DIMENSIONS, PADDING } from './Icon.constants';
+import { GRID_AREA, Size } from './Icon.types';
 
 const paddingCss = css<{ $gridArea: GRID_AREA; $size: Size }>`
   ${({ $gridArea, $size }) => {

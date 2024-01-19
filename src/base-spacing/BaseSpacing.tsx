@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { pxToRem } from '../shared/mixins';
-import { BaseSpacingProps } from './types';
+import { BaseSpacingProps } from './BaseSpacing.types';
 
 export const BaseSpacing = styled.div<BaseSpacingProps>`
   ${({ m }) =>

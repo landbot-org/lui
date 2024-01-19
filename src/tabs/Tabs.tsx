@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Icon } from '../icon';
 import { Tab } from './Tab';
-import { TabsProps } from './types';
-import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './utils';
+import { TabsProps } from './Tabs.types';
+import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './Tabs.utils';
 
 import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 

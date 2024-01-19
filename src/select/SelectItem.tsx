@@ -1,6 +1,6 @@
 import React, { useId } from 'react';
 
-import { BoxProps } from '../box/types';
+import { BoxProps } from '../box/Box.types';
 import { Typography } from '../typography';
 
 import { StyledOption } from './Select.styles';

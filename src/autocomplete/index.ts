@@ -1,2 +1,2 @@
 export * from './Autocomplete';
-export * from './types';
+export * from './Autocomplete.types';

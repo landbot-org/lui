@@ -1,8 +1,14 @@
 import { styled } from 'styled-components';
 
 import { BaseSpacing } from '../base-spacing';
-import { StyledBoxProps } from './types';
-import { getBackgroundStyles, getBorderStyles, getElevationStyles, getPositionStyles, getRadiusStyles } from './utils';
+import { StyledBoxProps } from './Box.types';
+import {
+  getBackgroundStyles,
+  getBorderStyles,
+  getElevationStyles,
+  getPositionStyles,
+  getRadiusStyles,
+} from './Box.utils';
 
 export const BoxStyled = styled(BaseSpacing)<StyledBoxProps>`
   align-items: ${({ $alignItems }) => $alignItems};

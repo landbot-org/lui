@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
 
-import { DialogProps } from './types';
+import { DialogProps } from './Dialog.types';
 
 export const useDialog = ({
   canEscapeClose = true,

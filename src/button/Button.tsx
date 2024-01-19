@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Box } from '../box';
 import { Icon } from '../icon';
-import { Size } from '../icon/types';
+import { Size } from '../icon/Icon.types';
 import { Spinner } from '../spinner';
-import { SPINNER_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_MAPPING } from './constants';
-import { ButtonProps, SizeTypes } from './types';
+import { SPINNER_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_MAPPING } from './Button.constants';
+import { ButtonProps, SizeTypes } from './Button.types';
 
 import { StyledButton, StyledContent, StyledLink, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
 

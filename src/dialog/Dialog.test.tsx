@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Dialog, DialogContent } from '.';
 import { mockResizeObserver, render, screen } from '../test-utils';
-import { DialogProps } from './types';
+import { DialogProps } from './Dialog.types';
 
 const SUT = ({ children, ...dialogProps }: Partial<DialogProps> & { children?: React.ReactNode }) => {
   const [open, setOpen] = useState(false);

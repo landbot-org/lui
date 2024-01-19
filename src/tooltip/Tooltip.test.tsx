@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '.';
-import { PopoverProps } from '../popover/types';
+import { PopoverProps } from '../popover/Popover.types';
 import { mockResizeObserver, render, screen } from '../test-utils';
 
 const renderComponent = (props: Partial<PopoverProps> = {}) => {

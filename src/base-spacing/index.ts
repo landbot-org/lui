@@ -1,3 +1,3 @@
 export { BaseSpacing } from './BaseSpacing';
 
-export * from './types';
+export * from './BaseSpacing.types';

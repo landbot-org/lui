@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { PopoverProps } from './Popover.types';
 import { PopoverContext } from './PopoverContext';
-import { PopoverProps } from './types';
 import { usePopover } from './usePopover';
 
 export const Popover = ({ children, interaction = 'click', color = 'white', ...props }: PopoverProps) => {

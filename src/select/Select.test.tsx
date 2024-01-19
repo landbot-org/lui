@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { mockResizeObserver, render, screen } from '../test-utils';
 import { Select } from './Select';
-import { SelectProps } from './types';
+import { SelectProps } from './Select.types';
 
 const SelectComponent = (props: Partial<SelectProps>) => {
   const [value, setValue] = useState('');

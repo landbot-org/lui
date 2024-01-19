@@ -1,4 +1,4 @@
-import { ElevationType, RadiusType } from './types';
+import { ElevationType, RadiusType } from './Box.types';
 
 export const BOX_SHADOW_MAPPING: Record<ElevationType, string> = {
   0: 'none',

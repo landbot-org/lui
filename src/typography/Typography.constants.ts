@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { TypographyVariants } from './types';
+import { TypographyVariants } from './Typography.types';
 
 export const VARIANT_MAPPING: Record<TypographyVariants, React.ElementType | keyof JSX.IntrinsicElements> = {
   h1: 'h1',

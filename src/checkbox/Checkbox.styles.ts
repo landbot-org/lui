@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-import { CheckboxProps } from './types';
-import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './utils';
+import { CheckboxProps } from './Checkbox.types';
+import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './Checkbox.utils';
 
 interface CheckboxStyledProps extends CheckboxProps {
   $indeterminate?: boolean;

@@ -4,7 +4,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Button } from '../button';
-import { ButtonProps } from '../button/types';
+import { ButtonProps } from '../button/Button.types';
 import { useDialogContext } from './DialogContext';
 
 export const DialogClose = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {

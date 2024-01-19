@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
 
-import { Size } from '../icon/types';
-import { TypographyVariants } from '../typography/types';
-import { SizeTypes, TabsItem } from './types';
+import { Size } from '../icon/Icon.types';
+import { TypographyVariants } from '../typography/Typography.types';
+import { SizeTypes, TabsItem } from './Tabs.types';
 
 export const getNextActiveTab = (tabs: TabsItem[], activeTab: number) =>
   tabs.slice(activeTab + 1).findIndex((tab) => !tab?.disabled) + activeTab + 1;

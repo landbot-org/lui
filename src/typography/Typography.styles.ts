@@ -2,8 +2,8 @@ import { css, styled } from 'styled-components';
 
 import { BaseSpacing } from '../base-spacing';
 import { getColorFromTheme } from '../shared/mixins';
-import { STYLES } from './constants';
-import { TypographyStyledProps } from './types';
+import { STYLES } from './Typography.constants';
+import { TypographyStyledProps } from './Typography.types';
 
 export const BaseTypography = styled(BaseSpacing)<TypographyStyledProps>`
   ${({ theme }) => css`

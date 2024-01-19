@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { render } from '../test-utils';
 import { Icon } from './Icon';
+import { GRID_AREA } from './Icon.types';
 import * as icons from './icons';
-import { GRID_AREA } from './types';
 
 describe('Icon', () => {
   it('should render svg with custom icons', () => {

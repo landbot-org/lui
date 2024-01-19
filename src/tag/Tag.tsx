@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Box } from '../box';
 import { Typography } from '../typography';
-import { TagProps } from './types';
-import { getTagTypographyVariant } from './utils';
+import { TagProps } from './Tag.types';
+import { getTagTypographyVariant } from './Tag.utils';
 
 import { TagWrapper } from './Tag.styles';
 

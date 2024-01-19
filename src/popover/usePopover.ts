@@ -14,7 +14,7 @@ import {
   useRole,
 } from '@floating-ui/react';
 
-import { PopoverProps } from './types';
+import { PopoverProps } from './Popover.types';
 
 const ARROW_HEIGHT = 7;
 const GAP = 2;

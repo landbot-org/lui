@@ -2,7 +2,7 @@ import React from 'react';
 
 import { mockResizeObserver, render, screen } from '../test-utils';
 import { Autocomplete } from './Autocomplete';
-import { AutocompleteProps } from './types';
+import { AutocompleteProps } from './Autocomplete.types';
 
 const renderComponent = (props: Partial<AutocompleteProps> = {}) =>
   render(<Autocomplete items={[]} onChange={jest.fn()} onSelectItem={jest.fn()} {...props} />);

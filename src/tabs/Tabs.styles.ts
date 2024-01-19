@@ -3,8 +3,8 @@ import { css, keyframes, styled } from 'styled-components';
 import { Box } from '../box';
 import { Theme } from '../shared/theme.types';
 import { Typography } from '../typography';
-import { SizeTypes } from './types';
-import { getButtonSizeStyles, getTabSizeStyles } from './utils';
+import { SizeTypes } from './Tabs.types';
+import { getButtonSizeStyles, getTabSizeStyles } from './Tabs.utils';
 
 export const Container = styled(Box)`
   height: 48px;

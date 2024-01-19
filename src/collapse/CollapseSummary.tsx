@@ -4,7 +4,7 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Box } from '../box';
-import { BoxProps } from '../box/types';
+import { BoxProps } from '../box/Box.types';
 import { Icon } from '../icon';
 import { useCollapseContext } from './CollapseContext';
 

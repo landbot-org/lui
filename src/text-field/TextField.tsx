@@ -6,7 +6,7 @@ import { Box } from '../box';
 import { FormHelperText } from '../form-helper-text';
 import { FormLabel } from '../form-label';
 import { Typography } from '../typography';
-import { TextFieldProps } from './types';
+import { TextFieldProps } from './TextField.types';
 
 import { StyledInput, StyledInputGroup } from './TextField.styles';
 

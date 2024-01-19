@@ -1,4 +1,4 @@
-import { DividerSize } from './types';
+import { DividerSize } from './Divider.types';
 
 export const DIMENSIONS: Record<DividerSize, number> = {
   small: 1,

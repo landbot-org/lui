@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { Theme } from '../shared/theme.types';
-import { LinkProps } from './types';
+import { LinkProps } from './Link.types';
 
 export const BaseLink = styled.a<LinkProps>`
   color: ${({ theme }: { theme: Theme }) => theme.palette.purple.main};

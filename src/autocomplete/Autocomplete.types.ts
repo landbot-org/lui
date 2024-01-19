@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { TextFieldProps } from '../text-field/types';
+import { TextFieldProps } from '../text-field/TextField.types';
 
 export interface AutoCompleteItem {
   id: string;

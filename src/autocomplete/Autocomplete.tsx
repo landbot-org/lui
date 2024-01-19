@@ -15,10 +15,10 @@ import {
 } from '@floating-ui/react';
 
 import { Box } from '../box';
-import { BoxProps } from '../box/types';
+import { BoxProps } from '../box/Box.types';
 import { TextField } from '../text-field';
 import { Typography } from '../typography';
-import { AutoCompleteItem, AutocompleteProps } from './types';
+import { AutoCompleteItem, AutocompleteProps } from './Autocomplete.types';
 
 import { StyledOption } from './Autocomplete.styles';
 

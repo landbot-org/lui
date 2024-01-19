@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import { CheckboxProps } from './types';
+import { CheckboxProps } from './Checkbox.types';
 
 import { CheckboxStyled } from './Checkbox.styles';
 

@@ -1,4 +1,4 @@
-import { Size } from './types';
+import { Size } from './Icon.types';
 
 export const DIMENSIONS: Record<Size, number> = {
   '0.5x': 8,

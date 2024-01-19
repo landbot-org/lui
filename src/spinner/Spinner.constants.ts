@@ -1,4 +1,4 @@
-import { SpinnerSize } from './types';
+import { SpinnerSize } from './Spinner.types';
 
 export const NUMBER_OF_PILLS = 8;
 

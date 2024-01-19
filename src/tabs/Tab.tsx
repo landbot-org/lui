@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
-import { TabProps } from './types';
-import { getTypographyVariantBySize } from './utils';
+import { TabProps } from './Tabs.types';
+import { getTypographyVariantBySize } from './Tabs.utils';
 
 import { BorderBottom, StyledTab, StyledTypography } from './Tabs.styles';
 

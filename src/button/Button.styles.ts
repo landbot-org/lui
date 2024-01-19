@@ -1,10 +1,10 @@
 import { css, styled } from 'styled-components';
 
 import { Typography } from '../typography';
-import type { TypographyProps } from '../typography/types';
-import { SIZES_MAPPING } from './constants';
-import { ButtonVariants, ColorTypes, SizeTypes, TextAlignTypes } from './types';
-import { getButtonVariantStyles } from './utils';
+import type { TypographyProps } from '../typography/Typography.types';
+import { SIZES_MAPPING } from './Button.constants';
+import { ButtonVariants, ColorTypes, SizeTypes, TextAlignTypes } from './Button.types';
+import { getButtonVariantStyles } from './Button.utils';
 
 interface StyledButtonProps {
   $color: ColorTypes;

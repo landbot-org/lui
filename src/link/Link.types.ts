@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TypographyVariants } from '../typography/types';
+import { TypographyVariants } from '../typography/Typography.types';
 
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
