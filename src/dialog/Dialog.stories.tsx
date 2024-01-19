@@ -12,6 +12,7 @@ import { Dialog } from './Dialog';
 import { DialogContent } from './DialogContent';
 
 const meta: Meta<typeof Dialog> = {
+  title: 'Components/Dialog',
   component: Dialog,
   args: {
     open: true,

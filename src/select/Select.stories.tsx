@@ -8,6 +8,7 @@ import { Icon } from '../icon';
 import { Select } from './Select';
 
 const meta: Meta<typeof Select> = {
+  title: 'Components/Select',
   component: Select,
   tags: ['autodocs'],
   args: {

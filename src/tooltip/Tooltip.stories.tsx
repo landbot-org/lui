@@ -9,6 +9,7 @@ import { TooltipContent } from './TooltipContent';
 import { TooltipTrigger } from './TooltipTrigger';
 
 const meta: Meta<typeof Tooltip> = {
+  title: 'Components/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {

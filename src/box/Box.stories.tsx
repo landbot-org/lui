@@ -6,6 +6,7 @@ import { styled } from 'styled-components';
 import { Box } from './Box';
 
 const meta: Meta<typeof Box> = {
+  title: 'Components/Box',
   component: Box,
   tags: ['autodocs'],
   args: {

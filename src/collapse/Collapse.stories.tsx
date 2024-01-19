@@ -9,6 +9,7 @@ import { CollapseContent } from './CollapseContent';
 import { CollapseSummary } from './CollapseSummary';
 
 const meta: Meta<typeof Collapse> = {
+  title: 'Components/Collapse',
   component: Collapse,
   tags: ['autodocs'],
   argTypes: {

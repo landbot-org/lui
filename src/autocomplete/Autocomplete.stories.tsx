@@ -8,6 +8,7 @@ import { Icon } from '../icon';
 import { Autocomplete } from './Autocomplete';
 
 const meta: Meta<typeof Autocomplete> = {
+  title: 'Components/Autocomplete',
   component: Autocomplete,
   tags: ['autodocs'],
   args: {

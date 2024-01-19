@@ -8,6 +8,7 @@ import { Icon } from '../icon';
 import { Tag } from './Tag';
 
 const meta: Meta<typeof Tag> = {
+  title: 'Components/Tag',
   component: Tag,
   tags: ['autodocs'],
   argTypes: {
