@@ -12,7 +12,6 @@ export * from './components/popover';
 export * from './components/radio';
 export * from './components/select';
 export * from './components/sidebar';
-export * from './components/slide-down';
 export * from './components/spinner';
 export * from './components/tabs';
 export * from './components/tag';
