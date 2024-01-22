@@ -1,6 +1,6 @@
 import React, { ForwardedRef, LiHTMLAttributes, ReactNode, forwardRef, useContext, useRef, useState } from 'react';
 
-import { useOnClickOutside } from '../../hooks/useOnClickOutside';
+import { useOnClickOutside } from '../../../hooks/useOnClickOutside';
 import { SlideDown } from '../../slide-down';
 import { Tooltip, TooltipTrigger } from '../../tooltip';
 import { SidebarContext } from '../Sidebar';

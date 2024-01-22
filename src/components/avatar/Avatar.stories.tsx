@@ -7,7 +7,6 @@ const meta: Meta<typeof Avatar> = {
   component: Avatar,
   tags: ['autodocs'],
   args: {
-    avatar: 'https://avatars.githubusercontent.com/u/263385',
     name: 'John Doe',
     email: 'john@doe.com',
     status: 'online',

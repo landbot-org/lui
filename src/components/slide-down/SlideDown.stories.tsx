@@ -10,7 +10,7 @@ const meta: Meta<typeof SlideDown> = {
   component: SlideDown,
   tags: ['autodocs'],
   args: {
-    visible: true,
+    visible: false,
   },
   argTypes: {
     children: {
@@ -25,12 +25,7 @@ const meta: Meta<typeof SlideDown> = {
     return (
       <>
         <Button onClick={() => setVisible(!visible)}>Toggle</Button>
-        <SlideDown
-          visible={visible}
-          style={{
-            backgroundColor: 'blue',
-          }}
-        >
+        <SlideDown visible={visible}>
           <p>SlideDown</p>
         </SlideDown>
       </>

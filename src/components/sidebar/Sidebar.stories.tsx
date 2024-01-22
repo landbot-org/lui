@@ -12,8 +12,8 @@ import {
   SidebarSubMenu,
   SidebarToggle,
 } from '.';
+import { useWindowSize } from '../../hooks/useWindowSize';
 import { Avatar } from '../avatar';
-import { useWindowSize } from '../hooks/useWindowSize';
 import { Icon } from '../icon';
 import { GearTool, Menu, OpenAI, Sparkles } from '../icon/icons';
 import { SidebarDivider } from './layout/Divider';
@@ -102,17 +102,11 @@ export const Default = () => {
             </SidebarSubMenu>
             <SidebarSubMenu
               title="Avatar"
-              icon={
-                <Avatar
-                  avatar="https://avatars.githubusercontent.com/u/263385"
-                  name="John Doe"
-                  status="online"
-                  color="blue"
-                />
-              }
+              icon={<Avatar name="John Doe" status="online" color="blue" />}
               variant="secondary"
             >
               <SidebarMenuItem icon={<Icon icon={<GearTool />} />}>More items</SidebarMenuItem>
+              <SidebarMenuItem icon={<Icon icon={<OpenAI />} />}>More items</SidebarMenuItem>
               <SidebarDivider />
               <SidebarMenuItem>More items</SidebarMenuItem>
               <SidebarSubMenu title="Submenu2" variant="secondary">

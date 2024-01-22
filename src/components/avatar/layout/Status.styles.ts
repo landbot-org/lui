@@ -19,27 +19,27 @@ export const StyledStatus = styled.div<StyledAvatarProps>`
   width: 10px;
   height: 10px;
 
-  ${({ $status }) =>
+  ${({ $status, theme }) =>
     $status === 'online' &&
     `
-      background-color: #00ff00;
+      background-color: ${theme.palette.success.main};
     `}
 
-  ${({ $status }) =>
+  ${({ $status, theme }) =>
     $status === 'offline' &&
     `
-      background-color: #000000;
+      background-color: ${theme.palette.info.main};
     `}
 
-  ${({ $status }) =>
+  ${({ $status, theme }) =>
     $status === 'busy' &&
     `
-      background-color: #ff0000;
+      background-color: ${theme.palette.error.main};
     `}
 
-  ${({ $status }) =>
+  ${({ $status, theme }) =>
     $status === 'away' &&
     `
-      background-color: #ffff00;
+      background-color: ${theme.palette.warning.main};
     `}
 `;

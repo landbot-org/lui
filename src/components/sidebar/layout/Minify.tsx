@@ -1,4 +1,4 @@
-import React, { ForwardedRef, HTMLAttributes, forwardRef, useContext } from 'react';
+import React, { HTMLAttributes, useContext } from 'react';
 
 import { LuArrowLeftToLine, LuArrowRightFromLine } from 'react-icons/lu';
 
@@ -8,13 +8,13 @@ import { StyledMinify } from './Minify.styles';
 
 export type MinifyProps = HTMLAttributes<HTMLDivElement>;
 
-export const SidebarMinify = forwardRef(function Minify({ ...rest }: MinifyProps, ref: ForwardedRef<HTMLDivElement>) {
+export const SidebarMinify = () => {
   const { minified, setMinified } = useContext(SidebarContext);
 
   return (
     <StyledMinify
-      ref={ref}
-      {...rest}
+      role="button"
+      aria-label="minify-button"
       onClick={() => {
         setMinified && setMinified(!minified);
       }}
@@ -22,4 +22,4 @@ export const SidebarMinify = forwardRef(function Minify({ ...rest }: MinifyProps
       {minified ? <LuArrowRightFromLine /> : <LuArrowLeftToLine />}
     </StyledMinify>
   );
-});
+};
