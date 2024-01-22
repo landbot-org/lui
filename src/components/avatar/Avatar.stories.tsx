@@ -13,23 +13,6 @@ const meta: Meta<typeof Avatar> = {
     status: 'online',
     size: 40,
   },
-  argTypes: {
-    avatar: {
-      control: {
-        type: null,
-      },
-    },
-    name: {
-      control: {
-        type: null,
-      },
-    },
-    email: {
-      control: {
-        type: null,
-      },
-    },
-  },
 };
 
 export default meta;
