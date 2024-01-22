@@ -15,7 +15,14 @@ export interface PopoverProps {
   placement?: Placement;
   preventClose?: boolean;
   closeOnScroll?: boolean;
+  closeOnClickInside?: boolean;
   role?: 'dialog' | 'alertdialog' | 'tooltip' | 'menu' | 'listbox' | 'grid' | 'tree';
   crossAxisOffset?: number;
   usePortal?: boolean;
+}
+
+export interface PopoverContentProps {
+  children?: React.ReactNode;
+  id?: string;
+  root?: HTMLElement | null | React.MutableRefObject<HTMLElement | null>;
 }

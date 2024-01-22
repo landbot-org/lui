@@ -3,7 +3,8 @@ import React from 'react';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Button, ButtonProps } from '../button';
+import { Button } from '../button';
+import type { ButtonProps } from '../button/Button.types';
 import { usePopoverContext } from './PopoverContext';
 
 export const PopoverClose = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
