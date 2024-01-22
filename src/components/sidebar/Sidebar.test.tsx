@@ -40,8 +40,10 @@ const renderComponent = (props: Partial<SidebarProps> = {}) =>
   );
 
 describe('Sidebar', () => {
-  it('Should render', () => {
-    renderComponent();
+  it.each([[true], [false]])('Should render', (collapsed) => {
+    renderComponent({
+      collapsed,
+    });
 
     expect(screen.getByText('OpenAI')).toBeVisible();
     expect(screen.getByText('More items')).toBeVisible();
@@ -58,8 +60,10 @@ describe('Sidebar', () => {
     expect(screen.queryByText('Help another item')).not.toBeInTheDocument();
   });
 
-  it('Should render when open submenu', async () => {
-    const { user } = renderComponent();
+  it.each([[true], [false]])('Should render when open submenu', async (collapsed) => {
+    const { user } = renderComponent({
+      collapsed,
+    });
 
     await user.click(screen.getByText('More items'));
 
@@ -84,47 +88,5 @@ describe('Sidebar', () => {
     await user.hover(screen.getByText('OpenAI'));
 
     expect(screen.getByLabelText('minify-button')).toBeVisible();
-  });
-
-  it('Should render collapsed', () => {
-    renderComponent({
-      collapsed: true,
-    });
-
-    expect(screen.getByText('OpenAI')).toBeVisible();
-    expect(screen.getByText('More items')).toBeVisible();
-
-    expect(screen.queryByText('Other item')).not.toBeVisible();
-    expect(screen.queryByText('Another item')).not.toBeVisible();
-    expect(screen.queryByText('Submenu')).not.toBeVisible();
-    expect(screen.queryByText('Submenu items')).not.toBeVisible();
-    expect(screen.queryByText('Submenu another item')).not.toBeVisible();
-
-    expect(screen.getByText('Help')).toBeVisible();
-
-    expect(screen.queryByText('Help item')).not.toBeVisible();
-    expect(screen.queryByText('Help another item')).not.toBeVisible();
-  });
-
-  it('Should render when open submenu and collapsed', async () => {
-    const { user } = renderComponent({
-      collapsed: true,
-    });
-
-    await user.click(screen.getByText('More items'));
-
-    expect(screen.getByText('OpenAI')).toBeVisible();
-    expect(screen.getByText('More items')).toBeVisible();
-    expect(screen.getByText('Other item')).toBeVisible();
-    expect(screen.getByText('Another item')).toBeVisible();
-    expect(screen.getByText('Submenu')).toBeVisible();
-
-    expect(screen.queryByText('Submenu items')).not.toBeVisible();
-    expect(screen.queryByText('Submenu another item')).not.toBeVisible();
-
-    expect(screen.getByText('Help')).toBeVisible();
-
-    expect(screen.queryByText('Help item')).not.toBeVisible();
-    expect(screen.queryByText('Help another item')).not.toBeVisible();
   });
 });

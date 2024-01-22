@@ -1,7 +1,7 @@
 import React, { ForwardedRef, createContext, forwardRef, useEffect, useRef, useState } from 'react';
 
 import { SidebarProps } from './Sidebar.types';
-import { SidebarMinify } from './layout/Minify';
+import { SidebarMinifyControl } from './layout/MinifyControl';
 
 import { StyledLayout, StyledOverlay, StyledSidebar, StyledWrapper } from './Sidebar.styles';
 
@@ -25,7 +25,7 @@ export const Sidebar = forwardRef(function Sidebar(
 ) {
   const referenceElement = useRef<HTMLDivElement>(null);
 
-  const [showMinified, setShowMinified] = useState<boolean>(false);
+  const [showMinifyControl, setShowMinifyControl] = useState<boolean>(false);
 
   const [sidebarState, setSidebarState] = useState<SidebarContextProps>({
     toggled: typeof toggled === 'undefined' ? false : toggled,
@@ -83,13 +83,24 @@ export const Sidebar = forwardRef(function Sidebar(
       >
         <StyledWrapper
           onMouseEnter={() => {
-            setShowMinified(true);
+            setShowMinifyControl(true);
           }}
           onMouseLeave={() => {
-            setShowMinified(false);
+            setShowMinifyControl(false);
           }}
         >
-          {!sidebarState.collapsed && showMinified && <SidebarMinify />}
+          {!sidebarState.collapsed && showMinifyControl && (
+            <SidebarMinifyControl
+              minified={sidebarState.minified}
+              onClick={() => {
+                setSidebarState((prevState) => ({
+                  ...prevState,
+                  minified: !prevState.minified,
+                }));
+                setShowMinifyControl(false);
+              }}
+            />
+          )}
           <StyledLayout>{children}</StyledLayout>
         </StyledWrapper>
         <StyledOverlay

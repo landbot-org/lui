@@ -1,7 +1,4 @@
-import React, { ReactNode, useContext } from 'react';
-
-import { SidebarContext } from '../Sidebar';
-import { LevelContext } from '../menu/Menu';
+import React, { ReactNode } from 'react';
 
 import {
   StyledIcon,
@@ -16,21 +13,19 @@ export type ItemContentProps = {
   icon?: ReactNode;
   prefix?: ReactNode;
   suffix?: ReactNode;
+  minified?: boolean;
+  firstchild?: boolean;
 };
 
-export const ItemContent = ({ icon, prefix, suffix, children }: ItemContentProps) => {
-  const level = useContext(LevelContext);
-
-  const { minified } = useContext(SidebarContext);
-
+export const ItemContent = ({ icon, prefix, suffix, children, minified, firstchild }: ItemContentProps) => {
   return (
     <>
       {icon && (
-        <StyledIconWrapper $firstchild={level === 0}>
+        <StyledIconWrapper $firstchild={firstchild}>
           <StyledIcon>{icon}</StyledIcon>
         </StyledIconWrapper>
       )}
-      {(!minified || (minified && level > 0)) && (
+      {(!minified || (minified && !firstchild)) && (
         <>
           {prefix && <StyledPrefixWrapper>{prefix}</StyledPrefixWrapper>}
           <StyledItemContent>{children}</StyledItemContent>

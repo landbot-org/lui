@@ -20,7 +20,7 @@ export const SidebarMenuItem = forwardRef(function MenuItem(
 ) {
   const level = useContext(LevelContext);
 
-  const { onSelectMenuItem } = useContext(SidebarContext);
+  const { onSelectMenuItem, minified } = useContext(SidebarContext);
 
   return (
     <StyledMenuItem ref={ref} {...rest}>
@@ -32,7 +32,7 @@ export const SidebarMenuItem = forwardRef(function MenuItem(
           onSelectMenuItem && onSelectMenuItem();
         }}
       >
-        <ItemContent icon={icon} prefix={prefix} suffix={suffix}>
+        <ItemContent icon={icon} prefix={prefix} suffix={suffix} minified={minified} firstchild={level === 0}>
           {children}
         </ItemContent>
       </StyledItem>

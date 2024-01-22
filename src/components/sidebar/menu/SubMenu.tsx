@@ -1,7 +1,5 @@
-import React, { ForwardedRef, LiHTMLAttributes, ReactNode, forwardRef, useContext, useRef, useState } from 'react';
+import React, { ForwardedRef, LiHTMLAttributes, ReactNode, forwardRef, useContext, useState } from 'react';
 
-import { useOnClickOutside } from '../../../hooks/useOnClickOutside';
-import { SlideDown } from '../../slide-down';
 import { Tooltip, TooltipTrigger } from '../../tooltip';
 import { SidebarContext } from '../Sidebar';
 import { ItemContent } from '../layout/ItemContent';
@@ -25,36 +23,34 @@ export const SidebarSubMenu = forwardRef(function SubMenu(
   ref: ForwardedRef<HTMLLIElement>,
 ) {
   const level = useContext(LevelContext);
-  const { collapsed } = useContext(SidebarContext);
+  const { collapsed, minified } = useContext(SidebarContext);
 
   const [open, setOpen] = useState(false);
-  const referenceElement = useRef<HTMLDivElement>(null);
-
-  useOnClickOutside(referenceElement, () => {
-    setOpen(false);
-  });
-
-  const handleToggleSubMenu = () => {
-    setOpen(!open);
-  };
 
   return (
     <StyledMenuItem ref={ref} {...rest}>
       {collapsed ? (
-        <div ref={referenceElement}>
-          <StyledItem onMouseDown={handleToggleSubMenu} role="button" $active={active} $firstchild={level === 0}>
-            <ItemContent icon={icon} prefix={prefix} suffix={suffix}>
+        <>
+          <StyledItem
+            role="button"
+            $active={active}
+            $firstchild={level === 0}
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            <ItemContent icon={icon} prefix={prefix} suffix={suffix} minified={minified} firstchild={level === 0}>
               {title}
             </ItemContent>
           </StyledItem>
-          <SlideDown visible={open} duration={800}>
+          {open && (
             <StyledInnerItem>
               <LevelContext.Provider value={level + 1}>
                 <StyledSubMenuContent>{children}</StyledSubMenuContent>
               </LevelContext.Provider>
             </StyledInnerItem>
-          </SlideDown>
-        </div>
+          )}
+        </>
       ) : (
         <Tooltip
           placement="right-start"
@@ -71,7 +67,7 @@ export const SidebarSubMenu = forwardRef(function SubMenu(
                 event.stopPropagation();
               }}
             >
-              <ItemContent icon={icon} prefix={prefix} suffix={suffix}>
+              <ItemContent icon={icon} prefix={prefix} suffix={suffix} minified={minified} firstchild={level === 0}>
                 {title}
               </ItemContent>
             </StyledItem>

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const StyledMinify = styled.div`
+export const StyledMinifyControl = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
