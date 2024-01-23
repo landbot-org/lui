@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { fireEvent, waitFor } from '@testing-library/dom';
 
 import { render } from '../../test-utils';

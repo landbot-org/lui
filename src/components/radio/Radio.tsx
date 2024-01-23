@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { RadioProps } from './Radio.types';
 
 import { RadioStyled } from './Radio.styles';

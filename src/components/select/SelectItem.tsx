@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import React, { ReactNode, forwardRef, useId } from 'react';
 
 import { BoxProps } from '../box/Box.types';
 import { Typography } from '../typography';
@@ -6,11 +6,11 @@ import { Typography } from '../typography';
 import { StyledOption } from './Select.styles';
 
 interface ItemProps {
-  children: React.ReactNode;
+  children: ReactNode;
   active: boolean;
 }
 
-export const SelectItem = React.forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, ...rest }, ref) => {
+export const SelectItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, ...rest }, ref) => {
   const id = useId();
 
   return (

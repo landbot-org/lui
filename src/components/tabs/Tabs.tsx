@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { createRef, useEffect, useMemo, useRef, useState } from 'react';
 
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,7 +19,7 @@ export const Tabs = ({
   showBottomLine = true,
 }: TabsProps) => {
   const tabsContainerRef = useRef<HTMLDivElement>(null);
-  const tabRef = useMemo(() => tabs.map(() => React.createRef<HTMLDivElement>()), [tabs]);
+  const tabRef = useMemo(() => tabs.map(() => createRef<HTMLDivElement>()), [tabs]);
   const [direction, setDirection] = useState<'right' | 'left'>('right');
 
   useEffect(() => {

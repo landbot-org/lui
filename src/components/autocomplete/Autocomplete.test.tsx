@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { mockResizeObserver, render, screen } from '../../test-utils';
 import { Autocomplete } from './Autocomplete';
 import { AutocompleteProps } from './Autocomplete.types';

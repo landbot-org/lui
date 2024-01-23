@@ -1,8 +1,8 @@
-import React, { ForwardedRef, LiHTMLAttributes, ReactNode, forwardRef, useContext, useState } from 'react';
+import { ForwardedRef, LiHTMLAttributes, MouseEvent, ReactNode, forwardRef, useContext, useState } from 'react';
 
 import { Tooltip, TooltipTrigger } from '../../tooltip';
-import { SidebarContext } from '../Sidebar';
 import { ItemContent } from '../layout/ItemContent';
+import { useSidebar } from '../useSidebar';
 import { LevelContext } from './Menu';
 
 import { StyledInnerItem, StyledItem, StyledMenuItem } from './MenuItem.styles';
@@ -22,7 +22,7 @@ export const SidebarSubMenu = forwardRef(function SubMenu(
   ref: ForwardedRef<HTMLLIElement>,
 ) {
   const level = useContext(LevelContext);
-  const { collapsed, toggled } = useContext(SidebarContext);
+  const { toggled, collapsed } = useSidebar();
 
   const [open, setOpen] = useState(false);
 
@@ -38,7 +38,14 @@ export const SidebarSubMenu = forwardRef(function SubMenu(
               setOpen(!open);
             }}
           >
-            <ItemContent icon={icon} before={before} after={after} collapsed={collapsed} firstchild={level === 0}>
+            <ItemContent
+              icon={icon}
+              before={before}
+              after={after}
+              toggled={toggled}
+              collapsed={collapsed}
+              firstchild={level === 0}
+            >
               {title}
             </ItemContent>
           </StyledItem>
@@ -62,11 +69,18 @@ export const SidebarSubMenu = forwardRef(function SubMenu(
               role="button"
               $active={active}
               $firstchild={level === 0}
-              onClick={(event: React.MouseEvent<HTMLElement>) => {
+              onClick={(event: MouseEvent<HTMLElement>) => {
                 event.stopPropagation();
               }}
             >
-              <ItemContent icon={icon} before={before} after={after} toggled={toggled} firstchild={level === 0}>
+              <ItemContent
+                icon={icon}
+                before={before}
+                after={after}
+                toggled={toggled}
+                collapsed={collapsed}
+                firstchild={level === 0}
+              >
                 {title}
               </ItemContent>
             </StyledItem>

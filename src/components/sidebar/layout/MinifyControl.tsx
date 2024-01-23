@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { LuArrowLeftToLine, LuArrowRightFromLine } from 'react-icons/lu';
 
 import { StyledMinifyControl } from './MinifyControl.styles';

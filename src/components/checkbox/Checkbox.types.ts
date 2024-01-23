@@ -1,5 +1,5 @@
-import React from 'react';
+import { InputHTMLAttributes } from 'react';
 
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   indeterminate?: boolean;
 }

@@ -1,8 +1,8 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 export interface DialogProps {
   canEscapeClose?: boolean;
-  children?: React.ReactNode;
+  children?: ReactNode;
   hasCloseButton?: boolean;
   open: boolean;
   preventClose?: boolean;

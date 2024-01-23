@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import { usePopover } from './usePopover';
 
 type ContextType = ReturnType<typeof usePopover> | null;
 
-export const PopoverContext = React.createContext<ContextType>(null);
+export const PopoverContext = createContext<ContextType>(null);
 
 export const usePopoverContext = () => {
   const context = useContext(PopoverContext);

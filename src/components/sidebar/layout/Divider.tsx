@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Divider } from '../../divider';
 
 import { StyledDivider } from './Divider.styles';

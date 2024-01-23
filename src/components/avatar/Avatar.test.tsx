@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { render, screen } from '../../test-utils';
 import { Avatar } from './Avatar';
 import { AvatarProps } from './Avatar.types';

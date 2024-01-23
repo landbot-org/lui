@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Landbot } from '../../icon/icons';
 import { SidebarMenuItem } from '../menu/MenuItem';
 

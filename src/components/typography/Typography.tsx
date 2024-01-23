@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { VARIANT_MAPPING } from './Typography.constants';
 import { TypographyProps } from './Typography.types';
 

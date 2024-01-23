@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { fireEvent, render, screen } from '../../test-utils';
 import { Toggle } from './Toggle';
 

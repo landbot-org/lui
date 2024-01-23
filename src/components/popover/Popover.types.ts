@@ -1,10 +1,10 @@
-import React from 'react';
+import { MutableRefObject, ReactNode } from 'react';
 
 import { Placement } from '@floating-ui/react';
 
 export interface PopoverProps {
   canEscapeClose?: boolean;
-  children?: React.ReactNode;
+  children?: ReactNode;
   color?: 'blue' | 'white';
   defaultOpen?: boolean;
   hasArrow?: boolean;
@@ -22,7 +22,7 @@ export interface PopoverProps {
 }
 
 export interface PopoverContentProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   id?: string;
-  root?: HTMLElement | null | React.MutableRefObject<HTMLElement | null>;
+  root?: HTMLElement | null | MutableRefObject<HTMLElement | null>;
 }

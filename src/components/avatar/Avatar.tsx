@@ -1,11 +1,10 @@
-import React from 'react';
-
+import defaultAvatar from '../../assets/images/avatar.png';
 import { AvatarProps } from './Avatar.types';
 
 import { StyledAvatar, StyledAvatarImage, StyledAvatarStatus } from './Avatar.styles';
 
 export const Avatar = ({
-  avatar = 'https://storage.googleapis.com/media.yexir.com/avatars/default/1.png',
+  avatar = defaultAvatar,
   name,
   status,
   size = 32,

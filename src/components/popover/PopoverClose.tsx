@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,7 +7,7 @@ import { Button } from '../button';
 import type { ButtonProps } from '../button/Button.types';
 import { usePopoverContext } from './PopoverContext';
 
-export const PopoverClose = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const PopoverClose = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { setOpen } = usePopoverContext();
 
   return (

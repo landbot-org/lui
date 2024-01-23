@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 
 import {
   FloatingFocusManager,
@@ -22,7 +22,7 @@ import { SelectItem } from './SelectItem';
 
 import { StyledSelect } from './Select.styles';
 
-export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
+export const Select = forwardRef<HTMLDivElement, SelectProps>(
   (
     {
       className,

@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Box } from '../box';
 import { FormHelperText } from '../form-helper-text';
@@ -8,7 +8,7 @@ import { TextAreaProps } from './TextArea.types';
 
 import { StyledTextArea } from './TextArea.styles';
 
-export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ description, disabled, error, helperText, id, label, fullHeight, ...rest }, ref) => (
     <Box display="flex" flexDirection="column" flexGrow={fullHeight ? 1 : undefined}>
       {(label || description) && (

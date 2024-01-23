@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -18,7 +18,7 @@ const meta: Meta<typeof TextArea> = {
       setValue(args.value || '');
     }, [args.value]);
 
-    const _onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const _onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
       setValue(e.target.value);
       args.onChange && args.onChange(e);
     };

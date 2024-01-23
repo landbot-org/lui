@@ -1,7 +1,7 @@
-import React, { ForwardedRef, LiHTMLAttributes, ReactNode, forwardRef, useContext } from 'react';
+import { ForwardedRef, LiHTMLAttributes, ReactNode, forwardRef, useContext } from 'react';
 
-import { SidebarContext } from '../Sidebar';
 import { ItemContent } from '../layout/ItemContent';
+import { useSidebar } from '../useSidebar';
 import { LevelContext } from './Menu';
 
 import { StyledItem, StyledMenuItem } from './MenuItem.styles';
@@ -20,24 +20,17 @@ export const SidebarMenuItem = forwardRef(function MenuItem(
 ) {
   const level = useContext(LevelContext);
 
-  const { onSelectMenuItem, collapsed, toggled } = useContext(SidebarContext);
+  const { toggled, collapsed } = useSidebar();
 
   return (
     <StyledMenuItem ref={ref} {...rest}>
-      <StyledItem
-        role="button"
-        $active={active}
-        $firstchild={level === 0}
-        onClick={() => {
-          onSelectMenuItem && onSelectMenuItem();
-        }}
-      >
+      <StyledItem role="button" $active={active} $firstchild={level === 0}>
         <ItemContent
           icon={icon}
           before={before}
           after={after}
-          collapsed={collapsed}
           toggled={toggled}
+          collapsed={collapsed}
           firstchild={level === 0}
         >
           {children}

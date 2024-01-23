@@ -1,12 +1,12 @@
-import React from 'react';
+import { HTMLAttributes, InputHTMLAttributes, ReactNode, RefObject } from 'react';
 
-export interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   description?: string;
-  endAdornment?: React.ReactNode;
+  endAdornment?: ReactNode;
   error?: boolean | null;
   helperText?: string | null;
-  startAdornment?: React.ReactNode;
-  inputRef?: React.RefObject<HTMLInputElement>;
-  inputGroupProps?: React.HTMLAttributes<HTMLDivElement>;
+  startAdornment?: ReactNode;
+  inputRef?: RefObject<HTMLInputElement>;
+  inputGroupProps?: HTMLAttributes<HTMLDivElement>;
 }

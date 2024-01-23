@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEventHandler } from 'react';
 
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +13,7 @@ import { StyledCollapseSummary } from './Collapse.styles';
 export const CollapseSummary = ({ children, ...props }: BoxProps) => {
   const { open, setOpen } = useCollapseContext();
 
-  const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+  const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
     if (props.onClick) {
       props.onClick(e);
     }

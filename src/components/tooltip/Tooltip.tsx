@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import { PopoverProps } from '../popover/Popover.types';
 import { PopoverContext } from '../popover/PopoverContext';
@@ -10,7 +10,7 @@ export const Tooltip = ({
   role = 'tooltip',
   color = 'blue',
   ...props
-}: PopoverProps & { children?: React.ReactNode }) => {
+}: PopoverProps & { children?: ReactNode }) => {
   const popover = usePopover({ interaction, role, color, ...props });
 
   return <PopoverContext.Provider value={popover}>{children}</PopoverContext.Provider>;

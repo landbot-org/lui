@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { MouseEventHandler, forwardRef, useRef } from 'react';
 
 import { useMergeRefs } from '@floating-ui/react';
 
@@ -10,7 +10,7 @@ import { TextFieldProps } from './TextField.types';
 
 import { StyledInput, StyledInputGroup } from './TextField.styles';
 
-export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
+export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
   (
     {
       className,
@@ -32,7 +32,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
     const innerInputRef = useRef<HTMLInputElement>(null);
     const inputRef = useMergeRefs([propInputRef, innerInputRef]);
 
-    const handleInputGroupClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    const handleInputGroupClick: MouseEventHandler<HTMLDivElement> = (event) => {
       innerInputRef.current?.focus();
       inputGroupProps?.onClick?.(event);
     };

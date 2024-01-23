@@ -14,7 +14,7 @@ import {
   SidebarToggle,
 } from '.';
 import { useWindowSize } from '../../hooks/useWindowSize';
-import { Avatar } from '../avatar';
+import { AVATAR_STATUS, Avatar } from '../avatar';
 import { Icon } from '../icon';
 import { GearTool, Menu, OpenAI, Sparkles } from '../icon/icons';
 import { SidebarDivider } from './layout/Divider';
@@ -41,13 +41,16 @@ const meta: Meta<typeof Sidebar> = {
       setCollapsed(windowSize.width < 768);
     }, [windowSize]);
 
-    const handleToggleSidebar = () => {
-      setToggled(!toggled);
-    };
-
     return (
       <StyledStory>
-        <Sidebar style={{ height: '100dvh' }} toggled={toggled} collapsed={collapsed} onToggle={handleToggleSidebar}>
+        <Sidebar
+          style={{ height: '100dvh' }}
+          toggled={toggled}
+          collapsed={collapsed}
+          onToggle={() => {
+            setToggled(!toggled);
+          }}
+        >
           <SidebarHeader>
             <SidebarLogo />
           </SidebarHeader>
@@ -106,7 +109,7 @@ const meta: Meta<typeof Sidebar> = {
               </SidebarSubMenu>
               <SidebarSubMenu
                 title="Avatar"
-                icon={<Avatar name="John Doe" status="online" color="blue" />}
+                icon={<Avatar name="John Doe" status={AVATAR_STATUS.ONLINE} color="blue" />}
                 variant="secondary"
               >
                 <SidebarMenuItem icon={<Icon icon={<GearTool />} />}>More items</SidebarMenuItem>
@@ -124,7 +127,7 @@ const meta: Meta<typeof Sidebar> = {
         {collapsed && (
           <SidebarToggle
             onClick={() => {
-              handleToggleSidebar();
+              setToggled(!toggled);
             }}
           >
             <Icon icon={<Menu />} size="1.5x" />

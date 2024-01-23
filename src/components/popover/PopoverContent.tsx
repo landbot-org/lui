@@ -1,4 +1,4 @@
-import React, { HTMLProps, useMemo } from 'react';
+import React, { Fragment, HTMLProps, useMemo } from 'react';
 
 import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 
@@ -11,7 +11,7 @@ import { StyledPopoverCloseWrapper, StyledPopoverContent } from './Popover.style
 
 export const PopoverContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps) => {
   const { context: floatingContext, ...context } = usePopoverContext();
-  const FloatingWrapper = useMemo(() => (context.usePortal ? FloatingPortal : React.Fragment), [context.usePortal]);
+  const FloatingWrapper = useMemo(() => (context.usePortal ? FloatingPortal : Fragment), [context.usePortal]);
 
   if (!floatingContext.open) return null;
 

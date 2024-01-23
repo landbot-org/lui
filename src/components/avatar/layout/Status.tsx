@@ -1,11 +1,9 @@
-import React from 'react';
-
-import { AvatarStatus as Status } from '../Avatar.types';
+import { AVATAR_STATUS } from '../Avatar.types';
 
 import { StyledStatus } from './Status.styles';
 
 export interface StatusProps {
-  status?: Status;
+  status?: AVATAR_STATUS;
   color?: string;
   className?: string;
 }

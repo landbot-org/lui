@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarSubMenu } from '.';
 import { render, screen } from '../../test-utils';
 import { Icon } from '../icon';

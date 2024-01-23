@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Tooltip, TooltipContent, TooltipTrigger } from '.';
 import { mockResizeObserver, render, screen } from '../../test-utils';
 import { PopoverProps } from '../popover/Popover.types';

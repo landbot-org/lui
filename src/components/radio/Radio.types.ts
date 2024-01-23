@@ -1,3 +1,3 @@
-import React from 'react';
+import { InputHTMLAttributes } from 'react';
 
-export type RadioProps = React.InputHTMLAttributes<HTMLInputElement>;
+export type RadioProps = InputHTMLAttributes<HTMLInputElement>;

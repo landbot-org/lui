@@ -1,4 +1,4 @@
-import React from 'react';
+import { ElementType, forwardRef } from 'react';
 
 import { Box } from '../box';
 import { Icon } from '../icon';
@@ -9,7 +9,7 @@ import { ButtonProps, ButtonSizeTypes } from './Button.types';
 
 import { StyledButton, StyledContent, StyledLink, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
 
-export const Button = React.forwardRef<HTMLElement, ButtonProps>(
+export const Button = forwardRef<HTMLElement, ButtonProps>(
   (
     {
       color = 'pink.main',
@@ -29,7 +29,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
     },
     ref,
   ) => {
-    const BaseButton = (href ? StyledLink : StyledButton) as React.ElementType;
+    const BaseButton = (href ? StyledLink : StyledButton) as ElementType;
 
     const sizeIcon: Record<ButtonSizeTypes, Size> = {
       small: '0.5x',
