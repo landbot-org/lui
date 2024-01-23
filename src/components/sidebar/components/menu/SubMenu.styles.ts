@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TooltipContent } from '../../tooltip';
+import { TooltipContent } from '../../../tooltip';
 
 export const StyledContent = styled(TooltipContent)`
   z-index: 1011;

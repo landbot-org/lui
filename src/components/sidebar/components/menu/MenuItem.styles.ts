@@ -14,20 +14,21 @@ export const StyledMenuItem = styled.li`
 export const StyledItem = styled.div<StyledMenuItemProps>`
   position: relative;
   display: flex;
-  flex-grow: 1;
   align-items: center;
   cursor: pointer;
-  min-height: 30px;
 
   &:hover {
     color: ${({ theme }) => theme.palette.pink.main};
   }
 
   ${({ $firstchild }) =>
-    $firstchild &&
-    `
-      min-height: 50px;
-    `}
+    $firstchild
+      ? `
+        min-height: 50px;
+      `
+      : `
+        min-height: 30px;
+      `}
 
   ${({ $active, $firstchild, theme }) =>
     $active &&

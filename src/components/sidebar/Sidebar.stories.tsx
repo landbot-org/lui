@@ -17,8 +17,8 @@ import { useWindowSize } from '../../hooks/useWindowSize';
 import { AVATAR_STATUS, Avatar } from '../avatar';
 import { Icon } from '../icon';
 import { GearTool, Menu, OpenAI, Sparkles } from '../icon/icons';
-import { SidebarDivider } from './layout/Divider';
-import { SidebarLogo } from './layout/Logo';
+import { SidebarDivider } from './components/layout/Divider';
+import { SidebarLogo } from './components/layout/Logo';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'Components/Sidebar',
@@ -60,11 +60,11 @@ const meta: Meta<typeof Sidebar> = {
               <SidebarMenuItem icon={<Icon icon={<OpenAI />} />} active>
                 Builder
               </SidebarMenuItem>
-              <SidebarMenuItem icon={<Icon icon={<Sparkles />} />}>AI Assistant</SidebarMenuItem>
-              <SidebarSubMenu title="Another item" icon={<Sparkles />}>
+              <SidebarMenuItem icon={<Icon icon={<Sparkles />} />}>Large menu item with a lot of text</SidebarMenuItem>
+              <SidebarSubMenu title="First submenu" icon={<Sparkles />}>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
                 <SidebarSubMenu title="Submenu" active>
-                  <SidebarMenuItem>More items</SidebarMenuItem>
+                  <SidebarMenuItem>More items with large text</SidebarMenuItem>
                   <SidebarMenuItem>Another item</SidebarMenuItem>
                   <SidebarSubMenu title="Submenu2">
                     <SidebarMenuItem>More items</SidebarMenuItem>
@@ -76,7 +76,7 @@ const meta: Meta<typeof Sidebar> = {
                 <SidebarMenuItem>More items</SidebarMenuItem>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
               </SidebarSubMenu>
-              <SidebarSubMenu title="Another item 2" icon={<Sparkles />}>
+              <SidebarSubMenu title="Another submenu" icon={<Sparkles />}>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
                 <SidebarSubMenu title="Submenu" active>
                   <SidebarMenuItem>More items</SidebarMenuItem>
@@ -90,7 +90,7 @@ const meta: Meta<typeof Sidebar> = {
           <SidebarFooter>
             <SidebarMenu>
               <SidebarSubMenu title="Help" icon={<Sparkles />} variant="secondary">
-                <SidebarMenuItem>More items</SidebarMenuItem>
+                <SidebarMenuItem>Dev documentation</SidebarMenuItem>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
               </SidebarSubMenu>
               <SidebarSubMenu

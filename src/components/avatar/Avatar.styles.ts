@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { AvatarStatus } from './layout/Status';
+import { AvatarStatus } from './components/Status';
 
 interface StyledAvatarProps {
   $size?: number;

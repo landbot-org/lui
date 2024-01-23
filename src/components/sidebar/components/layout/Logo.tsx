@@ -1,4 +1,4 @@
-import { Landbot } from '../../icon/icons';
+import { Landbot } from '../../../icon/icons';
 import { SidebarMenuItem } from '../menu/MenuItem';
 
 import { StyledIcon } from './Logo.styles';

@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef, useState } from 'react';
 
 import { SidebarProps } from './Sidebar.types';
-import { SidebarMinifyControl } from './layout/MinifyControl';
+import { SidebarMinifyControl } from './components/layout/MinifyControl';
 import { SidebarProvider } from './useSidebar';
 
 import { StyledLayout, StyledOverlay, StyledSidebar, StyledWrapper } from './Sidebar.styles';

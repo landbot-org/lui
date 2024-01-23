@@ -3,14 +3,14 @@ import { Icon } from '../icon';
 import { GearTool, OpenAI, Sparkles } from '../icon/icons';
 import { Sidebar } from './Sidebar';
 import { SidebarProps } from './Sidebar.types';
-import { SidebarContent } from './layout/Content';
-import { SidebarDivider } from './layout/Divider';
-import { SidebarFooter } from './layout/Footer';
-import { SidebarHeader } from './layout/Header';
-import { SidebarLogo } from './layout/Logo';
-import { SidebarMenu } from './menu/Menu';
-import { SidebarMenuItem } from './menu/MenuItem';
-import { SidebarSubMenu } from './menu/SubMenu';
+import { SidebarContent } from './components/layout/Content';
+import { SidebarDivider } from './components/layout/Divider';
+import { SidebarFooter } from './components/layout/Footer';
+import { SidebarHeader } from './components/layout/Header';
+import { SidebarLogo } from './components/layout/Logo';
+import { SidebarMenu } from './components/menu/Menu';
+import { SidebarMenuItem } from './components/menu/MenuItem';
+import { SidebarSubMenu } from './components/menu/SubMenu';
 
 const renderComponent = (props: Partial<SidebarProps> = {}) =>
   render(
@@ -51,15 +51,12 @@ describe('Sidebar', () => {
 
     expect(screen.getByText('OpenAI')).toBeVisible();
     expect(screen.getByText('More items')).toBeVisible();
-
     expect(screen.queryByText('Other item')).not.toBeInTheDocument();
     expect(screen.queryByText('Another item')).not.toBeInTheDocument();
     expect(screen.queryByText('Submenu')).not.toBeInTheDocument();
     expect(screen.queryByText('Submenu items')).not.toBeInTheDocument();
     expect(screen.queryByText('Submenu another item')).not.toBeInTheDocument();
-
     expect(screen.getByText('Help')).toBeVisible();
-
     expect(screen.queryByText('Help item')).not.toBeInTheDocument();
     expect(screen.queryByText('Help another item')).not.toBeInTheDocument();
   });
@@ -76,12 +73,9 @@ describe('Sidebar', () => {
     expect(screen.getByText('Other item')).toBeVisible();
     expect(screen.getByText('Another item')).toBeVisible();
     expect(screen.getByText('Submenu')).toBeVisible();
-
     expect(screen.queryByText('Submenu items')).not.toBeInTheDocument();
     expect(screen.queryByText('Submenu another item')).not.toBeInTheDocument();
-
     expect(screen.getByText('Help')).toBeVisible();
-
     expect(screen.queryByText('Help item')).not.toBeInTheDocument();
     expect(screen.queryByText('Help another item')).not.toBeInTheDocument();
   });

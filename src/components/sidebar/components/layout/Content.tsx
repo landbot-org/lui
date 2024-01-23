@@ -1,4 +1,4 @@
-import React, { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'react';
+import { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'react';
 
 import { StyledContent } from './Content.styles';
 

@@ -23,6 +23,7 @@ export const StyledSidebar = styled.aside<StyledSidebarProps>`
         return `
           width: 240px;
           min-width: 240px;
+          max-width: 240px;
           position: fixed;
           left: 0;
         `;
@@ -30,6 +31,7 @@ export const StyledSidebar = styled.aside<StyledSidebarProps>`
         return `
           width: 240px;
           min-width: 240px;
+          max-width: 240px;
           position: fixed;
           left: -240px;
         `;
@@ -38,12 +40,12 @@ export const StyledSidebar = styled.aside<StyledSidebarProps>`
       if ($toggled) {
         return `
           width: fit-content;
-          min-width: 72px;
         `;
       } else {
         return `
           width: 240px;
           min-width: 240px;
+          max-width: 240px;
         `;
       }
     }

@@ -1,12 +1,6 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
-import {
-  StyledIcon,
-  StyledIconWrapper,
-  StyledItemContent,
-  StyledPrefixWrapper,
-  StyledSufixWrapper,
-} from './ItemContent.styles';
+import { StyledIconWrapper, StyledItemContent, StyledPrefixWrapper, StyledSufixWrapper } from './ItemContent.styles';
 
 export interface ItemContentProps {
   children?: ReactNode;
@@ -21,15 +15,13 @@ export interface ItemContentProps {
 export const ItemContent = ({ icon, before, after, children, collapsed, toggled, firstchild }: ItemContentProps) => {
   return (
     <>
-      {icon && (
-        <StyledIconWrapper $firstchild={firstchild}>
-          <StyledIcon>{icon}</StyledIcon>
-        </StyledIconWrapper>
-      )}
+      {icon && <StyledIconWrapper $firstchild={firstchild}>{icon}</StyledIconWrapper>}
       {(collapsed || !toggled || !firstchild) && (
         <>
           {before && <StyledPrefixWrapper>{before}</StyledPrefixWrapper>}
-          <StyledItemContent>{children}</StyledItemContent>
+          <StyledItemContent $firstchild={firstchild} $collapsed={collapsed}>
+            {children}
+          </StyledItemContent>
           {after && <StyledSufixWrapper>{after}</StyledSufixWrapper>}
         </>
       )}

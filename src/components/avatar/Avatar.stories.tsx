@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Avatar } from './Avatar';
+import { AVATAR_STATUS } from './Avatar.types';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
@@ -9,7 +10,7 @@ const meta: Meta<typeof Avatar> = {
   args: {
     name: 'John Doe',
     email: 'john@doe.com',
-    status: 'online',
+    status: AVATAR_STATUS.ONLINE,
     size: 40,
   },
 };

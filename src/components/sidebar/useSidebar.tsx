@@ -5,10 +5,7 @@ interface SidebarContextProps {
   collapsed: boolean;
 }
 
-export const SidebarContext = createContext<SidebarContextProps>({
-  toggled: false,
-  collapsed: false,
-});
+export const SidebarContext = createContext<SidebarContextProps | null>(null);
 
 export const SidebarProvider = ({
   toggled: isToggled,
