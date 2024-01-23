@@ -2,9 +2,9 @@ import React, { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'reac
 
 import { StyledToggle } from './Toggle.styles';
 
-export type ToggleProps = HTMLAttributes<HTMLDivElement> & {
+export interface ToggleProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-};
+}
 
 export const SidebarToggle = forwardRef(function Toggle(
   { children, ...rest }: ToggleProps,

@@ -8,16 +8,17 @@ import {
   StyledSufixWrapper,
 } from './ItemContent.styles';
 
-export type ItemContentProps = {
+export interface ItemContentProps {
   children?: ReactNode;
   icon?: ReactNode;
-  prefix?: ReactNode;
-  suffix?: ReactNode;
-  minified?: boolean;
+  before?: ReactNode;
+  after?: ReactNode;
+  collapsed?: boolean;
+  toggled?: boolean;
   firstchild?: boolean;
-};
+}
 
-export const ItemContent = ({ icon, prefix, suffix, children, minified, firstchild }: ItemContentProps) => {
+export const ItemContent = ({ icon, before, after, children, collapsed, toggled, firstchild }: ItemContentProps) => {
   return (
     <>
       {icon && (
@@ -25,11 +26,11 @@ export const ItemContent = ({ icon, prefix, suffix, children, minified, firstchi
           <StyledIcon>{icon}</StyledIcon>
         </StyledIconWrapper>
       )}
-      {(!minified || (minified && !firstchild)) && (
+      {(collapsed || !toggled || !firstchild) && (
         <>
-          {prefix && <StyledPrefixWrapper>{prefix}</StyledPrefixWrapper>}
+          {before && <StyledPrefixWrapper>{before}</StyledPrefixWrapper>}
           <StyledItemContent>{children}</StyledItemContent>
-          {suffix && <StyledSufixWrapper>{suffix}</StyledSufixWrapper>}
+          {after && <StyledSufixWrapper>{after}</StyledSufixWrapper>}
         </>
       )}
     </>

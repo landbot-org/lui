@@ -2,9 +2,9 @@ import React, { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'reac
 
 import { StyledContent } from './Content.styles';
 
-export type ContentProps = HTMLAttributes<HTMLDivElement> & {
+export interface ContentProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-};
+}
 
 export const SidebarContent = forwardRef(function Content(
   { children, ...rest }: ContentProps,

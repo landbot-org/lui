@@ -3,7 +3,7 @@ import React from 'react';
 import { Landbot } from '../../icon/icons';
 import { SidebarMenuItem } from '../menu/MenuItem';
 
-import { StyledIcon, StyledLogo } from './Logo.styles';
+import { StyledIcon } from './Logo.styles';
 
 const svgLandbot = (
   <svg width="108" height="22" viewBox="0 0 108 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,20 +35,19 @@ const svgLandbot = (
   </svg>
 );
 
-export type LogoProps = {
+export interface LogoProps {
   onClick?: () => void;
-};
+}
 
-export const SidebarLogo = () => (
-  <StyledLogo>
-    <SidebarMenuItem
-      icon={
-        <StyledIcon>
-          <Landbot />
-        </StyledIcon>
-      }
-    >
-      {svgLandbot}
-    </SidebarMenuItem>
-  </StyledLogo>
+export const SidebarLogo = ({ onClick }: LogoProps) => (
+  <SidebarMenuItem
+    icon={
+      <StyledIcon>
+        <Landbot />
+      </StyledIcon>
+    }
+    onClick={onClick}
+  >
+    {svgLandbot}
+  </SidebarMenuItem>
 );

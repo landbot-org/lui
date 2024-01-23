@@ -6,21 +6,21 @@ import { LevelContext } from './Menu';
 
 import { StyledItem, StyledMenuItem } from './MenuItem.styles';
 
-export type MenuItemProps = LiHTMLAttributes<HTMLLIElement> & {
+export interface MenuItemProps extends LiHTMLAttributes<HTMLLIElement> {
   children?: ReactNode;
   icon?: ReactNode;
   active?: boolean;
-  prefix?: ReactNode;
-  suffix?: ReactNode;
-};
+  before?: ReactNode;
+  after?: ReactNode;
+}
 
 export const SidebarMenuItem = forwardRef(function MenuItem(
-  { children, icon, active, prefix, suffix, ...rest }: MenuItemProps,
+  { children, icon, active, before, after, ...rest }: MenuItemProps,
   ref: ForwardedRef<HTMLLIElement>,
 ) {
   const level = useContext(LevelContext);
 
-  const { onSelectMenuItem, minified } = useContext(SidebarContext);
+  const { onSelectMenuItem, collapsed, toggled } = useContext(SidebarContext);
 
   return (
     <StyledMenuItem ref={ref} {...rest}>
@@ -32,7 +32,14 @@ export const SidebarMenuItem = forwardRef(function MenuItem(
           onSelectMenuItem && onSelectMenuItem();
         }}
       >
-        <ItemContent icon={icon} prefix={prefix} suffix={suffix} minified={minified} firstchild={level === 0}>
+        <ItemContent
+          icon={icon}
+          before={before}
+          after={after}
+          collapsed={collapsed}
+          toggled={toggled}
+          firstchild={level === 0}
+        >
           {children}
         </ItemContent>
       </StyledItem>

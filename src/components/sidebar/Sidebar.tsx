@@ -8,15 +8,12 @@ import { StyledLayout, StyledOverlay, StyledSidebar, StyledWrapper } from './Sid
 export interface SidebarContextProps {
   toggled: boolean | undefined;
   collapsed?: boolean | undefined;
-  minified?: boolean | undefined;
-  setMinified?: (minified: boolean) => void;
   onSelectMenuItem?: () => void;
 }
 
 export const SidebarContext = createContext<SidebarContextProps>({
   toggled: false,
   collapsed: false,
-  minified: false,
 });
 
 export const Sidebar = forwardRef(function Sidebar(
@@ -31,19 +28,11 @@ export const Sidebar = forwardRef(function Sidebar(
     toggled: typeof toggled === 'undefined' ? false : toggled,
     collapsed: typeof collapsed === 'undefined' ? false : collapsed,
     onSelectMenuItem: () => referenceElement.current?.click(),
-    setMinified: (minified: boolean) => {
-      setSidebarState((prevState) => ({
-        ...prevState,
-        minified: minified,
-      }));
-    },
   });
 
   const handleToggleSidebar = () => {
-    const toggleValue = sidebarState.toggled;
-    setSidebarState({ ...sidebarState, toggled: !toggleValue });
-    if (onToggle) {
-      onToggle(!toggleValue);
+    if (sidebarState.collapsed && onToggle) {
+      onToggle();
     }
   };
 
@@ -61,15 +50,6 @@ export const Sidebar = forwardRef(function Sidebar(
     }));
   }, [collapsed]);
 
-  useEffect(() => {
-    if (sidebarState.collapsed) {
-      setSidebarState((prevState) => ({
-        ...prevState,
-        minified: false,
-      }));
-    }
-  }, [sidebarState.collapsed]);
-
   return (
     <SidebarContext.Provider value={sidebarState}>
       <StyledSidebar
@@ -77,7 +57,6 @@ export const Sidebar = forwardRef(function Sidebar(
         ref={ref}
         $collapsed={sidebarState.collapsed}
         $toggled={sidebarState.toggled}
-        $minified={sidebarState.minified}
         style={{ ...style }}
         {...rest}
       >
@@ -91,11 +70,11 @@ export const Sidebar = forwardRef(function Sidebar(
         >
           {!sidebarState.collapsed && showMinifyControl && (
             <SidebarMinifyControl
-              minified={sidebarState.minified}
+              toggled={sidebarState.toggled}
               onClick={() => {
                 setSidebarState((prevState) => ({
                   ...prevState,
-                  minified: !prevState.minified,
+                  toggled: !prevState.toggled,
                 }));
                 setShowMinifyControl(false);
               }}

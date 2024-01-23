@@ -8,22 +8,21 @@ import { LevelContext } from './Menu';
 import { StyledInnerItem, StyledItem, StyledMenuItem } from './MenuItem.styles';
 import { StyledContent, StyledSubMenuContent } from './SubMenu.styles';
 
-export type SubMenuProps = LiHTMLAttributes<HTMLLIElement> & {
+export interface SubMenuProps extends LiHTMLAttributes<HTMLLIElement> {
   children?: ReactNode;
   icon?: ReactNode;
   active?: boolean;
-  title?: ReactNode;
-  prefix?: ReactNode;
-  suffix?: ReactNode;
+  before?: ReactNode;
+  after?: ReactNode;
   variant?: 'primary' | 'secondary';
-};
+}
 
 export const SidebarSubMenu = forwardRef(function SubMenu(
-  { children, icon, active, title, prefix, suffix, variant = 'primary', ...rest }: SubMenuProps,
+  { children, icon, active, title, before, after, variant = 'primary', ...rest }: SubMenuProps,
   ref: ForwardedRef<HTMLLIElement>,
 ) {
   const level = useContext(LevelContext);
-  const { collapsed, minified } = useContext(SidebarContext);
+  const { collapsed, toggled } = useContext(SidebarContext);
 
   const [open, setOpen] = useState(false);
 
@@ -39,7 +38,7 @@ export const SidebarSubMenu = forwardRef(function SubMenu(
               setOpen(!open);
             }}
           >
-            <ItemContent icon={icon} prefix={prefix} suffix={suffix} minified={minified} firstchild={level === 0}>
+            <ItemContent icon={icon} before={before} after={after} collapsed={collapsed} firstchild={level === 0}>
               {title}
             </ItemContent>
           </StyledItem>
@@ -67,7 +66,7 @@ export const SidebarSubMenu = forwardRef(function SubMenu(
                 event.stopPropagation();
               }}
             >
-              <ItemContent icon={icon} prefix={prefix} suffix={suffix} minified={minified} firstchild={level === 0}>
+              <ItemContent icon={icon} before={before} after={after} toggled={toggled} firstchild={level === 0}>
                 {title}
               </ItemContent>
             </StyledItem>

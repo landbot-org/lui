@@ -2,9 +2,9 @@ import React, { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'reac
 
 import { StyledFooter } from './Footer.styles';
 
-export type FooterProps = HTMLAttributes<HTMLDivElement> & {
+export interface FooterProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-};
+}
 
 export const SidebarFooter = forwardRef(function Footer(
   { children, ...rest }: FooterProps,

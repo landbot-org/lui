@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 interface StyledSidebarProps {
   $collapsed?: boolean;
   $toggled?: boolean;
-  $minified?: boolean;
 }
 
 export const StyledSidebar = styled.aside<StyledSidebarProps>`
@@ -18,25 +17,37 @@ export const StyledSidebar = styled.aside<StyledSidebarProps>`
   position: relative;
   z-index: 1010;
 
-  ${({ $collapsed }) =>
-    $collapsed &&
-    `
-      position: fixed;
-      left: -240px;
-    `}
-
-  ${({ $toggled }) =>
-    $toggled &&
-    `
-      left: 0;
-    `}
-
-  ${({ $minified }) =>
-    !$minified &&
-    `
-      width: 240px;
-      min-width: 240px;
-    `}
+  ${({ $collapsed, $toggled }) => {
+    if ($collapsed) {
+      if ($toggled) {
+        return `
+          width: 240px;
+          min-width: 240px;
+          position: fixed;
+          left: 0;
+        `;
+      } else {
+        return `
+          width: 240px;
+          min-width: 240px;
+          position: fixed;
+          left: -240px;
+        `;
+      }
+    } else {
+      if ($toggled) {
+        return `
+          width: fit-content;
+          min-width: 72px;
+        `;
+      } else {
+        return `
+          width: 240px;
+          min-width: 240px;
+        `;
+      }
+    }
+  }}
 `;
 
 export const StyledWrapper = styled.div`

@@ -1,9 +1,9 @@
 import { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
-export type SidebarProps = HTMLAttributes<HTMLElement> & {
+export interface SidebarProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   toggled?: boolean;
   collapsed?: boolean;
-  onToggle?: (value: boolean) => void;
+  onToggle?: () => void;
   style?: CSSProperties;
-};
+}

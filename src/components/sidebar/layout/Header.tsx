@@ -2,9 +2,9 @@ import React, { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'reac
 
 import { StyledHeader } from './Header.styles';
 
-export type HeaderProps = HTMLAttributes<HTMLDivElement> & {
+export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-};
+}
 
 export const SidebarHeader = forwardRef(function Header(
   { children, ...rest }: HeaderProps,

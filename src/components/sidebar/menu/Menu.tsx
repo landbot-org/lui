@@ -11,18 +11,18 @@ import React, {
 
 import { StyledMenuItem } from './Menu.styles';
 
-export type MenuProps = HTMLAttributes<HTMLElement> & {
+export interface MenuProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-};
+}
 
 export const LevelContext = createContext<number>(0);
 
 export const SidebarMenu = forwardRef(function Menu(
   { children, ...rest }: MenuProps,
-  ref: ForwardedRef<HTMLLIElement>,
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
-    <nav ref={ref} {...rest}>
+    <div ref={ref} {...rest}>
       <LevelContext.Provider value={0}>
         <StyledMenuItem>
           {Children.toArray(children)
@@ -34,6 +34,6 @@ export const SidebarMenu = forwardRef(function Menu(
             )}
         </StyledMenuItem>
       </LevelContext.Provider>
-    </nav>
+    </div>
   );
 });
