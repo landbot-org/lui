@@ -1,13 +1,4 @@
-import React, {
-  Children,
-  ForwardedRef,
-  HTMLAttributes,
-  ReactElement,
-  ReactNode,
-  cloneElement,
-  createContext,
-  forwardRef,
-} from 'react';
+import { ForwardedRef, HTMLAttributes, ReactNode, createContext, forwardRef } from 'react';
 
 import { StyledMenuItem } from './Menu.styles';
 
@@ -24,15 +15,7 @@ export const SidebarMenu = forwardRef(function Menu(
   return (
     <div ref={ref} {...rest}>
       <LevelContext.Provider value={0}>
-        <StyledMenuItem>
-          {Children.toArray(children)
-            .filter(Boolean)
-            .map((child, index) =>
-              cloneElement(child as ReactElement, {
-                key: index,
-              }),
-            )}
-        </StyledMenuItem>
+        <StyledMenuItem>{children}</StyledMenuItem>
       </LevelContext.Provider>
     </div>
   );

@@ -1,10 +1,16 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarSubMenu } from '.';
 import { render, screen } from '../../test-utils';
 import { Icon } from '../icon';
 import { GearTool, OpenAI, Sparkles } from '../icon/icons';
+import { Sidebar } from './Sidebar';
 import { SidebarProps } from './Sidebar.types';
+import { SidebarContent } from './layout/Content';
 import { SidebarDivider } from './layout/Divider';
+import { SidebarFooter } from './layout/Footer';
+import { SidebarHeader } from './layout/Header';
 import { SidebarLogo } from './layout/Logo';
+import { SidebarMenu } from './menu/Menu';
+import { SidebarMenuItem } from './menu/MenuItem';
+import { SidebarSubMenu } from './menu/SubMenu';
 
 const renderComponent = (props: Partial<SidebarProps> = {}) =>
   render(
@@ -38,7 +44,7 @@ const renderComponent = (props: Partial<SidebarProps> = {}) =>
   );
 
 describe('Sidebar', () => {
-  it.each([[true], [false]])('Should render', (collapsed) => {
+  it.each([[true], [false]])('Should render when collapsed status is: %s', (collapsed) => {
     renderComponent({
       collapsed,
     });
@@ -58,7 +64,7 @@ describe('Sidebar', () => {
     expect(screen.queryByText('Help another item')).not.toBeInTheDocument();
   });
 
-  it.each([[true], [false]])('Should render when open submenu', async (collapsed) => {
+  it.each([[true], [false]])('Should render when collapsed status is: %s and open submenu', async (collapsed) => {
     const { user } = renderComponent({
       collapsed,
     });

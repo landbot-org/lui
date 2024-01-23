@@ -72,12 +72,6 @@ const meta: Meta<typeof Sidebar> = {
                     <SidebarMenuItem>More items</SidebarMenuItem>
                     <SidebarMenuItem>Another item</SidebarMenuItem>
                   </SidebarSubMenu>
-                  <SidebarSubMenu title="Submenu3">
-                    <SidebarMenuItem>More items</SidebarMenuItem>
-                    <SidebarMenuItem>Another item</SidebarMenuItem>
-                    <SidebarMenuItem>More items</SidebarMenuItem>
-                    <SidebarMenuItem>Another item</SidebarMenuItem>
-                  </SidebarSubMenu>
                 </SidebarSubMenu>
                 <SidebarMenuItem>More items</SidebarMenuItem>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
@@ -87,12 +81,6 @@ const meta: Meta<typeof Sidebar> = {
                 <SidebarSubMenu title="Submenu" active>
                   <SidebarMenuItem>More items</SidebarMenuItem>
                   <SidebarMenuItem>Another item</SidebarMenuItem>
-                  <SidebarSubMenu title="Submenu2">
-                    <SidebarMenuItem>More items</SidebarMenuItem>
-                    <SidebarMenuItem>Another item</SidebarMenuItem>
-                    <SidebarMenuItem>More items</SidebarMenuItem>
-                    <SidebarMenuItem>Another item</SidebarMenuItem>
-                  </SidebarSubMenu>
                 </SidebarSubMenu>
                 <SidebarMenuItem>More items</SidebarMenuItem>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
@@ -102,8 +90,6 @@ const meta: Meta<typeof Sidebar> = {
           <SidebarFooter>
             <SidebarMenu>
               <SidebarSubMenu title="Help" icon={<Sparkles />} variant="secondary">
-                <SidebarMenuItem>More items</SidebarMenuItem>
-                <SidebarMenuItem>Another item</SidebarMenuItem>
                 <SidebarMenuItem>More items</SidebarMenuItem>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
               </SidebarSubMenu>
@@ -116,7 +102,7 @@ const meta: Meta<typeof Sidebar> = {
                 <SidebarMenuItem icon={<Icon icon={<OpenAI />} />}>More items</SidebarMenuItem>
                 <SidebarDivider />
                 <SidebarMenuItem>More items</SidebarMenuItem>
-                <SidebarSubMenu title="Submenu2" variant="secondary">
+                <SidebarSubMenu title="Submenu" variant="secondary">
                   <SidebarMenuItem>More items</SidebarMenuItem>
                   <SidebarMenuItem>Another item</SidebarMenuItem>
                 </SidebarSubMenu>
