@@ -21,7 +21,7 @@ const renderComponent = (props: Partial<SidebarProps> = {}) =>
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem icon={<Icon icon={<OpenAI />} />}>OpenAI</SidebarMenuItem>
-          <SidebarSubMenu title="More items" icon={<Sparkles />}>
+          <SidebarSubMenu title="More items" icon={<Sparkles data-testid="more-items-icon" />}>
             <SidebarMenuItem>Other item</SidebarMenuItem>
             <SidebarMenuItem>Another item</SidebarMenuItem>
             <SidebarSubMenu title="Submenu">
@@ -44,7 +44,7 @@ const renderComponent = (props: Partial<SidebarProps> = {}) =>
   );
 
 describe('Sidebar', () => {
-  it.each([[true], [false]])('Should render when collapsed status is: %s', (collapsed) => {
+  it.each([[true], [false]])('Should render when collapsed status is %s', (collapsed) => {
     renderComponent({
       collapsed,
     });
@@ -61,7 +61,7 @@ describe('Sidebar', () => {
     expect(screen.queryByText('Help another item')).not.toBeInTheDocument();
   });
 
-  it.each([[true], [false]])('Should render when collapsed status is: %s and open submenu', async (collapsed) => {
+  it.each([[true], [false]])('Should render when collapsed status is %s and open submenu', async (collapsed) => {
     const { user } = renderComponent({
       collapsed,
     });
@@ -80,11 +80,51 @@ describe('Sidebar', () => {
     expect(screen.queryByText('Help another item')).not.toBeInTheDocument();
   });
 
+  it('Should render when collapsed status is false and toggled', () => {
+    renderComponent({
+      collapsed: false,
+      toggled: true,
+    });
+
+    expect(screen.queryByText('OpenAI')).not.toBeInTheDocument();
+    expect(screen.queryByText('More items')).not.toBeInTheDocument();
+    expect(screen.queryByText('Other item')).not.toBeInTheDocument();
+    expect(screen.queryByText('Another item')).not.toBeInTheDocument();
+    expect(screen.queryByText('Submenu')).not.toBeInTheDocument();
+    expect(screen.queryByText('Submenu items')).not.toBeInTheDocument();
+    expect(screen.queryByText('Submenu another item')).not.toBeInTheDocument();
+    expect(screen.queryByText('Help')).not.toBeInTheDocument();
+    expect(screen.queryByText('Help item')).not.toBeInTheDocument();
+    expect(screen.queryByText('Help another item')).not.toBeInTheDocument();
+  });
+
+  it('Should render when click on icon, collapsed status is false and is toggled', async () => {
+    const { user } = renderComponent({
+      collapsed: false,
+      toggled: true,
+    });
+
+    await user.click(screen.getByTestId('more-items-icon'));
+
+    expect(screen.getByText('Other item')).toBeVisible();
+    expect(screen.getByText('Another item')).toBeVisible();
+    expect(screen.getByText('Submenu')).toBeVisible();
+  });
+
   it('Should render minify button', async () => {
     const { user } = renderComponent();
 
     await user.hover(screen.getByText('OpenAI'));
 
     expect(screen.getByLabelText('minify-button')).toBeVisible();
+  });
+
+  it('Should render minify button and click', async () => {
+    const { user } = renderComponent();
+
+    await user.hover(screen.getByText('OpenAI'));
+    await user.click(screen.getByLabelText('minify-button'));
+
+    expect(screen.queryByLabelText('minify-button')).not.toBeInTheDocument();
   });
 });

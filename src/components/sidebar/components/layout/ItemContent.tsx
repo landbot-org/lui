@@ -1,4 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
+
+import { Landbot } from '../../../icon/icons';
 
 import { StyledIconWrapper, StyledItemContent, StyledPrefixWrapper, StyledSufixWrapper } from './ItemContent.styles';
 
@@ -13,9 +15,19 @@ export interface ItemContentProps {
 }
 
 export const ItemContent = ({ icon, before, after, children, collapsed, toggled, firstchild }: ItemContentProps) => {
+  const itemIcon = useMemo(() => {
+    if (icon) {
+      return icon;
+    } else if (firstchild) {
+      return <Landbot />;
+    }
+
+    return null;
+  }, [icon, firstchild]);
+
   return (
     <>
-      {icon && <StyledIconWrapper $firstchild={firstchild}>{icon}</StyledIconWrapper>}
+      {itemIcon && <StyledIconWrapper $firstchild={firstchild}>{itemIcon}</StyledIconWrapper>}
       {(collapsed || !toggled || !firstchild) && (
         <>
           {before && <StyledPrefixWrapper>{before}</StyledPrefixWrapper>}

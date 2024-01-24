@@ -56,7 +56,7 @@ const meta: Meta<typeof Sidebar> = {
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              <SidebarMenuItem icon={<Icon icon={<OpenAI />} />}>Home</SidebarMenuItem>
+              <SidebarMenuItem>No icon</SidebarMenuItem>
               <SidebarMenuItem icon={<Icon icon={<OpenAI />} />} active>
                 Builder
               </SidebarMenuItem>

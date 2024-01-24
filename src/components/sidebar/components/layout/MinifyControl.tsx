@@ -1,6 +1,6 @@
 import { LuArrowLeftToLine, LuArrowRightFromLine } from 'react-icons/lu';
 
-import { StyledMinifyControl } from './MinifyControl.styles';
+import { StyledIcon, StyledMinifyControl } from './MinifyControl.styles';
 
 export interface MinifyControlProps {
   toggled?: boolean;
@@ -9,8 +9,10 @@ export interface MinifyControlProps {
 
 export const SidebarMinifyControl = ({ toggled, onClick }: MinifyControlProps) => {
   return (
-    <StyledMinifyControl role="button" aria-label="minify-button" onClick={onClick}>
-      {toggled ? <LuArrowRightFromLine /> : <LuArrowLeftToLine />}
+    <StyledMinifyControl>
+      <StyledIcon role="button" aria-label="minify-button" onClick={onClick}>
+        {toggled ? <LuArrowRightFromLine /> : <LuArrowLeftToLine />}
+      </StyledIcon>
     </StyledMinifyControl>
   );
 };
