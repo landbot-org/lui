@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const BrickBlue = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M0 14L16 22.2105V38L0 29.7895V14Z" fill="#606C8D" />

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ToggleProps } from './Toggle.types';
 
 import { ToggleStyled } from './Toggle.styles';

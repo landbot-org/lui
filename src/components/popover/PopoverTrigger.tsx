@@ -1,4 +1,4 @@
-import React from 'react';
+import { cloneElement, isValidElement } from 'react';
 
 import { useMergeRefs } from '@floating-ui/react';
 
@@ -14,8 +14,8 @@ export const PopoverTrigger = ({ children }: PopoverTriggerProps) => {
   const childrenRef = (children as any).ref;
   const ref = useMergeRefs([context.refs.setReference, childrenRef]);
 
-  if (React.isValidElement(children)) {
-    return React.cloneElement(
+  if (isValidElement(children)) {
+    return cloneElement(
       children,
       context.getReferenceProps({
         ref,

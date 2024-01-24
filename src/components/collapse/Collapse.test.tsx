@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { render, screen } from '../../test-utils';
 import { Collapse } from './Collapse';
 import { CollapseContent } from './CollapseContent';

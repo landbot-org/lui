@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const WomanScientist = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="38" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path

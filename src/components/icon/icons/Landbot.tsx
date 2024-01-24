@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Landbot = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g clipPath="url(#clip0_7852_8330)">

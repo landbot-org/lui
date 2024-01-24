@@ -3,27 +3,31 @@ import React, { HTMLProps } from 'react';
 import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 
 import { theme } from '../../shared/theme';
+import { PopoverContentProps } from '../popover';
 import { usePopoverContext } from '../popover/PopoverContext';
 
-import { StyledPopoverContent } from '../popover/Popover.styles';
+import { StyledTooltipContent } from './Tooltip.styles';
 
-export const TooltipContent = (props: HTMLProps<HTMLDivElement>) => {
+export const TooltipContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps) => {
   const { context: floatingContext, ...context } = usePopoverContext();
 
   if (!floatingContext.open) return null;
 
   return (
-    <FloatingPortal>
+    <FloatingPortal id={props.id} root={props.root}>
       <FloatingFocusManager context={floatingContext}>
-        <StyledPopoverContent
+        <StyledTooltipContent
           $color={context.color}
-          py={1}
-          px={2}
           border={1}
           radius={2}
           elevation={2}
           ref={context.refs.setFloating}
           style={context.floatingStyles}
+          onClick={() => {
+            if (context.closeOnClickInside) {
+              context.setOpen(false);
+            }
+          }}
           {...context.getFloatingProps(props)}
         >
           {props.children}
@@ -37,7 +41,7 @@ export const TooltipContent = (props: HTMLProps<HTMLDivElement>) => {
               tipRadius={1}
             />
           )}
-        </StyledPopoverContent>
+        </StyledTooltipContent>
       </FloatingFocusManager>
     </FloatingPortal>
   );

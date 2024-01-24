@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { CollapseProps } from './Collapse.types';
 import { CollapseContext } from './CollapseContext';
 import { useCollapse } from './useCollapse';

@@ -1,4 +1,5 @@
 export * from './components/autocomplete';
+export * from './components/avatar';
 export * from './components/box';
 export * from './components/button';
 export * from './components/checkbox';
@@ -10,6 +11,7 @@ export * from './components/link';
 export * from './components/popover';
 export * from './components/radio';
 export * from './components/select';
+export * from './components/sidebar';
 export * from './components/spinner';
 export * from './components/tabs';
 export * from './components/tag';

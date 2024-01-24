@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { BoxProps } from './Box.types';
 
 import { BoxStyled } from './Box.styles';
 
-export const Box = React.forwardRef<HTMLElement, BoxProps>(
+export const Box = forwardRef<HTMLElement, BoxProps>(
   (
     {
       alignItems,

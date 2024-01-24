@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Funnel = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <circle cx="47.5556" cy="42" r="12" fill="white" />

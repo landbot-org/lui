@@ -1,3 +1,5 @@
+import { ElementType, HTMLAttributes, ReactNode } from 'react';
+
 import { ColorsTypes } from '../../shared/theme.types';
 import { BaseSpacingProps } from '../base-spacing';
 
@@ -11,13 +13,13 @@ export type RadiusType = 0 | 1 | 2 | 3 | 4 | 5;
 export type BorderType = 0 | 1 | 2;
 export type PositionType = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 
-export interface BoxProps extends BaseSpacingProps, React.HTMLAttributes<HTMLDivElement> {
+export interface BoxProps extends BaseSpacingProps, HTMLAttributes<HTMLDivElement> {
   alignItems?: FlexAlignType;
-  as?: React.ElementType | keyof JSX.IntrinsicElements;
+  as?: ElementType | keyof JSX.IntrinsicElements;
   backgroundColor?: ColorsTypes;
   border?: BorderType;
   borderColor?: ColorsTypes;
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
   display?: DisplayType;
   elevation?: ElevationType;

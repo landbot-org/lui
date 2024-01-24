@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +20,7 @@ const meta: Meta<typeof TextField> = {
       setValue(args.value || '');
     }, [args.value]);
 
-    const _onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const _onChange = (e: ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value);
       args.onChange && args.onChange(e);
     };

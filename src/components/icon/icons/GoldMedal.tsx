@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const GoldMedal = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M20 8.88889L12.2222 0H0L15.5556 18.8889L28.3567 13.6111L20 8.88889Z" fill="#55ACEE" />

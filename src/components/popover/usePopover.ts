@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import {
   arrow,
@@ -31,7 +31,8 @@ export const usePopover = ({
   placement = 'top',
   preventClose = false,
   role: roleType,
-  closeOnScroll,
+  closeOnScroll = false,
+  closeOnClickInside = false,
   crossAxisOffset,
   usePortal = true,
 }: PopoverProps) => {
@@ -82,7 +83,7 @@ export const usePopover = ({
 
   const interactions = useInteractions([click, hover, dismiss, role]);
 
-  return React.useMemo(
+  return useMemo(
     () => ({
       open,
       setOpen,
@@ -93,7 +94,8 @@ export const usePopover = ({
       hasArrow,
       hasCloseButton,
       usePortal,
+      closeOnClickInside,
     }),
-    [open, setOpen, interactions, data, color, hasArrow, hasCloseButton, usePortal],
+    [open, setOpen, interactions, data, color, hasArrow, hasCloseButton, usePortal, closeOnClickInside],
   );
 };

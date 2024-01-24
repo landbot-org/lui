@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import { useCollapse } from './useCollapse';
 
 type ContextType = ReturnType<typeof useCollapse> | null;
 
-export const CollapseContext = React.createContext<ContextType>(null);
+export const CollapseContext = createContext<ContextType>(null);
 
 export const useCollapseContext = () => {
   const context = useContext(CollapseContext);

@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,7 +7,7 @@ import { Button } from '../button';
 import { ButtonProps } from '../button/Button.types';
 import { useDialogContext } from './DialogContext';
 
-export const DialogClose = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const DialogClose = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { setOpen } = useDialogContext();
 
   return (

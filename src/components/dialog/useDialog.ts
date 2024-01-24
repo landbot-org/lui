@@ -1,4 +1,4 @@
-import React from 'react';
+import { useMemo } from 'react';
 
 import { useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
 
@@ -25,7 +25,7 @@ export const useDialog = ({
 
   const interactions = useInteractions([click, dismiss, role]);
 
-  return React.useMemo(
+  return useMemo(
     () => ({
       hasCloseButton,
       width,

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Microscope = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="36" height="40" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M19.4036 23.6586L12.3299 16.5869L11.896 21.4709L14.5175 24.0924L19.4036 23.6586Z" fill="#66757F" />

@@ -1,21 +1,22 @@
-import React, { HTMLProps, useMemo } from 'react';
+import React, { Fragment, HTMLProps, useMemo } from 'react';
 
 import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 
 import { theme } from '../../shared/theme';
+import { PopoverContentProps } from './Popover.types';
 import { PopoverClose } from './PopoverClose';
 import { usePopoverContext } from './PopoverContext';
 
 import { StyledPopoverCloseWrapper, StyledPopoverContent } from './Popover.styles';
 
-export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
+export const PopoverContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps) => {
   const { context: floatingContext, ...context } = usePopoverContext();
-  const FloatingWrapper = useMemo(() => (context.usePortal ? FloatingPortal : React.Fragment), [context.usePortal]);
+  const FloatingWrapper = useMemo(() => (context.usePortal ? FloatingPortal : Fragment), [context.usePortal]);
 
   if (!floatingContext.open) return null;
 
   return (
-    <FloatingWrapper>
+    <FloatingWrapper id={props.id} root={props.root}>
       <FloatingFocusManager context={floatingContext}>
         <StyledPopoverContent
           $color={context.color}
@@ -24,6 +25,11 @@ export const PopoverContent = (props: HTMLProps<HTMLDivElement>) => {
           elevation={2}
           ref={context.refs.setFloating}
           style={context.floatingStyles}
+          onClick={() => {
+            if (context.closeOnClickInside) {
+              context.setOpen(false);
+            }
+          }}
           {...context.getFloatingProps(props)}
         >
           {context.hasCloseButton && (

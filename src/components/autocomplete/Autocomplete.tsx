@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { ChangeEvent, ReactNode, forwardRef, useRef, useState } from 'react';
 
 import {
   FloatingFocusManager,
@@ -23,11 +23,11 @@ import { AutoCompleteItem, AutocompleteProps } from './Autocomplete.types';
 import { StyledOption } from './Autocomplete.styles';
 
 interface ItemProps {
-  children: React.ReactNode;
+  children: ReactNode;
   active: boolean;
 }
 
-const OptionItem = React.forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, ...rest }, ref) => {
+const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, ...rest }, ref) => {
   const id = useId();
 
   return (
@@ -96,7 +96,7 @@ export const Autocomplete = ({
 
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([role, dismiss, listNav]);
 
-  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     onChange(event);
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { NUMBER_OF_PILLS } from './Spinner.constants';
 import { SpinnerProps } from './Spinner.types';
 

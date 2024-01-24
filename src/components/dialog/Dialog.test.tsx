@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 import { Dialog, DialogContent } from '.';
 import { mockResizeObserver, render, screen } from '../../test-utils';
 import { DialogProps } from './Dialog.types';
 
-const SUT = ({ children, ...dialogProps }: Partial<DialogProps> & { children?: React.ReactNode }) => {
+const SUT = ({ children, ...dialogProps }: Partial<DialogProps> & { children?: ReactNode }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ const SUT = ({ children, ...dialogProps }: Partial<DialogProps> & { children?: R
   );
 };
 
-const renderComponent = (children: React.ReactNode, { props }: { props?: Partial<DialogProps> } = {}) => {
+const renderComponent = (children: ReactNode, { props }: { props?: Partial<DialogProps> } = {}) => {
   return render(<SUT {...props}>{children}</SUT>);
 };
 
