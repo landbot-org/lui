@@ -15,7 +15,7 @@ describe('Breadcrumb', () => {
   it('should render breadcrumb', () => {
     renderComponent();
 
-    expect(screen.getByRole('navigation')).toBeVisible();
+    expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toBeVisible();
   });
   it('should render links in breadcrumb', () => {
     renderComponent({
