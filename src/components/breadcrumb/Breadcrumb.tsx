@@ -13,7 +13,7 @@ export const Breadcrumb = ({ items, size = 'large', mode = 'dark' }: BreadcrumbP
       <StyledBreadcrumbList $size={size}>
         {items.map(({ label, route, active, disabled, icon }, index) => (
           <StyledBreadcrumbListItem key={route}>
-            {icon ? (
+            {!!icon && (
               <Box display="flex" alignItems="center" mr={size === 'large' ? 1 : 0.5}>
                 <Icon
                   color={getLabelColor(mode, active, disabled)}
@@ -21,7 +21,7 @@ export const Breadcrumb = ({ items, size = 'large', mode = 'dark' }: BreadcrumbP
                   icon={icon}
                 />
               </Box>
-            ) : null}
+            )}
             <BreadcrumbLabelContainer route={route} active={active} disabled={disabled}>
               <BreadcrumbLabel size={size} mode={mode} active={active} disabled={disabled}>
                 {label}
