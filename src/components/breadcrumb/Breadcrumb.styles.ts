@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { ColorsTypes } from '../../shared/theme.types';
 import { Typography } from '../typography';
 import { BreadcrumbProps } from './Breadcrumb.types';
 
@@ -31,3 +32,15 @@ export const StyledBreadcrumbNavLink = styled(NavLink)`
     text-decoration: underline;
   }
 `;
+
+export const getTypographyVariant = (size: BreadcrumbProps['size']) => (size === 'large' ? 'text16' : 'text14');
+
+export const getLabelColor = (mode: BreadcrumbProps['mode'], active?: boolean, disabled?: boolean): ColorsTypes => {
+  if (active) {
+    return 'pink.main';
+  }
+  if (disabled) {
+    return 'neutral.300';
+  }
+  return mode === 'dark' ? 'blue.main' : 'white.main';
+};
