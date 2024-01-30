@@ -1,5 +1,7 @@
 name: Chromatic
 
+on: push
+
 jobs:
   chromatic:
     name: Deploy chromatic
