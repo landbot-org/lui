@@ -11,6 +11,13 @@ const meta: Meta<typeof Breadcrumb> = {
   tags: ['autodocs'],
   argTypes: {},
   args: {},
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 };
 
 export default meta;
@@ -24,13 +31,17 @@ export const Default: Story = {
       { label: 'Second level', route: '/second' },
     ],
   },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
+};
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+    items: [
+      { label: 'Root level', route: '/root' },
+      { label: 'First level', route: '/first' },
+      { label: 'Second level', route: '/second' },
+    ],
+  },
 };
 
 export const WithIcon: Story = {
@@ -41,13 +52,6 @@ export const WithIcon: Story = {
       { label: 'Second level', route: '/second' },
     ],
   },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
 
 export const DisabledItem: Story = {
@@ -58,13 +62,6 @@ export const DisabledItem: Story = {
       { label: 'Second level', route: '/second' },
     ],
   },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
 
 export const ActiveItem: Story = {
@@ -75,13 +72,6 @@ export const ActiveItem: Story = {
       { label: 'Second level', route: '/second', active: true },
     ],
   },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
 
 export const WithIconActive: Story = {
@@ -92,13 +82,6 @@ export const WithIconActive: Story = {
       { label: 'Second level', route: '/second', icon: <FontAwesomeIcon icon={faFaceSmile} />, active: true },
     ],
   },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
 
 export const WithIconDisabled: Story = {
@@ -109,13 +92,6 @@ export const WithIconDisabled: Story = {
       { label: 'Second level', route: '/second' },
     ],
   },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
 
 export const WithLargeText: Story = {
@@ -126,11 +102,4 @@ export const WithLargeText: Story = {
       { label: 'Second level', route: '/second' },
     ],
   },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
