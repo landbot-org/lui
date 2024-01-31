@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { ColorsTypes } from '../../shared/theme.types';
 import { Typography } from '../typography';
