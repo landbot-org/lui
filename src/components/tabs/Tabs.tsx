@@ -40,7 +40,7 @@ export const Tabs = ({
   };
 
   return (
-    <Container display="flex">
+    <Container $showBottomLine={showBottomLine} display="flex">
       {showScrollButtons && (
         <ArrowButton
           aria-label="navigation-left"

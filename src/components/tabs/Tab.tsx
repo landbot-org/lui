@@ -6,14 +6,13 @@ import { getTypographyVariantBySize } from './Tabs.utils';
 import { BorderBottom, StyledTab, StyledTypography } from './Tabs.styles';
 
 export const Tab = forwardRef<HTMLDivElement, TabProps>(
-  ({ active, direction, label, disabled, onClick, size, showBottomLine = true }, ref) => (
+  ({ active, direction, label, disabled, onClick, size }, ref) => (
     <StyledTab
       aria-selected={Boolean(active)}
       role="tab"
       ref={ref}
       disabled={disabled}
       onClick={onClick}
-      $showBottomLine={showBottomLine}
       $active={active}
       $size={size}
     >
