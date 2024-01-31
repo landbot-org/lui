@@ -23,6 +23,7 @@ export const BreadcrumbLabel = ({
       $disabled={disabled}
       variant={getTypographyVariant(size)}
       color={getLabelColor(mode, active, disabled)}
+      fontWeight={500}
       ellipsize
     >
       {children}
