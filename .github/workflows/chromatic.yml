@@ -1,17 +1,9 @@
 name: Chromatic
 
-on:
-  workflow_run:
-    workflows: ['Build']
-    types:
-      - completed
-    branches:
-      - main
+on: push
 
 jobs:
-  chromatic:
-    name: Deploy chromatic
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  tests:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
