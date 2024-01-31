@@ -3,6 +3,7 @@ export * from './components/avatar';
 export * from './components/banner';
 export * from './components/box';
 export * from './components/button';
+export * from './components/breadcrumb';
 export * from './components/checkbox';
 export * from './components/collapse';
 export * from './components/dialog';
