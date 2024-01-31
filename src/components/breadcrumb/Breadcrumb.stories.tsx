@@ -103,3 +103,33 @@ export const WithLargeText: Story = {
     ],
   },
 };
+
+export const WithLargeTextLargeMobile: Story = {
+  args: {
+    items: [
+      { label: 'Root level', route: '/root' },
+      { label: 'First level with very very very large text', route: '/first' },
+      { label: 'Second level', route: '/second' },
+    ],
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+  },
+};
+
+export const WithLargeTextSmallMobile: Story = {
+  args: {
+    items: [
+      { label: 'Root level', route: '/root' },
+      { label: 'First level with very very very large text', route: '/first' },
+      { label: 'Second level', route: '/second' },
+    ],
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+};

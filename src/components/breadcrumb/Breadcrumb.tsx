@@ -13,6 +13,7 @@ export const Breadcrumb = ({ items, size = 'large', mode = 'dark' }: BreadcrumbP
       <StyledBreadcrumbList $size={size}>
         {items.map(({ label, route, active, disabled, icon }, index) => (
           <StyledBreadcrumbListItem key={route}>
+            {index > 0 ? <BreadcrumbSeparator size={size} mode={mode} /> : null}
             {!!icon && (
               <Box display="flex" alignItems="center" mr={size === 'large' ? 1 : 0.5}>
                 <Icon
@@ -27,7 +28,6 @@ export const Breadcrumb = ({ items, size = 'large', mode = 'dark' }: BreadcrumbP
                 {label}
               </BreadcrumbLabel>
             </BreadcrumbLabelContainer>
-            {index < items.length - 1 ? <BreadcrumbSeparator size={size} mode={mode} /> : null}
           </StyledBreadcrumbListItem>
         ))}
       </StyledBreadcrumbList>

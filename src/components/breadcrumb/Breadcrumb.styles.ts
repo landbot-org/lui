@@ -15,18 +15,22 @@ export const StyledBreadcrumbList = styled.ol<{ $size: BreadcrumbProps['size'] }
 export const StyledBreadcrumbListItem = styled.li`
   display: flex;
   align-items: center;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const StyledBreadcrumbLabel = styled(Typography)<{ $disabled?: boolean }>`
   cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'inherit')};
   max-width: 200px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 `;
 
 export const StyledBreadcrumbNavLink = styled(NavLink)`
   text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   :hover {
     text-decoration: underline;
