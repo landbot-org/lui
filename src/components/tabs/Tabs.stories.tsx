@@ -43,6 +43,11 @@ const meta: Meta<typeof Tabs> = {
     showBottomLine: false,
     value: 3,
   },
+  render: function Render(args) {
+    const [active, setActive] = useState<number>(args.value as number);
+
+    return <Tabs {...args} value={active} onChange={(newActive) => setActive(newActive)} />;
+  },
 };
 
 export default meta;
@@ -82,9 +87,4 @@ export const InSmallContainer: Story = {
       </Box>
     ),
   ],
-  render: function Render(args) {
-    const [active, setActive] = useState<number>(args.value as number);
-
-    return <Tabs {...args} value={active} onChange={(newActive) => setActive(newActive)} />;
-  },
 };
