@@ -6,8 +6,24 @@ import { Typography } from '../typography';
 import { TabSizeTypes } from './Tabs.types';
 import { getButtonSizeStyles, getTabSizeStyles } from './Tabs.utils';
 
-export const Container = styled(Box)`
-  height: 48px;
+export const Container = styled(Box)<{
+  $showBottomLine: boolean;
+}>`
+  position: relative;
+
+  ${({ $showBottomLine }) =>
+    $showBottomLine &&
+    css`
+      &:before {
+        position: absolute;
+        display: block;
+        content: '';
+        background-color: ${({ theme }) => theme.palette.neutral[200]};
+        height: 1px;
+        bottom: 0;
+        width: 100%;
+      }
+    `}
 `;
 
 export const ArrowButton = styled.div<{ $disabled: boolean; $size: TabSizeTypes }>`
@@ -87,7 +103,6 @@ export const BorderBottom = styled.div<BorderBottomProps>`
 `;
 
 export const StyledTab = styled.div<{
-  $showBottomLine: boolean;
   $active?: boolean;
   $size: TabSizeTypes;
   disabled?: boolean;
@@ -107,12 +122,6 @@ export const StyledTab = styled.div<{
             background-color: ${theme.palette.blue[50]};
           }
         `}
-  ${({ $active, $showBottomLine, theme }) =>
-    !$active &&
-    $showBottomLine &&
-    css`
-      border-bottom: 1px solid ${theme.palette.neutral[200]};
-    `}
 `;
 
 export const TabsContainer = styled(Box)`

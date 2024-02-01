@@ -12,56 +12,79 @@ const meta: Meta<typeof Tabs> = {
   args: {
     tabs: [
       {
-        label: 'Tab1',
+        label: 'Description',
       },
       {
-        label: 'Tab2',
+        label: 'Tab disabled',
         disabled: true,
       },
       {
-        label: 'Tab3',
+        label: 'How to install',
       },
       {
-        label: 'Tab4',
+        label: 'Accounts',
       },
       {
-        label: 'Tab5',
+        label: 'Other tab disabled',
         disabled: true,
       },
       {
-        label: 'Tab6',
+        label: 'Logs',
       },
       {
-        label: 'Tab7',
+        label: 'Contacts',
       },
       {
-        label: 'Tab8',
+        label: 'Campaigns',
       },
     ],
     size: 'medium',
-    showScrollButtons: true,
+    showScrollButtons: false,
     showBottomLine: false,
     value: 3,
+  },
+  render: function Render(args) {
+    const [active, setActive] = useState<number>(args.value as number);
+
+    return <Tabs {...args} value={active} onChange={(newActive) => setActive(newActive)} />;
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Tabs>;
 
-export const Default: Story = {
+export const Default: Story = {};
+
+export const WithScrollButtons: Story = {
+  args: {
+    showScrollButtons: true,
+  },
+};
+
+export const WithBottomLine: Story = {
+  args: {
+    showBottomLine: true,
+  },
+};
+
+export const WithScrollButtonsAndBottomLine: Story = {
+  args: {
+    showScrollButtons: true,
+    showBottomLine: true,
+  },
+};
+
+export const InSmallContainer: Story = {
   args: {
     value: 3,
+    showScrollButtons: true,
+    showBottomLine: true,
   },
   decorators: [
     (Story) => (
-      <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: 400 }}>
+      <Box backgroundColor="neutral.300" py={5} px={5} style={{ width: 500 }}>
         <Story />
       </Box>
     ),
   ],
-  render: function Render(args) {
-    const [active, setActive] = useState<number>(args.value as number);
-
-    return <Tabs {...args} value={active} onChange={(newActive) => setActive(newActive)} />;
-  },
 };
