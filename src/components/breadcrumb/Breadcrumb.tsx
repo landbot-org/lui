@@ -5,11 +5,16 @@ import { BreadcrumbLabel } from './BreadcrumbLabel';
 import { BreadcrumbLabelContainer } from './BreadcrumbLabelContainer';
 import { BreadcrumbSeparator } from './BreadcrumbSeparator';
 
-import { StyledBreadcrumbList, StyledBreadcrumbListItem, getLabelColor } from './Breadcrumb.styles';
+import {
+  StyledBreadcrumbList,
+  StyledBreadcrumbListItem,
+  StyledBreadcrumbNav,
+  getLabelColor,
+} from './Breadcrumb.styles';
 
 export const Breadcrumb = ({ items, size = 'large', mode = 'dark' }: BreadcrumbProps) => {
   return (
-    <nav aria-label="Breadcrumb">
+    <StyledBreadcrumbNav aria-label="Breadcrumb">
       <StyledBreadcrumbList $size={size}>
         {items.map(({ label, route, active, disabled, icon }, index) => (
           <StyledBreadcrumbListItem key={route}>
@@ -31,6 +36,6 @@ export const Breadcrumb = ({ items, size = 'large', mode = 'dark' }: BreadcrumbP
           </StyledBreadcrumbListItem>
         ))}
       </StyledBreadcrumbList>
-    </nav>
+    </StyledBreadcrumbNav>
   );
 };

@@ -5,6 +5,10 @@ import { ColorsTypes } from '../../shared/theme.types';
 import { Typography } from '../typography';
 import { BreadcrumbProps } from './Breadcrumb.types';
 
+export const StyledBreadcrumbNav = styled.nav`
+  min-width: 0;
+`;
+
 export const StyledBreadcrumbList = styled.ol<{ $size: BreadcrumbProps['size'] }>`
   list-style: none;
   display: flex;
