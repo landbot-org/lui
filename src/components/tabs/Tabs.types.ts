@@ -20,8 +20,8 @@ export interface TabsItem {
 export interface TabsProps {
   tabs: TabsItem[];
   onChange: (activeItem: number) => void;
-  showScrollButtons?: boolean;
   size?: TabSizeTypes;
   value?: number;
   showBottomLine?: boolean;
+  disableScrollButtons?: boolean;
 }

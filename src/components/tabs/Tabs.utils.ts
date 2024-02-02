@@ -2,16 +2,7 @@ import { css } from 'styled-components';
 
 import { Size } from '../icon/Icon.types';
 import { TypographyVariants } from '../typography/Typography.types';
-import { TabSizeTypes, TabsItem } from './Tabs.types';
-
-export const getNextActiveTab = (tabs: TabsItem[], activeTab: number) =>
-  tabs.slice(activeTab + 1).findIndex((tab) => !tab?.disabled) + activeTab + 1;
-
-export const getPreviousActiveTab = (tabs: TabsItem[], activeTab: number) => {
-  const previousTabs = tabs.slice(0, activeTab).reverse();
-  const previousActiveTab = previousTabs.findIndex((tab) => !tab.disabled);
-  return previousActiveTab === -1 ? activeTab : previousTabs.length - 1 - previousActiveTab;
-};
+import { TabSizeTypes } from './Tabs.types';
 
 export const getTabSizeStyles = (size: TabSizeTypes) => {
   return {

@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useMemo, useRef, useState } from 'react';
+import { createRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,31 +6,76 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Icon } from '../icon';
 import { Tab } from './Tab';
 import { TabsProps } from './Tabs.types';
-import { getButtonIconSizeStyles, getNextActiveTab, getPreviousActiveTab } from './Tabs.utils';
+import { getButtonIconSizeStyles } from './Tabs.utils';
 
 import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 
 export const Tabs = ({
   tabs,
   onChange,
-  showScrollButtons = true,
   size = 'medium',
   value = 0,
   showBottomLine = true,
+  disableScrollButtons = false,
 }: TabsProps) => {
   const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const [showStartScrollButton, setShowStartScrollButton] = useState(false);
+  const [showEndScrollButton, setShowEndScrollButton] = useState(false);
   const tabRef = useMemo(() => tabs.map(() => createRef<HTMLDivElement>()), [tabs]);
   const [direction, setDirection] = useState<'right' | 'left'>('right');
 
-  useEffect(() => {
+  const handleCheckScrollButtons = useCallback(() => {
+    if (!tabsContainerRef.current) {
+      return;
+    }
+    const scrollLeft = tabsContainerRef.current.scrollLeft;
+    const scrollWidth = tabsContainerRef.current.scrollWidth;
+    const clientWidth = tabsContainerRef.current.clientWidth;
+
+    const showStartScroll = Math.floor(scrollLeft) > 1;
+    const showEndScroll = Math.ceil(scrollLeft) < scrollWidth - clientWidth - 1;
+
+    setShowStartScrollButton(showStartScroll);
+    setShowEndScrollButton(showEndScroll);
+  }, [tabsContainerRef]);
+
+  const scrollToActiveTab = useCallback(() => {
     if (tabsContainerRef.current && tabsContainerRef.current.scrollTo) {
       const offsetWidth = tabRef[value]?.current?.offsetWidth || 0;
       tabsContainerRef.current.scrollTo({
-        left: value * offsetWidth,
+        left: value * offsetWidth - 32,
         behavior: 'smooth',
       });
+      setTimeout(() => {
+        handleCheckScrollButtons();
+      }, 200);
     }
-  }, [value, tabRef, tabsContainerRef]);
+  }, [tabRef, value, handleCheckScrollButtons]);
+
+  const handleResize = useCallback(() => {
+    handleCheckScrollButtons();
+  }, [handleCheckScrollButtons]);
+
+  useEffect(() => {
+    const tabsContainerDomElement = tabsContainerRef.current;
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+
+    if (tabsContainerDomElement) {
+      resizeObserver.observe(tabsContainerDomElement);
+    }
+
+    return () => {
+      if (resizeObserver && tabsContainerDomElement) {
+        resizeObserver.unobserve(tabsContainerDomElement);
+      }
+    };
+  }, [handleResize]);
+
+  useEffect(() => {
+    scrollToActiveTab();
+  }, [scrollToActiveTab, handleCheckScrollButtons]);
 
   const handleTabChange = (direction: 'right' | 'left', newActiveTab: number, disabled: boolean) => {
     if (disabled === false) {
@@ -39,14 +84,26 @@ export const Tabs = ({
     }
   };
 
+  const handleClickArrow = (arrowSide: 'left' | 'right') => {
+    if (tabsContainerRef.current && tabsContainerRef.current.scrollTo) {
+      const scrollLeft = tabsContainerRef.current.scrollLeft || 0;
+      tabsContainerRef.current.scrollTo({
+        left: arrowSide === 'left' ? scrollLeft - 100 : scrollLeft + 100,
+        behavior: 'smooth',
+      });
+      setTimeout(() => {
+        handleCheckScrollButtons();
+      }, 200);
+    }
+  };
+
   return (
     <Container $showBottomLine={showBottomLine} display="flex">
-      {showScrollButtons && (
+      {!disableScrollButtons && showStartScrollButton && (
         <ArrowButton
           aria-label="navigation-left"
           role="navigation"
-          onClick={() => handleTabChange('left', getPreviousActiveTab(tabs, value), false)}
-          $disabled={value === 0}
+          onClick={() => handleClickArrow('left')}
           $size={size}
         >
           <Icon icon={<FontAwesomeIcon icon={faChevronLeft} />} size={getButtonIconSizeStyles(size)} />
@@ -68,12 +125,11 @@ export const Tabs = ({
           />
         ))}
       </TabsContainer>
-      {showScrollButtons && (
+      {!disableScrollButtons && showEndScrollButton && (
         <ArrowButton
           role="navigation"
           aria-label="navigation-right"
-          onClick={() => handleTabChange('right', getNextActiveTab(tabs, value), false)}
-          $disabled={value === tabs.length - 1}
+          onClick={() => handleClickArrow('right')}
           $size={size}
         >
           <Icon icon={<FontAwesomeIcon icon={faChevronRight} />} size={getButtonIconSizeStyles(size)} />

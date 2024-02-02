@@ -39,7 +39,6 @@ const meta: Meta<typeof Tabs> = {
       },
     ],
     size: 'medium',
-    showScrollButtons: false,
     showBottomLine: false,
     value: 3,
   },
@@ -55,9 +54,9 @@ type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {};
 
-export const WithScrollButtons: Story = {
+export const DisabledScrollButtons: Story = {
   args: {
-    showScrollButtons: true,
+    disableScrollButtons: true,
   },
 };
 
@@ -69,7 +68,6 @@ export const WithBottomLine: Story = {
 
 export const WithScrollButtonsAndBottomLine: Story = {
   args: {
-    showScrollButtons: true,
     showBottomLine: true,
   },
 };
@@ -77,7 +75,6 @@ export const WithScrollButtonsAndBottomLine: Story = {
 export const InSmallContainer: Story = {
   args: {
     value: 3,
-    showScrollButtons: true,
     showBottomLine: true,
   },
   decorators: [
