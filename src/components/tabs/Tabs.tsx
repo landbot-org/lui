@@ -59,6 +59,9 @@ export const Tabs = ({
   }, [handleCheckScrollButtons]);
 
   useEffect(() => {
+    if (disableScrollButtons) {
+      return;
+    }
     const tabsContainerDomElement = tabsContainerRef.current;
     const resizeObserver = new ResizeObserver(() => {
       handleResize();
@@ -73,7 +76,7 @@ export const Tabs = ({
         resizeObserver.unobserve(tabsContainerDomElement);
       }
     };
-  }, [handleResize]);
+  }, [disableScrollButtons, handleResize]);
 
   useEffect(() => {
     scrollToActiveTab();
