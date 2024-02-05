@@ -41,9 +41,11 @@ export const Tabs = ({
 
   const scrollToActiveTab = useCallback(() => {
     if (tabsContainerRef.current && tabsContainerRef.current.scrollTo) {
-      const offsetWidth = tabRef[value]?.current?.offsetWidth || 0;
+      const offsetWidth = tabRef.reduce((accumulator, currentValue, index) => {
+        return value > index ? accumulator + (currentValue.current?.offsetWidth || 0) : accumulator;
+      }, 0);
       tabsContainerRef.current.scrollTo({
-        left: value * offsetWidth - 32,
+        left: offsetWidth - 32,
         behavior: 'smooth',
       });
       setTimeout(() => {
