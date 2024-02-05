@@ -26,17 +26,8 @@ export const Container = styled(Box)<{
     `}
 `;
 
-export const ArrowButton = styled.div<{ $disabled: boolean; $size: TabSizeTypes }>`
+export const ArrowButton = styled.div<{ $size: TabSizeTypes }>`
   ${({ $size }) => getButtonSizeStyles($size)}
-  ${({ $disabled, theme }) =>
-    $disabled
-      ? css`
-          pointer-events: none;
-          color: ${theme.palette.neutral[300]};
-        `
-      : css`
-          color: ${theme.palette.blue.main};
-        `}
   align-self: center;
   background-color: transparent;
   border: none;
