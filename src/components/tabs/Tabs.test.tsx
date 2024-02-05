@@ -1,11 +1,14 @@
 import { cleanup } from '@testing-library/react';
 
-import { render, screen } from '../../test-utils';
+import { mockResizeObserver, render, screen } from '../../test-utils';
 import { Tabs } from './Tabs';
 
 afterEach(cleanup);
 
 describe('Tabs component', () => {
+  beforeEach(() => {
+    mockResizeObserver();
+  });
   window.HTMLElement.prototype.scrollTo = jest.fn();
 
   const tabProps = [
