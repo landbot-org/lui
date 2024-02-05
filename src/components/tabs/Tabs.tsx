@@ -10,6 +10,9 @@ import { getButtonIconSizeStyles } from './Tabs.utils';
 
 import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 
+const ARROW_SIZE = 32;
+const SCROLL_SIZE = 100;
+
 export const Tabs = ({
   tabs,
   onChange,
@@ -45,7 +48,7 @@ export const Tabs = ({
         return value > index ? accumulator + (currentValue.current?.offsetWidth || 0) : accumulator;
       }, 0);
       tabsContainerRef.current.scrollTo({
-        left: offsetWidth - 32,
+        left: offsetWidth - ARROW_SIZE,
         behavior: 'smooth',
       });
       setTimeout(() => {
@@ -93,7 +96,7 @@ export const Tabs = ({
     if (tabsContainerRef.current && tabsContainerRef.current.scrollTo) {
       const scrollLeft = tabsContainerRef.current.scrollLeft || 0;
       tabsContainerRef.current.scrollTo({
-        left: arrowSide === 'left' ? scrollLeft - 100 : scrollLeft + 100,
+        left: arrowSide === 'left' ? scrollLeft - SCROLL_SIZE : scrollLeft + SCROLL_SIZE,
         behavior: 'smooth',
       });
       setTimeout(() => {
