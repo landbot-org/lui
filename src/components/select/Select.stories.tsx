@@ -60,3 +60,12 @@ export const Error: Story = {
     label: 'Label',
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    description: 'Description',
+    helperText: 'Helper text',
+    label: 'Label',
+    disabled: true,
+  },
+};
