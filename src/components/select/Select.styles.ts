@@ -8,9 +8,9 @@ export const StyledOption = styled(Box)`
   cursor: pointer;
 `;
 
-export const StyledSelect = styled.div<{ $disabled: boolean }>`
+export const StyledSelect = styled.div<{ disabled: boolean }>`
   ${StyledInputGroup}, ${StyledInput} {
-    cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   }
 
   input:read-only {
