@@ -52,11 +52,20 @@ export const Labeled: Story = {
   },
 };
 
-export const Error: Story = {
+export const HasError: Story = {
   args: {
     error: true,
     description: 'Description',
     helperText: 'Helper text',
     label: 'Label',
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    description: 'Description',
+    helperText: 'Helper text',
+    label: 'Label',
+    disabled: true,
   },
 };

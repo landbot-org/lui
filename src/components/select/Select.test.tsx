@@ -18,6 +18,14 @@ describe('Select', () => {
     mockResizeObserver();
   });
 
+  it('should render with label', async () => {
+    renderComponent({
+      label: 'Select one',
+    });
+
+    expect(screen.getByLabelText('Select one')).toBeVisible();
+  });
+
   it('should render input with placeholder', () => {
     renderComponent({ placeholder: 'Choose an option' });
 
@@ -57,5 +65,24 @@ describe('Select', () => {
     await user.click(screen.getByRole('option', { name: 'Option 2' }));
 
     expect(input).toHaveValue('Option 2');
+  });
+
+  it('should not render options when click on input and its disabled', async () => {
+    const { user } = renderComponent({
+      value: '1',
+      placeholder: 'Choose an option',
+      items: [
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+      ],
+      disabled: true,
+    });
+
+    await user.click(screen.getByPlaceholderText('Choose an option'));
+
+    expect(screen.queryByRole('option', { name: 'Option 1', selected: true })).toBeNull();
+    expect(screen.queryByRole('option', { name: 'Option 2', selected: false })).toBeNull();
+    expect(screen.queryByRole('option', { name: 'Option 3', selected: false })).toBeNull();
   });
 });

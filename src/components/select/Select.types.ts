@@ -18,4 +18,5 @@ export interface SelectProps {
   error?: boolean;
   helperText?: string;
   noResults?: string;
+  disabled?: boolean;
 }

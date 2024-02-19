@@ -37,6 +37,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       helperText,
       label,
       noResults = 'NO RESULTS...',
+      disabled = false,
     }: SelectProps,
     ref,
   ) => {
@@ -63,7 +64,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       ],
     });
 
-    const click = useClick(context);
+    const click = useClick(context, { enabled: !disabled });
     const role = useRole(context, { role: 'listbox' });
     const dismiss = useDismiss(context);
     const listNav = useListNavigation(context, {
@@ -83,8 +84,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     };
 
     return (
-      <StyledSelect className={className} ref={ref}>
+      <StyledSelect disabled={disabled} className={className} ref={ref} aria-disabled={disabled ? 'true' : 'false'}>
         <TextField
+          disabled={disabled}
           startAdornment={startAdornment}
           endAdornment={endAdornment}
           placeholder={placeholder}
@@ -92,7 +94,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
           error={error}
           helperText={helperText}
           label={label}
-          value={items.find((item) => item.value === value)?.label || ''}
+          value={items.find((item) => item.value === value)?.label ?? ''}
           readOnly
           inputGroupProps={getReferenceProps({
             ref: refs.setReference,
@@ -103,8 +105,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             },
           })}
         />
+
         <FloatingPortal>
-          {open && (
+          {open && !disabled && (
             <FloatingFocusManager context={context} visuallyHiddenDismiss initialFocus={-1}>
               <div
                 {...getFloatingProps({
