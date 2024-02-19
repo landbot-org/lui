@@ -18,6 +18,14 @@ describe('Select', () => {
     mockResizeObserver();
   });
 
+  it('should render with label', async () => {
+    renderComponent({
+      label: 'Select one',
+    });
+
+    expect(screen.getByLabelText('Select one')).toBeVisible();
+  });
+
   it('should render input with placeholder', () => {
     renderComponent({ placeholder: 'Choose an option' });
 

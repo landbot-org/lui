@@ -19,5 +19,4 @@ export interface SelectProps {
   helperText?: string;
   noResults?: string;
   disabled?: boolean;
-  'aria-label'?: string;
 }

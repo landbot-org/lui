@@ -1,4 +1,4 @@
-import { MouseEventHandler, forwardRef, useRef } from 'react';
+import { MouseEventHandler, forwardRef, useId, useRef } from 'react';
 
 import { useMergeRefs } from '@floating-ui/react';
 
@@ -31,6 +31,7 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
   ) => {
     const innerInputRef = useRef<HTMLInputElement>(null);
     const inputRef = useMergeRefs([propInputRef, innerInputRef]);
+    const autoId = useId();
 
     const handleInputGroupClick: MouseEventHandler<HTMLDivElement> = (event) => {
       innerInputRef.current?.focus();
@@ -40,7 +41,7 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
     return (
       <div className={className} ref={ref}>
         {(label || description) && (
-          <FormLabel htmlFor={id}>
+          <FormLabel htmlFor={id ?? autoId}>
             {label && (
               <Typography variant="text14" fontWeight={700}>
                 {label}
@@ -55,7 +56,7 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
               {startAdornment}
             </Box>
           )}
-          <StyledInput {...rest} readOnly={readOnly} disabled={disabled} id={id} ref={inputRef} />
+          <StyledInput {...rest} readOnly={readOnly} disabled={disabled} id={id ?? autoId} ref={inputRef} />
           {endAdornment && (
             <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} ml={1}>
               {endAdornment}

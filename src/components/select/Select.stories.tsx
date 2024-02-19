@@ -52,7 +52,7 @@ export const Labeled: Story = {
   },
 };
 
-export const Error: Story = {
+export const HasError: Story = {
   args: {
     error: true,
     description: 'Description',

@@ -38,7 +38,6 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       label,
       noResults = 'NO RESULTS...',
       disabled = false,
-      'aria-label': ariaLabel,
     }: SelectProps,
     ref,
   ) => {
@@ -85,13 +84,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     };
 
     return (
-      <StyledSelect
-        $disabled={disabled}
-        className={className}
-        ref={ref}
-        aria-disabled={disabled ? 'true' : 'false'}
-        aria-label={ariaLabel}
-      >
+      <StyledSelect $disabled={disabled} className={className} ref={ref} aria-disabled={disabled ? 'true' : 'false'}>
         <TextField
           disabled={disabled}
           startAdornment={startAdornment}
