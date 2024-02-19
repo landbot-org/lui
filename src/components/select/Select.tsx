@@ -65,7 +65,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       ],
     });
 
-    const click = useClick(context);
+    const click = useClick(context, { enabled: !disabled });
     const role = useRole(context, { role: 'listbox' });
     const dismiss = useDismiss(context);
     const listNav = useListNavigation(context, {
@@ -93,6 +93,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         aria-label={ariaLabel}
       >
         <TextField
+          disabled={disabled}
           startAdornment={startAdornment}
           endAdornment={endAdornment}
           placeholder={placeholder}
@@ -100,7 +101,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
           error={error}
           helperText={helperText}
           label={label}
-          value={items.find((item) => item.value === value)?.label || ''}
+          value={items.find((item) => item.value === value)?.label ?? ''}
           readOnly
           inputGroupProps={getReferenceProps({
             ref: refs.setReference,
@@ -111,51 +112,50 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             },
           })}
         />
-        {!disabled && (
-          <FloatingPortal>
-            {open && (
-              <FloatingFocusManager context={context} visuallyHiddenDismiss initialFocus={-1}>
-                <div
-                  {...getFloatingProps({
-                    ref: refs.setFloating,
-                    style: {
-                      ...floatingStyles,
-                      overflowY: 'auto',
-                      zIndex: 1000,
-                    },
-                  })}
-                >
-                  <Box border={1} radius={1} p={1} backgroundColor="white.main">
-                    {items.length > 0 ? (
-                      items.map((item, index) => (
-                        <SelectItem
-                          key={item.value}
-                          {...getItemProps({
-                            key: item.value,
-                            ref(node) {
-                              listRef.current[index] = node;
-                            },
-                            onClick() {
-                              handleSelectItem(item);
-                              refs.domReference.current?.focus();
-                            },
-                          })}
-                          active={activeIndex === index || value === item.value}
-                        >
-                          {item.label}
-                        </SelectItem>
-                      ))
-                    ) : (
-                      <Typography variant="text12" color="neutral.400" p={1}>
-                        {noResults}
-                      </Typography>
-                    )}
-                  </Box>
-                </div>
-              </FloatingFocusManager>
-            )}
-          </FloatingPortal>
-        )}
+
+        <FloatingPortal>
+          {open && !disabled && (
+            <FloatingFocusManager context={context} visuallyHiddenDismiss initialFocus={-1}>
+              <div
+                {...getFloatingProps({
+                  ref: refs.setFloating,
+                  style: {
+                    ...floatingStyles,
+                    overflowY: 'auto',
+                    zIndex: 1000,
+                  },
+                })}
+              >
+                <Box border={1} radius={1} p={1} backgroundColor="white.main">
+                  {items.length > 0 ? (
+                    items.map((item, index) => (
+                      <SelectItem
+                        key={item.value}
+                        {...getItemProps({
+                          key: item.value,
+                          ref(node) {
+                            listRef.current[index] = node;
+                          },
+                          onClick() {
+                            handleSelectItem(item);
+                            refs.domReference.current?.focus();
+                          },
+                        })}
+                        active={activeIndex === index || value === item.value}
+                      >
+                        {item.label}
+                      </SelectItem>
+                    ))
+                  ) : (
+                    <Typography variant="text12" color="neutral.400" p={1}>
+                      {noResults}
+                    </Typography>
+                  )}
+                </Box>
+              </div>
+            </FloatingFocusManager>
+          )}
+        </FloatingPortal>
       </StyledSelect>
     );
   },
