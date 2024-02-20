@@ -135,3 +135,17 @@ export const getActiveColor = (variant: ButtonVariants, color: ButtonColorTypes,
     text: ACTIVE_MAPPING[color],
   }[variant];
 };
+
+export const getIconColor = (
+  theme: Theme,
+  color: ButtonColorTypes,
+  disabled: boolean,
+  isLoading: boolean,
+  variant: ButtonVariants,
+) => {
+  if (variant === 'contained') {
+    return getTypographyColorContained(theme, disabled, isLoading);
+  }
+
+  return getTypographyColorDefault(theme, color, disabled, isLoading);
+};
