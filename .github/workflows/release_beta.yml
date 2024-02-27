@@ -1,17 +1,14 @@
 name: Publish package
 
 on:
-  workflow_run:
-    workflows: ['Build']
-    types:
-      - completed
+  pull_request:
+  push:
     branches:
-      - main
+      - beta
 
 jobs:
-  release:
+  release-beta:
     name: Release
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
