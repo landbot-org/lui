@@ -7,6 +7,7 @@ on:
       - completed
     branches:
       - main
+      - beta
 
 jobs:
   release:
