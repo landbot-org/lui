@@ -1,5 +1,8 @@
-import { HTMLAttributes } from 'react';
+import { ReactNode } from 'react';
 
-export interface BannerProps extends HTMLAttributes<HTMLDivElement> {
-  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+export type BannerColorTypes = 'purple.main' | 'green.main';
+
+export interface BannerProps {
+  children: ReactNode;
+  backgroundColor?: BannerColorTypes;
 }

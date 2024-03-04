@@ -43,22 +43,22 @@ export const Default: Story = {
   ),
 };
 
-export const Center: Story = {
+export const Purple: Story = {
   render: () => (
-    <Banner justifyContent="center">
-      <Box>
-        <Box display="flex" gap={5} alignItems="center" justifyContent="center">
+    <Banner backgroundColor="purple.main">
+      <Box display="flex" flexDirection="column" gap={15} my={2}>
+        <Box display="flex" gap={5} alignItems="center">
           <Icon icon={<Sparkles />} size="2x" />
           <Typography variant="h3" color="white.main" fontWeight={700}>
             Got a minute?
           </Typography>
         </Box>
-        <Box mt={1} mb={3}>
+        <Box>
           <Typography variant="subtitle1" color="white.main">
             Help us create the best AI Assistant for you and your business needs
           </Typography>
         </Box>
-        <Box display="flex" justifyContent="center">
+        <Box mt={2}>
           <Button color="pink.main" size="large" rel="noopener noreferrer">
             <Typography variant="text16" color="white.main">
               Take a survey
@@ -70,22 +70,22 @@ export const Center: Story = {
   ),
 };
 
-export const Right: Story = {
+export const Green: Story = {
   render: () => (
-    <Banner justifyContent="flex-end">
-      <Box>
-        <Box display="flex" gap={5} alignItems="center" justifyContent="flex-end">
+    <Banner backgroundColor="green.main">
+      <Box display="flex" flexDirection="column" gap={15} my={2}>
+        <Box display="flex" gap={5} alignItems="center">
           <Icon icon={<Sparkles />} size="2x" />
           <Typography variant="h3" color="white.main" fontWeight={700}>
             Got a minute?
           </Typography>
         </Box>
-        <Box mt={1} mb={3}>
+        <Box>
           <Typography variant="subtitle1" color="white.main">
             Help us create the best AI Assistant for you and your business needs
           </Typography>
         </Box>
-        <Box display="flex" justifyContent="flex-end">
+        <Box mt={2}>
           <Button color="pink.main" size="large" rel="noopener noreferrer">
             <Typography variant="text16" color="white.main">
               Take a survey
