@@ -130,6 +130,8 @@ export { Warning } from './Warning';
 export { WAAppointments } from './WAAppointments';
 export { WebChat } from './WebChat';
 export { Whatsapp } from './Whatsapp';
+export { WhatsappB } from './WhatsappB';
+export { WhatsappAPI } from './WhatsappAPI';
 export { WhatsappTesting } from './WhatsappTesting';
 export { Wix } from './Wix';
 export { WomanHello } from './WomanHello';
