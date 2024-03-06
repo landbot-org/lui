@@ -1,5 +1,9 @@
 import { BannerProps } from './Banner.types';
 
-import { StyledDiv } from './Banner.styles';
+import { StyledBanner } from './Banner.styles';
 
-export const Banner = (props: BannerProps) => <StyledDiv {...props}>{props.children}</StyledDiv>;
+export const Banner = ({ backgroundColor, children, ...props }: BannerProps) => (
+  <StyledBanner $color={backgroundColor || 'purple.main'} {...props}>
+    {children}
+  </StyledBanner>
+);
