@@ -10,6 +10,9 @@ export const Stepper = ({ steps, activeStep, onClickStep }: StepperProps) => {
         {steps.map(({ icon, label, variant }, index) => (
           <StepperLabel
             key={label}
+            aria-label={label}
+            aria-current={activeStep === index}
+            aria-disabled={variant === 'disabled'}
             variant={activeStep === index ? 'active' : variant || 'inactive'}
             icon={icon}
             label={label}

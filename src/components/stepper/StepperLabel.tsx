@@ -4,9 +4,9 @@ import { StepperLabelProps } from './Stepper.types';
 
 import { StepperButton, StepperLabelWrapper } from './StepperLabel.styles';
 
-export const StepperLabel = ({ icon, label, variant = 'inactive', onClick }: StepperLabelProps) => {
+export const StepperLabel = ({ icon, label, variant = 'inactive', onClick, ...props }: StepperLabelProps) => {
   return (
-    <StepperButton $variant={variant} onClick={onClick} disabled={variant === 'disabled'}>
+    <StepperButton $variant={variant} onClick={onClick} disabled={variant === 'disabled'} {...props}>
       <StepperLabelWrapper $variant={variant}>
         <Icon size="1.25x" icon={icon} />
         <Typography variant="subtitle2" fontWeight={700} ellipsize>
