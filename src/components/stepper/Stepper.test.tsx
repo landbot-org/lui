@@ -27,15 +27,4 @@ describe('Stepper', () => {
 
     expect(spyOnClickStep).toHaveBeenCalledWith(1);
   });
-  it('should render content for active step', () => {
-    renderComponent({
-      activeStep: 1,
-      steps: [
-        { label: 'First step', content: 'First step content' },
-        { label: 'Second step', content: 'Second step content' },
-      ],
-    });
-
-    expect(screen.getByText('Second step content')).toBeVisible();
-  });
 });

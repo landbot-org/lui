@@ -6,7 +6,6 @@ type Step = {
   icon?: ReactNode;
   label: string;
   variant?: StepVariant;
-  content?: ReactNode;
 };
 
 export interface StepperProps {

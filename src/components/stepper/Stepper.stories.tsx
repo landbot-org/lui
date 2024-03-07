@@ -26,32 +26,6 @@ export const Default: Story = {
   },
 };
 
-export const WithContent: Story = {
-  args: {
-    activeStep: 1,
-    steps: [
-      {
-        variant: 'active',
-        label: 'Root level',
-        icon: <Icon icon={<FontAwesomeIcon icon={faCircleCheck} />} />,
-        content: 'Step 0',
-      },
-      {
-        variant: 'active',
-        label: 'First level',
-        icon: <Icon icon={<FontAwesomeIcon icon={faCircleCheck} />} />,
-        content: 'Step 1',
-      },
-      {
-        variant: 'active',
-        label: 'Second level',
-        icon: <Icon icon={<FontAwesomeIcon icon={faCircleCheck} />} />,
-        content: 'Step 2',
-      },
-    ],
-  },
-};
-
 export const Inactive: Story = {
   args: {
     steps: [
@@ -147,7 +121,7 @@ export const SixSteps: Story = {
   },
 };
 
-export const InteractiveWithContent: Story = {
+export const Interactive: Story = {
   render: function Render(args) {
     const [activeStep, setActiveStep] = useState(0);
 
@@ -158,17 +132,14 @@ export const InteractiveWithContent: Story = {
       {
         label: 'Root level',
         icon: <Icon icon={<FontAwesomeIcon icon={faCircleCheck} />} />,
-        content: 'Step 0',
       },
       {
         label: 'First level',
         icon: <Icon icon={<FontAwesomeIcon icon={faCircleCheck} />} />,
-        content: 'Step 1',
       },
       {
         label: 'Second level',
         icon: <Icon icon={<FontAwesomeIcon icon={faCircleCheck} />} />,
-        content: 'Step 2',
       },
     ],
   },

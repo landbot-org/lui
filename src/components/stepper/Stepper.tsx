@@ -20,7 +20,6 @@ export const Stepper = ({ steps, activeStep, onClickStep }: StepperProps) => {
           />
         ))}
       </StepperWrapper>
-      {typeof activeStep !== 'undefined' && steps[activeStep]?.content && <div>{steps[activeStep].content}</div>}
     </>
   );
 };
