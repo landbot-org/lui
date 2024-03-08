@@ -9,6 +9,7 @@ type Step = {
 };
 
 export interface StepperProps {
+  showIcons?: boolean;
   steps: Step[];
   activeStep?: number;
   onClickStep?: (stepClicked: number) => void;

@@ -1,9 +1,28 @@
-import { StepperProps } from './Stepper.types';
+import { ReactNode } from 'react';
+
+import { faCircleCheck as faCircleCheckRegular } from '@fortawesome/free-regular-svg-icons';
+import { faCircleCheck as faCircleCheckSolid, faWarning } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { StepVariant, StepperProps } from './Stepper.types';
 import { StepperLabel } from './StepperLabel';
 
 import { StepperWrapper } from './Stepper.styles';
 
-export const Stepper = ({ steps, activeStep, onClickStep }: StepperProps) => {
+const getIconFromVariant = ({ icon, variant }: { icon: ReactNode; variant: StepVariant }) => {
+  if (icon) {
+    return icon;
+  }
+  return {
+    active: <FontAwesomeIcon icon={faCircleCheckRegular} />,
+    completed: <FontAwesomeIcon icon={faCircleCheckSolid} />,
+    inactive: <FontAwesomeIcon icon={faCircleCheckRegular} />,
+    disabled: <FontAwesomeIcon icon={faCircleCheckRegular} />,
+    error: <FontAwesomeIcon icon={faWarning} />,
+  }[variant];
+};
+
+export const Stepper = ({ steps, activeStep, showIcons = true, onClickStep }: StepperProps) => {
   return (
     <>
       <StepperWrapper $numberSteps={steps.length}>
@@ -14,7 +33,7 @@ export const Stepper = ({ steps, activeStep, onClickStep }: StepperProps) => {
             aria-current={activeStep === index}
             aria-disabled={variant === 'disabled'}
             variant={activeStep === index ? 'active' : variant || 'inactive'}
-            icon={icon}
+            icon={showIcons ? getIconFromVariant({ icon, variant: variant || 'inactive' }) : null}
             label={label}
             onClick={() => onClickStep?.(index)}
           />

@@ -8,7 +8,7 @@ export const StepperLabel = ({ icon, label, variant = 'inactive', onClick, ...pr
   return (
     <StepperButton $variant={variant} onClick={onClick} disabled={variant === 'disabled'} {...props}>
       <StepperLabelWrapper $variant={variant}>
-        <Icon size="1.25x" icon={icon} />
+        {icon && <Icon size="1.25x" icon={icon} />}
         <Typography variant="subtitle2" fontWeight={700} ellipsize>
           {label}
         </Typography>
