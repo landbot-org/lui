@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Avatar } from './Avatar';
 import { AVATAR_STATUS } from './Avatar.types';
- // foo comment
+
 const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
