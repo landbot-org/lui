@@ -33,6 +33,6 @@ export const StepperLabelWrapper = styled.div<{ $variant: StepVariant }>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 8px;
   border-bottom: 3px solid ${getColorLabelFromVariant};
 `;
