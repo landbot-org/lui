@@ -3,7 +3,7 @@
 [![GitHub
 license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/landbot-org/lui/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/@landbot/lui)](https://www.npmjs.com/package/@landbot/lui)
-[![Test](https://github.com/landbot-org/lui/actions/workflows/tests.yml/badge.svg)](https://github.com/landbot-org/lui/actions/workflows/tests.yml)
+[![Build](https://github.com/landbot-org/lui/actions/workflows/build.yml/badge.svg)](https://github.com/landbot-org/lui/actions/workflows/build.yml)
 
 ## What is a UI components library?
 

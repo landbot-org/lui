@@ -15,6 +15,7 @@ export * from './components/radio';
 export * from './components/select';
 export * from './components/sidebar';
 export * from './components/spinner';
+export * from './components/stepper';
 export * from './components/tabs';
 export * from './components/tag';
 export * from './components/text-area';
