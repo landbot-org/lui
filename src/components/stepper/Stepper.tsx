@@ -24,21 +24,19 @@ const getIconFromVariant = ({ icon, variant }: { icon: ReactNode; variant: StepV
 
 export const Stepper = ({ steps, activeStep, showIcons = true, onClickStep }: StepperProps) => {
   return (
-    <>
-      <StepperWrapper $numberSteps={steps.length}>
-        {steps.map(({ icon, label, variant }, index) => (
-          <StepperLabel
-            key={label}
-            aria-label={label}
-            aria-current={activeStep === index}
-            aria-disabled={variant === 'disabled'}
-            variant={activeStep === index ? 'active' : variant || 'inactive'}
-            icon={showIcons ? getIconFromVariant({ icon, variant: variant || 'inactive' }) : null}
-            label={label}
-            onClick={() => onClickStep?.(index)}
-          />
-        ))}
-      </StepperWrapper>
-    </>
+    <StepperWrapper $numberSteps={steps.length}>
+      {steps.map(({ icon, label, variant }, index) => (
+        <StepperLabel
+          key={label}
+          aria-label={label}
+          aria-current={activeStep === index}
+          aria-disabled={variant === 'disabled'}
+          variant={activeStep === index ? 'active' : variant || 'inactive'}
+          icon={showIcons ? getIconFromVariant({ icon, variant: variant || 'inactive' }) : null}
+          label={label}
+          onClick={() => onClickStep?.(index)}
+        />
+      ))}
+    </StepperWrapper>
   );
 };
