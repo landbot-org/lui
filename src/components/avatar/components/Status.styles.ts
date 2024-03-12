@@ -13,23 +13,23 @@ export const StyledStatus = styled.div<StyledAvatarProps>`
   ${({ $size }) =>
     $size === 'sm' &&
     `
-    width: 6px;
-    height: 6px;
-  `}
+      width: 6px;
+      height: 6px;
+    `}
 
   ${({ $size }) =>
     $size === 'md' &&
     `
-    width: 10px;
-    height: 10px;
-  `}
+      width: 10px;
+      height: 10px;
+    `}
 
 ${({ $size }) =>
     $size === 'lg' &&
     `
-    width: 15px;
-    height: 15px;
-  `}
+      width: 15px;
+      height: 15px;
+    `}
 
   ${({ $status, theme }) =>
     $status === 'online' &&
