@@ -40,13 +40,13 @@ ${({ $size }) =>
   ${({ $status, theme }) =>
     $status === 'offline' &&
     `
-      background-color: ${theme.palette.pink.main};
+      background-color: ${theme.palette.warning.main};
     `}
 
   ${({ $status, theme }) =>
     $status === 'busy' &&
     `
-      background-color: ${theme.palette.warning.main};
+      background-color: ${theme.palette.pink.main};
     `}
 
   ${({ $status, theme }) =>
