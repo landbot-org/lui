@@ -95,7 +95,7 @@ const meta: Meta<typeof Sidebar> = {
               </SidebarSubMenu>
               <SidebarSubMenu
                 title="Avatar"
-                icon={<Avatar name="John Doe" status={AVATAR_STATUS.ONLINE} color="blue" />}
+                icon={<Avatar status={AVATAR_STATUS.ONLINE} size="sm" />}
                 variant="secondary"
               >
                 <SidebarMenuItem icon={<Icon icon={<GearTool />} />}>More items</SidebarMenuItem>

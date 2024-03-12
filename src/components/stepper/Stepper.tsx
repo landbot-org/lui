@@ -22,9 +22,9 @@ const getIconFromVariant = ({ icon, variant }: { icon: ReactNode; variant: StepV
   }[variant];
 };
 
-export const Stepper = ({ steps, activeStep, showIcons = true, onClickStep }: StepperProps) => {
+export const Stepper = ({ steps, activeStep, showIcons = true, onClickStep, ...rest }: StepperProps) => {
   return (
-    <StepperWrapper $numberSteps={steps.length}>
+    <StepperWrapper $numberSteps={steps.length} {...rest}>
       {steps.map(({ icon, label, variant }, index) => (
         <StepperLabel
           key={label}

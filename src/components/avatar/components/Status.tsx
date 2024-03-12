@@ -1,13 +1,12 @@
-import { AVATAR_STATUS } from '../Avatar.types';
+import { AVATAR_STATUS, AvatarSize } from '../Avatar.types';
 
 import { StyledStatus } from './Status.styles';
 
 export interface StatusProps {
-  status?: AVATAR_STATUS;
-  color?: string;
-  className?: string;
+  status: AVATAR_STATUS;
+  size: AvatarSize;
 }
 
-export const AvatarStatus = ({ status, color, ...rest }: StatusProps) => {
-  return <StyledStatus $status={status} $color={color} {...rest}></StyledStatus>;
+export const AvatarStatus = ({ status, size, ...rest }: StatusProps) => {
+  return <StyledStatus aria-label={status} $status={status} $size={size} {...rest}></StyledStatus>;
 };
