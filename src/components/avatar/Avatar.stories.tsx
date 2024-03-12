@@ -8,10 +8,9 @@ const meta: Meta<typeof Avatar> = {
   component: Avatar,
   tags: ['autodocs'],
   args: {
-    name: 'John Doe',
-    email: 'john@doe.com',
     status: AVATAR_STATUS.ONLINE,
-    size: 40,
+    showStatus: true,
+    size: 'md',
   },
 };
 
@@ -19,3 +18,15 @@ export default meta;
 type Story = StoryObj<typeof Avatar>;
 
 export const Default: Story = {};
+
+export const WithoutStatus: Story = {
+  args: {
+    showStatus: false,
+  },
+};
+
+export const Rounded: Story = {
+  args: {
+    rounded: true,
+  },
+};

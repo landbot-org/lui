@@ -5,13 +5,12 @@ export enum AVATAR_STATUS {
   AWAY = 'away',
 }
 
+export type AvatarSize = 'sm' | 'md' | 'lg';
+
 export interface AvatarProps {
   avatar?: string;
-  name?: string;
   status?: AVATAR_STATUS;
-  email?: string;
-  size?: number;
-  color?: 'blue' | 'white';
+  showStatus?: boolean;
+  size?: AvatarSize;
   rounded?: boolean;
-  className?: string;
 }
