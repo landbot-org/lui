@@ -22,8 +22,6 @@ export const StyledInputGroup = styled.div<FormInputProps>`
   ${inputBackgroundStyle}
   ${inputGroupColorStyle}
   ${inputCursorStyle}
-  height: ${pxToRem(40)}rem;
-  padding: 0 ${pxToRem(16)}rem;
   display: flex;
   align-items: center;
 `;
@@ -33,6 +31,9 @@ export const StyledInput = styled.input<FormInputProps>`
   ${inputFontStyles}
   flex-grow: 1;
   /* fixes flex grow */
+  border-radius: ${pxToRem(4)}rem;
+  height: ${pxToRem(40)}rem;
+  padding: 0 ${pxToRem(16)}rem;
   min-width: 0;
   border: 0;
   outline: 0;
