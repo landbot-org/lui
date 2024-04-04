@@ -52,13 +52,13 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
         )}
         <StyledInputGroup {...inputGroupProps} $disabled={disabled} $error={error} onClick={handleInputGroupClick}>
           {startAdornment && (
-            <Box display="flex" alignItems="center" pl={2} onClick={(e) => e.stopPropagation()} mr={1}>
+            <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} mr={1}>
               {startAdornment}
             </Box>
           )}
           <StyledInput {...rest} readOnly={readOnly} disabled={disabled} id={id ?? autoId} ref={inputRef} />
           {endAdornment && (
-            <Box display="flex" alignItems="center" pr={2} onClick={(e) => e.stopPropagation()} ml={1}>
+            <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} ml={1}>
               {endAdornment}
             </Box>
           )}
