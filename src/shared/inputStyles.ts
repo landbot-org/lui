@@ -19,7 +19,7 @@ export const inputBorderStyle = css<InputStylesProps>`
     border-color: ${({ $error, theme }) => ($error ? theme.palette.error.main : theme.palette.neutral.main)};
   }
 
-  :focus-within {
+  &:focus-within {
     border-color: ${({ $error, theme }) => ($error ? theme.palette.error.main : theme.palette.purple.main)};
     outline: ${pxToRem(2)}rem solid
       ${({ $error, theme }) => ($error ? theme.palette.error.light : theme.palette.blue[300])};
