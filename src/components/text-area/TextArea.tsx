@@ -9,7 +9,7 @@ import { TextAreaProps } from './TextArea.types';
 import { StyledTextArea } from './TextArea.styles';
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ description, disabled, error, helperText, id, label, fullHeight, ...rest }, ref) => (
+  ({ description, disabled, error, helperText, id, label, fullHeight, resize = 'none', ...rest }, ref) => (
     <Box display="flex" flexDirection="column" flexGrow={fullHeight ? 1 : undefined}>
       {(label || description) && (
         <FormLabel htmlFor={id}>
@@ -22,7 +22,15 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         </FormLabel>
       )}
       <Box display="flex" flexGrow={fullHeight ? 1 : undefined}>
-        <StyledTextArea {...rest} disabled={disabled} $disabled={disabled} $error={error} id={id} ref={ref} />
+        <StyledTextArea
+          {...rest}
+          disabled={disabled}
+          $disabled={disabled}
+          $error={error}
+          id={id}
+          ref={ref}
+          $resize={resize}
+        />
       </Box>
       {helperText && (
         <FormHelperText variant="text12" color={error ? 'error.main' : 'neutral.main'}>
