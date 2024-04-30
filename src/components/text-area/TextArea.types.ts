@@ -8,5 +8,5 @@ export interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
   error?: boolean;
   helperText?: string;
   fullHeight?: boolean;
-  resize: Resize;
+  resize?: Resize;
 }
