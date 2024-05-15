@@ -12,6 +12,7 @@ export * from './components/icon';
 export * from './components/link';
 export * from './components/popover';
 export * from './components/radio';
+export * from './components/rich-text-editor';
 export * from './components/select';
 export * from './components/sidebar';
 export * from './components/spinner';

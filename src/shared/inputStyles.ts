@@ -15,7 +15,7 @@ export const inputBorderStyle = css<InputStylesProps>`
   border-color: ${({ $error, theme }) => ($error ? theme.palette.error.main : theme.palette.neutral[300])};
   border-radius: ${pxToRem(4)}rem;
 
-  :hover {
+  &:hover {
     border-color: ${({ $error, theme }) => ($error ? theme.palette.error.main : theme.palette.neutral.main)};
   }
 
