@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const StyledChatInput = styled.div`
+export const StyledSendBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const StyledMessages = styled.div`
+export const StyledMessageThread = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
