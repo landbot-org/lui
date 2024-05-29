@@ -5,12 +5,22 @@ export interface ChatBoxProps extends PropsWithChildren {}
 export type ChatMessageType = 'chat' | 'system';
 export type ChatContentType = 'text' | 'image' | 'video' | 'audio' | 'file' | 'html';
 
+export interface ChatContent {
+  payload: string;
+  type: ChatContentType;
+}
+
+export interface ChatParticipant {
+  id: string;
+  displayName: string;
+  email?: string;
+  avatarUrl?: string;
+}
+
 export interface ChatMessage {
-  messageType: ChatMessageType;
-  senderId: string;
-  senderDisplayName: string;
-  messageId: string;
-  content: string;
-  contentType: ChatContentType;
-  createdOn: string;
+  id: string;
+  type: ChatMessageType;
+  sender: ChatParticipant;
+  content: ChatContent;
+  createdOn: Date;
 }

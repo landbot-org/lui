@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 import { ChatMessage } from '../../ChatBox.types';
 import { Message } from './components/Message';
 
@@ -6,25 +8,33 @@ import { StyledMessageThread } from './MessageThread.styles';
 export interface MessageThreadProps {
   userId: string;
   messages: ChatMessage[];
+  showDisplayName: boolean;
   showMessageDate: boolean;
-  onLoadPreviousChatMessages: () => void;
 }
 
-export const MessageThread = ({
-  userId,
-  messages,
-  showMessageDate,
-  onLoadPreviousChatMessages,
-}: MessageThreadProps) => {
+export const MessageThread = ({ userId, messages, showDisplayName, showMessageDate }: MessageThreadProps) => {
+  const lastMessageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (messages.length === 0) {
+      return;
+    }
+
+    lastMessageRef.current?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }, [messages.length]);
+
   return (
     <StyledMessageThread>
-      <button onClick={onLoadPreviousChatMessages}>Load previous messages</button>
       {messages.map((message) => (
         <Message
-          key={message.messageId}
-          mine={userId === message.senderId}
+          key={message.id}
+          mine={userId === message.sender.id}
+          showDisplayName={showDisplayName}
           showMessageDate={showMessageDate}
           message={message}
+          ref={messages[messages.length - 1].id === message.id ? lastMessageRef : undefined}
         />
       ))}
     </StyledMessageThread>

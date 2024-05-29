@@ -2,19 +2,14 @@ import { useState } from 'react';
 
 import { IoSend } from 'react-icons/io5';
 
-import { ChatContentType } from '../../ChatBox.types';
+import { ChatContent } from '../../ChatBox.types';
 
 import { StyledInput, StyledSendBox } from './SendBox.styles';
-
-interface Content {
-  content: string;
-  contentType: ChatContentType;
-}
 
 export interface SendBoxProps {
   placeholder?: string;
   disabled?: boolean;
-  onSend: (content: Content) => void;
+  onSend: (content: ChatContent) => void;
 }
 
 export const SendBox = ({ placeholder = 'Type a message...', disabled = false, onSend }: SendBoxProps) => {
@@ -29,8 +24,8 @@ export const SendBox = ({ placeholder = 'Type a message...', disabled = false, o
         onKeyDown={(event) => {
           if (event.key === 'Enter' && event.currentTarget.value !== '') {
             onSend({
-              content: event.currentTarget.value,
-              contentType: 'text',
+              payload: event.currentTarget.value,
+              type: 'text',
             });
             event.currentTarget.value = '';
             setContent('');
@@ -44,8 +39,8 @@ export const SendBox = ({ placeholder = 'Type a message...', disabled = false, o
         onClick={() => {
           if (content !== '') {
             onSend({
-              content,
-              contentType: 'text',
+              payload: content,
+              type: 'text',
             });
             setContent('');
           }
