@@ -8,7 +8,7 @@ export const Chat = ({ className, userId, messages, onSendMessage }: ChatProps) 
   return (
     <StyledChat className={className}>
       <MessageThread userId={userId} messages={messages} />
-      <SendBox onSend={onSendMessage} />
+      <SendBox onSendMessage={onSendMessage} />
     </StyledChat>
   );
 };

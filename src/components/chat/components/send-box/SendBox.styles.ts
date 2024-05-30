@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
-import { Theme } from "../../../shared/theme.types";
+
+import { Theme } from '../../../../shared/theme.types';
+import { Icon } from '../../../icon';
 
 export const StyledSendBox = styled.div`
   display: flex;
   flex-direction: column;
   margin: 25px;
-
-  //background: red;
 `;
 
 export const StyleInputGroup = styled.div<{ $error: boolean }>`
@@ -15,13 +15,18 @@ export const StyleInputGroup = styled.div<{ $error: boolean }>`
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border: 1px solid ${({ $error, theme } : { $error: boolean, theme: Theme}) => $error ? theme.palette.error.main : 'transparent'};;
+  border: 1px solid
+    ${({ $error, theme }: { $error: boolean; theme: Theme }) => ($error ? theme.palette.error.main : 'transparent')};
   border-radius: 12px;
   &:hover {
-    border: 1px solid ${({ $error, theme } : { $error: boolean, theme: Theme}) => $error ? theme.palette.error.main : theme.palette.neutral[400]};
+    border: 1px solid
+      ${({ $error, theme }: { $error: boolean; theme: Theme }) =>
+        $error ? theme.palette.error.main : theme.palette.neutral[400]};
   }
   &:focus-within {
-    border: 1px solid ${({ $error, theme } : { $error: boolean, theme: Theme}) => $error ? theme.palette.error.main : theme.palette.purple.main};
+    border: 1px solid
+      ${({ $error, theme }: { $error: boolean; theme: Theme }) =>
+        $error ? theme.palette.error.main : theme.palette.purple.main};
   }
 `;
 
@@ -44,5 +49,8 @@ export const StyledTextArea = styled.textarea`
   border: none;
   outline: none;
   resize: none;
+`;
 
+export const StyledIcon = styled(Icon)`
+  cursor: pointer;
 `;

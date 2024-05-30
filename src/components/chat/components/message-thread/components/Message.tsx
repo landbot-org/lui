@@ -27,7 +27,7 @@ export function formatDate(date: Date) {
   return `${formattedHours}:${formattedMinutes}`;
 }
 
-export const Message = forwardRef(function Content(
+export const Message = forwardRef(function Message(
   { mine, message, ...rest }: MessageProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
