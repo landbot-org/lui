@@ -9,23 +9,18 @@ interface StyledMessageProps {
 export const StyledMessage = styled.div<StyledMessageProps>`
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  width: fit-content;
-
-  ${({ $mine }) =>
-    $mine === true &&
-    `
-      align-self: flex-end;
-    `}
-
-  ${({ $mine }) =>
-    $mine === false &&
-    `
-      align-self: flex-start;
-    `}
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
 `;
 
-export const StyledMessageContent = styled.div<StyledMessageProps>`
+export const StyledContent = styled.div<StyledMessageProps>`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
+export const StyledMessageBubble = styled.div<StyledMessageProps>`
   display: flex;
   flex-direction: column;
   padding: 12px 15px 12px 15px;
@@ -33,6 +28,7 @@ export const StyledMessageContent = styled.div<StyledMessageProps>`
   ${({ $mine }) =>
     $mine === true &&
     `
+      align-self: flex-end;
       border-radius: 15px 15px 2px 15px;
       background-color: #f1f0f0;
     `}
@@ -40,28 +36,17 @@ export const StyledMessageContent = styled.div<StyledMessageProps>`
   ${({ $mine }) =>
     $mine === false &&
     `
+      align-self: flex-start;
       border-radius: 15px 15px 15px 2px;
       background-color: #f1f0f0;
     `}
 `;
 
-export const StyledSideContent = styled.div<StyledMessageProps>`
+export const StyledAvatar = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   min-width: 50px;
   max-width: 50px;
-
-  ${({ $mine }) =>
-    $mine === true &&
-    `
-      align-items: flex-end;
-    `}
-
-  ${({ $mine }) =>
-    $mine === false &&
-    `
-      align-items: flex-start;
-    `}
 `;
 
 export const StyledAvatarImage = styled.img`

@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 
-import { ChatBox, ChatBoxHeader, ChatBoxMessageThread, ChatBoxSendBox, ChatMessage } from '.';
+import { Chat, ChatHeader, ChatMessage, ChatMessageThread, ChatSendBox } from '.';
 
 const USER_ID = uuid();
 const USER_DISPLAY_NAME = 'John Doe';
@@ -12,9 +12,9 @@ const USER_DISPLAY_NAME = 'John Doe';
 const BOT_ID = uuid();
 const BOT_DISPLAY_NAME = 'Landbot';
 
-const meta: Meta<typeof ChatBox> = {
-  title: 'Components/ChatBox',
-  component: ChatBox,
+const meta: Meta<typeof Chat> = {
+  title: 'Components/Chat',
+  component: Chat,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -27,7 +27,7 @@ const meta: Meta<typeof ChatBox> = {
         sender: {
           id: BOT_ID,
           displayName: BOT_DISPLAY_NAME,
-          avatarUrl: 'https://avatars.githubusercontent.com/u/115721865?s=200&v=4',
+          // avatarUrl: 'https://avatars.githubusercontent.com/u/115721865?s=200&v=4',
         },
         content: {
           payload: 'Hi again',
@@ -39,9 +39,9 @@ const meta: Meta<typeof ChatBox> = {
 
     return (
       <StyledChat>
-        <ChatBoxHeader>Header</ChatBoxHeader>
-        <ChatBoxMessageThread userId={USER_ID} messages={messages} showDisplayName={true} showMessageDate={true} />
-        <ChatBoxSendBox
+        <ChatHeader>Header</ChatHeader>
+        <ChatMessageThread userId={USER_ID} messages={messages} showDisplayName={true} showMessageDate={true} />
+        <ChatSendBox
           onSend={(content) => {
             setMessages([
               ...messages,
@@ -68,10 +68,10 @@ const meta: Meta<typeof ChatBox> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ChatBox>;
+type Story = StoryObj<typeof Chat>;
 
 export const Default: Story = {};
 
-const StyledChat = styled(ChatBox)`
+const StyledChat = styled(Chat)`
   height: 100dvh;
 `;

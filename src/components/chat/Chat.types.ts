@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-export interface ChatBoxProps extends PropsWithChildren {}
+export interface ChatProps extends PropsWithChildren {}
 
 export type ChatMessageType = 'chat' | 'system';
 export type ChatContentType = 'text' | 'image' | 'video' | 'audio' | 'file' | 'html';

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { IoSend } from 'react-icons/io5';
 
-import { ChatContent } from '../../ChatBox.types';
+import { ChatContent } from '../../Chat.types';
 
 import { StyledInput, StyledSendBox } from './SendBox.styles';
 

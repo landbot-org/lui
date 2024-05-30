@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { ChatMessage } from '../../ChatBox.types';
+import { ChatMessage } from '../../Chat.types';
 import { Message } from './components/Message';
 
 import { StyledMessageThread } from './MessageThread.styles';
@@ -12,7 +12,7 @@ export interface MessageThreadProps {
   showMessageDate: boolean;
 }
 
-export const MessageThread = ({ userId, messages, showDisplayName, showMessageDate }: MessageThreadProps) => {
+export const MessageThread = ({ userId, messages, showMessageDate }: MessageThreadProps) => {
   const lastMessageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +31,6 @@ export const MessageThread = ({ userId, messages, showDisplayName, showMessageDa
         <Message
           key={message.id}
           mine={userId === message.sender.id}
-          showDisplayName={showDisplayName}
           showMessageDate={showMessageDate}
           message={message}
           ref={messages[messages.length - 1].id === message.id ? lastMessageRef : undefined}

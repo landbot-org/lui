@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const StyledChatBox = styled.div`
+export const StyledChat = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
