@@ -1,6 +1,10 @@
 import { PropsWithChildren } from 'react';
 
-export interface ChatProps extends PropsWithChildren {}
+export interface ChatProps extends PropsWithChildren {
+  userId: string;
+  messages: ChatMessage[];
+  onSendMessage: (content: ChatContent) => void;
+}
 
 export type ChatMessageType = 'chat' | 'system';
 export type ChatContentType = 'text' | 'image' | 'video' | 'audio' | 'file' | 'html';

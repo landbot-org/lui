@@ -24,13 +24,13 @@ export const StyledMessageBubble = styled.div<StyledMessageProps>`
   display: flex;
   flex-direction: column;
   padding: 12px 15px 12px 15px;
+  background-color: #ffffff;
 
   ${({ $mine }) =>
     $mine === true &&
     `
       align-self: flex-end;
       border-radius: 15px 15px 2px 15px;
-      background-color: #f1f0f0;
     `}
 
   ${({ $mine }) =>
@@ -38,7 +38,6 @@ export const StyledMessageBubble = styled.div<StyledMessageProps>`
     `
       align-self: flex-start;
       border-radius: 15px 15px 15px 2px;
-      background-color: #f1f0f0;
     `}
 `;
 

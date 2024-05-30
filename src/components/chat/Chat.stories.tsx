@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 
-import { Chat, ChatHeader, ChatMessage, ChatMessageThread, ChatSendBox } from '.';
+import { Chat, ChatMessage } from '.';
 
 const USER_ID = uuid();
 const USER_DISPLAY_NAME = 'John Doe';
@@ -27,7 +27,6 @@ const meta: Meta<typeof Chat> = {
         sender: {
           id: BOT_ID,
           displayName: BOT_DISPLAY_NAME,
-          // avatarUrl: 'https://avatars.githubusercontent.com/u/115721865?s=200&v=4',
         },
         content: {
           payload: 'Hi again',
@@ -38,31 +37,28 @@ const meta: Meta<typeof Chat> = {
     ]);
 
     return (
-      <StyledChat>
-        <ChatHeader>Header</ChatHeader>
-        <ChatMessageThread userId={USER_ID} messages={messages} showDisplayName={true} showMessageDate={true} />
-        <ChatSendBox
-          onSend={(content) => {
-            setMessages([
-              ...messages,
-              {
-                id: String(messages.length + 1),
-                type: 'chat',
-                sender: {
-                  id: USER_ID,
-                  displayName: USER_DISPLAY_NAME,
-                  avatarUrl: 'https://avatars.githubusercontent.com/u/115721865?s=200&v=4',
-                },
-                content: {
-                  payload: content.payload,
-                  type: content.type,
-                },
-                createdOn: new Date(),
+      <StyledChat
+        userId={USER_ID}
+        messages={messages}
+        onSendMessage={(content) => {
+          setMessages([
+            ...messages,
+            {
+              id: uuid(),
+              type: 'chat',
+              sender: {
+                id: USER_ID,
+                displayName: USER_DISPLAY_NAME,
               },
-            ]);
-          }}
-        />
-      </StyledChat>
+              content: {
+                payload: content.payload,
+                type: content.type,
+              },
+              createdOn: new Date(),
+            },
+          ]);
+        }}
+      />
     );
   },
 };

@@ -8,11 +8,9 @@ import { StyledMessageThread } from './MessageThread.styles';
 export interface MessageThreadProps {
   userId: string;
   messages: ChatMessage[];
-  showDisplayName: boolean;
-  showMessageDate: boolean;
 }
 
-export const MessageThread = ({ userId, messages, showMessageDate }: MessageThreadProps) => {
+export const MessageThread = ({ userId, messages }: MessageThreadProps) => {
   const lastMessageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +29,6 @@ export const MessageThread = ({ userId, messages, showMessageDate }: MessageThre
         <Message
           key={message.id}
           mine={userId === message.sender.id}
-          showMessageDate={showMessageDate}
           message={message}
           ref={messages[messages.length - 1].id === message.id ? lastMessageRef : undefined}
         />

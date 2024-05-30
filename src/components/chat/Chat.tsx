@@ -1,13 +1,14 @@
-import { ForwardedRef, forwardRef } from 'react';
-
 import { ChatProps } from './Chat.types';
+import { MessageThread } from './components/message-thread/MessageThread';
+import { SendBox } from './components/send-box/SendBox';
 
 import { StyledChat } from './Chat.styles';
 
-export const Chat = forwardRef(function Chat({ children, ...rest }: ChatProps, ref: ForwardedRef<HTMLDivElement>) {
+export const Chat = ({ userId, messages, onSendMessage }: ChatProps) => {
   return (
-    <StyledChat ref={ref} {...rest}>
-      {children}
+    <StyledChat>
+      <MessageThread userId={userId} messages={messages} />
+      <SendBox onSend={onSendMessage} />
     </StyledChat>
   );
-});
+};

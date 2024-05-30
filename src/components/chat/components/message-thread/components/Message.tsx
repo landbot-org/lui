@@ -15,7 +15,6 @@ import {
 
 export interface MessageProps {
   mine: boolean;
-  showMessageDate: boolean;
   message: ChatMessage;
 }
 
@@ -29,7 +28,7 @@ export function formatDate(date: Date) {
 }
 
 export const Message = forwardRef(function Content(
-  { mine, showMessageDate, message, ...rest }: MessageProps,
+  { mine, message, ...rest }: MessageProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
@@ -38,11 +37,9 @@ export const Message = forwardRef(function Content(
       <StyledContent>
         <StyledMessageBubble $mine={mine}>
           <Typography variant="text14">{message.content.payload}</Typography>
-          {showMessageDate && (
-            <StyledDateTime $mine={mine} variant="text10" color={'neutral.main'}>
-              {formatDate(message.createdOn)}
-            </StyledDateTime>
-          )}
+          <StyledDateTime $mine={mine} variant="text10" color={'neutral.main'}>
+            {formatDate(message.createdOn)}
+          </StyledDateTime>
         </StyledMessageBubble>
       </StyledContent>
     </StyledMessage>
