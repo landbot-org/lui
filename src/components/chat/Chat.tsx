@@ -4,9 +4,9 @@ import { SendBox } from './components/send-box/SendBox';
 
 import { StyledChat } from './Chat.styles';
 
-export const Chat = ({ userId, messages, onSendMessage }: ChatProps) => {
+export const Chat = ({ className, userId, messages, onSendMessage }: ChatProps) => {
   return (
-    <StyledChat>
+    <StyledChat className={className}>
       <MessageThread userId={userId} messages={messages} />
       <SendBox onSend={onSendMessage} />
     </StyledChat>

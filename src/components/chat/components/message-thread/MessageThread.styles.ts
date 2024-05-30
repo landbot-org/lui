@@ -6,6 +6,6 @@ export const StyledMessageThread = styled.div`
   flex-grow: 1;
   gap: 10px;
   overflow-y: auto;
-  height: 100%;
-  margin: 25px;
+  margin: 25px 5px 0 25px;
+  padding-right: 20px;
 `;

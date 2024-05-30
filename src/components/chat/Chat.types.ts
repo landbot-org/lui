@@ -1,13 +1,13 @@
 import { PropsWithChildren } from 'react';
 
 export interface ChatProps extends PropsWithChildren {
+  className?: string;
   userId: string;
   messages: ChatMessage[];
   onSendMessage: (content: ChatContent) => void;
 }
 
-export type ChatMessageType = 'chat' | 'system';
-export type ChatContentType = 'text' | 'image' | 'video' | 'audio' | 'file' | 'html';
+export type ChatContentType = 'text';
 
 export interface ChatContent {
   payload: string;
@@ -23,7 +23,6 @@ export interface ChatParticipant {
 
 export interface ChatMessage {
   id: string;
-  type: ChatMessageType;
   sender: ChatParticipant;
   content: ChatContent;
   createdOn: Date;

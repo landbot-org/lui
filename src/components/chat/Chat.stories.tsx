@@ -23,7 +23,6 @@ const meta: Meta<typeof Chat> = {
     const [messages, setMessages] = useState<ChatMessage[]>([
       {
         id: uuid(),
-        type: 'chat',
         sender: {
           id: BOT_ID,
           displayName: BOT_DISPLAY_NAME,
@@ -45,7 +44,6 @@ const meta: Meta<typeof Chat> = {
             ...messages,
             {
               id: uuid(),
-              type: 'chat',
               sender: {
                 id: USER_ID,
                 displayName: USER_DISPLAY_NAME,
@@ -69,5 +67,5 @@ type Story = StoryObj<typeof Chat>;
 export const Default: Story = {};
 
 const StyledChat = styled(Chat)`
-  height: 100dvh;
+  height: 500px;
 `;
