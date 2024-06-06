@@ -90,3 +90,15 @@ export const ERROR = {
 export const WHITE = {
   main: '#FFFFFF',
 };
+
+export const META = {
+  main: '#0081FB',
+};
+
+export const WHATSAPP = {
+  main: '#075E54',
+  secondary: '#128C7E',
+  light: '#25D366',
+  tertiary: '#DCF8C6',
+  background: '#ECE5DD',
+};
