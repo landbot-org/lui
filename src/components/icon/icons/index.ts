@@ -132,7 +132,7 @@ export { Users } from './Users';
 export { Warning } from './Warning';
 export { WAAppointments } from './WAAppointments';
 export { WebChat } from './WebChat';
-export { Whatsapp } from './Whatsapp';
+export { WhatsApp } from './WhatsApp';
 export { WhatsappB } from './WhatsappB';
 export { WhatsappAPI } from './WhatsappAPI';
 export { WhatsappTesting } from './WhatsappTesting';

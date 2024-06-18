@@ -4,7 +4,7 @@ import { fa3, faChainBroken, faCircleCheck } from '@fortawesome/free-solid-svg-i
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Whatsapp } from '../icon/icons';
+import { WhatsApp } from '../icon/icons';
 import { Stepper } from './Stepper';
 
 const meta: Meta<typeof Stepper> = {
@@ -84,7 +84,7 @@ export const CustomIcons: Story = {
   args: {
     steps: [
       { variant: 'active', label: 'Root level', icon: <FontAwesomeIcon icon={faChainBroken} /> },
-      { variant: 'active', label: 'First level', icon: <Whatsapp /> },
+      { variant: 'active', label: 'First level', icon: <WhatsApp /> },
       { variant: 'active', label: 'Second level', icon: <FontAwesomeIcon icon={fa3} /> },
     ],
   },
