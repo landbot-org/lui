@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { pxToRem } from './mixins';
 import type { Theme } from './theme.types';
 
-interface InputStylesProps {
+export interface InputStylesProps {
   theme: Theme;
   $disabled?: boolean;
   $error?: boolean | null;
