@@ -1,4 +1,4 @@
-export const Whatsapp = (props: React.SVGProps<SVGSVGElement>) => (
+export const WhatsApp = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="40" height="42" viewBox="0 0 40 42" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       fillRule="evenodd"
