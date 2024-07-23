@@ -1,4 +1,4 @@
-import { render, screen } from '../../test-utils';
+import { render, screen, waitFor } from '../../test-utils';
 import { RichTextEditor } from './RichTextEditor';
 
 describe('RichTextEditor', () => {
@@ -98,6 +98,17 @@ describe('RichTextEditor', () => {
       jsonString: expect.any(String),
       markdownString: '# ',
       text: '',
+    });
+  });
+
+  it('should limit the number of characters', async () => {
+    const maxLength = 10;
+    const { user } = render(<RichTextEditor maxLength={maxLength} />);
+
+    await user.type(screen.getByRole('textbox'), '12345678901');
+
+    waitFor(() => {
+      expect(screen.getByRole('textbox')).toHaveTextContent('1234567890');
     });
   });
 });
