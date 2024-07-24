@@ -18,9 +18,10 @@ import { EditorState, LexicalEditor } from 'lexical';
 import { FormHelperText } from '../form-helper-text';
 import { FormLabel } from '../form-label';
 import { Typography } from '../typography';
-import { Formats } from './RichTextEditor.types';
+import { RichTextEditorProps } from './RichTextEditor.types';
 import { getInputState, getOutput } from './RichTextEditor.utils';
 import { CodeHighlightPlugin } from './plugins/CodeHighlightPlugin';
+import { MaxLengthPlugin } from './plugins/MaxLengthPlugin';
 import { ToolbarPlugin } from './plugins/ToolbarPlugin';
 
 import {
@@ -32,29 +33,6 @@ import {
   editorTheme,
 } from './RichTextEditor.styles';
 
-export interface RichTextEditorProps {
-  className?: string;
-  inputFormat?: Formats;
-  onChange?: ({
-    htmlString,
-    jsonString,
-    markdownString,
-    text,
-  }: {
-    htmlString: string;
-    jsonString: string;
-    markdownString: string;
-    text: string;
-  }) => void;
-  placeholder?: string;
-  readOnly?: boolean;
-  error?: boolean;
-  initialValue?: string;
-  label?: string;
-  description?: string;
-  helperText?: string;
-}
-
 export const RichTextEditor = ({
   inputFormat = 'json',
   onChange,
@@ -65,6 +43,7 @@ export const RichTextEditor = ({
   label,
   description,
   helperText,
+  maxLength,
 }: RichTextEditorProps) => {
   const initialConfig = useMemo<InitialConfigType>(
     () => ({
@@ -134,6 +113,7 @@ export const RichTextEditor = ({
           <HistoryPlugin />
           <CodeHighlightPlugin />
           <ListPlugin />
+          {maxLength && <MaxLengthPlugin maxLength={maxLength} />}
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
         </StyledEditorContainer>
       </LexicalComposer>

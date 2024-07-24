@@ -44,6 +44,10 @@ export const StyledMessageBubble = styled(Box).attrs({
     `}
 `;
 
+export const StyledMessageText = styled(Typography)`
+  text-align: left;
+`;
+
 export const StyledAvatar = styled(Box).attrs({
   display: 'flex',
   alignItems: 'flex-end',

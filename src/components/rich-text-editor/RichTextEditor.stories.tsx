@@ -33,6 +33,12 @@ export const Labeled: Story = {
   },
 };
 
+export const MaxLength: Story = {
+  args: {
+    maxLength: 10,
+  },
+};
+
 export const Error: Story = {
   args: {
     label: 'Label',
