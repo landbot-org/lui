@@ -31,6 +31,7 @@ export const MaxLengthPlugin = ({ maxLength }: { maxLength: number }) => {
             lastRestoredEditorState = prevEditorState;
             $restoreEditorState(editor, prevEditorState);
           } else {
+            // BUG: This is not working as expected, when we are near the limit and we paste a text that exceeds the limit INSIDE THE SAME PARAGRAPH, the text is not trimmed nor any character is copied
             $trimTextContentFromAnchor(editor, anchor, delCount);
           }
         }
