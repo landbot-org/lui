@@ -5,7 +5,7 @@ import { $trimTextContentFromAnchor } from '@lexical/selection';
 import { $restoreEditorState } from '@lexical/utils';
 import { $getSelection, $isRangeSelection, EditorState, RootNode } from 'lexical';
 
-export function MaxLengthPlugin({ maxLength }: { maxLength: number }): null {
+export const MaxLengthPlugin = ({ maxLength }: { maxLength: number }) => {
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {
@@ -39,4 +39,4 @@ export function MaxLengthPlugin({ maxLength }: { maxLength: number }): null {
   }, [editor, maxLength]);
 
   return null;
-}
+};
