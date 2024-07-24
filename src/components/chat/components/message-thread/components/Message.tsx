@@ -1,8 +1,7 @@
-import React, { ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
 import { Icon } from '../../../../icon';
 import { Landbot } from '../../../../icon/icons';
-import { Typography } from '../../../../typography';
 import { ChatMessage } from '../../../Chat.types';
 
 import {
@@ -12,6 +11,7 @@ import {
   StyledDateTime,
   StyledMessage,
   StyledMessageBubble,
+  StyledMessageText,
 } from './Message.styles';
 
 export interface MessageProps {
@@ -39,7 +39,7 @@ export const Message = forwardRef(({ mine, message, ...rest }: MessageProps, ref
     )}
     <StyledContent>
       <StyledMessageBubble $mine={mine}>
-        <Typography variant="text16">{message.content.payload}</Typography>
+        <StyledMessageText variant="text16">{message.content.payload}</StyledMessageText>
         <StyledDateTime $mine={mine} variant="text10" color={'neutral.main'}>
           {formatDate(message.createdOn)}
         </StyledDateTime>
