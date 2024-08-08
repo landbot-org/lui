@@ -2,8 +2,6 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Box } from '../box';
 import { Button } from '../button';
-import { Icon } from '../icon';
-import { Sparkles } from '../icon/icons';
 import { Typography } from '../typography';
 import { Banner } from './Banner';
 
@@ -20,8 +18,7 @@ export const Default: Story = {
   render: () => (
     <Banner>
       <Box display="flex" flexDirection="column" gap={15} my={2}>
-        <Box display="flex" gap={5} alignItems="center">
-          <Icon icon={<Sparkles />} size="2x" />
+        <Box>
           <Typography variant="h3" color="white.main" fontWeight={700}>
             Got a minute?
           </Typography>
@@ -47,8 +44,7 @@ export const Purple: Story = {
   render: () => (
     <Banner backgroundColor="purple.main">
       <Box display="flex" flexDirection="column" gap={15} my={2}>
-        <Box display="flex" gap={5} alignItems="center">
-          <Icon icon={<Sparkles />} size="2x" />
+        <Box>
           <Typography variant="h3" color="white.main" fontWeight={700}>
             Got a minute?
           </Typography>
@@ -74,8 +70,7 @@ export const Green: Story = {
   render: () => (
     <Banner backgroundColor="green.main">
       <Box display="flex" flexDirection="column" gap={15} my={2}>
-        <Box display="flex" gap={5} alignItems="center">
-          <Icon icon={<Sparkles />} size="2x" />
+        <Box>
           <Typography variant="h3" color="white.main" fontWeight={700}>
             Got a minute?
           </Typography>
