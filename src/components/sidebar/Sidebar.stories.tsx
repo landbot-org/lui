@@ -16,7 +16,7 @@ import {
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { AVATAR_STATUS, Avatar } from '../avatar';
 import { Icon } from '../icon';
-import { GearTool, Menu, OpenAI, Sparkles } from '../icon/icons';
+import { GearTool, Menu, OpenAI } from '../icon/icons';
 import { SidebarDivider } from './components/layout/Divider';
 import { SidebarLogo } from './components/layout/Logo';
 
@@ -60,8 +60,8 @@ const meta: Meta<typeof Sidebar> = {
               <SidebarMenuItem icon={<Icon icon={<OpenAI />} />} active>
                 Builder
               </SidebarMenuItem>
-              <SidebarMenuItem icon={<Icon icon={<Sparkles />} />}>Large menu item with a lot of text</SidebarMenuItem>
-              <SidebarSubMenu title="First submenu" icon={<Sparkles />}>
+              <SidebarMenuItem icon={<Icon icon={<OpenAI />} />}>Large menu item with a lot of text</SidebarMenuItem>
+              <SidebarSubMenu title="First submenu" icon={<OpenAI />}>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
                 <SidebarSubMenu title="Submenu" active>
                   <SidebarMenuItem>More items with large text</SidebarMenuItem>
@@ -76,7 +76,7 @@ const meta: Meta<typeof Sidebar> = {
                 <SidebarMenuItem>More items</SidebarMenuItem>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
               </SidebarSubMenu>
-              <SidebarSubMenu title="Another submenu" icon={<Sparkles />}>
+              <SidebarSubMenu title="Another submenu" icon={<OpenAI />}>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
                 <SidebarSubMenu title="Submenu" active>
                   <SidebarMenuItem>More items</SidebarMenuItem>
@@ -89,7 +89,7 @@ const meta: Meta<typeof Sidebar> = {
           </SidebarContent>
           <SidebarFooter>
             <SidebarMenu>
-              <SidebarSubMenu title="Help" icon={<Sparkles />} variant="secondary">
+              <SidebarSubMenu title="Help" icon={<OpenAI />} variant="secondary">
                 <SidebarMenuItem>Dev documentation</SidebarMenuItem>
                 <SidebarMenuItem>Another item</SidebarMenuItem>
               </SidebarSubMenu>
