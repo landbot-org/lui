@@ -22,6 +22,7 @@ import { RichTextEditorProps } from './RichTextEditor.types';
 import { getInputState, getOutput } from './RichTextEditor.utils';
 import { CodeHighlightPlugin } from './plugins/CodeHighlightPlugin';
 import { MaxLengthPlugin } from './plugins/MaxLengthPlugin';
+import { OnFocusPlugin } from './plugins/OnFocusPlugin';
 import { ToolbarPlugin } from './plugins/ToolbarPlugin';
 
 import {
@@ -36,6 +37,7 @@ import {
 export const RichTextEditor = ({
   inputFormat = 'json',
   onChange,
+  onFocus,
   placeholder,
   readOnly,
   error,
@@ -110,6 +112,7 @@ export const RichTextEditor = ({
             />
           </StyledContentEditableWrapper>
           <OnChangePlugin onChange={handleChange} ignoreSelectionChange ignoreHistoryMergeTagChange />
+          {onFocus && <OnFocusPlugin onFocus={onFocus} />}
           <HistoryPlugin />
           <CodeHighlightPlugin />
           <ListPlugin />

@@ -101,6 +101,16 @@ describe('RichTextEditor', () => {
     });
   });
 
+  it('should call onFocus when editor is focused', async () => {
+    const onFocus = jest.fn();
+    const label = 'Label';
+    const { user } = render(<RichTextEditor label={label} onFocus={onFocus} />);
+
+    await user.click(screen.getByRole('textbox'));
+
+    expect(onFocus).toHaveBeenCalled();
+  });
+
   it('should limit the number of characters', async () => {
     const maxLength = 10;
     const { user } = render(<RichTextEditor maxLength={maxLength} />);

@@ -14,6 +14,7 @@ export interface RichTextEditorProps {
     markdownString: string;
     text: string;
   }) => void;
+  onFocus?: () => void;
   placeholder?: string;
   readOnly?: boolean;
   error?: boolean;
