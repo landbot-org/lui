@@ -60,6 +60,13 @@ export const Autocomplete = ({
   selectedItemId,
   onChange,
   onSelectItem,
+  optionColor,
+  optionPlacement,
+  borderColor,
+  borderWidth,
+  height,
+  hasEnd = true,
+  borderStyle,
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -67,6 +74,7 @@ export const Autocomplete = ({
   const listRef = useRef<Array<HTMLElement | null>>([]);
 
   const { refs, floatingStyles, context } = useFloating<HTMLInputElement>({
+    placement: optionPlacement,
     whileElementsMounted: autoUpdate,
     open,
     onOpenChange: setOpen,
@@ -122,6 +130,11 @@ export const Autocomplete = ({
     <>
       <div onMouseDown={handleFocusInput}>
         <TextField
+          hasEnd={hasEnd}
+          height={height}
+          borderWidth={borderWidth}
+          borderColor={borderColor}
+          borderStyle={borderStyle}
           startAdornment={startAdornment}
           endAdornment={endAdornment}
           {...getReferenceProps({
@@ -168,7 +181,7 @@ export const Autocomplete = ({
                       })}
                       active={activeIndex === index || selectedItemId === item.id}
                     >
-                      {item.value}
+                      <Typography color={optionColor}>{item.value}</Typography>
                     </OptionItem>
                   ))
                 ) : (

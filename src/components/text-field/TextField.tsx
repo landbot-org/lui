@@ -25,6 +25,11 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
       inputRef: propInputRef = null,
       inputGroupProps,
       readOnly,
+      borderColor,
+      borderWidth,
+      height,
+      hasEnd = true,
+      borderStyle,
       ...rest
     },
     ref,
@@ -50,7 +55,18 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
             {description && <Typography variant="text14">{description}</Typography>}
           </FormLabel>
         )}
-        <StyledInputGroup {...inputGroupProps} $disabled={disabled} $error={error} onClick={handleInputGroupClick}>
+        <StyledInputGroup
+          {...inputGroupProps}
+          $disabled={disabled}
+          $error={error}
+          onClick={handleInputGroupClick}
+          style={{ borderColor: borderColor }}
+          $borderColor={borderColor}
+          $borderWidth={borderWidth}
+          $height={height}
+          hasEnd={hasEnd}
+          borderStyle={borderStyle}
+        >
           {startAdornment && (
             <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} mr={1}>
               {startAdornment}
