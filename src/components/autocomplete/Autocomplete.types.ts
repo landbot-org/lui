@@ -26,4 +26,5 @@ export interface AutocompleteProps {
   height?: number;
   hasEnd?: boolean;
   borderStyle: string;
+  floatingZIndex?: number;
 }

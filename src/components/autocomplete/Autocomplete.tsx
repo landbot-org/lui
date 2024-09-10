@@ -67,6 +67,7 @@ export const Autocomplete = ({
   height,
   hasEnd = true,
   borderStyle,
+  floatingZIndex = 1000,
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -160,7 +161,7 @@ export const Autocomplete = ({
                 style: {
                   ...floatingStyles,
                   overflowY: 'auto',
-                  zIndex: 1000,
+                  zIndex: floatingZIndex,
                 },
               })}
             >

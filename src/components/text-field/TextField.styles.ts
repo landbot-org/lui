@@ -23,7 +23,7 @@ interface FormInputProps {
 }
 
 export const StyledInputGroup = styled.div<FormInputProps>`
-  ${({ borderStyle }) => borderStyle ?? inputBorderStyle};
+  ${({ borderStyle }) => `border-style: ${borderStyle}` ?? inputBorderStyle};
   ${inputBackgroundStyle}
   ${inputGroupColorStyle}
   ${inputCursorStyle}

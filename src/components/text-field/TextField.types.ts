@@ -15,5 +15,5 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   borderWidth?: number;
   height?: number;
   hasEnd?: boolean;
-  borderStyle: string;
+  borderStyle?: string;
 }
