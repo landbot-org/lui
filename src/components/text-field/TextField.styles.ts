@@ -23,7 +23,7 @@ interface FormInputProps {
 }
 
 export const StyledInputGroup = styled.div<FormInputProps>`
-  ${({ borderStyle }) => `border-style: ${borderStyle}` ?? inputBorderStyle};
+  ${inputBorderStyle}
   ${inputBackgroundStyle}
   ${inputGroupColorStyle}
   ${inputCursorStyle}
@@ -33,8 +33,11 @@ export const StyledInputGroup = styled.div<FormInputProps>`
   align-items: center;
   border-color: ${({ $borderColor, theme }) => getColorFromTheme(theme, $borderColor ?? 'blue.main')};
   border-width: ${({ $borderWidth }) => pxToRem($borderWidth ?? 1)}rem;
-  ${({ hasEnd }) => !hasEnd && 'border-right: 0;'}
-  ${({ hasEnd }) => !hasEnd && 'border-radius: 4px 0px 0px 4px;'}
+  &&& {
+    ${({ borderStyle }) => !borderStyle && `border-style: ${borderStyle}`};
+    ${({ hasEnd }) => !hasEnd && 'border-right: 0;'}
+    ${({ hasEnd }) => !hasEnd && 'border-radius: 4px 0px 0px 4px;'}
+  }
 `;
 
 export const StyledInput = styled.input<FormInputProps>`
