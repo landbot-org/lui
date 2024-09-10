@@ -82,6 +82,16 @@ export interface Theme {
     white: {
       main: string;
     };
+    meta: {
+      main: string;
+    };
+    whatsapp: {
+      main: string;
+      secondary: string;
+      light: string;
+      tertiary: string;
+      background: string;
+    };
   };
   typography: {
     font: {
@@ -137,6 +147,13 @@ type InfoColorsTypes = 'info.dark' | 'info.main' | 'info.light';
 type WarningColorsTypes = 'warning.dark' | 'warning.main' | 'warning.light';
 type ErrorColorsTypes = 'error.dark' | 'error.main' | 'error.light';
 type WhiteColorsTypes = 'white.main';
+type MetaColorsTypes = 'meta.main';
+type WhatsappColorsTypes =
+  | 'whatsapp.main'
+  | 'whatsapp.secondary'
+  | 'whatsapp.light'
+  | 'whatsapp.tertiary'
+  | 'whatsapp.background';
 
 export type ColorsTypes =
   | NeutralColorsTypes
@@ -149,4 +166,6 @@ export type ColorsTypes =
   | InfoColorsTypes
   | WarningColorsTypes
   | ErrorColorsTypes
-  | WhiteColorsTypes;
+  | WhiteColorsTypes
+  | MetaColorsTypes
+  | WhatsappColorsTypes;

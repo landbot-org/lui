@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { pxToRem } from './mixins';
 import type { Theme } from './theme.types';
 
-interface InputStylesProps {
+export interface InputStylesProps {
   theme: Theme;
   $disabled?: boolean;
   $error?: boolean | null;
@@ -15,7 +15,7 @@ export const inputBorderStyle = css<InputStylesProps>`
   border-color: ${({ $error, theme }) => ($error ? theme.palette.error.main : theme.palette.neutral[300])};
   border-radius: ${pxToRem(4)}rem;
 
-  :hover {
+  &:hover {
     border-color: ${({ $error, theme }) => ($error ? theme.palette.error.main : theme.palette.neutral.main)};
   }
 

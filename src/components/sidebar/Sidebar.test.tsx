@@ -1,6 +1,6 @@
 import { render, screen } from '../../test-utils';
 import { Icon } from '../icon';
-import { GearTool, OpenAI, Sparkles } from '../icon/icons';
+import { GearTool, OpenAI } from '../icon/icons';
 import { Sidebar } from './Sidebar';
 import { SidebarProps } from './Sidebar.types';
 import { SidebarContent } from './components/layout/Content';
@@ -21,7 +21,7 @@ const renderComponent = (props: Partial<SidebarProps> = {}) =>
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem icon={<Icon icon={<OpenAI />} />}>OpenAI</SidebarMenuItem>
-          <SidebarSubMenu title="More items" icon={<Sparkles data-testid="more-items-icon" />}>
+          <SidebarSubMenu title="More items" icon={<OpenAI data-testid="more-items-icon" />}>
             <SidebarMenuItem>Other item</SidebarMenuItem>
             <SidebarMenuItem>Another item</SidebarMenuItem>
             <SidebarSubMenu title="Submenu">
@@ -33,7 +33,7 @@ const renderComponent = (props: Partial<SidebarProps> = {}) =>
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenu>
-          <SidebarSubMenu title="Help" icon={<Sparkles />} variant="secondary">
+          <SidebarSubMenu title="Help" icon={<OpenAI />} variant="secondary">
             <SidebarMenuItem icon={<Icon icon={<GearTool />} />}>Help item</SidebarMenuItem>
             <SidebarDivider />
             <SidebarMenuItem>Help another item</SidebarMenuItem>

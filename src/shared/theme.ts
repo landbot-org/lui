@@ -1,4 +1,18 @@
-import { BLUE, ERROR, INFO, NEUTRAL, ORANGE, PINK, PURPLE, SUCCESS, TEAL, WARNING, WHITE } from './palette';
+import {
+  BLUE,
+  ERROR,
+  INFO,
+  META,
+  NEUTRAL,
+  ORANGE,
+  PINK,
+  PURPLE,
+  SUCCESS,
+  TEAL,
+  WARNING,
+  WHATSAPP,
+  WHITE,
+} from './palette';
 import { Theme } from './theme.types';
 
 export const theme: Theme = {
@@ -15,6 +29,8 @@ export const theme: Theme = {
     warning: WARNING,
     error: ERROR,
     white: WHITE,
+    meta: META,
+    whatsapp: WHATSAPP,
   },
   typography: {
     font: {

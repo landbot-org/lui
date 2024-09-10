@@ -57,7 +57,7 @@ import { ThemeProvider } from 'styled-components';
 Wrap the project with the provider
 
 ```js
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">//react app</div>
