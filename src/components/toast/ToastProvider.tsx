@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { ExtendedRefs, Placement, UseFloatingReturn, useMergeRefs } from '@floating-ui/react';
+import { ExtendedRefs, UseFloatingReturn, useMergeRefs } from '@floating-ui/react';
 
 import { Toast } from './Toast';
 import { Options, ToastsType } from './Toast.types';
@@ -10,10 +10,10 @@ type ContextType = {
   listRef: React.MutableRefObject<Array<HTMLElement | null>>;
   index: number;
   toasts: ToastsType;
-  addToast: (content: ReactNode, options?: Options, callback?: (id: string) => void) => void;
+  addToast: (content: ReactNode, options?: Options) => void;
   removeToast: (toastId: string) => void;
+  removeAllToasts: () => void;
   refs: ExtendedRefs<Element>;
-  autoDismissTimeout: number;
 } & UseFloatingReturn;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,36 +29,53 @@ export const useToastsContext = () => {
   return context;
 };
 
-export function ToastProvider({
-  placement,
-  autoDismissTimeout = 3000,
-  children,
-}: {
-  placement?: Placement;
-  autoDismissTimeout?: number;
-  children: React.ReactNode;
-}) {
-  const context = useToasts({ placement });
+export function ToastProvider({ children }: { children: React.ReactNode }) {
+  const context = useToasts();
 
   const ref = useMergeRefs([context.refs.setReference, context.refs.setFloating]);
 
   return (
-    <ToastContext.Provider value={{ ...context, autoDismissTimeout }}>
+    <ToastContext.Provider value={{ ...context }}>
       <div ref={ref}>
-        {context.toasts.map(({ id, content, appearance, autoDismiss }, index) => (
-          <Toast
-            key={index}
-            toastId={id}
-            appearance={appearance}
-            autoDismiss={autoDismiss}
-            ref={(node) => {
-              context.listRef.current[index] = node;
-            }}
-            i={index}
-          >
-            {content}
-          </Toast>
-        ))}
+        {context.toasts.map(
+          (
+            {
+              id,
+              message,
+              variant,
+              autoDismiss,
+              showIcon,
+              icon,
+              showCloseButton,
+              showAction,
+              actionColor,
+              actionVariant,
+              actionText,
+              actionProps,
+            },
+            index,
+          ) => (
+            <Toast
+              key={index}
+              toastId={id}
+              variant={variant}
+              autoDismiss={autoDismiss}
+              ref={(node) => {
+                context.listRef.current[index] = node;
+              }}
+              i={index}
+              showIcon={showIcon}
+              icon={icon}
+              showCloseButton={showCloseButton}
+              message={message}
+              showAction={showAction}
+              actionColor={actionColor}
+              actionText={actionText}
+              actionVariant={actionVariant}
+              actionProps={actionProps}
+            />
+          ),
+        )}
       </div>
       {children}
     </ToastContext.Provider>

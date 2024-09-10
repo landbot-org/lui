@@ -1,18 +1,42 @@
+import { ReactNode } from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Box } from '../box';
 import { Button } from '../button';
+import { Spinner } from '../spinner';
+import { Tag } from '../tag';
 import { Options } from './Toast.types';
 import { ToastProvider, useToastsContext } from './ToastProvider';
 
 const meta: Meta = {
   title: 'Components/Toast',
-  // component: Toast,
   tags: ['autodocs'],
 };
 
 export default meta;
 type Story = StoryObj;
+
+const RenderStory = (message: ReactNode, optionsFromStory: Options) => {
+  return function Render() {
+    const { addToast, removeAllToasts } = useToastsContext();
+
+    const handleClick = (options: Options) => {
+      addToast(message, { ...options, ...optionsFromStory });
+    };
+
+    return (
+      <Box display="flex" gap={8}>
+        <Button onClick={() => handleClick({ variant: 'success' })}>Show success toast</Button>
+        <Button onClick={() => handleClick({ variant: 'info' })}>Show info toast</Button>
+        <Button onClick={() => handleClick({ variant: 'warning' })}>Show warning toast</Button>
+        <Button onClick={() => handleClick({ variant: 'error' })}>Show error toast</Button>
+
+        <Button onClick={removeAllToasts}>Clear all</Button>
+      </Box>
+    );
+  };
+};
 
 export const Default: Story = {
   decorators: (Story) => (
@@ -20,26 +44,95 @@ export const Default: Story = {
       <Story />
     </ToastProvider>
   ),
-  render: function Render() {
-    const { addToast } = useToastsContext();
+  render: RenderStory('Information Single line', {}),
+};
 
-    const handleClick = (text: string, type: Options) => {
-      addToast(text, type);
-    };
+export const AutoDismiss: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory('Information Single line', { autoDismiss: true }),
+};
 
-    return (
-      <Box display="flex" gap={8}>
-        <Button onClick={() => handleClick('success', { appearance: 'success', autoDismiss: false })}>
-          Show success toast
-        </Button>
-        <Button onClick={() => handleClick('info', { appearance: 'info', autoDismiss: true })}>Show info toast</Button>
-        <Button onClick={() => handleClick('warning', { appearance: 'warning', autoDismiss: true })}>
-          Show warning toast
-        </Button>
-        <Button onClick={() => handleClick('error', { appearance: 'error', autoDismiss: true })}>
-          Show error toast
-        </Button>
-      </Box>
-    );
-  },
+export const WithoutIcon: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory('Information Single line', { showIcon: false }),
+};
+
+export const WithoutClose: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory('Information Single line', { showCloseButton: false }),
+};
+
+export const LongMessageText: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory(
+    'Multiple lines of text. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula.',
+    {},
+  ),
+};
+
+export const WithAction: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory(
+    'Multiple lines of text. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula.',
+    {
+      showAction: true,
+      actionVariant: 'contained',
+      actionColor: 'purple.main',
+      actionText: 'Call to action',
+      actionProps: { onClick: () => alert('Action toast clicked!') },
+    },
+  ),
+};
+
+export const WithoutCloseAndWithAction: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory('Information Single line', {
+    showCloseButton: false,
+    showAction: true,
+    actionVariant: 'contained',
+    actionColor: 'purple.main',
+    actionText: 'Call to action',
+    actionProps: { onClick: () => alert('Action toast clicked!') },
+  }),
+};
+
+export const Custom: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory(
+    <Box display="flex" gap={8}>
+      Importing X contacts
+      <Tag label={'30%'} />
+    </Box>,
+    {
+      icon: <Spinner size="S" />,
+    },
+  ),
 };

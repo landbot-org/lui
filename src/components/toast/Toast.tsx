@@ -1,56 +1,64 @@
-import React from 'react';
+import React, { ReactNode, useCallback } from 'react';
 
 import { FloatingPortal, useTransitionStyles } from '@floating-ui/react';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faCircleInfo, faTriangleExclamation } from '@fortawesome/pro-regular-svg-icons';
+import { faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Button } from '../button';
+import { Box } from '../box';
+import { Button, ButtonColorTypes, ButtonProps, ButtonVariants } from '../button';
 import { Icon } from '../icon';
 import { ToastVariant } from './Toast.types';
 import { useToastsContext } from './ToastProvider';
+import { AUTO_DISMISS_TIMEOUT } from './constants';
 
-const getColor = (appearance?: ToastVariant) => {
-  switch (appearance) {
-    case 'info':
-      return '#CDF0FE';
-    case 'success':
-      return '#ECFCD3';
-    case 'error':
-      return '#FFE2E5';
-    case 'warning':
-      return '#FEFACF';
-    default:
-      return '#ffffff';
-  }
-};
-
-const getCountDownColor = (appearance?: ToastVariant) => {
-  switch (appearance) {
-    case 'info':
-      return '#00B4D8';
-    case 'success':
-      return '#5CB85C';
-    case 'error':
-      return '#D9534F';
-    case 'warning':
-      return '#F0AD4E';
-    default:
-      return '#ffffff';
-  }
-};
+import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from './Toast.styles';
 
 type ToastContentProps = {
   i: number;
   toastId: string;
-  appearance?: ToastVariant;
+  variant?: ToastVariant;
   autoDismiss?: boolean;
-  children: React.ReactNode;
+  message: ReactNode;
+  showIcon: boolean;
+  icon?: ReactNode;
+  showCloseButton: boolean;
+  showAction: boolean;
+  actionVariant: ButtonVariants;
+  actionColor: ButtonColorTypes;
+  actionProps: ButtonProps;
+  actionText: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
+const ICON_FROM_VARIANT: Record<ToastVariant, IconDefinition> = {
+  success: faCheck,
+  info: faCircleInfo,
+  warning: faTriangleExclamation,
+  error: faXmark,
+};
+
 export const Toast = React.forwardRef<HTMLDivElement, ToastContentProps>(
-  ({ i, toastId, appearance, autoDismiss, children }, propRef) => {
+  (
+    {
+      i,
+      toastId,
+      variant = 'success',
+      autoDismiss,
+      message,
+      showIcon,
+      icon,
+      showCloseButton,
+      showAction,
+      actionColor,
+      actionVariant,
+      actionProps,
+      actionText,
+    },
+    propRef,
+  ) => {
     const [timerId, setTimerId] = React.useState<number | null>(null);
-    const { context, removeToast, autoDismissTimeout } = useToastsContext();
+    const { context, removeToast } = useToastsContext();
     const { styles } = useTransitionStyles(context, {
       duration: 300,
       initial: () => ({
@@ -67,21 +75,26 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastContentProps>(
       }),
     });
 
-    const startTimer = React.useCallback(() => {
-      const id = window.setTimeout(() => {
-        removeToast(toastId);
-      }, autoDismissTimeout);
-      setTimerId(id);
-    }, [autoDismissTimeout, removeToast, toastId]);
-
-    const stopTimer = React.useCallback(() => {
-      if (timerId) {
-        clearTimeout(timerId);
-        setTimerId(null);
-      }
-    }, [timerId]);
+    const handleClose = useCallback(() => {
+      removeToast(toastId);
+    }, [removeToast, toastId]);
 
     React.useEffect(() => {
+      const startTimer = () => {
+        const id = window.setTimeout(() => {
+          removeToast(toastId);
+        }, AUTO_DISMISS_TIMEOUT);
+
+        setTimerId(id);
+      };
+
+      const stopTimer = () => {
+        if (timerId) {
+          clearTimeout(timerId);
+          setTimerId(null);
+        }
+      };
+
       if (autoDismiss) {
         startTimer();
       }
@@ -90,64 +103,39 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastContentProps>(
           stopTimer();
         }
       };
-    }, [autoDismiss, startTimer, stopTimer, timerId]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [autoDismiss]);
 
     return (
       <FloatingPortal>
-        {/* TODO: Create styled */}
-        <style>
-          {`@keyframes autoDismiss {
-            from {
-              width: 100%;
-            }
-            to {
-              width: 0%;
-            }
-          }`}
-        </style>
-        <div
-          ref={propRef}
-          style={{
-            width: '300px',
-            backgroundColor: getColor(appearance),
-            padding: '1rem',
-            borderRadius: 8,
-            boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-            position: 'absolute',
-            right: 0,
-            left: 0,
-            top: i * 75,
-            margin: 'auto',
-            display: 'flex',
-            overflow: 'hidden',
-            ...styles,
-          }}
-        >
-          {children}
-          <div style={{ position: 'absolute', right: '10px' }}>
-            <Button
-              size="small"
-              color="blue.main"
-              variant="text"
-              onClick={() => {
-                removeToast(toastId);
-              }}
-              startIcon={<Icon icon={<FontAwesomeIcon icon={faXmark} />} />}
-            />
-          </div>
-          <div
-            style={{
-              animation: `autoDismiss ${autoDismissTimeout}ms linear`,
-              backgroundColor: getCountDownColor(appearance),
-              position: 'absolute',
-              height: '3px',
-              width: 0,
-              top: 0,
-              left: 0,
-              opacity: autoDismiss ? 1 : 0,
-            }}
-          />
-        </div>
+        <ToastPositionAndLayout ref={propRef} $top={i * 100} $variant={variant} style={{ ...styles }}>
+          <Box display="flex" alignItems="center" gap={16}>
+            {showIcon && Boolean(icon) ? (
+              <>{icon}</>
+            ) : (
+              <ToastIcon $variant={variant} icon={<FontAwesomeIcon icon={ICON_FROM_VARIANT[variant]} />} />
+            )}
+            <Box display="flex" flexGrow={1} flexShrink={1} flexBasis="0%">
+              <Message>{message}</Message>
+            </Box>
+            {showAction && (
+              <Button size="small" variant={actionVariant} color={actionColor} {...actionProps}>
+                {actionText}
+              </Button>
+            )}
+            {showCloseButton && (
+              <CloseButtonWrapper>
+                <Button
+                  color="blue.main"
+                  variant="text"
+                  size="small"
+                  startIcon={<Icon icon={<FontAwesomeIcon icon={faXmark} />} />}
+                  onClick={handleClose}
+                ></Button>
+              </CloseButtonWrapper>
+            )}
+          </Box>
+        </ToastPositionAndLayout>
       </FloatingPortal>
     );
   },

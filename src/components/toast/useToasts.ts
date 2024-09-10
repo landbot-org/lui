@@ -1,22 +1,20 @@
 import React, { ReactNode, useCallback } from 'react';
 
-import { Placement, autoUpdate, inner, useFloating } from '@floating-ui/react';
+import { autoUpdate, inner, useFloating } from '@floating-ui/react';
 
 import { Options, ToastType, ToastsType } from './Toast.types';
 
-export function generateUEID() {
-  const first = ('000' + ((Math.random() * 46656) | 0).toString(36)).slice(-3);
-  const second = ('000' + ((Math.random() * 46656) | 0).toString(36)).slice(-3);
-  return `${first}${second}`;
+function generateUID() {
+  return Math.random().toString(36).slice(2, 11);
 }
 
-export function useToasts({ placement = 'bottom' }: { placement?: Placement }) {
+export function useToasts() {
   const index = React.useState(0)[0];
   const [toasts, setToasts] = React.useState<ToastsType>([]);
   const listRef = React.useRef<Array<HTMLElement | null>>([]);
 
   const data = useFloating({
-    placement,
+    placement: 'bottom',
     open: true,
     whileElementsMounted: autoUpdate,
     middleware: [
@@ -27,14 +25,28 @@ export function useToasts({ placement = 'bottom' }: { placement?: Placement }) {
     ],
   });
 
-  const addToast = useCallback((content: ReactNode, options: Options = {}) => {
-    const id = options?.id ?? generateUEID();
-    const newToast = { id, content, ...options } as ToastType;
+  const addToast = useCallback((message: ReactNode, options: Options = {}) => {
+    const id = options?.id ?? generateUID();
+    const newToast = {
+      id,
+      message,
+      showIcon: options.showIcon || true,
+      showCloseButton: options.showCloseButton || true,
+      showAction: options.showAction,
+      actionColor: options.actionColor || 'purple.main',
+      actionProps: options.actionProps || {},
+      actionVariant: options.actionVariant || 'contained',
+      ...options,
+    } as ToastType;
     setToasts((prev) => [...prev, newToast]);
   }, []);
 
   const removeToast = useCallback((toastId: string) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== toastId));
+  }, []);
+
+  const removeAllToasts = useCallback(() => {
+    setToasts([]);
   }, []);
 
   return React.useMemo(
@@ -44,8 +56,9 @@ export function useToasts({ placement = 'bottom' }: { placement?: Placement }) {
       toasts,
       addToast,
       removeToast,
+      removeAllToasts,
       ...data,
     }),
-    [listRef, index, toasts, addToast, removeToast, data],
+    [listRef, index, toasts, addToast, removeToast, data, removeAllToasts],
   );
 }
