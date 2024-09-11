@@ -68,6 +68,7 @@ export const Autocomplete = ({
   hasEnd = true,
   borderStyle,
   floatingZIndex = 1000,
+  keepOpenOnNoValue = false,
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -113,7 +114,9 @@ export const Autocomplete = ({
       setOpen(true);
       setActiveIndex(null);
     } else {
-      setOpen(false);
+      if (!keepOpenOnNoValue) {
+        setOpen(false);
+      }
     }
   };
 

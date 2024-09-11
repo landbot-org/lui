@@ -27,4 +27,5 @@ export interface AutocompleteProps {
   hasEnd?: boolean;
   borderStyle: string;
   floatingZIndex?: number;
+  keepOpenOnNoValue?: boolean;
 }
