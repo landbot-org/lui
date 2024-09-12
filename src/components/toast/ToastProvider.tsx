@@ -56,7 +56,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             index,
           ) => (
             <ToastContent
-              key={index}
+              key={id}
               toastId={id}
               variant={variant}
               autoDismiss={autoDismiss}
