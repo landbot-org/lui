@@ -26,18 +26,19 @@ export function useToasts() {
   });
 
   const addToast = useCallback((message: ReactNode, options: Options = {}) => {
-    const id = options?.id ?? generateUID();
-    const newToast = {
-      id,
+    const newToast: ToastType = {
+      id: generateUID(),
       message,
       showIcon: options.showIcon || true,
       showCloseButton: options.showCloseButton || true,
-      showAction: options.showAction,
+      showAction: options.showAction || false,
       actionColor: options.actionColor || 'purple.main',
       actionProps: options.actionProps || {},
       actionVariant: options.actionVariant || 'contained',
+      variant: 'success',
+      actionText: options.actionText || '',
       ...options,
-    } as ToastType;
+    };
     setToasts((prev) => [...prev, newToast]);
   }, []);
 

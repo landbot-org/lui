@@ -18,7 +18,7 @@ import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from '
 type ToastContentProps = {
   i: number;
   toastId: string;
-  variant?: ToastVariant;
+  variant: ToastVariant;
   autoDismiss?: boolean;
   message: ReactNode;
   showIcon: boolean;
@@ -38,12 +38,12 @@ const ICON_FROM_VARIANT: Record<ToastVariant, IconDefinition> = {
   error: faXmark,
 };
 
-export const Toast = React.forwardRef<HTMLDivElement, ToastContentProps>(
+export const ToastContent = React.forwardRef<HTMLDivElement, ToastContentProps>(
   (
     {
       i,
       toastId,
-      variant = 'success',
+      variant,
       autoDismiss,
       message,
       showIcon,
@@ -146,4 +146,4 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastContentProps>(
   },
 );
 
-Toast.displayName = 'Toast';
+ToastContent.displayName = 'Toast';

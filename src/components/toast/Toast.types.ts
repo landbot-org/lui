@@ -8,7 +8,6 @@ export type Options = {
   variant?: ToastVariant;
   autoDismiss?: boolean;
   id?: string;
-  onDismiss?: (id: string) => void;
   showIcon?: boolean;
   icon?: ReactNode;
   showCloseButton?: boolean;
@@ -17,7 +16,6 @@ export type Options = {
   actionColor?: ButtonColorTypes;
   actionProps?: ButtonProps;
   actionText?: string;
-  [key: string]: unknown;
 };
 
 export type ToastType = Options & {
@@ -35,8 +33,3 @@ export type ToastType = Options & {
 };
 
 export type ToastsType = Array<ToastType>;
-
-export interface ToastProps {
-  open?: boolean;
-  variant: ToastVariant;
-}

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import { ExtendedRefs, UseFloatingReturn, useMergeRefs } from '@floating-ui/react';
 
-import { Toast } from './Toast';
+import { ToastContent } from './Toast';
 import { Options, ToastsType } from './Toast.types';
 import { useToasts } from './useToasts';
 
@@ -55,7 +55,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             },
             index,
           ) => (
-            <Toast
+            <ToastContent
               key={index}
               toastId={id}
               variant={variant}
