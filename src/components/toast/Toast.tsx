@@ -113,7 +113,11 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastContentProps>(
             {showIcon && Boolean(icon) ? (
               <>{icon}</>
             ) : (
-              <ToastIcon $variant={variant} icon={<FontAwesomeIcon icon={ICON_FROM_VARIANT[variant]} />} />
+              <ToastIcon
+                aria-label="toast-icon"
+                $variant={variant}
+                icon={<FontAwesomeIcon icon={ICON_FROM_VARIANT[variant]} />}
+              />
             )}
             <Box display="flex" flexGrow={1} flexShrink={1} flexBasis="0%">
               <Message>{message}</Message>
@@ -131,6 +135,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastContentProps>(
                   size="small"
                   startIcon={<Icon icon={<FontAwesomeIcon icon={faXmark} />} />}
                   onClick={handleClose}
+                  aria-label="toast-close"
                 ></Button>
               </CloseButtonWrapper>
             )}
