@@ -37,7 +37,6 @@ export const ToastPositionAndLayout = styled(Box).attrs<{ $variant: ToastVariant
   left: 0;
   top: ${({ $top }) => $top}px;
   margin: auto;
-  display: flex;
   overflow: hidden;
 `;
 
