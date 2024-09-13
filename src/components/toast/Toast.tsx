@@ -1,19 +1,16 @@
 import { HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useState } from 'react';
-
 import { FloatingPortal, useTransitionStyles } from '@floating-ui/react';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition, faCircleInfo, faTriangleExclamation } from '@fortawesome/pro-regular-svg-icons';
 import { faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Box } from '../box';
 import { Button, ButtonColorTypes, ButtonProps, ButtonVariants } from '../button';
 import { Icon } from '../icon';
+import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from './Toast.styles';
 import { ToastVariant } from './Toast.types';
 import { useToastsContext } from './ToastProvider';
 import { AUTO_DISMISS_TIMEOUT_MS } from './constants';
-
-import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from './Toast.styles';
 
 type ToastContentProps = {
   toastIndex: number;
@@ -82,7 +79,7 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
         }
       };
 
-      if (autoDismiss) {
+      if (autoDismiss && !timerId) {
         startTimer();
       }
       return () => {
@@ -90,8 +87,7 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
           stopTimer();
         }
       };
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [autoDismiss]);
+    }, [autoDismiss, removeToast, toastId, timerId]);
 
     return (
       <FloatingPortal>
