@@ -22,6 +22,7 @@ export * from './components/tabs';
 export * from './components/tag';
 export * from './components/text-area';
 export * from './components/text-field';
+export * from './components/toast';
 export * from './components/toggle';
 export * from './components/tooltip';
 export * from './components/typography';
