@@ -22,7 +22,7 @@ const meta: Meta<typeof TextField> = {
 
     const _onChange = (e: ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value);
-      args.onChange && args.onChange(e);
+      args.onChange?.(e);
     };
 
     return <TextField {...args} value={value} onChange={_onChange} />;

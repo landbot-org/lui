@@ -1,5 +1,5 @@
+import { EditorState, LexicalEditor } from 'lexical';
 import { useCallback, useId, useMemo } from 'react';
-
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
 import { AutoLinkNode, LinkNode } from '@lexical/link';
 import { ListItemNode, ListNode } from '@lexical/list';
@@ -13,18 +13,9 @@ import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPl
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
-import { EditorState, LexicalEditor } from 'lexical';
-
 import { FormHelperText } from '../form-helper-text';
 import { FormLabel } from '../form-label';
 import { Typography } from '../typography';
-import { RichTextEditorProps } from './RichTextEditor.types';
-import { getInputState, getOutput } from './RichTextEditor.utils';
-import { CodeHighlightPlugin } from './plugins/CodeHighlightPlugin';
-import { MaxLengthPlugin } from './plugins/MaxLengthPlugin';
-import { OnFocusPlugin } from './plugins/OnFocusPlugin';
-import { ToolbarPlugin } from './plugins/ToolbarPlugin';
-
 import {
   StyledContentEditable,
   StyledContentEditableWrapper,
@@ -33,6 +24,12 @@ import {
   StyledToolbarContainer,
   editorTheme,
 } from './RichTextEditor.styles';
+import { RichTextEditorProps } from './RichTextEditor.types';
+import { getInputState, getOutput } from './RichTextEditor.utils';
+import { CodeHighlightPlugin } from './plugins/CodeHighlightPlugin';
+import { MaxLengthPlugin } from './plugins/MaxLengthPlugin';
+import { OnFocusPlugin } from './plugins/OnFocusPlugin';
+import { ToolbarPlugin } from './plugins/ToolbarPlugin';
 
 export const RichTextEditor = ({
   inputFormat = 'json',
@@ -53,6 +50,7 @@ export const RichTextEditor = ({
       editable: !readOnly,
       namespace: 'rich-text-editor',
       onError: (error: Error) => {
+        //eslint-disable-next-line no-console
         console.error(error);
       },
       nodes: [
