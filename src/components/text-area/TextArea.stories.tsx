@@ -20,7 +20,7 @@ const meta: Meta<typeof TextArea> = {
 
     const _onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
       setValue(e.target.value);
-      args.onChange && args.onChange(e);
+      args?.onChange?.(e);
     };
 
     return <TextArea {...args} value={value} onChange={_onChange} />;

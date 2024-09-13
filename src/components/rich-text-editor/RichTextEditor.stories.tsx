@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-
 import { RichTextEditor } from './RichTextEditor';
 
 const meta: Meta<typeof RichTextEditor> = {
@@ -50,6 +49,7 @@ export const Error: Story = {
 
 export const HtmlFormat: Story = {
   args: {
+    //eslint-disable-next-line no-console
     onChange: console.log,
     initialValue: '<h1>Heading</h1><p><b>Paragraph</b></p><ul><li>Item 1</li><li>Item 2</li>',
     inputFormat: 'html',
@@ -58,6 +58,7 @@ export const HtmlFormat: Story = {
 
 export const MarkdownFormat: Story = {
   args: {
+    //eslint-disable-next-line no-console
     onChange: console.log,
     initialValue: '# Heading\n\n**Paragraph**\n\n- Item 1\n- Item 2',
     inputFormat: 'markdown',

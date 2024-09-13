@@ -1,10 +1,8 @@
 import { ForwardedRef, forwardRef, useState } from 'react';
-
+import { StyledLayout, StyledOverlay, StyledSidebar, StyledWrapper } from './Sidebar.styles';
 import { SidebarProps } from './Sidebar.types';
 import { SidebarMinifyControl } from './components/layout/MinifyControl';
 import { SidebarProvider } from './useSidebar';
-
-import { StyledLayout, StyledOverlay, StyledSidebar, StyledWrapper } from './Sidebar.styles';
 
 export const Sidebar = forwardRef(function SidebarLayout(
   { children, toggled = false, collapsed = false, onToggle, style, ...rest }: SidebarProps,
@@ -34,7 +32,7 @@ export const Sidebar = forwardRef(function SidebarLayout(
             <SidebarMinifyControl
               toggled={toggled}
               onClick={() => {
-                onToggle && onToggle();
+                onToggle?.();
                 setShowMinifyControl(false);
               }}
             />
@@ -44,7 +42,7 @@ export const Sidebar = forwardRef(function SidebarLayout(
         <StyledOverlay
           $toggled={toggled && collapsed}
           onClick={() => {
-            onToggle && onToggle();
+            onToggle?.();
           }}
           role="button"
           aria-label="overlay"
