@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { MutableRefObject, ReactNode, createContext, useContext } from 'react';
 
 import { ExtendedRefs, UseFloatingReturn, useMergeRefs } from '@floating-ui/react';
 
@@ -7,7 +7,7 @@ import { Options, ToastsType } from './Toast.types';
 import { useToasts } from './useToasts';
 
 type ContextType = {
-  listRef: React.MutableRefObject<Array<HTMLElement | null>>;
+  listRef: MutableRefObject<Array<HTMLElement | null>>;
   index: number;
   toasts: ToastsType;
   addToast: (content: ReactNode, options?: Options) => void;
@@ -16,11 +16,10 @@ type ContextType = {
   refs: ExtendedRefs<Element>;
 } & UseFloatingReturn;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ToastContext = React.createContext<ContextType>(null as any);
+const ToastContext = createContext<ContextType | null>(null);
 
 export const useToastsContext = () => {
-  const context = React.useContext(ToastContext);
+  const context = useContext(ToastContext);
 
   if (context == null) {
     throw new Error('Toast components must be wrapped in <ToastProvider />');
@@ -29,7 +28,7 @@ export const useToastsContext = () => {
   return context;
 };
 
-export function ToastProvider({ children }: { children: React.ReactNode }) {
+export function ToastProvider({ children }: { children: ReactNode }) {
   const context = useToasts();
 
   const ref = useMergeRefs([context.refs.setReference, context.refs.setFloating]);
@@ -37,45 +36,23 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   return (
     <ToastContext.Provider value={{ ...context }}>
       <div ref={ref}>
-        {context.toasts.map(
-          (
-            {
-              id,
-              message,
-              variant,
-              autoDismiss,
-              showIcon,
-              icon,
-              showCloseButton,
-              showAction,
-              actionColor,
-              actionVariant,
-              actionText,
-              actionProps,
-            },
-            index,
-          ) => (
-            <ToastContent
-              key={id}
-              toastId={id}
-              variant={variant}
-              autoDismiss={autoDismiss}
-              ref={(node) => {
-                context.listRef.current[index] = node;
-              }}
-              i={index}
-              showIcon={showIcon}
-              icon={icon}
-              showCloseButton={showCloseButton}
-              message={message}
-              showAction={showAction}
-              actionColor={actionColor}
-              actionText={actionText}
-              actionVariant={actionVariant}
-              actionProps={actionProps}
-            />
-          ),
-        )}
+        {context.toasts.map(({ id, message, variant, autoDismiss, showIcon, icon, hideCloseButton, action }, index) => (
+          <ToastContent
+            key={id}
+            toastId={id}
+            variant={variant}
+            autoDismiss={autoDismiss}
+            ref={(node) => {
+              context.listRef.current[index] = node;
+            }}
+            toastIndex={index}
+            showIcon={showIcon}
+            icon={icon}
+            hideCloseButton={hideCloseButton}
+            message={message}
+            action={action}
+          />
+        ))}
       </div>
       {children}
     </ToastContext.Provider>

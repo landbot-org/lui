@@ -48,7 +48,7 @@ describe('Toast', () => {
     const spyActionClick = jest.fn();
     const { user } = renderComponent({
       content: 'This is a sample test',
-      options: { showAction: true, actionText: 'Action test', actionProps: { onClick: spyActionClick } },
+      options: { action: { text: 'Action test', props: { onClick: spyActionClick } } },
     });
 
     await user.click(screen.getByRole('button', { name: 'Add toast' }));
@@ -59,7 +59,7 @@ describe('Toast', () => {
     const spyActionClick = jest.fn();
     const { user } = renderComponent({
       content: 'This is a sample test',
-      options: { showAction: true, actionText: 'Action test', actionProps: { onClick: spyActionClick } },
+      options: { action: { text: 'Action test', props: { onClick: spyActionClick } } },
     });
 
     await user.click(screen.getByRole('button', { name: 'Add toast' }));

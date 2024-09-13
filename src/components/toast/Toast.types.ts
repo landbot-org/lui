@@ -7,29 +7,20 @@ export type ToastVariant = 'success' | 'info' | 'warning' | 'error';
 export type Options = {
   variant?: ToastVariant;
   autoDismiss?: boolean;
-  id?: string;
   showIcon?: boolean;
   icon?: ReactNode;
-  showCloseButton?: boolean;
-  showAction?: boolean;
-  actionVariant?: ButtonVariants;
-  actionColor?: ButtonColorTypes;
-  actionProps?: ButtonProps;
-  actionText?: string;
+  hideCloseButton?: boolean;
+  action?: {
+    variant?: ButtonVariants;
+    color?: ButtonColorTypes;
+    props?: ButtonProps;
+    text?: string;
+  };
 };
 
 export type ToastType = Options & {
-  variant: ToastVariant;
   message: ReactNode;
   id: string;
-  showIcon: boolean;
-  icon?: ReactNode;
-  showCloseButton: boolean;
-  showAction: boolean;
-  actionVariant: ButtonVariants;
-  actionColor: ButtonColorTypes;
-  actionProps: ButtonProps;
-  actionText: string;
 };
 
 export type ToastsType = Array<ToastType>;

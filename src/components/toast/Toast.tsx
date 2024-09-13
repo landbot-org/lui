@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback } from 'react';
+import { HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useState } from 'react';
 
 import { FloatingPortal, useTransitionStyles } from '@floating-ui/react';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -11,25 +11,26 @@ import { Button, ButtonColorTypes, ButtonProps, ButtonVariants } from '../button
 import { Icon } from '../icon';
 import { ToastVariant } from './Toast.types';
 import { useToastsContext } from './ToastProvider';
-import { AUTO_DISMISS_TIMEOUT } from './constants';
+import { AUTO_DISMISS_TIMEOUT_MS } from './constants';
 
 import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from './Toast.styles';
 
 type ToastContentProps = {
-  i: number;
+  toastIndex: number;
   toastId: string;
-  variant: ToastVariant;
+  variant?: ToastVariant;
   autoDismiss?: boolean;
   message: ReactNode;
-  showIcon: boolean;
+  showIcon?: boolean;
   icon?: ReactNode;
-  showCloseButton: boolean;
-  showAction: boolean;
-  actionVariant: ButtonVariants;
-  actionColor: ButtonColorTypes;
-  actionProps: ButtonProps;
-  actionText: string;
-} & React.HTMLAttributes<HTMLDivElement>;
+  hideCloseButton?: boolean;
+  action?: {
+    variant?: ButtonVariants;
+    color?: ButtonColorTypes;
+    props?: ButtonProps;
+    text?: string;
+  };
+} & HTMLAttributes<HTMLDivElement>;
 
 const ICON_FROM_VARIANT: Record<ToastVariant, IconDefinition> = {
   success: faCheck,
@@ -38,26 +39,12 @@ const ICON_FROM_VARIANT: Record<ToastVariant, IconDefinition> = {
   error: faXmark,
 };
 
-export const ToastContent = React.forwardRef<HTMLDivElement, ToastContentProps>(
+export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
   (
-    {
-      i,
-      toastId,
-      variant,
-      autoDismiss,
-      message,
-      showIcon,
-      icon,
-      showCloseButton,
-      showAction,
-      actionColor,
-      actionVariant,
-      actionProps,
-      actionText,
-    },
+    { toastIndex, toastId, variant = 'success', autoDismiss, message, showIcon, icon, hideCloseButton, action },
     propRef,
   ) => {
-    const [timerId, setTimerId] = React.useState<number | null>(null);
+    const [timerId, setTimerId] = useState<number | null>(null);
     const { context, removeToast } = useToastsContext();
     const { styles } = useTransitionStyles(context, {
       duration: 300,
@@ -79,11 +66,11 @@ export const ToastContent = React.forwardRef<HTMLDivElement, ToastContentProps>(
       removeToast(toastId);
     }, [removeToast, toastId]);
 
-    React.useEffect(() => {
+    useEffect(() => {
       const startTimer = () => {
         const id = window.setTimeout(() => {
           removeToast(toastId);
-        }, AUTO_DISMISS_TIMEOUT);
+        }, AUTO_DISMISS_TIMEOUT_MS);
 
         setTimerId(id);
       };
@@ -108,7 +95,7 @@ export const ToastContent = React.forwardRef<HTMLDivElement, ToastContentProps>(
 
     return (
       <FloatingPortal>
-        <ToastPositionAndLayout ref={propRef} $top={i * 100} $variant={variant} style={{ ...styles }}>
+        <ToastPositionAndLayout ref={propRef} $top={toastIndex * 100} $variant={variant} style={{ ...styles }}>
           <Box display="flex" alignItems="center" gap={16}>
             {showIcon && Boolean(icon) ? (
               <>{icon}</>
@@ -122,12 +109,17 @@ export const ToastContent = React.forwardRef<HTMLDivElement, ToastContentProps>(
             <Box display="flex" flexGrow={1} flexShrink={1} flexBasis="0%">
               <Message>{message}</Message>
             </Box>
-            {showAction && (
-              <Button size="small" variant={actionVariant} color={actionColor} {...actionProps}>
-                {actionText}
+            {action && (
+              <Button
+                size="small"
+                variant={action.variant || 'contained'}
+                color={action.color || 'purple.main'}
+                {...(action.props || {})}
+              >
+                {action.text}
               </Button>
             )}
-            {showCloseButton && (
+            {!hideCloseButton && (
               <CloseButtonWrapper>
                 <Button
                   color="blue.main"

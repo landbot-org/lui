@@ -1,1 +1,1 @@
-export const AUTO_DISMISS_TIMEOUT = 3000;
+export const AUTO_DISMISS_TIMEOUT_MS = 3000;

@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback } from 'react';
+import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 
 import { autoUpdate, inner, useFloating } from '@floating-ui/react';
 
@@ -9,9 +9,9 @@ function generateUID() {
 }
 
 export function useToasts() {
-  const index = React.useState(0)[0];
-  const [toasts, setToasts] = React.useState<ToastsType>([]);
-  const listRef = React.useRef<Array<HTMLElement | null>>([]);
+  const [index, _] = useState(0);
+  const [toasts, setToasts] = useState<ToastsType>([]);
+  const listRef = useRef<Array<HTMLElement | null>>([]);
 
   const data = useFloating({
     placement: 'bottom',
@@ -29,14 +29,10 @@ export function useToasts() {
     const newToast: ToastType = {
       id: generateUID(),
       message,
-      showIcon: options.showIcon || true,
-      showCloseButton: options.showCloseButton || true,
-      showAction: options.showAction || false,
-      actionColor: options.actionColor || 'purple.main',
-      actionProps: options.actionProps || {},
-      actionVariant: options.actionVariant || 'contained',
-      variant: 'success',
-      actionText: options.actionText || '',
+      showIcon: options.showIcon,
+      hideCloseButton: options.hideCloseButton,
+      action: options.action,
+      variant: options.variant,
       ...options,
     };
     setToasts((prev) => [...prev, newToast]);
@@ -50,7 +46,7 @@ export function useToasts() {
     setToasts([]);
   }, []);
 
-  return React.useMemo(
+  return useMemo(
     () => ({
       listRef,
       index,

@@ -71,7 +71,7 @@ export const WithoutClose: Story = {
       <Story />
     </ToastProvider>
   ),
-  render: RenderStory('Information Single line', { showCloseButton: false }),
+  render: RenderStory('Information Single line', { hideCloseButton: true }),
 };
 
 export const LongMessageText: Story = {
@@ -95,11 +95,12 @@ export const WithAction: Story = {
   render: RenderStory(
     'Multiple lines of text. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula.',
     {
-      showAction: true,
-      actionVariant: 'contained',
-      actionColor: 'purple.main',
-      actionText: 'Call to action',
-      actionProps: { onClick: () => alert('Action toast clicked!') },
+      action: {
+        variant: 'contained',
+        color: 'purple.main',
+        text: 'Call to action',
+        props: { onClick: () => alert('Action toast clicked!') },
+      },
     },
   ),
 };
@@ -111,12 +112,13 @@ export const WithoutCloseAndWithAction: Story = {
     </ToastProvider>
   ),
   render: RenderStory('Information Single line', {
-    showCloseButton: false,
-    showAction: true,
-    actionVariant: 'contained',
-    actionColor: 'purple.main',
-    actionText: 'Call to action',
-    actionProps: { onClick: () => alert('Action toast clicked!') },
+    hideCloseButton: true,
+    action: {
+      variant: 'contained',
+      color: 'purple.main',
+      text: 'Call to action',
+      props: { onClick: () => alert('Action toast clicked!') },
+    },
   }),
 };
 
