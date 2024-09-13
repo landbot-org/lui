@@ -1,7 +1,5 @@
 import { ReactNode } from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Box } from '../box';
 import { Button } from '../button';
 import { Spinner } from '../spinner';
@@ -62,7 +60,7 @@ export const WithoutIcon: Story = {
       <Story />
     </ToastProvider>
   ),
-  render: RenderStory('Information Single line', { showIcon: false }),
+  render: RenderStory('Information Single line', { hideIcon: true }),
 };
 
 export const WithoutClose: Story = {

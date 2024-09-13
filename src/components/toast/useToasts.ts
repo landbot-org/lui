@@ -1,7 +1,5 @@
 import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
-
 import { autoUpdate, inner, useFloating } from '@floating-ui/react';
-
 import { Options, ToastType, ToastsType } from './Toast.types';
 
 function generateUID() {
@@ -29,7 +27,7 @@ export function useToasts() {
     const newToast: ToastType = {
       id: generateUID(),
       message,
-      showIcon: options.showIcon,
+      hideIcon: options.hideIcon,
       hideCloseButton: options.hideCloseButton,
       action: options.action,
       variant: options.variant,

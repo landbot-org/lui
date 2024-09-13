@@ -18,7 +18,7 @@ type ToastContentProps = {
   variant?: ToastVariant;
   autoDismiss?: boolean;
   message: ReactNode;
-  showIcon?: boolean;
+  hideIcon?: boolean;
   icon?: ReactNode;
   hideCloseButton?: boolean;
   action?: {
@@ -38,7 +38,7 @@ const ICON_FROM_VARIANT: Record<ToastVariant, IconDefinition> = {
 
 export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
   (
-    { toastIndex, toastId, variant = 'success', autoDismiss, message, showIcon, icon, hideCloseButton, action },
+    { toastIndex, toastId, variant = 'success', autoDismiss, message, hideIcon, icon, hideCloseButton, action },
     propRef,
   ) => {
     const [timerId, setTimerId] = useState<number | null>(null);
@@ -93,15 +93,16 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
       <FloatingPortal>
         <ToastPositionAndLayout ref={propRef} $top={toastIndex * 100} $variant={variant} style={{ ...styles }}>
           <Box display="flex" alignItems="center" gap={16}>
-            {showIcon && Boolean(icon) ? (
-              <>{icon}</>
-            ) : (
-              <ToastIcon
-                aria-label="toast-icon"
-                $variant={variant}
-                icon={<FontAwesomeIcon icon={ICON_FROM_VARIANT[variant]} />}
-              />
-            )}
+            {!hideIcon &&
+              (icon ? (
+                <>{icon}</>
+              ) : (
+                <ToastIcon
+                  aria-label="toast-icon"
+                  $variant={variant}
+                  icon={<FontAwesomeIcon icon={ICON_FROM_VARIANT[variant]} />}
+                />
+              ))}
             <Box display="flex" flexGrow={1} flexShrink={1} flexBasis="0%">
               <Message>{message}</Message>
             </Box>

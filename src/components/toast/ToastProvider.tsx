@@ -1,7 +1,5 @@
 import React, { MutableRefObject, ReactNode, createContext, useContext } from 'react';
-
 import { ExtendedRefs, UseFloatingReturn, useMergeRefs } from '@floating-ui/react';
-
 import { ToastContent } from './Toast';
 import { Options, ToastsType } from './Toast.types';
 import { useToasts } from './useToasts';
@@ -36,7 +34,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={{ ...context }}>
       <div ref={ref}>
-        {context.toasts.map(({ id, message, variant, autoDismiss, showIcon, icon, hideCloseButton, action }, index) => (
+        {context.toasts.map(({ id, message, variant, autoDismiss, hideIcon, icon, hideCloseButton, action }, index) => (
           <ToastContent
             key={id}
             toastId={id}
@@ -46,7 +44,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               context.listRef.current[index] = node;
             }}
             toastIndex={index}
-            showIcon={showIcon}
+            hideIcon={hideIcon}
             icon={icon}
             hideCloseButton={hideCloseButton}
             message={message}

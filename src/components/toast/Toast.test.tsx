@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-
 import { render, screen, waitFor } from '../../test-utils';
 import { Button } from '../button';
 import { Options } from './Toast.types';
@@ -43,6 +42,13 @@ describe('Toast', () => {
     await user.click(screen.getByRole('button', { name: 'Add toast' }));
 
     await waitFor(() => expect(screen.getByLabelText('toast-icon')).toBeVisible());
+  });
+  it('should not render Toast icon when click in Button when hideIcon is true', async () => {
+    const { user } = renderComponent({ content: 'This is a sample test', options: { hideIcon: true } });
+
+    await user.click(screen.getByRole('button', { name: 'Add toast' }));
+
+    await waitFor(() => expect(screen.queryByLabelText('toast-icon')).toBeNull());
   });
   it('should render Toast action button when click in Button', async () => {
     const spyActionClick = jest.fn();
