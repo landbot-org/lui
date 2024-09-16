@@ -1,14 +1,5 @@
-import { FloatingOverlay } from '@floating-ui/react';
 import { styled } from 'styled-components';
-
 import { Box } from '../box';
-
-export const StyledFloatingOverlay = styled(FloatingOverlay)`
-  background-color: rgba(16, 22, 26, 0.7);
-  display: grid;
-  place-items: center;
-  z-index: 60;
-`;
 
 export const StyledContent = styled(Box)<{ $width: number }>`
   position: relative;

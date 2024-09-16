@@ -1,11 +1,9 @@
 import { HTMLProps, forwardRef } from 'react';
-
 import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui/react';
-
+import { Overlay } from '../overlay';
+import { StyledContent, StyledDialogCloseWrapper } from './Dialog.styles';
 import { DialogClose } from './DialogClose';
 import { useDialogContext } from './DialogContext';
-
-import { StyledContent, StyledDialogCloseWrapper, StyledFloatingOverlay } from './Dialog.styles';
 
 export const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>((props, propRef) => {
   const { context: floatingContext, ...context } = useDialogContext();
@@ -15,7 +13,7 @@ export const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement
 
   return (
     <FloatingPortal>
-      <StyledFloatingOverlay lockScroll>
+      <Overlay lockScroll>
         <FloatingFocusManager context={floatingContext}>
           <StyledContent
             backgroundColor="white.main"
@@ -32,7 +30,7 @@ export const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement
             {props.children}
           </StyledContent>
         </FloatingFocusManager>
-      </StyledFloatingOverlay>
+      </Overlay>
     </FloatingPortal>
   );
 });
