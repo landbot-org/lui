@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useState } from 'react';
+import { CSSProperties, HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useState } from 'react';
 import { FloatingPortal, useTransitionStyles } from '@floating-ui/react';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition, faCircleInfo, faTriangleExclamation } from '@fortawesome/pro-regular-svg-icons';
@@ -27,6 +27,7 @@ type ToastContentProps = {
     props?: ButtonProps;
     text?: string;
   };
+  style?: CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
 
 const ICON_FROM_VARIANT: Record<ToastVariant, IconDefinition> = {
@@ -38,7 +39,18 @@ const ICON_FROM_VARIANT: Record<ToastVariant, IconDefinition> = {
 
 export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
   (
-    { toastIndex, toastId, variant = 'success', autoDismiss, message, hideIcon, icon, hideCloseButton, action },
+    {
+      toastIndex,
+      toastId,
+      variant = 'success',
+      autoDismiss,
+      message,
+      hideIcon,
+      icon,
+      hideCloseButton,
+      action,
+      style = {},
+    },
     propRef,
   ) => {
     const [timerId, setTimerId] = useState<number | null>(null);
@@ -91,7 +103,12 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
 
     return (
       <FloatingPortal>
-        <ToastPositionAndLayout ref={propRef} $top={toastIndex * 100} $variant={variant} style={{ ...styles }}>
+        <ToastPositionAndLayout
+          ref={propRef}
+          $top={toastIndex * 100}
+          $variant={variant}
+          style={{ ...styles, ...style }}
+        >
           <Box display="flex" alignItems="center" gap={16}>
             {!hideIcon &&
               (icon ? (

@@ -34,23 +34,26 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={{ ...context }}>
       <div ref={ref}>
-        {context.toasts.map(({ id, message, variant, autoDismiss, hideIcon, icon, hideCloseButton, action }, index) => (
-          <ToastContent
-            key={id}
-            toastId={id}
-            variant={variant}
-            autoDismiss={autoDismiss}
-            ref={(node) => {
-              context.listRef.current[index] = node;
-            }}
-            toastIndex={index}
-            hideIcon={hideIcon}
-            icon={icon}
-            hideCloseButton={hideCloseButton}
-            message={message}
-            action={action}
-          />
-        ))}
+        {context.toasts.map(
+          ({ id, message, variant, autoDismiss, hideIcon, icon, hideCloseButton, action, style }, index) => (
+            <ToastContent
+              key={id}
+              toastId={id}
+              variant={variant}
+              autoDismiss={autoDismiss}
+              ref={(node) => {
+                context.listRef.current[index] = node;
+              }}
+              toastIndex={index}
+              hideIcon={hideIcon}
+              icon={icon}
+              hideCloseButton={hideCloseButton}
+              message={message}
+              action={action}
+              style={style}
+            />
+          ),
+        )}
       </div>
       {children}
     </ToastContext.Provider>
