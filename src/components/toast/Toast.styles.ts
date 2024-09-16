@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { ColorsTypes, Theme } from '../../shared/theme.types';
 import { Box } from '../box';
 import { Icon } from '../icon';
@@ -30,14 +29,15 @@ export const ToastPositionAndLayout = styled(Box).attrs<{ $variant: ToastVariant
 })`
   background-color: ${({ theme }) => theme.palette.white.main};
   border-top: 2px solid ${getColorFromVariant};
+  left: 0;
+  margin: auto;
   max-width: 560px;
-  width: fit-content;
+  overflow: hidden;
   position: absolute;
   right: 0;
-  left: 0;
   top: ${({ $top }) => $top}px;
-  margin: auto;
-  overflow: hidden;
+  width: fit-content;
+  z-index: 10;
 `;
 
 export const ToastIcon = styled(Icon).attrs<{ $variant: ToastVariant }>(({ $variant }) => ({
