@@ -11,7 +11,7 @@ const meta: Meta<typeof Table> = {
 export default meta;
 type Story = StoryObj<typeof Table>;
 
-const headers = ['Person', 'Most interest in', 'Age', 'test'];
+const headers = ['Person', 'Most interest in', 'Age', 'long text'];
 const data = [
   [
     'Chris',
@@ -32,7 +32,7 @@ const data = [
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrs standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
   ],
   ['Karen', 'Web performance', 36, 'Hello'],
-  ['Chris', 'HTML tables', 22, 'hi'],
+  ['Chris', 'HTML tables', 22, 'welcome'],
   [
     'Dennis',
     'Web accessibility',
@@ -50,7 +50,7 @@ export const Interactive: Story = {
         <TableHeader hasIndexCell={true} headers={headers}></TableHeader>
         <TableBody>
           {data.map((row, index) => (
-            <TableRow sizes={[200, 200, 200, 400]} key={index} values={row} index={index.toString()}></TableRow>
+            <TableRow sizes={[200, 200, 200, 400]} key={index} values={row} index={(index + 1).toString()}></TableRow>
           ))}
         </TableBody>
       </Table>
