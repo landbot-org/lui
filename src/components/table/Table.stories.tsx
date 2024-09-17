@@ -6,6 +6,9 @@ const meta: Meta<typeof Table> = {
   title: 'Components/Table',
   component: Table,
   tags: ['autodocs'],
+  args: {
+    hasIndex: true,
+  },
 };
 
 export default meta;
@@ -47,10 +50,15 @@ export const Interactive: Story = {
   render: function Render(args) {
     return (
       <Table>
-        <TableHeader hasIndexCell={true} headers={headers}></TableHeader>
+        <TableHeader hasIndexCell={args.hasIndex} headers={headers}></TableHeader>
         <TableBody>
           {data.map((row, index) => (
-            <TableRow sizes={[200, 200, 200, 400]} key={index} values={row} index={(index + 1).toString()}></TableRow>
+            <TableRow
+              sizes={[100, 200, 50, 400]}
+              key={index}
+              values={row}
+              index={args.hasIndex ? (index + 1).toString() : undefined}
+            />
           ))}
         </TableBody>
       </Table>

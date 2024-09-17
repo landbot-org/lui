@@ -1,8 +1,13 @@
 import { JSXElementConstructor, Key, ReactElement, ReactNode } from 'react';
 
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
 import { Box } from '../box';
+import { Button } from '../button';
+import { Icon } from '../icon';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 import { Typography } from '../typography';
 
 const StyledTable = styled.table`
@@ -18,18 +23,22 @@ const StyledHeaderCell = styled.th`
   border-style: solid;
   border-width: 1px;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
+  height: 40px;
 `;
 
 const IndexCell = styled.td`
-  width: 40px;
+  width: 50px;
+  height: 40px;
   border-style: solid;
   border-width: 1px;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
+  line-height: 50%;
 `;
 
 const StyledCell = styled.td<{ $width?: number }>`
   max-width: ${({ $width }) => $width ?? 200}px;
   width: ${({ $width }) => $width ?? 200}px;
+  height: 40px;
   border-style: solid;
   border-width: 1px;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
@@ -77,7 +86,7 @@ export const TableRow = ({
     <StyledRow key={index}>
       {index && (
         <IndexCell>
-          <Box p={1} display="flex" alignItems="center" justifyContent="center">
+          <Box pl={1} pr={1} display="flex" alignItems="center" justifyContent="center">
             <Typography variant="text16" fontWeight={400} color="blue.main">
               {index}
             </Typography>
@@ -85,18 +94,46 @@ export const TableRow = ({
         </IndexCell>
       )}
       {values.map((cell, index) => (
-        <StyledCell key={cell} $width={sizes[index]}>
-          <Box p={1} style={{}}>
-            <Typography
-              variant="text14"
-              fontWeight={400}
-              color="blue.main"
-              style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+        <Popover hasArrow={false} placement="bottom-start">
+          <PopoverContent>
+            <div
+              style={{
+                padding: '8px',
+                backgroundColor: 'white',
+                border: 'solid 2px #6361F0',
+                width: `${sizes[index]}px`,
+              }}
             >
-              {cell}
-            </Typography>
-          </Box>
-        </StyledCell>
+              <Typography variant="text14" fontWeight={400} color="blue.main">
+                {cell}
+              </Typography>
+              <Box display="flex" justifyContent="flex-end" style={{ width: '100%' }}>
+                <Button
+                  variant="text"
+                  color="purple.main"
+                  startIcon={<Icon icon={<FontAwesomeIcon icon={faCopy} />} />}
+                  onClick={() => {
+                    navigator.clipboard.writeText(cell.toString());
+                  }}
+                />
+              </Box>
+            </div>
+          </PopoverContent>
+          <PopoverTrigger>
+            <StyledCell key={cell} $width={sizes[index]}>
+              <Box pl={1} pr={1} style={{}}>
+                <Typography
+                  variant="text14"
+                  fontWeight={400}
+                  color="blue.main"
+                  style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                >
+                  {cell}
+                </Typography>
+              </Box>
+            </StyledCell>
+          </PopoverTrigger>
+        </Popover>
       ))}
     </StyledRow>
   );
