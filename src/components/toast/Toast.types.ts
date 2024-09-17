@@ -1,5 +1,4 @@
 import { CSSProperties, ReactNode } from 'react';
-import { ButtonColorTypes, ButtonProps, ButtonVariants } from '../button';
 
 export type ToastVariant = 'success' | 'info' | 'warning' | 'error';
 
@@ -9,12 +8,7 @@ export type Options = {
   hideIcon?: boolean;
   icon?: ReactNode;
   hideCloseButton?: boolean;
-  action?: {
-    variant?: ButtonVariants;
-    color?: ButtonColorTypes;
-    props?: ButtonProps;
-    text?: string;
-  };
+  action?: ReactNode;
   style?: CSSProperties;
 };
 
