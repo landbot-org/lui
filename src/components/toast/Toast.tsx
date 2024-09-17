@@ -5,7 +5,7 @@ import { IconDefinition, faCircleInfo, faTriangleExclamation } from '@fortawesom
 import { faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box } from '../box';
-import { Button, ButtonColorTypes, ButtonProps, ButtonVariants } from '../button';
+import { Button } from '../button';
 import { Icon } from '../icon';
 import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from './Toast.styles';
 import { ToastVariant } from './Toast.types';

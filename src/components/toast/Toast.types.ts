@@ -1,5 +1,4 @@
 import { CSSProperties, ReactNode } from 'react';
-import { ButtonColorTypes, ButtonProps, ButtonVariants } from '../button';
 
 export type ToastVariant = 'success' | 'info' | 'warning' | 'error';
 

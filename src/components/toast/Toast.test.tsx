@@ -70,7 +70,6 @@ describe('Toast', () => {
   });
 
   it('should render two Toast action buttons when click in Button', async () => {
-    const spyActionClick = jest.fn();
     const { user } = renderComponent({
       content: 'This is a sample test',
       options: {
