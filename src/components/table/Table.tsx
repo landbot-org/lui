@@ -64,57 +64,17 @@ const HeaderRow = ({ hasRowNumbers, headers }: { hasRowNumbers: boolean; headers
 };
 
 export const Table = () => {
-  const headers = ['Person', 'Most interest in', 'Age', 'Text'];
+  const headers = ['Person', 'Most interest in', 'Age'];
   const hasHeaders = headers.length > 0;
   const data = [
-    [
-      'Chris',
-      'HTML tables',
-      22,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
-    [
-      'Dennis',
-      'Web accessibility',
-      45,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
-    [
-      'Sarah',
-      'JavaScript frameworks',
-      29,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
-    [
-      'Karen',
-      'Web performance',
-      36,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
-    [
-      'Chris',
-      'HTML tables',
-      22,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
-    [
-      'Dennis',
-      'Web accessibility',
-      45,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
-    [
-      'Sarah',
-      'JavaScript frameworks',
-      29,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
-    [
-      'Karen',
-      'Web performance',
-      36,
-      'djjfdjasfkldjfklasjfldsakfjaslfjaslkdjsflkdasjflkasffdsaf fdasfdsaf fdsa f sf f dsfafafds fsdaf fdasfsdafdasfas ',
-    ],
+    ['Chris', 'HTML tables', 22],
+    ['Dennis', 'Web accessibility', 45],
+    ['Sarah', 'JavaScript frameworks', 29],
+    ['Karen', 'Web performance', 36],
+    ['Chris', 'HTML tables', 22],
+    ['Dennis', 'Web accessibility', 45],
+    ['Sarah', 'JavaScript frameworks', 29],
+    ['Karen', 'Web performance', 36],
   ];
   const hasRowNumbers = true;
 
