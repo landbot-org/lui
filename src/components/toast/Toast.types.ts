@@ -9,12 +9,7 @@ export type Options = {
   hideIcon?: boolean;
   icon?: ReactNode;
   hideCloseButton?: boolean;
-  action?: {
-    variant?: ButtonVariants;
-    color?: ButtonColorTypes;
-    props?: ButtonProps;
-    text?: string;
-  };
+  action?: ReactNode;
   style?: CSSProperties;
 };
 

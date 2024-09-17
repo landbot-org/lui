@@ -93,12 +93,39 @@ export const WithAction: Story = {
   render: RenderStory(
     'Multiple lines of text. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula.',
     {
-      action: {
-        variant: 'contained',
-        color: 'purple.main',
-        text: 'Call to action',
-        props: { onClick: () => alert('Action toast clicked!') },
-      },
+      action: (
+        <Button size="small" variant={'contained'} color={'purple.main'} onClick={() => alert('Action toast clicked!')}>
+          Call to action
+        </Button>
+      ),
+    },
+  ),
+};
+
+export const WithDoubleAction: Story = {
+  decorators: (Story) => (
+    <ToastProvider>
+      <Story />
+    </ToastProvider>
+  ),
+  render: RenderStory(
+    'Multiple lines of text. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula.',
+    {
+      action: (
+        <Box display="flex" gap={8}>
+          <Button
+            size="small"
+            variant={'contained'}
+            color={'purple.main'}
+            onClick={() => alert('Action toast clicked!')}
+          >
+            Call to action
+          </Button>
+          <Button size="small" variant={'outlined'} color={'purple.main'} onClick={() => alert('Refresh clicked!')}>
+            Refresh
+          </Button>
+        </Box>
+      ),
     },
   ),
 };
@@ -111,12 +138,11 @@ export const WithoutCloseAndWithAction: Story = {
   ),
   render: RenderStory('Information Single line', {
     hideCloseButton: true,
-    action: {
-      variant: 'contained',
-      color: 'purple.main',
-      text: 'Call to action',
-      props: { onClick: () => alert('Action toast clicked!') },
-    },
+    action: (
+      <Button size="small" variant={'contained'} color={'purple.main'} onClick={() => alert('Action toast clicked!')}>
+        Call to action
+      </Button>
+    ),
   }),
 };
 

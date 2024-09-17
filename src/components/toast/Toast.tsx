@@ -21,12 +21,7 @@ type ToastContentProps = {
   hideIcon?: boolean;
   icon?: ReactNode;
   hideCloseButton?: boolean;
-  action?: {
-    variant?: ButtonVariants;
-    color?: ButtonColorTypes;
-    props?: ButtonProps;
-    text?: string;
-  };
+  action?: ReactNode;
   style?: CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -123,16 +118,7 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
             <Box display="flex" flexGrow={1} flexShrink={1} flexBasis="0%">
               <Message>{message}</Message>
             </Box>
-            {action && (
-              <Button
-                size="small"
-                variant={action.variant || 'contained'}
-                color={action.color || 'purple.main'}
-                {...(action.props || {})}
-              >
-                {action.text}
-              </Button>
-            )}
+            {action}
             {!hideCloseButton && (
               <CloseButtonWrapper>
                 <Button

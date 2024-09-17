@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { render, screen, waitFor } from '../../test-utils';
+import { Box } from '../box';
 import { Button } from '../button';
 import { Options } from './Toast.types';
 import { ToastProvider, useToastsContext } from './ToastProvider';
@@ -54,18 +55,59 @@ describe('Toast', () => {
     const spyActionClick = jest.fn();
     const { user } = renderComponent({
       content: 'This is a sample test',
-      options: { action: { text: 'Action test', props: { onClick: spyActionClick } } },
+      options: {
+        action: (
+          <Button size="small" variant={'contained'} color={'purple.main'} onClick={spyActionClick}>
+            Action test
+          </Button>
+        ),
+      },
     });
 
     await user.click(screen.getByRole('button', { name: 'Add toast' }));
 
     await waitFor(() => expect(screen.getByRole('button', { name: 'Action test' })).toBeVisible());
   });
+
+  it('should render two Toast action buttons when click in Button', async () => {
+    const spyActionClick = jest.fn();
+    const { user } = renderComponent({
+      content: 'This is a sample test',
+      options: {
+        action: (
+          <Box display="flex" gap={8}>
+            <Button
+              size="small"
+              variant={'contained'}
+              color={'purple.main'}
+              onClick={() => alert('Action toast clicked!')}
+            >
+              Action test
+            </Button>
+            <Button size="small" variant={'outlined'} color={'purple.main'} onClick={() => alert('Refresh clicked!')}>
+              Refresh
+            </Button>
+          </Box>
+        ),
+      },
+    });
+
+    await user.click(screen.getByRole('button', { name: 'Add toast' }));
+
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Action test' })).toBeVisible());
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Refresh' })).toBeVisible());
+  });
   it('should call Toast action on click when click in Button and click in action button', async () => {
     const spyActionClick = jest.fn();
     const { user } = renderComponent({
       content: 'This is a sample test',
-      options: { action: { text: 'Action test', props: { onClick: spyActionClick } } },
+      options: {
+        action: (
+          <Button size="small" variant={'contained'} color={'purple.main'} onClick={spyActionClick}>
+            Action test
+          </Button>
+        ),
+      },
     });
 
     await user.click(screen.getByRole('button', { name: 'Add toast' }));
