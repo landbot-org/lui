@@ -7,7 +7,6 @@ import { Typography } from '../typography';
 
 const StyledTable = styled.table`
   border-collapse: collapse;
-  width: 100%;
   border-style: solid;
   border-width: 1px;
   border-color: gray;
@@ -21,21 +20,19 @@ const StyledHeaderCell = styled.th`
   border-color: ${({ theme }) => theme.palette.neutral[200]};
 `;
 
-const NumberCell = styled.td`
+const IndexCell = styled.td`
   width: 40px;
   border-style: solid;
   border-width: 1px;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
 `;
 
-const StyledCell = styled.td`
-  width: 200px;
+const StyledCell = styled.td<{ $width?: number }>`
+  max-width: ${({ $width }) => $width ?? 200}px;
+  width: ${({ $width }) => $width ?? 200}px;
   border-style: solid;
   border-width: 1px;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 `;
 
 const StyledRow = styled.tr`
@@ -44,11 +41,11 @@ const StyledRow = styled.tr`
   }
 `;
 
-const HeaderRow = ({ hasRowNumbers, headers }: { hasRowNumbers: boolean; headers: string[] }) => {
+export const TableHeader = ({ hasIndexCell, headers }: { hasIndexCell: boolean; headers: string[] }) => {
   return (
     <thead>
       <tr>
-        {hasRowNumbers && <StyledHeaderCell scope="col"></StyledHeaderCell>}
+        {hasIndexCell && <StyledHeaderCell scope="col"></StyledHeaderCell>}
         {headers.map((header) => (
           <StyledHeaderCell scope="col" key={header}>
             <Box p={1}>
@@ -63,48 +60,48 @@ const HeaderRow = ({ hasRowNumbers, headers }: { hasRowNumbers: boolean; headers
   );
 };
 
-export const Table = () => {
-  const headers = ['Person', 'Most interest in', 'Age'];
-  const hasHeaders = headers.length > 0;
-  const data = [
-    ['Chris', 'HTML tables', 22],
-    ['Dennis', 'Web accessibility', 45],
-    ['Sarah', 'JavaScript frameworks', 29],
-    ['Karen', 'Web performance', 36],
-    ['Chris', 'HTML tables', 22],
-    ['Dennis', 'Web accessibility', 45],
-    ['Sarah', 'JavaScript frameworks', 29],
-    ['Karen', 'Web performance', 36],
-  ];
-  const hasRowNumbers = true;
+export const TableBody = ({ children }: { children: ReactNode }) => {
+  return <tbody>{children}</tbody>;
+};
 
+export const TableRow = ({
+  index,
+  values,
+  sizes = [],
+}: {
+  index?: string;
+  values: (string | number)[];
+  sizes?: (number | undefined)[];
+}) => {
   return (
-    <StyledTable>
-      <HeaderRow hasRowNumbers={hasRowNumbers} headers={headers}></HeaderRow>
-      <tbody>
-        {data.map((row, index) => (
-          <StyledRow key={row[0]}>
-            {hasRowNumbers && (
-              <NumberCell>
-                <Box p={1} display="flex" alignItems="center" justifyContent="center" style={{ width: '100%' }}>
-                  <Typography variant="text16" fontWeight={400} color="blue.main">
-                    {index}
-                  </Typography>
-                </Box>
-              </NumberCell>
-            )}
-            {row.map((cell) => (
-              <StyledCell key={cell}>
-                <Box p={1}>
-                  <Typography variant="text14" fontWeight={400} color="blue.main">
-                    {cell}
-                  </Typography>
-                </Box>
-              </StyledCell>
-            ))}
-          </StyledRow>
-        ))}
-      </tbody>
-    </StyledTable>
+    <StyledRow key={index}>
+      {index && (
+        <IndexCell>
+          <Box p={1} display="flex" alignItems="center" justifyContent="center">
+            <Typography variant="text16" fontWeight={400} color="blue.main">
+              {index}
+            </Typography>
+          </Box>
+        </IndexCell>
+      )}
+      {values.map((cell, index) => (
+        <StyledCell key={cell} $width={sizes[index]}>
+          <Box p={1} style={{}}>
+            <Typography
+              variant="text14"
+              fontWeight={400}
+              color="blue.main"
+              style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+            >
+              {cell}
+            </Typography>
+          </Box>
+        </StyledCell>
+      ))}
+    </StyledRow>
   );
+};
+
+export const Table = ({ children }: { children: ReactNode }) => {
+  return <StyledTable>{children}</StyledTable>;
 };
