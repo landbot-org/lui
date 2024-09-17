@@ -34,7 +34,11 @@ export const WithToast: Story = {
         hideIcon: true,
         hideCloseButton: true,
         variant: 'error',
-        action: { text: 'Refresh', props: { onClick: () => window.location.reload() } },
+        action: (
+          <Button size="small" variant={'contained'} color={'purple.main'} onClick={() => window.location.reload()}>
+            Action test
+          </Button>
+        ),
         style: { zIndex: 100 },
       });
     };
