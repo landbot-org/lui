@@ -35,6 +35,7 @@ export const usePopover = ({
   closeOnClickInside = false,
   crossAxisOffset,
   usePortal = true,
+  mainAxisOffset,
 }: PopoverProps) => {
   const arrowRef = useRef(null);
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
@@ -62,7 +63,7 @@ export const usePopover = ({
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset({ mainAxis: hasArrow ? ARROW_HEIGHT + GAP : 0, crossAxis: crossAxisOffset ?? 0 }),
+      offset({ mainAxis: hasArrow ? ARROW_HEIGHT + GAP : mainAxisOffset ?? 0, crossAxis: crossAxisOffset ?? 0 }),
       arrow({
         element: arrowRef,
       }),
