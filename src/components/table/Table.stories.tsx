@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Table, TableBody, TableHeader, TableRow } from './Table';
 
 const meta: Meta<typeof Table> = {
@@ -21,6 +20,7 @@ const data = [
     'HTML tables',
     22,
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+    ,
   ],
   [
     'Dennis',
@@ -54,7 +54,7 @@ export const Interactive: Story = {
         <TableBody>
           {data.map((row, index) => (
             <TableRow
-              sizes={[100, 200, 50, 400]}
+              sizes={[100, 200, 100, 300]}
               key={index}
               values={row}
               index={args.hasIndex ? (index + 1).toString() : undefined}

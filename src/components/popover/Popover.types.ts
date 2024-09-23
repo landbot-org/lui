@@ -19,6 +19,7 @@ export interface PopoverProps {
   role?: 'dialog' | 'alertdialog' | 'tooltip' | 'menu' | 'listbox' | 'grid' | 'tree';
   crossAxisOffset?: number;
   usePortal?: boolean;
+  mainAxisOffset?: number;
 }
 
 export interface PopoverContentProps {

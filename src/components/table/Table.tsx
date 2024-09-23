@@ -1,14 +1,13 @@
-import { JSXElementConstructor, Key, ReactElement, ReactNode } from 'react';
-
+import { ReactNode } from 'react';
+import styled from 'styled-components';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
-
 import { Box } from '../box';
 import { Button } from '../button';
 import { Icon } from '../icon';
-import { Popover, PopoverContent, PopoverTrigger } from '../popover';
+import { Popover, PopoverTrigger } from '../popover';
 import { Typography } from '../typography';
+import { FloatingContent } from './FloaringContent';
 
 const StyledTable = styled.table`
   border-collapse: collapse;
@@ -94,16 +93,9 @@ export const TableRow = ({
         </IndexCell>
       )}
       {values.map((cell, index) => (
-        <Popover hasArrow={false} placement="bottom-start">
-          <PopoverContent>
-            <div
-              style={{
-                padding: '8px',
-                backgroundColor: 'white',
-                border: 'solid 2px #6361F0',
-                width: `${sizes[index]}px`,
-              }}
-            >
+        <Popover hasArrow={false} mainAxisOffset={-40} placement="bottom-start">
+          <FloatingContent floatingWidth={sizes[index]}>
+            <div>
               <Typography variant="text14" fontWeight={400} color="blue.main">
                 {cell}
               </Typography>
@@ -118,7 +110,7 @@ export const TableRow = ({
                 />
               </Box>
             </div>
-          </PopoverContent>
+          </FloatingContent>
           <PopoverTrigger>
             <StyledCell key={cell} $width={sizes[index]}>
               <Box pl={1} pr={1} style={{}}>
