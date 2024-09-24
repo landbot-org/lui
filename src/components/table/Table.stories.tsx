@@ -50,11 +50,10 @@ export const Interactive: Story = {
   render: function Render(args) {
     return (
       <Table>
-        <TableHeader hasIndexCell={args.hasIndex} headers={headers}></TableHeader>
         <TableBody>
           {data.map((row, index) => (
             <TableRow
-              sizes={[100, 200, 100, 300]}
+              // sizes={[100, 200, 100, 300]}
               key={index}
               values={row}
               index={args.hasIndex ? (index + 1).toString() : undefined}
