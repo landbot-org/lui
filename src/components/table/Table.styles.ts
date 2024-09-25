@@ -6,6 +6,7 @@ export const StyledTable = styled.div`
   border-style: solid;
   border-width: 0.5px;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
+  overflow-x: scroll;
 `;
 
 export const StyledTableBody = styled.div`
