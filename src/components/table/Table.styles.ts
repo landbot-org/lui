@@ -13,6 +13,8 @@ export const StyledTable = styled.div`
 
 export const StyledTableBody = styled.div``;
 
+export const StyledTableHeader = styled(Box).attrs({ display: 'flex' })``;
+
 export const StyledRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -21,11 +23,19 @@ export const StyledRow = styled.div`
   }
 `;
 
+export const StyledIndexCell = styled(Box).attrs({ display: 'flex', alignItems: 'center', justifyContent: 'center' })`
+  width: 50px;
+  height: 40px;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme.palette.neutral[200]};
+`;
+
 export const StyledCell = styled(Box).attrs({ pl: 1, pr: 1, display: 'flex', alignItems: 'center' })<{
   $width?: number;
 }>`
   width: ${({ $width }) => $width ?? 200}px;
-  min-width: 200px;
+  min-width: ${({ $width }) => $width ?? 200}px;
   height: 40px;
   border-width: 0.5px;
   border-style: solid;

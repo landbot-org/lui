@@ -1,6 +1,14 @@
 import { ReactNode } from 'react';
-import { Box } from '../box';
-import { StyledCell, StyledRow, StyledTable, StyledTableBody, StyledTableText } from './Table.styles';
+import { Typography } from '../typography';
+import {
+  StyledCell,
+  StyledIndexCell,
+  StyledRow,
+  StyledTable,
+  StyledTableBody,
+  StyledTableHeader,
+  StyledTableText,
+} from './Table.styles';
 
 export const TableTextCell = ({
   size,
@@ -18,6 +26,8 @@ export const TableTextCell = ({
   );
 };
 
+export const TablePopoverCell = () => {};
+
 export const TableHeaderCell = ({
   size,
   value,
@@ -34,18 +44,31 @@ export const TableHeaderCell = ({
   );
 };
 
-export const TablePopoverCell = () => {};
-
-export const TableHeader = ({ children }: { children: ReactNode }) => {
-  return <Box display="flex">{children}</Box>;
-};
-
-export const TableRow = ({ children }: { children: ReactNode }) => {
-  return <StyledRow>{children}</StyledRow>;
+export const TableRow = ({ children, index }: { children: ReactNode; index: string }) => {
+  return (
+    <StyledRow>
+      {index && (
+        <StyledIndexCell>
+          <Typography fontWeight={500} variant="text16" color="blue.main">
+            {index}
+          </Typography>
+        </StyledIndexCell>
+      )}
+      {children}
+    </StyledRow>
+  );
 };
 
 export const TableBody = ({ children }: { children: ReactNode }) => {
   return <StyledTableBody>{children}</StyledTableBody>;
+};
+export const TableHeader = ({ children, index }: { children: ReactNode; index?: boolean }) => {
+  return (
+    <StyledTableHeader>
+      {index && <StyledIndexCell />}
+      {children}
+    </StyledTableHeader>
+  );
 };
 
 export const Table = ({ children }: { children: ReactNode }) => {

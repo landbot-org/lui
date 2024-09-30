@@ -49,13 +49,13 @@ const data = [
   ['Karen', 'Web performance', 36, 'bay'],
 ];
 
-const sizes = [100, 200, 100, 300];
+const sizes = [200, 200, 200, 200];
 
 export const Interactive: Story = {
   render: function Render() {
     return (
       <Table>
-        <TableHeader>
+        <TableHeader index>
           {headers.map((header, i) => {
             return (
               <TableHeaderCell value={header} size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined} />
@@ -64,7 +64,7 @@ export const Interactive: Story = {
         </TableHeader>
         <TableBody>
           {data.map((row, i) => (
-            <TableRow key={i}>
+            <TableRow index={i.toString()} key={i}>
               {row.map((cell, j) => {
                 return (
                   <TableTextCell
