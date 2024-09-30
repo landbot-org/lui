@@ -50,3 +50,12 @@ export const StyledTableText = styled(Typography).attrs({
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
+export const StyledFloatingContent = styled.div<{ $width?: number }>`
+  width: ${({ $width }) => $width ?? 200}px;
+  padding: 8px;
+  background-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #6361f0;
+`;
