@@ -12,10 +12,6 @@ export const StyledTable = styled.div`
   display: grid;
 `;
 
-export const StyledTableBody = styled.div``;
-
-export const StyledTableHeader = styled(Box).attrs({ display: 'flex' })``;
-
 export const StyledRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -41,6 +37,14 @@ export const StyledCell = styled(Box).attrs({ pl: 1, pr: 1, display: 'flex', ali
   border-width: 0.5px;
   border-style: solid;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
+`;
+
+export const StyledPopoverCell = styled(StyledCell)`
+  cursor: pointer;
+`;
+
+export const StyledPopoverButtonWrapper = styled(Box).attrs({ display: 'flex', justifyContent: 'flex-end' })`
+  width: 100%;
 `;
 
 export const StyledTableText = styled(Typography).attrs({

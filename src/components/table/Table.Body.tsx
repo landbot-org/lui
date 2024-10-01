@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { StyledTableBody } from './Table.styles';
+import { Box } from '../box';
 
 export const TableBody = ({ children }: { children: ReactNode }) => {
-  return <StyledTableBody>{children}</StyledTableBody>;
+  return <Box>{children}</Box>;
 };

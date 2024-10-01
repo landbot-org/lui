@@ -1,11 +1,17 @@
 import { ReactNode } from 'react';
-import { StyledIndexCell, StyledTableHeader } from './Table.styles';
+import { Box } from '../box';
+import { StyledIndexCell } from './Table.styles';
 
-export const TableHeader = ({ children, index }: { children: ReactNode; index?: boolean }) => {
+type TableHeaderProps = {
+  children: ReactNode;
+  index?: boolean;
+};
+
+export const TableHeader = ({ children, index }: TableHeaderProps) => {
   return (
-    <StyledTableHeader>
+    <Box display="flex">
       {index && <StyledIndexCell />}
       {children}
-    </StyledTableHeader>
+    </Box>
   );
 };

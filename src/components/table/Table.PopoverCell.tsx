@@ -2,14 +2,14 @@ import React, { HTMLProps } from 'react';
 import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box } from '../box';
 import { Button } from '../button';
 import { Icon } from '../icon';
 import { Popover, PopoverTrigger } from '../popover';
 import { PopoverContentProps } from '../popover';
 import { usePopoverContext } from '../popover/PopoverContext';
 import { Typography } from '../typography';
-import { StyledCell, StyledTableText } from './Table.styles';
+import { CellProps } from './Table.Types';
+import { StyledPopoverButtonWrapper, StyledPopoverCell, StyledTableText } from './Table.styles';
 import { StyledFloatingContent } from './Table.styles';
 
 const FloatingContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps) => {
@@ -32,22 +32,14 @@ const FloatingContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps)
   );
 };
 
-export const TablePopoverCell = ({
-  size,
-  value,
-  flexGrow,
-}: {
-  value: string | number;
-  size?: number;
-  flexGrow?: number;
-}) => {
+export const TablePopoverCell = ({ size, value, flexGrow }: CellProps) => {
   return (
     <Popover hasArrow={false} mainAxisOffset={-40} placement="bottom-end" fitInContaier>
       <FloatingContent width={size}>
         <Typography color="blue.main" variant="text14" fontWeight={400}>
           {value}
         </Typography>
-        <Box display="flex" justifyContent="flex-end" style={{ width: '100%' }}>
+        <StyledPopoverButtonWrapper>
           <Button
             variant="text"
             color="purple.main"
@@ -56,12 +48,12 @@ export const TablePopoverCell = ({
               navigator.clipboard.writeText(value.toString());
             }}
           />
-        </Box>
+        </StyledPopoverButtonWrapper>
       </FloatingContent>
       <PopoverTrigger>
-        <StyledCell $width={size} flexGrow={flexGrow} style={{ cursor: 'pointer' }}>
+        <StyledPopoverCell $width={size} flexGrow={flexGrow}>
           <StyledTableText fontWeight={400}>{value}</StyledTableText>
-        </StyledCell>
+        </StyledPopoverCell>
       </PopoverTrigger>
     </Popover>
   );

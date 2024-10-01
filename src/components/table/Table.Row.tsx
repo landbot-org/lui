@@ -2,7 +2,12 @@ import { ReactNode } from 'react';
 import { Typography } from '../typography';
 import { StyledIndexCell, StyledRow } from './Table.styles';
 
-export const TableRow = ({ children, index }: { children: ReactNode; index: string }) => {
+type TableRowProps = {
+  children: ReactNode;
+  index?: string;
+};
+
+export const TableRow = ({ children, index }: TableRowProps) => {
   return (
     <StyledRow>
       {index && (
