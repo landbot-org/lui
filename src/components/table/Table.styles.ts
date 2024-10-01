@@ -3,10 +3,13 @@ import { Box } from '../box';
 import { Typography } from '../typography';
 import { CELL_HEIGHT, CELL_WIDTH } from './Table.constants';
 
-export const StyledTable = styled.div`
+const StyledGridBorder = styled(Box)`
   border-style: solid;
   border-width: 0.5px;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
+`;
+
+export const StyledTable = styled(StyledGridBorder)`
   overflow-x: scroll;
   width: 100%;
   display: grid;
@@ -20,23 +23,21 @@ export const StyledRow = styled.div`
   }
 `;
 
-export const StyledIndexCell = styled(Box).attrs({ display: 'flex', alignItems: 'center', justifyContent: 'center' })`
+export const StyledIndexCell = styled(StyledGridBorder).attrs({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+})`
   width: 50px;
   height: ${CELL_HEIGHT}px;
-  border-width: 0.5px;
-  border-style: solid;
-  border-color: ${({ theme }) => theme.palette.neutral[200]};
 `;
 
-export const StyledCell = styled(Box).attrs({ pl: 1, pr: 1, display: 'flex', alignItems: 'center' })<{
+export const StyledCell = styled(StyledGridBorder).attrs({ pl: 1, pr: 1, display: 'flex', alignItems: 'center' })<{
   $width?: number;
 }>`
   width: ${({ $width }) => $width ?? CELL_WIDTH}px;
   min-width: ${({ $width }) => $width ?? CELL_WIDTH}px;
   height: ${CELL_HEIGHT}px;
-  border-width: 0.5px;
-  border-style: solid;
-  border-color: ${({ theme }) => theme.palette.neutral[200]};
 `;
 
 export const StyledPopoverCell = styled(StyledCell)`
@@ -61,5 +62,5 @@ export const StyledFloatingContent = styled.div<{ $width?: number }>`
   background-color: white;
   border-style: solid;
   border-width: 2px;
-  border-color: #6361f0;
+  border-color: ${({ theme }) => theme.palette.purple.main};
 `;
