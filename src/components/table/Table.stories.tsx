@@ -60,29 +60,27 @@ const sizes = [200, 200, 200, 200];
 export const Interactive: Story = {
   render: function Render() {
     return (
-      <>
-        <Table>
-          <TableHeader index>
-            {headers.map((header, i) => {
-              return (
-                <TableHeaderCell value={header} size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined} />
-              );
-            })}
-          </TableHeader>
-          <TableBody>
-            {data.map((row, i) => (
-              <TableRow index={i.toString()} key={i}>
-                {row.map((cell, j) => {
-                  if (row.length - 1 === j) {
-                    return <TablePopoverCell flexGrow={1} size={sizes[j]} key={cell} value={cell.toString()} />;
-                  }
-                  return <TableTextCell value={cell} key={cell} size={sizes[j]} />;
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </>
+      <Table>
+        <TableHeader index>
+          {headers.map((header, i) => {
+            return (
+              <TableHeaderCell value={header} size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined} />
+            );
+          })}
+        </TableHeader>
+        <TableBody>
+          {data.map((row, i) => (
+            <TableRow index={i.toString()} key={i}>
+              {row.map((cell, j) => {
+                if (row.length - 1 === j) {
+                  return <TablePopoverCell flexGrow={1} size={sizes[j]} key={cell} value={cell.toString()} />;
+                }
+                return <TableTextCell value={cell} key={cell} size={sizes[j]} />;
+              })}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     );
   },
 };
