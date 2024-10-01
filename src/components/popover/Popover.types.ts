@@ -1,5 +1,4 @@
 import { MutableRefObject, ReactNode } from 'react';
-
 import { Placement } from '@floating-ui/react';
 
 export interface PopoverProps {
@@ -20,6 +19,7 @@ export interface PopoverProps {
   crossAxisOffset?: number;
   usePortal?: boolean;
   mainAxisOffset?: number;
+  fitInContaier?: boolean;
 }
 
 export interface PopoverContentProps {

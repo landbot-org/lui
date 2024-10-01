@@ -1,7 +1,2 @@
-import { DividerSize } from './Divider.types';
-
-export const DIMENSIONS: Record<DividerSize, number> = {
-  small: 1,
-  medium: 2,
-  large: 4,
-};
+export const CELL_HEIGHT = 40;
+export const CELL_WIDTH = 200;

@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { Box } from '../box';
 import { Typography } from '../typography';
+import { CELL_HEIGHT, CELL_WIDTH } from './Table.constants';
 
 export const StyledTable = styled.div`
   border-style: solid;
@@ -25,7 +26,7 @@ export const StyledRow = styled.div`
 
 export const StyledIndexCell = styled(Box).attrs({ display: 'flex', alignItems: 'center', justifyContent: 'center' })`
   width: 50px;
-  height: 40px;
+  height: ${CELL_HEIGHT}px;
   border-width: 0.5px;
   border-style: solid;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
@@ -34,9 +35,9 @@ export const StyledIndexCell = styled(Box).attrs({ display: 'flex', alignItems: 
 export const StyledCell = styled(Box).attrs({ pl: 1, pr: 1, display: 'flex', alignItems: 'center' })<{
   $width?: number;
 }>`
-  width: ${({ $width }) => $width ?? 200}px;
-  min-width: ${({ $width }) => $width ?? 200}px;
-  height: 40px;
+  width: ${({ $width }) => $width ?? CELL_WIDTH}px;
+  min-width: ${({ $width }) => $width ?? CELL_WIDTH}px;
+  height: ${CELL_HEIGHT}px;
   border-width: 0.5px;
   border-style: solid;
   border-color: ${({ theme }) => theme.palette.neutral[200]};
@@ -52,7 +53,6 @@ export const StyledTableText = styled(Typography).attrs({
 `;
 
 export const StyledFloatingContent = styled.div<{ $width?: number }>`
-  width: ${({ $width }) => $width ?? 200}px;
   padding: 8px;
   background-color: white;
   border-style: solid;

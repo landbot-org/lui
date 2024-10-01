@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-
 import {
   arrow,
   autoUpdate,
   flip,
   offset,
   safePolygon,
+  size,
   useClick,
   useDismiss,
   useFloating,
@@ -13,7 +13,6 @@ import {
   useInteractions,
   useRole,
 } from '@floating-ui/react';
-
 import { PopoverProps } from './Popover.types';
 
 const ARROW_HEIGHT = 7;
@@ -36,6 +35,7 @@ export const usePopover = ({
   crossAxisOffset,
   usePortal = true,
   mainAxisOffset,
+  fitInContaier = false,
 }: PopoverProps) => {
   const arrowRef = useRef(null);
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
@@ -63,11 +63,20 @@ export const usePopover = ({
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset({ mainAxis: hasArrow ? ARROW_HEIGHT + GAP : mainAxisOffset ?? 0, crossAxis: crossAxisOffset ?? 0 }),
+      offset({ mainAxis: hasArrow ? ARROW_HEIGHT + GAP : (mainAxisOffset ?? 0), crossAxis: crossAxisOffset ?? 0 }),
       arrow({
         element: arrowRef,
       }),
       flip(),
+      fitInContaier &&
+        size({
+          apply({ rects, elements }) {
+            Object.assign(elements.floating.style, {
+              minWidth: `${rects.reference.width}px`,
+              maxWidth: `${rects.reference.width}px`,
+            });
+          },
+        }),
     ],
   });
 
