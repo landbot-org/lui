@@ -1,7 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Table, TableBody, TableHeader, TableRow } from './Table';
+import { TableHeader } from '.';
+import { Table } from './Table';
+import { TableBody } from './Table.Body';
 import { TableHeaderCell } from './Table.HeaderCell';
 import { TablePopoverCell } from './Table.PopoverCell';
+import { TableRow } from './Table.Row';
 import { TableTextCell } from './Table.TextCell';
 
 const meta: Meta<typeof Table> = {
@@ -71,7 +74,7 @@ export const Interactive: Story = {
               <TableRow index={i.toString()} key={i}>
                 {row.map((cell, j) => {
                   if (row.length - 1 === j) {
-                    return <TablePopoverCell flexGrow={1} size={sizes[j]} value={cell.toString()}></TablePopoverCell>;
+                    return <TablePopoverCell flexGrow={1} size={sizes[j]} key={cell} value={cell.toString()} />;
                   }
                   return <TableTextCell value={cell} key={cell} size={sizes[j]} />;
                 })}
