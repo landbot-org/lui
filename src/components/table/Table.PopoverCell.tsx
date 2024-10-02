@@ -8,9 +8,9 @@ import { Popover, PopoverTrigger } from '../popover';
 import { PopoverContentProps } from '../popover';
 import { usePopoverContext } from '../popover/PopoverContext';
 import { Typography } from '../typography';
-import { CellProps } from './Table.Types';
 import { StyledPopoverButtonWrapper, StyledPopoverCell, StyledTableText } from './Table.styles';
 import { StyledFloatingContent } from './Table.styles';
+import { CellProps } from './Table.types';
 
 const FloatingContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps) => {
   const { context: floatingContext, ...context } = usePopoverContext();
