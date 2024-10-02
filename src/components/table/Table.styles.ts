@@ -51,6 +51,7 @@ export const StyledPopoverButtonWrapper = styled(Box).attrs({ display: 'flex', j
 export const StyledTableText = styled(Typography).attrs({
   color: 'blue.main',
   variant: 'text14',
+  fontWeight: 500,
 })`
   white-space: nowrap;
   overflow: hidden;
