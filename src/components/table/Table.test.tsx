@@ -5,7 +5,7 @@ import { TablePopoverCell } from './Table.PopoverCell';
 import { TableRow } from './Table.Row';
 import { TableTextCell } from './Table.TextCell';
 
-describe('Tab;e', () => {
+describe('Table', () => {
   it('should render values of cells on the table', () => {
     render(
       <Table>
