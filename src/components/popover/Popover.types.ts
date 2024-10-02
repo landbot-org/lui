@@ -1,5 +1,4 @@
 import { MutableRefObject, ReactNode } from 'react';
-
 import { Placement } from '@floating-ui/react';
 
 export interface PopoverProps {
@@ -19,6 +18,8 @@ export interface PopoverProps {
   role?: 'dialog' | 'alertdialog' | 'tooltip' | 'menu' | 'listbox' | 'grid' | 'tree';
   crossAxisOffset?: number;
   usePortal?: boolean;
+  mainAxisOffset?: number;
+  fitInContaier?: boolean;
 }
 
 export interface PopoverContentProps {

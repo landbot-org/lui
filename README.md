@@ -4,6 +4,8 @@
 license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/landbot-org/lui/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/@landbot/lui)](https://www.npmjs.com/package/@landbot/lui)
 [![Build](https://github.com/landbot-org/lui/actions/workflows/build.yml/badge.svg)](https://github.com/landbot-org/lui/actions/workflows/build.yml)
+<a href="https://main--638dbcc7869db28ad2ebd96d.chromatic.com/" target="_blank"><img
+src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg" alt="Chromatic link" /></a>
 
 ## What is a UI components library?
 
@@ -50,8 +52,8 @@ npm install @landbot/lui
 Import on the root of the project
 
 ```js
-import { theme } from '@landbot/lui';
 import { ThemeProvider } from 'styled-components';
+import { theme } from '@landbot/lui';
 ```
 
 Wrap the project with the provider
@@ -63,5 +65,5 @@ const App = () => {
       <div className="App">//react app</div>
     </ThemeProvider>
   );
-}
+};
 ```
