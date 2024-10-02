@@ -50,7 +50,7 @@ describe('Tab;e', () => {
       </Table>,
     );
 
-    expect(screen.queryAllByText('cell 1')).toHaveLength(1);
+    expect(screen.getAllByText('cell 1')).toHaveLength(1);
   });
 
   it('Should open Popover when clicking on popover cell', async () => {
@@ -73,6 +73,6 @@ describe('Tab;e', () => {
 
     await user.click(screen.getByText('cell 1'));
 
-    expect(screen.queryAllByText('cell 1')).toHaveLength(2);
+    expect(screen.getAllByText('cell 1')).toHaveLength(2);
   });
 });
