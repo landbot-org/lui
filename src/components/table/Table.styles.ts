@@ -64,4 +64,5 @@ export const StyledFloatingContent = styled.div<{ $width?: number }>`
   border-style: solid;
   border-width: 2px;
   border-color: ${({ theme }) => theme.palette.purple.main};
+  overflow-wrap: break-word;
 `;
