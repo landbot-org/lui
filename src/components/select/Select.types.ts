@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
+import { TextFieldProps } from '../text-field';
 
 export interface SelectItemProps {
   label: string;
@@ -19,4 +20,8 @@ export interface SelectProps {
   helperText?: string;
   noResults?: string;
   disabled?: boolean;
+  variant?: TextFieldProps['variant'];
+  styles?: {
+    input?: CSSProperties;
+  };
 }

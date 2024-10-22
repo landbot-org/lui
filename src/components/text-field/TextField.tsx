@@ -1,14 +1,11 @@
 import { MouseEventHandler, forwardRef, useId, useRef } from 'react';
-
 import { useMergeRefs } from '@floating-ui/react';
-
 import { Box } from '../box';
 import { FormHelperText } from '../form-helper-text';
 import { FormLabel } from '../form-label';
 import { Typography } from '../typography';
-import { TextFieldProps } from './TextField.types';
-
 import { StyledInput, StyledInputGroup } from './TextField.styles';
+import { TextFieldProps } from './TextField.types';
 
 export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
   (
@@ -25,6 +22,8 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
       inputRef: propInputRef = null,
       inputGroupProps,
       readOnly,
+      variant = 'regular',
+      styles,
       ...rest
     },
     ref,
@@ -50,7 +49,14 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
             {description && <Typography variant="text14">{description}</Typography>}
           </FormLabel>
         )}
-        <StyledInputGroup {...inputGroupProps} $disabled={disabled} $error={error} onClick={handleInputGroupClick}>
+        <StyledInputGroup
+          {...inputGroupProps}
+          $disabled={disabled}
+          $error={error}
+          $variant={variant}
+          onClick={handleInputGroupClick}
+          style={styles?.input}
+        >
           {startAdornment && (
             <Box display="flex" alignItems="center" onClick={(e) => e.stopPropagation()} mr={1}>
               {startAdornment}

@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import {
   inputBackgroundStyle,
   inputBorderStyle,
@@ -10,11 +9,13 @@ import {
 } from '../../shared/inputStyles';
 import { pxToRem } from '../../shared/mixins';
 import type { Theme } from '../../shared/theme.types';
+import { TextFieldProps } from './TextField.types';
 
 interface FormInputProps {
   theme: Theme;
   $disabled?: boolean;
   $error?: boolean | null;
+  $variant?: TextFieldProps['variant'];
 }
 
 export const StyledInputGroup = styled.div<FormInputProps>`
@@ -22,7 +23,7 @@ export const StyledInputGroup = styled.div<FormInputProps>`
   ${inputBackgroundStyle}
   ${inputGroupColorStyle}
   ${inputCursorStyle}
-  height: ${pxToRem(40)}rem;
+  height: ${({ $variant }) => ($variant === 'small' ? pxToRem(32) : pxToRem(40))}rem;
   padding: 0 ${pxToRem(16)}rem;
   display: flex;
   align-items: center;

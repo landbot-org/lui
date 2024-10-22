@@ -1,5 +1,4 @@
 import { forwardRef, useRef, useState } from 'react';
-
 import {
   FloatingFocusManager,
   FloatingPortal,
@@ -13,14 +12,12 @@ import {
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
-
 import { Box } from '../box';
 import { TextField } from '../text-field';
 import { Typography } from '../typography';
+import { StyledSelect } from './Select.styles';
 import { SelectItemProps, SelectProps } from './Select.types';
 import { SelectItem } from './SelectItem';
-
-import { StyledSelect } from './Select.styles';
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
   (
@@ -38,6 +35,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       label,
       noResults = 'NO RESULTS...',
       disabled = false,
+      variant = 'regular',
+      styles,
     }: SelectProps,
     ref,
   ) => {
@@ -104,6 +103,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
               }
             },
           })}
+          variant={variant}
+          styles={styles}
         />
 
         <FloatingPortal>
