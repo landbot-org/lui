@@ -1,10 +1,10 @@
 import { StyledCell, StyledTableText } from './Table.styles';
 import { CellProps } from './Table.types';
 
-export const TableTextCell = ({ size, value, flexGrow }: CellProps) => {
+export const TableTextCell = ({ size, flexGrow, children }: CellProps) => {
   return (
     <StyledCell $width={size} flexGrow={flexGrow}>
-      <StyledTableText fontWeight={400}>{value}</StyledTableText>
+      <StyledTableText fontWeight={400}>{children}</StyledTableText>
     </StyledCell>
   );
 };

@@ -64,7 +64,9 @@ export const Interactive: Story = {
         <TableHeader index>
           {headers.map((header, i) => {
             return (
-              <TableHeaderCell value={header} size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined} />
+              <TableHeaderCell size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined}>
+                {header}
+              </TableHeaderCell>
             );
           })}
         </TableHeader>
@@ -73,9 +75,17 @@ export const Interactive: Story = {
             <TableRow index={i.toString()} key={i}>
               {row.map((cell, j) => {
                 if (row.length - 1 === j) {
-                  return <TablePopoverCell flexGrow={1} size={sizes[j]} key={cell} value={cell.toString()} />;
+                  return (
+                    <TablePopoverCell flexGrow={1} size={sizes[j]} key={cell}>
+                      {cell.toString()}
+                    </TablePopoverCell>
+                  );
                 }
-                return <TableTextCell value={cell} key={cell} size={sizes[j]} />;
+                return (
+                  <TableTextCell key={cell} size={sizes[j]}>
+                    {cell}
+                  </TableTextCell>
+                );
               })}
             </TableRow>
           ))}
