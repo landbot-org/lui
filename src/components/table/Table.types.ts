@@ -1,5 +1,7 @@
+import { ReactNode } from 'react';
+
 export type CellProps = {
-  value: string | number;
+  children: ReactNode;
   size?: number;
   flexGrow?: number;
 };

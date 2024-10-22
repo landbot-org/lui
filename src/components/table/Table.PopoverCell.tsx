@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps, ReactNode } from 'react';
 import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,27 +32,43 @@ const FloatingContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps)
   );
 };
 
-export const TablePopoverCell = ({ size, value, flexGrow }: CellProps) => {
+export const TablePopoverCell = ({ size, children, flexGrow }: CellProps) => {
+  const copyToClipboard = () => {
+    const extractTextFromChildren = (node: ReactNode): string => {
+      if (typeof node === 'string') {
+        return node;
+      }
+      if (Array.isArray(node)) {
+        return node.map(extractTextFromChildren).join('');
+      }
+      if (React.isValidElement(node)) {
+        return extractTextFromChildren(node.props.children);
+      }
+      return '';
+    };
+
+    const text = extractTextFromChildren(children);
+    navigator.clipboard.writeText(text);
+  };
+
   return (
     <Popover hasArrow={false} mainAxisOffset={-40} placement="bottom-end" fitInContaier>
       <FloatingContent width={size}>
         <Typography color="blue.main" variant="text14" fontWeight={400}>
-          {value}
+          {children}
         </Typography>
         <StyledPopoverButtonWrapper>
           <Button
             variant="text"
             color="purple.main"
             startIcon={<Icon icon={<FontAwesomeIcon icon={faCopy} />} />}
-            onClick={() => {
-              navigator.clipboard.writeText(value.toString());
-            }}
+            onClick={copyToClipboard}
           />
         </StyledPopoverButtonWrapper>
       </FloatingContent>
       <PopoverTrigger>
         <StyledPopoverCell $width={size} flexGrow={flexGrow}>
-          <StyledTableText fontWeight={400}>{value}</StyledTableText>
+          <StyledTableText fontWeight={400}>{children}</StyledTableText>
         </StyledPopoverCell>
       </PopoverTrigger>
     </Popover>

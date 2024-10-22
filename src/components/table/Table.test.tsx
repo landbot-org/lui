@@ -11,14 +11,14 @@ describe('Table', () => {
       <Table>
         <TableBody>
           <TableRow>
-            <TableTextCell value={'cell 1'} />
-            <TableTextCell value={'cell 2'} />
-            <TableTextCell value={'cell 3'} />
+            <TableTextCell>cell 1</TableTextCell>
+            <TableTextCell>cell 2</TableTextCell>
+            <TableTextCell>cell 3</TableTextCell>
           </TableRow>
           <TableRow>
-            <TableTextCell value={'cell 4'} />
-            <TableTextCell value={'cell 5'} />
-            <TableTextCell value={'cell 6'} />
+            <TableTextCell>cell 4</TableTextCell>
+            <TableTextCell>cell 5</TableTextCell>
+            <TableTextCell>cell 6</TableTextCell>
           </TableRow>
         </TableBody>
       </Table>,
@@ -37,14 +37,14 @@ describe('Table', () => {
       <Table>
         <TableBody>
           <TableRow>
-            <TablePopoverCell value={'cell 1'} />
-            <TablePopoverCell value={'cell 2'} />
-            <TablePopoverCell value={'cell 3'} />
+            <TablePopoverCell>cell 1</TablePopoverCell>
+            <TablePopoverCell>cell 2</TablePopoverCell>
+            <TablePopoverCell>cell 3</TablePopoverCell>
           </TableRow>
           <TableRow>
-            <TablePopoverCell value={'cell 4'} />
-            <TablePopoverCell value={'cell 5'} />
-            <TablePopoverCell value={'cell 6'} />
+            <TablePopoverCell>cell 4</TablePopoverCell>
+            <TablePopoverCell>cell 5</TablePopoverCell>
+            <TablePopoverCell>cell 6</TablePopoverCell>
           </TableRow>
         </TableBody>
       </Table>,
@@ -58,14 +58,14 @@ describe('Table', () => {
       <Table>
         <TableBody>
           <TableRow>
-            <TablePopoverCell value={'cell 1'} />
-            <TablePopoverCell value={'cell 2'} />
-            <TablePopoverCell value={'cell 3'} />
+            <TablePopoverCell>cell 1</TablePopoverCell>
+            <TablePopoverCell>cell 2</TablePopoverCell>
+            <TablePopoverCell>cell 3</TablePopoverCell>
           </TableRow>
           <TableRow>
-            <TablePopoverCell value={'cell 4'} />
-            <TablePopoverCell value={'cell 5'} />
-            <TablePopoverCell value={'cell 6'} />
+            <TablePopoverCell>cell 4</TablePopoverCell>
+            <TablePopoverCell>cell 5</TablePopoverCell>
+            <TablePopoverCell>cell 6</TablePopoverCell>
           </TableRow>
         </TableBody>
       </Table>,
