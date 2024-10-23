@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { TableHeader } from '.';
 import { Table } from './Table';
 import { TableBody } from './Table.Body';
+import { TableHeader } from './Table.Header';
 import { TableHeaderCell } from './Table.HeaderCell';
+import { TablePaginationFooter } from './Table.PaginationFooter';
 import { TablePopoverCell } from './Table.PopoverCell';
 import { TableRow } from './Table.Row';
 import { TableTextCell } from './Table.TextCell';
@@ -90,6 +91,7 @@ export const Interactive: Story = {
             </TableRow>
           ))}
         </TableBody>
+        <TablePaginationFooter currentPage={1} totalPages={10} onPageChange={() => {}} />
       </Table>
     );
   },

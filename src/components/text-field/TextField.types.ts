@@ -1,4 +1,4 @@
-import { HTMLAttributes, InputHTMLAttributes, ReactNode, RefObject } from 'react';
+import { CSSProperties, HTMLAttributes, InputHTMLAttributes, ReactNode, RefObject } from 'react';
 
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -9,4 +9,8 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   startAdornment?: ReactNode;
   inputRef?: RefObject<HTMLInputElement>;
   inputGroupProps?: HTMLAttributes<HTMLDivElement>;
+  variant?: 'small' | 'regular';
+  styles?: {
+    input?: CSSProperties;
+  };
 }
