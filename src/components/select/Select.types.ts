@@ -21,6 +21,7 @@ export interface SelectProps {
   noResults?: string;
   disabled?: boolean;
   variant?: TextFieldProps['variant'];
+  ariaLabel?: string;
   styles?: {
     input?: CSSProperties;
   };
