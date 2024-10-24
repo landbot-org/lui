@@ -5,20 +5,25 @@ import { Box } from '../box';
 import { Button } from '../button';
 import { Icon } from '../icon';
 import { Select } from '../select';
-import { StyledLabel } from './Table.PaginationFooter.style';
+import { StyledBoxSelectorContainer, StyledLabel } from './Table.PaginationFooter.style';
 
+const DEFAULT_MAX_OPTIONS_HEIGHT = '250px';
+
+export interface PageSizeOptionsProps {
+  selectedSize: number;
+  options: number[];
+  onPageSizeChange: (pageSize: number) => void;
+}
 export interface TablePaginationFooterProps {
   currentPage: number;
   totalPages: number;
-  pageSizeOptions?: {
-    selectedSize: number;
-    options: number[];
-    onPageSizeChange: (pageSize: number) => void;
-  };
+  pageSizeOptions?: PageSizeOptionsProps;
   pageSizes?: number[];
   disabled?: boolean;
   styles?: {
     container?: CSSProperties;
+    pageOptionsContainer?: CSSProperties;
+    pageSizeOptionsContainer?: CSSProperties;
   };
   onPageChange: (page: number) => void;
 }
@@ -64,9 +69,9 @@ export const TablePaginationFooter = ({
 
   return (
     <Box display="flex" justifyContent="flex-end" style={styles?.container} py={2} px={5}>
-      <Box display="flex" alignItems="center" gap={12}>
+      <Box display="flex" alignItems="center" gap={24}>
         {pageSizeOptions && (
-          <>
+          <StyledBoxSelectorContainer>
             <StyledLabel>Rows per page</StyledLabel>
             <Select
               items={sizeOptions}
@@ -75,38 +80,49 @@ export const TablePaginationFooter = ({
               disabled={disabled}
               variant="small"
               endAdornment={<Icon icon={<FontAwesomeIcon icon={faChevronDown} />} color="blue.main" />}
-              styles={{ input: { width: '90px' } }}
+              styles={{
+                input: { width: '90px' },
+                optionsContainer: styles?.pageSizeOptionsContainer ?? { maxHeight: DEFAULT_MAX_OPTIONS_HEIGHT },
+              }}
               ariaLabel={'Select rows per page'}
             />
-          </>
+          </StyledBoxSelectorContainer>
         )}
-        <StyledLabel>Page nº {currentPage}</StyledLabel>
-        <Select
-          items={pageOptions}
-          onChange={handlePageChange}
-          value={`${currentPage}`}
-          disabled={disabled}
-          variant="small"
-          endAdornment={<Icon icon={<FontAwesomeIcon icon={faChevronDown} />} color="blue.main" />}
-          styles={{ input: { width: '90px' } }}
-          ariaLabel={'Select page number'}
-        />
-        <Button
-          color="blue.main"
-          variant="text"
-          startIcon={<FontAwesomeIcon icon={faChevronLeft} />}
-          onClick={handlePreviousPageClick}
-          disabled={disabled || currentPage <= 1}
-          aria-label="Previous page"
-        />
-        <Button
-          color="blue.main"
-          variant="text"
-          startIcon={<FontAwesomeIcon icon={faChevronRight} />}
-          onClick={handleNextPageClick}
-          disabled={disabled || currentPage >= totalPages}
-          aria-label="Next page"
-        />
+        <StyledBoxSelectorContainer>
+          <StyledLabel>Page nº</StyledLabel>
+          <Select
+            items={pageOptions}
+            onChange={handlePageChange}
+            value={`${currentPage}`}
+            disabled={disabled}
+            variant="small"
+            endAdornment={<Icon icon={<FontAwesomeIcon icon={faChevronDown} />} color="blue.main" />}
+            styles={{
+              input: { width: '90px' },
+              optionsContainer: styles?.pageOptionsContainer ?? { maxHeight: DEFAULT_MAX_OPTIONS_HEIGHT },
+            }}
+            ariaLabel={'Select page number'}
+          />
+          <StyledLabel>of {totalPages}</StyledLabel>
+        </StyledBoxSelectorContainer>
+        <StyledBoxSelectorContainer>
+          <Button
+            color="blue.main"
+            variant="text"
+            startIcon={<FontAwesomeIcon icon={faChevronLeft} />}
+            onClick={handlePreviousPageClick}
+            disabled={disabled || currentPage <= 1}
+            aria-label="Previous page"
+          />
+          <Button
+            color="blue.main"
+            variant="text"
+            startIcon={<FontAwesomeIcon icon={faChevronRight} />}
+            onClick={handleNextPageClick}
+            disabled={disabled || currentPage >= totalPages}
+            aria-label="Next page"
+          />
+        </StyledBoxSelectorContainer>
       </Box>
     </Box>
   );

@@ -94,7 +94,7 @@ export const Interactive: Story = {
         <TablePaginationFooter
           pageSizeOptions={{ onPageSizeChange: () => {}, options: [10, 20, 30], selectedSize: 10 }}
           currentPage={1}
-          totalPages={10}
+          totalPages={100}
           onPageChange={() => {}}
         />
       </Table>
