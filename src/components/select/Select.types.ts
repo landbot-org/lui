@@ -24,5 +24,6 @@ export interface SelectProps {
   ariaLabel?: string;
   styles?: {
     input?: CSSProperties;
+    optionsContainer?: CSSProperties;
   };
 }

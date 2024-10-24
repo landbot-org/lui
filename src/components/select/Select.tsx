@@ -122,31 +122,33 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                   },
                 })}
               >
-                <Box border={1} radius={1} p={1} backgroundColor="white.main">
-                  {items.length > 0 ? (
-                    items.map((item, index) => (
-                      <SelectItem
-                        key={item.value}
-                        {...getItemProps({
-                          key: item.value,
-                          ref(node) {
-                            listRef.current[index] = node;
-                          },
-                          onClick() {
-                            handleSelectItem(item);
-                            refs.domReference.current?.focus();
-                          },
-                        })}
-                        active={activeIndex === index || value === item.value}
-                      >
-                        {item.label}
-                      </SelectItem>
-                    ))
-                  ) : (
-                    <Typography variant="text12" color="neutral.400" p={1}>
-                      {noResults}
-                    </Typography>
-                  )}
+                <Box style={styles?.optionsContainer}>
+                  <Box border={1} radius={1} p={1} backgroundColor="white.main">
+                    {items.length > 0 ? (
+                      items.map((item, index) => (
+                        <SelectItem
+                          key={item.value}
+                          {...getItemProps({
+                            key: item.value,
+                            ref(node) {
+                              listRef.current[index] = node;
+                            },
+                            onClick() {
+                              handleSelectItem(item);
+                              refs.domReference.current?.focus();
+                            },
+                          })}
+                          active={activeIndex === index || value === item.value}
+                        >
+                          {item.label}
+                        </SelectItem>
+                      ))
+                    ) : (
+                      <Typography variant="text12" color="neutral.400" p={1}>
+                        {noResults}
+                      </Typography>
+                    )}
+                  </Box>
                 </Box>
               </div>
             </FloatingFocusManager>
