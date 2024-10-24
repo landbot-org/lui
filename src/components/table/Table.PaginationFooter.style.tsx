@@ -3,8 +3,8 @@ import { Box } from '../box';
 import { Typography } from '../typography';
 
 export const StyledLabel = styled(Typography).attrs({
-  fontWeight: 400,
   variant: 'text14',
+  fontWeight: 400,
 })``;
 
 export const StyledBoxSelectorContainer = styled(Box).attrs({
