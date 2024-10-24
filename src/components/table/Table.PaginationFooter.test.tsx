@@ -36,6 +36,37 @@ describe('TablePaginationFooter', () => {
     });
   });
 
+  describe('size selector', () => {
+    it('shows options to change page size', async () => {
+      const pageSizeOptions = {
+        selectedSize: 10,
+        options: [10, 20, 30],
+        onPageSizeChange: jest.fn(),
+      };
+      const { user } = renderComponent({ pageSizeOptions });
+
+      await user.click(screen.getByRole('combobox', { name: 'Select rows per page' }));
+
+      pageSizeOptions.options.forEach((option) => {
+        expect(screen.getByText(option.toString())).toBeVisible();
+      });
+    });
+
+    it('triggers a callback when a page size is selected', async () => {
+      const pageSizeOptions = {
+        selectedSize: 10,
+        options: [10, 20, 30],
+        onPageSizeChange: jest.fn(),
+      };
+      const { user } = renderComponent({ pageSizeOptions });
+
+      await user.click(screen.getByRole('combobox', { name: 'Select rows per page' }));
+      await user.click(screen.getByText('20'));
+
+      expect(pageSizeOptions.onPageSizeChange).toHaveBeenCalledWith(20);
+    });
+  });
+
   describe('next page button', () => {
     it('is disabled when on the last page', () => {
       const totalPages = 10;

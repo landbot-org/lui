@@ -91,7 +91,12 @@ export const Interactive: Story = {
             </TableRow>
           ))}
         </TableBody>
-        <TablePaginationFooter currentPage={1} totalPages={10} onPageChange={() => {}} />
+        <TablePaginationFooter
+          pageSizeOptions={{ onPageSizeChange: () => {}, options: [10, 20, 30], selectedSize: 10 }}
+          currentPage={1}
+          totalPages={10}
+          onPageChange={() => {}}
+        />
       </Table>
     );
   },

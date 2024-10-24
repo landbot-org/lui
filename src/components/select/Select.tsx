@@ -37,6 +37,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       disabled = false,
       variant = 'regular',
       styles,
+      ariaLabel,
     }: SelectProps,
     ref,
   ) => {
@@ -102,6 +103,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                 handleSelectItem(items[activeIndex]);
               }
             },
+            'aria-label': ariaLabel,
           })}
           variant={variant}
           styles={styles}
