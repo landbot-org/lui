@@ -122,7 +122,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                   },
                 })}
               >
-                <div style={styles?.optionsContainer}>
+                <Box style={styles?.optionsContainer}>
                   <Box border={1} radius={1} p={1} backgroundColor="white.main">
                     {items.length > 0 ? (
                       items.map((item, index) => (
@@ -149,7 +149,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                       </Typography>
                     )}
                   </Box>
-                </div>
+                </Box>
               </div>
             </FloatingFocusManager>
           )}
