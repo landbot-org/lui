@@ -52,6 +52,7 @@ export const StyledTableText = styled(Typography).attrs({
   color: 'blue.main',
   variant: 'text14',
   fontWeight: 500,
+  as: 'div',
 })`
   white-space: nowrap;
   overflow: hidden;

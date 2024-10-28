@@ -54,7 +54,7 @@ export const TablePopoverCell = ({ size, children, flexGrow }: CellProps) => {
   return (
     <Popover hasArrow={false} mainAxisOffset={-40} placement="bottom-end" fitInContaier>
       <FloatingContent width={size}>
-        <Typography color="blue.main" variant="text14" fontWeight={400}>
+        <Typography color="blue.main" variant="text14" fontWeight={400} as="div">
           {children}
         </Typography>
         <StyledPopoverButtonWrapper>
