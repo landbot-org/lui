@@ -11,6 +11,7 @@ export * from './components/dialog';
 export * from './components/divider';
 export * from './components/icon';
 export * from './components/link';
+export * from './components/menu';
 export * from './components/overlay';
 export * from './components/popover';
 export * from './components/radio';
