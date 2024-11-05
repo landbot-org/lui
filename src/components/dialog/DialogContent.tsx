@@ -5,7 +5,11 @@ import { StyledContent, StyledDialogCloseWrapper } from './Dialog.styles';
 import { DialogClose } from './DialogClose';
 import { useDialogContext } from './DialogContext';
 
-export const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>((props, propRef) => {
+interface DialogContentProps extends HTMLProps<HTMLDivElement> {
+  zIndex?: number;
+}
+
+export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(({ zIndex = 1000, ...props }, propRef) => {
   const { context: floatingContext, ...context } = useDialogContext();
   const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
@@ -13,13 +17,14 @@ export const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement
 
   return (
     <FloatingPortal>
-      <Overlay lockScroll>
+      <Overlay zIndex={zIndex} lockScroll>
         <FloatingFocusManager context={floatingContext}>
           <StyledContent
             backgroundColor="white.main"
             radius={3}
             $width={context.width}
             ref={ref}
+            $zIndex={zIndex}
             {...context.getFloatingProps(props)}
           >
             {context.hasCloseButton && (

@@ -8,4 +8,5 @@ export interface DialogProps {
   preventClose?: boolean;
   setOpen: (open: boolean) => void;
   width?: number;
+  zIndex?: number;
 }
