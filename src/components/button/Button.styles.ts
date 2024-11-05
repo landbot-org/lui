@@ -1,5 +1,4 @@
 import { css, styled } from 'styled-components';
-
 import { Typography } from '../typography';
 import type { TypographyProps } from '../typography/Typography.types';
 import { SIZES_MAPPING } from './Button.constants';
@@ -18,7 +17,14 @@ interface StyledButtonProps {
 
 interface StyledContentProps {
   $isLoading: boolean;
+  $variant: StyledButtonProps['$variant'];
 }
+
+const getBaseButtonPadding = ({ $variant, $hasChildren }: StyledButtonProps) => {
+  if ($variant === 'menu-item') return '4px 8px';
+  if ($hasChildren) return '0 16px';
+  return '0 8px';
+};
 
 const BaseButtonStyles = css<StyledButtonProps>`
   ${({ theme, $color, $variant, disabled, $isLoading }) =>
@@ -29,7 +35,7 @@ const BaseButtonStyles = css<StyledButtonProps>`
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : undefined)};
   height: ${({ $size }) => SIZES_MAPPING[$size]};
   min-width: ${({ $hasChildren }) => ($hasChildren ? '80px' : 'auto')};
-  padding: ${({ $hasChildren }) => ($hasChildren ? '0 16px' : '0 8px')};
+  padding: ${(props) => getBaseButtonPadding(props)};
   white-space: nowrap;
 
   &:hover {
@@ -55,8 +61,9 @@ export const StyledContent = styled.div<StyledContentProps>`
   flex-grow: 1;
   align-items: center;
   display: inline-flex;
-
   visibility: ${({ $isLoading }) => ($isLoading ? 'hidden' : 'inherit')};
+
+  ${({ $variant }) => $variant === 'menu-item' && 'gap: 4px'}
 `;
 
 interface StyledTypographyProps extends TypographyProps {

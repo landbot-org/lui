@@ -1,13 +1,11 @@
 import { ElementType, forwardRef } from 'react';
-
 import { Box } from '../box';
 import { Icon } from '../icon';
 import { Size } from '../icon/Icon.types';
 import { Spinner } from '../spinner';
-import { SPINNER_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_MAPPING } from './Button.constants';
-import { ButtonProps, ButtonSizeTypes } from './Button.types';
-
+import { SPINNER_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_MAPPING, TYPOGRAPHY_VARIANT_WEIGHT } from './Button.constants';
 import { StyledButton, StyledContent, StyledLink, StyledSpinnerWrapper, StyledTypography } from './Button.styles';
+import { ButtonProps, ButtonSizeTypes } from './Button.types';
 
 export const Button = forwardRef<HTMLElement, ButtonProps>(
   (
@@ -59,7 +57,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(
           </StyledSpinnerWrapper>
         )}
 
-        <StyledContent $isLoading={isLoading}>
+        <StyledContent $isLoading={isLoading} $variant={variant}>
           {startIcon && (
             <Box display="flex" mr={hasChildren ? 1 : undefined}>
               <Icon icon={startIcon} size={sizeIcon[size]} />
@@ -70,7 +68,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(
               $textAlign={textAlign}
               forwardedAs={'span'}
               variant={TYPOGRAPHY_VARIANT_MAPPING[size]}
-              fontWeight={700}
+              fontWeight={TYPOGRAPHY_VARIANT_WEIGHT[variant]}
               ellipsize={ellipsize}
             >
               {children}
