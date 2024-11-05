@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 import { Box } from '../box';
 
-export const StyledContent = styled(Box)<{ $width: number }>`
+export const StyledContent = styled(Box)<{ $width: number; $zIndex: number }>`
   position: relative;
-  z-index: 1000;
+  z-index: ${({ $zIndex }) => $zIndex};
   width: ${({ $width }) => `${$width}px`};
   max-width: 95vw;
   max-height: 95vh;

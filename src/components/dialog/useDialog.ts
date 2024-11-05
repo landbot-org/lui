@@ -1,13 +1,12 @@
 import { useMemo } from 'react';
-
 import { useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
-
 import { DialogProps } from './Dialog.types';
 
 export const useDialog = ({
   canEscapeClose = true,
   hasCloseButton = true,
   width = 500,
+  zIndex = 60,
   open,
   preventClose = false,
   setOpen,
@@ -31,9 +30,10 @@ export const useDialog = ({
       width,
       open,
       setOpen,
+      zIndex,
       ...interactions,
       ...data,
     }),
-    [hasCloseButton, width, open, setOpen, interactions, data],
+    [hasCloseButton, width, open, setOpen, zIndex, interactions, data],
   );
 };
