@@ -8,6 +8,7 @@ import { TablePaginationFooter } from './Table.PaginationFooter';
 import { TablePopoverCell } from './Table.PopoverCell';
 import { TableRow } from './Table.Row';
 import { TableTextCell } from './Table.TextCell';
+import { useTablePageSelector } from './useTablePageSelector';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -119,6 +120,51 @@ export const Loading: Story = {
           })}
         </TableHeader>
         <TableBodySkeleton rows={data.length} columns={headers.length} longCellsPositions={[3]} showIndex />
+      </Table>
+    );
+  },
+};
+
+export const RowSelection: Story = {
+  render: function Render() {
+    const rowIds = Array.from({ length: data.length }, (_, index) => index);
+    const { selection, allSelectionState, toggleSelection, toggleAllSelection } = useTablePageSelector(rowIds);
+
+    return (
+      <Table>
+        <TableHeader index selectOptions={{ onToogleSelection: toggleAllSelection, selected: allSelectionState }}>
+          {headers.map((header, i) => {
+            return (
+              <TableHeaderCell size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined}>
+                {header}
+              </TableHeaderCell>
+            );
+          })}
+        </TableHeader>
+        <TableBody>
+          {data.map((row, i) => (
+            <TableRow
+              index={i.toString()}
+              key={i}
+              selectOptions={{ onToogleSelection: toggleSelection, value: i, selected: selection.includes(i) }}
+            >
+              {row.map((cell, j) => {
+                if (row.length - 1 === j) {
+                  return (
+                    <TablePopoverCell flexGrow={1} size={sizes[j]} key={cell}>
+                      {cell.toString()}
+                    </TablePopoverCell>
+                  );
+                }
+                return (
+                  <TableTextCell key={cell} size={sizes[j]}>
+                    {cell}
+                  </TableTextCell>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableBody>
       </Table>
     );
   },

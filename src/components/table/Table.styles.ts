@@ -15,12 +15,14 @@ export const StyledTable = styled(StyledGridBorder)`
   display: grid;
 `;
 
-export const StyledRow = styled.div`
+export const StyledRow = styled.div<{ $selected?: boolean }>`
   display: flex;
   flex-direction: row;
   &:hover {
     background-color: ${({ theme }) => theme.palette.purple[50]};
   }
+
+  ${({ $selected, theme }) => $selected && `background-color: ${theme.palette.purple[100]};`}
 `;
 
 export const StyledIndexCell = styled(StyledGridBorder).attrs({
