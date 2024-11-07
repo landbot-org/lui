@@ -1,5 +1,4 @@
 import { fireEvent, waitFor } from '@testing-library/dom';
-
 import { render } from '../../test-utils';
 import { Checkbox } from './Checkbox';
 
@@ -22,7 +21,7 @@ describe('Checkbox', () => {
       expect(getByRole('checkbox')).toHaveAttribute('indeterminate', true);
     });
   });
-  it('should change indeterminate attribute when toogle indeterminate prop', () => {
+  it('should change indeterminate attribute when toggle indeterminate prop', () => {
     const { getByRole, rerender } = render(<Checkbox indeterminate onChange={jest.fn} />);
     expect(getByRole('checkbox')).toHaveProperty('indeterminate', true);
     rerender(<Checkbox onChange={jest.fn} />);

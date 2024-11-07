@@ -11,14 +11,16 @@ type DisabledSelectedOptionProps = {
   selected?: SelectedStatus;
   value?: never;
   forceSelector?: never;
+  ariaLabel?: never;
 };
 
 type EnabledSelectedOptionProps = {
   disableSelection?: false;
-  onToogleSelection: (value: any, selected: boolean) => void;
+  onToggleSelection: (value: any, selected: boolean) => void;
   selected?: SelectedStatus;
   value?: any;
   forceSelector?: boolean;
+  ariaLabel?: string;
 };
 
 export type SelectedOptionProps = DisabledSelectedOptionProps | EnabledSelectedOptionProps;
@@ -34,11 +36,11 @@ export const TableSelectableIndexCell = ({ index, selectOptions }: TableSelectab
   const showSelectionCheckbox =
     !!selectOptions && (isHovered || selectOptions.selected || selectOptions?.forceSelector);
 
-  const handleToogleSelection = (e: MouseEvent<HTMLElement>) => {
+  const handleToggleSelection = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
     if (selectOptions?.disableSelection) return;
 
-    selectOptions?.onToogleSelection(selectOptions.value, !selectOptions.selected);
+    selectOptions?.onToggleSelection(selectOptions.value, !selectOptions.selected);
   };
 
   if (!showIndexCell) return false;
@@ -48,7 +50,7 @@ export const TableSelectableIndexCell = ({ index, selectOptions }: TableSelectab
       aria-label={`Row ${selectOptions?.value ?? index}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={handleToogleSelection}
+      onClick={handleToggleSelection}
       $selectable={!!showSelectionCheckbox}
     >
       <StyledIndexCell aria-label={index}>
@@ -57,6 +59,8 @@ export const TableSelectableIndexCell = ({ index, selectOptions }: TableSelectab
             checked={selectOptions?.selected === true}
             indeterminate={selectOptions.selected === 'indeterminate'}
             disabled={selectOptions?.disableSelection}
+            aria-label={selectOptions?.ariaLabel}
+            readOnly
           />
         ) : (
           <Typography fontWeight={500} variant="text16" color="blue.main">

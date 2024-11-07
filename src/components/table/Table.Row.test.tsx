@@ -24,34 +24,34 @@ describe('Table Row', () => {
       const rowContent = 'Row 1';
       const selectOptions: SelectedOptionProps = {
         value: '2',
-        onToogleSelection: jest.fn(),
+        onToggleSelection: jest.fn(),
       };
       const { user } = renderComponent({ children: rowContent, selectOptions });
 
       await user.click(screen.getByLabelText(`Row ${selectOptions.value}`));
 
-      expect(selectOptions.onToogleSelection).toHaveBeenCalledWith(selectOptions.value, true);
+      expect(selectOptions.onToggleSelection).toHaveBeenCalledWith(selectOptions.value, true);
     });
 
     it('shows a selection checkbox on hoover', async () => {
       const rowContent = 'Row 1';
       const selectOptions: SelectedOptionProps = {
         value: '2',
-        onToogleSelection: jest.fn(),
+        onToggleSelection: jest.fn(),
       };
       const { user } = renderComponent({ children: rowContent, selectOptions });
 
       await user.hover(screen.getByLabelText(`Row ${selectOptions.value}`));
       await user.click(screen.getByRole('checkbox'));
 
-      expect(selectOptions.onToogleSelection).toHaveBeenCalledWith(selectOptions.value, true);
+      expect(selectOptions.onToggleSelection).toHaveBeenCalledWith(selectOptions.value, true);
     });
 
     it('shows a selection checkbox when selected', () => {
       const rowContent = 'Row 1';
       const selectOptions: SelectedOptionProps = {
         value: '2',
-        onToogleSelection: jest.fn(),
+        onToggleSelection: jest.fn(),
         selected: true,
       };
 

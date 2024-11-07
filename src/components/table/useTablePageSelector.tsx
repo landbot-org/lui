@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { SelectedStatus } from './Table.SelectableIndexCell';
 
-export const useTablePageSelector = (rowIds: unknown[] = []) => {
-  const [selection, setSelection] = useState<unknown[]>([]);
+export const useTablePageSelector = <T = unknown>(rowIds: T[] = []) => {
+  const [selection, setSelection] = useState<T[]>([]);
   const [allSelectionState, setAllSelectionState] = useState<SelectedStatus>(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const useTablePageSelector = (rowIds: unknown[] = []) => {
     [rowIds],
   );
 
-  const toggleSelection = useCallback((value: unknown, selected: boolean) => {
+  const toggleSelection = useCallback((value: T, selected: boolean) => {
     if (selected) {
       setSelection((prev) => [...prev, value]);
     } else {
