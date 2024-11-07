@@ -1,8 +1,8 @@
 import { act, renderHook } from '../../test-utils';
 import { useTablePageSelector } from './useTablePageSelector';
 
-const renderUseTablePageSelector = (rowIds: any[] = []) => {
-  return renderHook(() => useTablePageSelector(rowIds));
+const renderUseTablePageSelector = (rowIds: number[] = []) => {
+  return renderHook(() => useTablePageSelector<number>(rowIds));
 };
 
 describe('useTablePageSelector', () => {

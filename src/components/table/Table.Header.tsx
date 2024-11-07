@@ -6,14 +6,14 @@ type TableHeaderProps = {
   children: ReactNode;
   index?: boolean;
   selectOptions?: {
-    onToogleSelection: (selected: boolean) => void;
+    onToggleSelection: (selected: boolean) => void;
     selected?: SelectedStatus;
   };
 };
 
 export const TableHeader = ({ children, index, selectOptions }: TableHeaderProps) => {
-  const handleToogleSelection = (_: unknown, selected: boolean) => {
-    selectOptions?.onToogleSelection(selected);
+  const handleToggleSelection = (_: unknown, selected: boolean) => {
+    selectOptions?.onToggleSelection(selected);
   };
 
   return (
@@ -22,7 +22,7 @@ export const TableHeader = ({ children, index, selectOptions }: TableHeaderProps
         index={index ? ' ' : ''}
         selectOptions={{
           selected: selectOptions?.selected,
-          onToogleSelection: handleToogleSelection,
+          onToggleSelection: handleToggleSelection,
           forceSelector: !!selectOptions,
         }}
       />

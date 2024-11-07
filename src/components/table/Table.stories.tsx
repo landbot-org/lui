@@ -132,7 +132,7 @@ export const RowSelection: Story = {
 
     return (
       <Table>
-        <TableHeader index selectOptions={{ onToogleSelection: toggleAllSelection, selected: allSelectionState }}>
+        <TableHeader index selectOptions={{ onToggleSelection: toggleAllSelection, selected: allSelectionState }}>
           {headers.map((header, i) => {
             return (
               <TableHeaderCell size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined}>
@@ -146,7 +146,7 @@ export const RowSelection: Story = {
             <TableRow
               index={i.toString()}
               key={i}
-              selectOptions={{ onToogleSelection: toggleSelection, value: i, selected: selection.includes(i) }}
+              selectOptions={{ onToggleSelection: toggleSelection, value: i, selected: selection.includes(i) }}
             >
               {row.map((cell, j) => {
                 if (row.length - 1 === j) {
