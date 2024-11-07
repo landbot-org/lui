@@ -1,22 +1,17 @@
 import { ReactNode } from 'react';
-import { Typography } from '../typography';
-import { StyledIndexCell, StyledRow } from './Table.styles';
+import { SelectedOptionProps, TableSelectableIndexCell } from './Table.SelectableIndexCell';
+import { StyledRow } from './Table.styles';
 
-type TableRowProps = {
+export type TableRowProps = {
   children: ReactNode;
   index?: string;
+  selectOptions?: SelectedOptionProps;
 };
 
-export const TableRow = ({ children, index }: TableRowProps) => {
+export const TableRow = ({ children, index, selectOptions }: TableRowProps) => {
   return (
-    <StyledRow>
-      {index && (
-        <StyledIndexCell>
-          <Typography fontWeight={500} variant="text16" color="blue.main">
-            {index}
-          </Typography>
-        </StyledIndexCell>
-      )}
+    <StyledRow $selected={selectOptions?.selected === true}>
+      <TableSelectableIndexCell index={index} selectOptions={selectOptions} />
       {children}
     </StyledRow>
   );
