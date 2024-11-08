@@ -1,4 +1,4 @@
-import { faMagnifyingGlass, faRemove } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faMagnifyingGlass, faRemove, faSoccerBall } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
 import { Icon } from '../icon';
@@ -17,6 +17,12 @@ const meta: Meta<typeof Menu> = {
         <MenuButton>Action</MenuButton>
         <MenuButton startIcon={<Icon icon={<FontAwesomeIcon icon={faRemove} />} />} color="error.main">
           Delete
+        </MenuButton>
+        <MenuButton startIcon={<Icon icon={<FontAwesomeIcon icon={faEye} />} />} disabled>
+          Disabled option
+        </MenuButton>
+        <MenuButton startIcon={<Icon icon={<FontAwesomeIcon icon={faSoccerBall} />} />} color="error.main" disabled>
+          Delete disabled
         </MenuButton>
       </>
     ),
