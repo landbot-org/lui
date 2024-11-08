@@ -1,17 +1,8 @@
-import { ReactNode } from 'react';
-import { Button } from '../button';
+import { forwardRef } from 'react';
+import { Button, ButtonProps } from '../button';
 
-interface MenuButtonProps {
-  children?: ReactNode;
-  color?: 'blue.main' | 'error.main';
-  startIcon?: JSX.Element;
-  endIcon?: JSX.Element;
-}
-
-export const MenuButton = ({ children, color = 'blue.main', ...props }: MenuButtonProps) => {
-  return (
-    <Button variant="menu-item" textAlign="left" color={color} {...props}>
-      {children}
-    </Button>
-  );
-};
+export const MenuButton = forwardRef<HTMLElement, ButtonProps>(
+  ({ color = 'blue.main', textAlign = 'left', variant: _, ...props }, ref) => {
+    return <Button ref={ref} variant="menu-item" textAlign={textAlign} color={color} {...props} />;
+  },
+);
