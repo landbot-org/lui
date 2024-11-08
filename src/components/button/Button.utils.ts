@@ -108,7 +108,7 @@ export const getBackgroundColor = (theme: Theme, color: ButtonColorTypes, disabl
     'blue.main': theme.palette.blue.main,
     'purple.main': theme.palette.purple.main,
     'white.main': theme.palette.neutral[400],
-    'error.main': theme.palette.white.main,
+    'error.main': theme.palette.error.main,
   }[color];
 };
 
@@ -122,7 +122,7 @@ export const getBorderColor = (theme: Theme, color: ButtonColorTypes, disabled?:
     'blue.main': theme.palette.blue.main,
     'purple.main': theme.palette.purple.main,
     'white.main': theme.palette.white.main,
-    'error.main': theme.palette.white.main,
+    'error.main': theme.palette.error.main,
   }[color];
 };
 
