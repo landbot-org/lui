@@ -1,5 +1,4 @@
-import { ChangeEvent, ReactNode, forwardRef, useRef, useState } from 'react';
-
+import { ChangeEvent, useRef, useState } from 'react';
 import {
   FloatingFocusManager,
   FloatingPortal,
@@ -8,48 +7,15 @@ import {
   size,
   useDismiss,
   useFloating,
-  useId,
   useInteractions,
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
-
 import { Box } from '../box';
-import { BoxProps } from '../box/Box.types';
 import { TextField } from '../text-field';
 import { Typography } from '../typography';
+import { AutoCompleteOptions } from './AutoCompleteOptions';
 import { AutoCompleteItem, AutocompleteProps } from './Autocomplete.types';
-
-import { StyledOption } from './Autocomplete.styles';
-
-interface ItemProps {
-  children: ReactNode;
-  active: boolean;
-}
-
-const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, ...rest }, ref) => {
-  const id = useId();
-
-  return (
-    <StyledOption
-      p={1}
-      radius={1}
-      backgroundColor={active ? 'blue.100' : undefined}
-      ref={ref}
-      role="option"
-      id={id}
-      aria-selected={active}
-      {...rest}
-      style={{
-        ...rest.style,
-      }}
-    >
-      <Typography variant="text14">{children}</Typography>
-    </StyledOption>
-  );
-});
-
-OptionItem.displayName = 'OptionItemAutocomplete';
 
 export const Autocomplete = ({
   endAdornment,
@@ -60,6 +26,7 @@ export const Autocomplete = ({
   selectedItemId,
   onChange,
   onSelectItem,
+  itemRenderer,
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -153,24 +120,16 @@ export const Autocomplete = ({
             >
               <Box border={1} radius={1} p={1} backgroundColor="white.main">
                 {items.length > 0 ? (
-                  items.map((item, index) => (
-                    <OptionItem
-                      key={item.id}
-                      {...getItemProps({
-                        key: item.id,
-                        ref(node) {
-                          listRef.current[index] = node;
-                        },
-                        onClick() {
-                          handleSelectItem(item);
-                          refs.domReference.current?.focus();
-                        },
-                      })}
-                      active={activeIndex === index || selectedItemId === item.id}
-                    >
-                      {item.value}
-                    </OptionItem>
-                  ))
+                  <AutoCompleteOptions
+                    activeIndex={activeIndex}
+                    refs={refs}
+                    selectedItemId={selectedItemId}
+                    listRef={listRef}
+                    getItemProps={getItemProps}
+                    handleSelectItem={handleSelectItem}
+                    items={items}
+                    itemRenderer={itemRenderer}
+                  />
                 ) : (
                   <Typography variant="text12" color="neutral.400" p={1}>
                     NO RESULTS...
