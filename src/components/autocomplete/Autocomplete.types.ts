@@ -17,12 +17,12 @@ export type AutoCompleteItem = AutoCompleteItemOption | AutoCompleteItemSeparato
 
 export interface AutocompleteProps {
   items: AutoCompleteItem[];
-  selectedItemId?: AutoCompleteItem['id'];
+  selectedItemId?: AutoCompleteItemOption['id'];
   placeholder?: string;
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
   inputValue?: string;
   onChange: NonNullable<TextFieldProps['onChange']>;
-  onSelectItem: (item: AutoCompleteItem) => void;
+  onSelectItem: (item: AutoCompleteItemOption) => void;
   itemRenderer?: (item: AutoCompleteItemOption) => ReactNode;
 }

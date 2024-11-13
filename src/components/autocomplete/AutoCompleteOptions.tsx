@@ -1,4 +1,4 @@
-import { ReactNode, forwardRef } from 'react';
+import { Fragment, ReactNode, forwardRef } from 'react';
 import { useId } from '@floating-ui/react';
 import { BoxProps } from '../box/Box.types';
 import { Typography } from '../typography';
@@ -27,7 +27,9 @@ const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, activ
         ...rest.style,
       }}
     >
-      <Typography variant="text14">{children}</Typography>
+      <Typography variant="text14" as="div">
+        {children}
+      </Typography>
     </StyledOption>
   );
 });
@@ -57,7 +59,7 @@ export const AutoCompleteOptions = ({
     <>
       {items.map((item, index) =>
         item.type === 'separator' ? (
-          <>{item.children}</>
+          <Fragment key={`key_separator_${index}`}>{item.children}</Fragment>
         ) : (
           <OptionItem
             key={item.id}

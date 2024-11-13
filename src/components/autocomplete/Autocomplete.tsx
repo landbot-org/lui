@@ -15,7 +15,7 @@ import { Box } from '../box';
 import { TextField } from '../text-field';
 import { Typography } from '../typography';
 import { AutoCompleteOptions } from './AutoCompleteOptions';
-import { AutoCompleteItem, AutocompleteProps } from './Autocomplete.types';
+import { AutoCompleteItemOption, AutocompleteProps } from './Autocomplete.types';
 
 export const Autocomplete = ({
   endAdornment,
@@ -79,7 +79,7 @@ export const Autocomplete = ({
     setOpen(true);
   };
 
-  const handleSelectItem = (item: AutoCompleteItem) => {
+  const handleSelectItem = (item: AutoCompleteItemOption) => {
     onSelectItem(item);
     setActiveIndex(null);
     setOpen(false);
@@ -98,7 +98,12 @@ export const Autocomplete = ({
             placeholder,
             'aria-autocomplete': 'list',
             onKeyDown(event) {
-              if (event.key === 'Enter' && activeIndex != null && items[activeIndex]) {
+              if (
+                event.key === 'Enter' &&
+                activeIndex != null &&
+                items[activeIndex] &&
+                items[activeIndex].type !== 'separator'
+              ) {
                 handleSelectItem(items[activeIndex]);
               }
             },
