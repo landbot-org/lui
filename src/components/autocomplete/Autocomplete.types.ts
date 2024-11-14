@@ -25,6 +25,7 @@ export interface AutocompleteProps {
   inputValue?: string;
   placement?: Placement;
   prenventCloseOnEmptySearch?: boolean;
+  onFocus?: TextFieldProps['onFocus'];
   onBlur?: TextFieldProps['onBlur'];
   onChange: NonNullable<TextFieldProps['onChange']>;
   onSelectItem: (item: AutoCompleteItemOption) => void;
