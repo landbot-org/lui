@@ -24,6 +24,7 @@ export const Autocomplete = ({
   placeholder,
   startAdornment,
   selectedItemId,
+  placement = 'bottom',
   onChange,
   onSelectItem,
   itemRenderer,
@@ -34,6 +35,7 @@ export const Autocomplete = ({
   const listRef = useRef<Array<HTMLElement | null>>([]);
 
   const { refs, floatingStyles, context } = useFloating<HTMLInputElement>({
+    placement,
     whileElementsMounted: autoUpdate,
     open,
     onOpenChange: setOpen,

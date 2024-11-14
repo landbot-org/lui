@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Placement } from '@floating-ui/react';
 import { TextFieldProps } from '../text-field/TextField.types';
 
 export type AutoCompleteItemSeparator = {
@@ -22,6 +23,7 @@ export interface AutocompleteProps {
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
   inputValue?: string;
+  placement?: Placement;
   onChange: NonNullable<TextFieldProps['onChange']>;
   onSelectItem: (item: AutoCompleteItemOption) => void;
   itemRenderer?: (item: AutoCompleteItemOption) => ReactNode;
