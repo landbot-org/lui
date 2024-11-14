@@ -10,32 +10,29 @@ interface ItemProps {
   active: boolean;
 }
 
-const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps & { key?: string }>(
-  ({ children, active, key, ...rest }, ref) => {
-    const id = useId();
+const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, ...rest }, ref) => {
+  const id = useId();
 
-    return (
-      <StyledOption
-        key={key}
-        p={1}
-        radius={1}
-        backgroundColor={active ? 'blue.100' : undefined}
-        ref={ref}
-        role="option"
-        id={id}
-        aria-selected={active}
-        {...rest}
-        style={{
-          ...rest.style,
-        }}
-      >
-        <Typography variant="text14" as="div">
-          {children}
-        </Typography>
-      </StyledOption>
-    );
-  },
-);
+  return (
+    <StyledOption
+      p={1}
+      radius={1}
+      backgroundColor={active ? 'blue.100' : undefined}
+      ref={ref}
+      role="option"
+      id={id}
+      aria-selected={active}
+      {...rest}
+      style={{
+        ...rest.style,
+      }}
+    >
+      <Typography variant="text14" as="div">
+        {children}
+      </Typography>
+    </StyledOption>
+  );
+});
 
 OptionItem.displayName = 'OptionItemAutocomplete';
 
@@ -67,7 +64,6 @@ export const AutoCompleteOptions = ({
           <OptionItem
             key={item.id}
             {...getItemProps({
-              key: item.id,
               ref(node) {
                 listRef.current[index] = node;
               },
