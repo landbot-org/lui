@@ -24,6 +24,8 @@ export interface AutocompleteProps {
   endAdornment?: ReactNode;
   inputValue?: string;
   placement?: Placement;
+  prenventCloseOnEmptySearch?: boolean;
+  onBlur?: TextFieldProps['onBlur'];
   onChange: NonNullable<TextFieldProps['onChange']>;
   onSelectItem: (item: AutoCompleteItemOption) => void;
   itemRenderer?: (item: AutoCompleteItemOption) => ReactNode;

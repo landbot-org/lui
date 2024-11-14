@@ -25,6 +25,8 @@ export const Autocomplete = ({
   startAdornment,
   selectedItemId,
   placement = 'bottom',
+  prenventCloseOnEmptySearch,
+  onBlur,
   onChange,
   onSelectItem,
   itemRenderer,
@@ -72,7 +74,7 @@ export const Autocomplete = ({
     if (value) {
       setOpen(true);
       setActiveIndex(null);
-    } else {
+    } else if (!prenventCloseOnEmptySearch) {
       setOpen(false);
     }
   };
@@ -94,6 +96,7 @@ export const Autocomplete = ({
           startAdornment={startAdornment}
           endAdornment={endAdornment}
           {...getReferenceProps({
+            onBlur,
             onChange: handleChangeInput,
             value: inputValue,
             ref: refs.setReference,

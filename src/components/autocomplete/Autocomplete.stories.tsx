@@ -57,6 +57,17 @@ export const NoResults: Story = {
   },
 };
 
+export const PreventClose: Story = {
+  args: {
+    items: [
+      { id: '1', value: 'Option 1' },
+      { id: '2', value: 'Option 2' },
+      { id: '3', value: 'Option 3' },
+    ],
+    prenventCloseOnEmptySearch: true,
+  },
+};
+
 const Separator = ({ children }: { children: ReactNode }) => (
   <Box>
     <Typography>{children}</Typography>
