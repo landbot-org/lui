@@ -26,6 +26,7 @@ export const Autocomplete = ({
   selectedItemId,
   placement = 'bottom',
   prenventCloseOnEmptySearch,
+  onFocus,
   onBlur,
   onChange,
   onSelectItem,
@@ -96,6 +97,7 @@ export const Autocomplete = ({
           startAdornment={startAdornment}
           endAdornment={endAdornment}
           {...getReferenceProps({
+            onFocus,
             onBlur,
             onChange: handleChangeInput,
             value: inputValue,

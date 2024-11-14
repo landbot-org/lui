@@ -67,7 +67,7 @@ export const AutoCompleteOptions = ({
               ref(node) {
                 listRef.current[index] = node;
               },
-              onClick() {
+              onMouseDown() {
                 handleSelectItem(item);
                 refs.domReference.current?.focus();
               },
