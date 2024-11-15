@@ -13,9 +13,9 @@ import {
 } from '@floating-ui/react';
 import { Box } from '../box';
 import { TextField } from '../text-field';
-import { Typography } from '../typography';
 import { AutoCompleteOptions } from './AutoCompleteOptions';
 import { AutoCompleteItemOption, AutocompleteProps } from './Autocomplete.types';
+import { AutocompleteNoResults } from './AutocompleteNoResults';
 
 export const Autocomplete = ({
   endAdornment,
@@ -26,6 +26,7 @@ export const Autocomplete = ({
   selectedItemId,
   placement = 'bottom',
   prenventCloseOnEmptySearch,
+  noResults,
   onFocus,
   onBlur,
   onChange,
@@ -143,9 +144,7 @@ export const Autocomplete = ({
                     itemRenderer={itemRenderer}
                   />
                 ) : (
-                  <Typography variant="text12" color="neutral.400" p={1}>
-                    NO RESULTS...
-                  </Typography>
+                  <AutocompleteNoResults>{noResults}</AutocompleteNoResults>
                 )}
               </Box>
             </div>

@@ -57,6 +57,23 @@ export const NoResults: Story = {
   },
 };
 
+export const NoResultsCustom: Story = {
+  args: {
+    items: [],
+    noResults: (
+      <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
+        <Typography variant="text14" color="error.light">
+          THERE IS
+        </Typography>
+        <Divider />
+        <Typography variant="h3" color="error.dark">
+          -- NO RESULTS --
+        </Typography>
+      </Box>
+    ),
+  },
+};
+
 export const PreventClose: Story = {
   args: {
     items: [
