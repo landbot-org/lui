@@ -116,5 +116,17 @@ describe('Autocomplete', () => {
 
       expect(onSelectItem).toHaveBeenCalledWith(selectOption);
     });
+
+    it('allows to customize render on no results', async () => {
+      const { user } = renderComponent({
+        placeholder: 'Write something here',
+        items: [],
+        noResults: <div>CUSTOM RENDER</div>,
+      });
+
+      await user.type(screen.getByPlaceholderText('Write something here'), '1');
+
+      expect(screen.getByText('CUSTOM RENDER')).toBeVisible();
+    });
   });
 });
