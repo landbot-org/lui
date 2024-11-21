@@ -86,6 +86,7 @@ export const getTypographyColorDefault = (
   }
 
   if (disabled) {
+    if (color === 'error.main') return theme.palette.error.light;
     return theme.palette.neutral[300];
   }
 
