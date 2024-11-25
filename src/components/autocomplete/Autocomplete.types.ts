@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import { Placement } from '@floating-ui/react';
 import { TextFieldProps } from '../text-field/TextField.types';
 
@@ -25,10 +25,17 @@ export interface AutocompleteProps {
   inputValue?: string;
   placement?: Placement;
   prenventCloseOnEmptySearch?: boolean;
+  preventOpen?: boolean;
   noResults?: ReactNode;
   onFocus?: TextFieldProps['onFocus'];
   onBlur?: TextFieldProps['onBlur'];
   onChange: NonNullable<TextFieldProps['onChange']>;
   onSelectItem: (item: AutoCompleteItemOption) => void;
   itemRenderer?: (item: AutoCompleteItemOption) => ReactNode;
+  styles?: {
+    popover?: CSSProperties;
+    popoverContainer?: CSSProperties;
+    option?: CSSProperties;
+    optionHover?: CSSProperties;
+  };
 }

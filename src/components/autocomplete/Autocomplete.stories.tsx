@@ -85,6 +85,41 @@ export const PreventClose: Story = {
   },
 };
 
+export const PreventOpen: Story = {
+  args: {
+    items: [
+      { id: '1', value: 'Option 1' },
+      { id: '2', value: 'Option 2' },
+      { id: '3', value: 'Option 3' },
+    ],
+    preventOpen: true,
+  },
+};
+
+export const CustomStyles: Story = {
+  args: {
+    items: [
+      { id: '1', value: 'Option 1' },
+      { id: '2', value: 'Option 2' },
+      { id: '3', value: 'Option 3' },
+    ],
+    styles: {
+      popover: {
+        zIndex: 2000,
+      },
+      popoverContainer: {
+        backgroundColor: 'red',
+      },
+      option: {
+        padding: '4px',
+      },
+      optionHover: {
+        backgroundColor: 'yellow',
+      },
+    },
+  },
+};
+
 const Separator = ({ children }: { children: ReactNode }) => (
   <Box>
     <Typography>{children}</Typography>

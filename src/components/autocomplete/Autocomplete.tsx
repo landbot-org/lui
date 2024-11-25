@@ -27,6 +27,8 @@ export const Autocomplete = ({
   placement = 'bottom',
   prenventCloseOnEmptySearch,
   noResults,
+  preventOpen,
+  styles,
   onFocus,
   onBlur,
   onChange,
@@ -91,6 +93,8 @@ export const Autocomplete = ({
     setOpen(false);
   };
 
+  const showPopover = !preventOpen && open;
+
   return (
     <>
       <div onMouseDown={handleFocusInput}>
@@ -119,7 +123,7 @@ export const Autocomplete = ({
         />
       </div>
       <FloatingPortal>
-        {open && (
+        {showPopover && (
           <FloatingFocusManager context={context} visuallyHiddenDismiss initialFocus={-1}>
             <div
               {...getFloatingProps({
@@ -128,10 +132,11 @@ export const Autocomplete = ({
                   ...floatingStyles,
                   overflowY: 'auto',
                   zIndex: 1000,
+                  ...styles?.popover,
                 },
               })}
             >
-              <Box border={1} radius={1} p={1} backgroundColor="white.main">
+              <Box border={1} radius={1} p={1} backgroundColor="white.main" style={styles?.popoverContainer}>
                 {items.length > 0 ? (
                   <AutoCompleteOptions
                     activeIndex={activeIndex}
@@ -142,6 +147,7 @@ export const Autocomplete = ({
                     handleSelectItem={handleSelectItem}
                     items={items}
                     itemRenderer={itemRenderer}
+                    styles={{ optionHover: styles?.optionHover, option: styles?.option }}
                   />
                 ) : (
                   <AutocompleteNoResults>{noResults}</AutocompleteNoResults>

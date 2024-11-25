@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, forwardRef } from 'react';
+import { CSSProperties, Fragment, ReactNode, forwardRef } from 'react';
 import { useId } from '@floating-ui/react';
 import { BoxProps } from '../box/Box.types';
 import { Typography } from '../typography';
@@ -8,9 +8,12 @@ import { StyledOption } from './AutocompleteOptions.styles';
 interface ItemProps {
   children: ReactNode;
   active: boolean;
+  styles?: {
+    hover?: CSSProperties;
+  };
 }
 
-const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, ...rest }, ref) => {
+const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, active, styles, ...rest }, ref) => {
   const id = useId();
 
   return (
@@ -26,6 +29,7 @@ const OptionItem = forwardRef<BoxProps, ItemProps & BoxProps>(({ children, activ
       style={{
         ...rest.style,
       }}
+      $hover={styles?.hover}
     >
       <Typography variant="text14" as="div">
         {children}
@@ -41,6 +45,10 @@ interface AutoCompleteOptionsProps extends Pick<AutocompleteProps, 'items' | 'it
   refs: any;
   selectedItemId: any;
   listRef: React.MutableRefObject<(HTMLElement | null)[]>;
+  styles?: {
+    option?: CSSProperties;
+    optionHover?: CSSProperties;
+  };
   getItemProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
   handleSelectItem: (item: any) => void;
 }
@@ -51,6 +59,7 @@ export const AutoCompleteOptions = ({
   refs,
   selectedItemId,
   activeIndex,
+  styles,
   getItemProps,
   handleSelectItem,
   itemRenderer,
@@ -73,6 +82,8 @@ export const AutoCompleteOptions = ({
               },
             })}
             active={activeIndex === index || selectedItemId === item.id}
+            style={styles?.option}
+            styles={{ hover: styles?.optionHover }}
           >
             {/* Avoid using itemRenderer?.(item) notation.
             In case itemRenderer is defined but renders as null, it will show item.value */}
