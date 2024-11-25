@@ -54,6 +54,7 @@ export interface Theme {
     };
     orange: {
       main: string;
+      100: string;
       200: string;
       400: string;
       600: string;
