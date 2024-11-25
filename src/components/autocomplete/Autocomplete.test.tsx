@@ -84,6 +84,22 @@ describe('Autocomplete', () => {
     expect(onSelectItem).not.toHaveBeenCalled();
   });
 
+  it('allows to prevent open popover', async () => {
+    const { user } = renderComponent({
+      placeholder: 'Write something here',
+      items: [
+        { id: '1', value: 'Option 1' },
+        { id: '2', value: 'Option 2' },
+        { id: '3', value: 'Option 3' },
+      ],
+      preventOpen: true,
+    });
+
+    await user.type(screen.getByPlaceholderText('Write something here'), '1');
+
+    expect(screen.queryByRole('option', { name: 'Option 1' })).not.toBeInTheDocument();
+  });
+
   describe('Custom render', () => {
     it('should render items when start typing', async () => {
       const { user } = renderComponent({
