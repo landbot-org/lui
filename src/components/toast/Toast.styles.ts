@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { ColorsTypes, Theme } from '../../shared/theme.types';
 import { Box } from '../box';
 import { Icon } from '../icon';
@@ -38,6 +37,7 @@ export const ToastPositionAndLayout = styled(Box).attrs<{ $variant: ToastVariant
   top: ${({ $top }) => $top}px;
   margin: auto;
   overflow: hidden;
+  z-index: 10000;
 `;
 
 export const ToastIcon = styled(Icon).attrs<{ $variant: ToastVariant }>(({ $variant }) => ({
