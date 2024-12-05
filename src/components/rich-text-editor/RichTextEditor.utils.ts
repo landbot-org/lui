@@ -1,7 +1,6 @@
+import { $getRoot, $insertNodes, LexicalEditor } from 'lexical';
 import { $generateHtmlFromNodes, $generateNodesFromDOM } from '@lexical/html';
 import { $convertFromMarkdownString, $convertToMarkdownString, TRANSFORMERS } from '@lexical/markdown';
-import { $getRoot, $insertNodes, LexicalEditor } from 'lexical';
-
 import { Formats } from './RichTextEditor.types';
 
 export const getInputState =

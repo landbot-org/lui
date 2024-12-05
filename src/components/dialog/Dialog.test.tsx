@@ -1,5 +1,4 @@
 import React, { ReactNode, useState } from 'react';
-
 import { Dialog, DialogContent } from '.';
 import { mockResizeObserver, render, screen } from '../../test-utils';
 import { DialogProps } from './Dialog.types';

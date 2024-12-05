@@ -1,8 +1,7 @@
 import { Box } from '../box';
 import { Typography } from '../typography';
-import { BreadcrumbProps } from './Breadcrumb.types';
-
 import { getLabelColor, getTypographyVariant } from './Breadcrumb.styles';
+import { BreadcrumbProps } from './Breadcrumb.types';
 
 export const BreadcrumbSeparator = ({
   size,

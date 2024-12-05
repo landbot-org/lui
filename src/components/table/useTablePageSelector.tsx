@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { SelectedStatus } from './Table.SelectableIndexCell';
 
-export const useTablePageSelector = <T = unknown>(rowIds: T[] = []) => {
+export const useTablePageSelector = <T = unknown,>(rowIds: T[] = []) => {
   const [selection, setSelection] = useState<T[]>([]);
   const [allSelectionState, setAllSelectionState] = useState<SelectedStatus>(false);
 

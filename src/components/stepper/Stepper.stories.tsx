@@ -1,9 +1,7 @@
 import { useState } from 'react';
-
 import { fa3, faChainBroken, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
-
 import { WhatsApp } from '../icon/icons';
 import { Stepper } from './Stepper';
 

@@ -1,5 +1,4 @@
 import { css, styled } from 'styled-components';
-
 import { getColorFromTheme } from '../../shared/mixins';
 import { ColorsTypes } from '../../shared/theme.types';
 import { TagSizeTypes, TagVariantTypes } from './Tag.types';

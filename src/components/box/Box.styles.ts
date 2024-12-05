@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { BaseSpacing } from '../base-spacing';
 import { StyledBoxProps } from './Box.types';
 import {

@@ -1,9 +1,7 @@
 import { ForwardedRef, LiHTMLAttributes, ReactNode, forwardRef, useContext } from 'react';
-
 import { useSidebar } from '../../useSidebar';
 import { ItemContent } from '../layout/ItemContent';
 import { LevelContext } from './Menu';
-
 import { StyledItem, StyledMenuItem } from './MenuItem.styles';
 
 export interface MenuItemProps extends LiHTMLAttributes<HTMLLIElement> {

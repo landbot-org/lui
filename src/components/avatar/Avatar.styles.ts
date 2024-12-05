@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { AvatarSize } from './Avatar.types';
 import { AvatarStatus } from './components/Status';
 

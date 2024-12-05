@@ -1,9 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react';
-
 import { Icon } from '../../../../icon';
 import { Landbot } from '../../../../icon/icons';
 import { ChatMessage } from '../../../Chat.types';
-
 import {
   StyledAvatar,
   StyledAvatarImage,

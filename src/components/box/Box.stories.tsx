@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
-
+import { Meta, StoryObj } from '@storybook/react';
 import { Box } from './Box';
 
 const meta: Meta<typeof Box> = {

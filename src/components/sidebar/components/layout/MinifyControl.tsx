@@ -1,5 +1,4 @@
 import { LuArrowLeftToLine, LuArrowRightFromLine } from 'react-icons/lu';
-
 import { StyledIcon, StyledMinifyControl } from './MinifyControl.styles';
 
 export interface MinifyControlProps {

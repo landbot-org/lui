@@ -1,7 +1,6 @@
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Icon } from '../icon';
 import { Select } from './Select';
 

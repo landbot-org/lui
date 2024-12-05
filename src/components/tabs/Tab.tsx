@@ -1,9 +1,7 @@
 import React, { forwardRef } from 'react';
-
+import { BorderBottom, StyledTab, StyledTypography } from './Tabs.styles';
 import { TabProps } from './Tabs.types';
 import { getTypographyVariantBySize } from './Tabs.utils';
-
-import { BorderBottom, StyledTab, StyledTypography } from './Tabs.styles';
 
 export const Tab = forwardRef<HTMLDivElement, TabProps>(
   ({ active, direction, label, disabled, onClick, size }, ref) => (

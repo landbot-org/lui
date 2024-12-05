@@ -1,6 +1,5 @@
-import { DividerProps } from './Divider.types';
-
 import { HorizontalDividerStyled, VerticalDividerStyled } from './Divider.styles';
+import { DividerProps } from './Divider.types';
 
 export const Divider = ({
   orientation = 'horizontal',

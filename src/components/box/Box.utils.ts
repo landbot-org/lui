@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-
 import { getColorFromTheme } from '../../shared/mixins';
 import { Theme } from '../../shared/theme.types';
 import { BORDER_RADIUS_MAPPING, BOX_SHADOW_MAPPING } from './Box.constants';

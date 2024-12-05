@@ -1,9 +1,8 @@
 import { Box } from '../box';
 import { Typography } from '../typography';
+import { TagWrapper } from './Tag.styles';
 import { TagProps } from './Tag.types';
 import { getTagTypographyVariant } from './Tag.utils';
-
-import { TagWrapper } from './Tag.styles';
 
 export const Tag = ({
   label,

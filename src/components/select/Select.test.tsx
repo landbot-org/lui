@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { mockResizeObserver, render, screen } from '../../test-utils';
 import { Select } from './Select';
 import { SelectProps } from './Select.types';

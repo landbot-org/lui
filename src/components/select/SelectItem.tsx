@@ -1,8 +1,6 @@
 import React, { ReactNode, forwardRef, useId } from 'react';
-
 import { BoxProps } from '../box/Box.types';
 import { Typography } from '../typography';
-
 import { StyledOption } from './Select.styles';
 
 interface ItemProps {

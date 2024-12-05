@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-
 import { pxToRem } from './mixins';
 import type { Theme } from './theme.types';
 

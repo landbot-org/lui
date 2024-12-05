@@ -2,11 +2,11 @@ name: Publish package
 
 on:
   workflow_run:
-    workflows: ['Build']
+    workflows: [Build]
     types:
-      - completed
+    - completed
     branches:
-      - main
+    - main
 
 jobs:
   release:
@@ -15,37 +15,37 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: 'Generate token'
-        id: generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ secrets.SEMANTIC_RELEASE_APP_ID }}
-          private_key: ${{ secrets.SEMANTIC_RELEASE_APP_PRIVATE_KEY }}
+    - name: Generate token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.SEMANTIC_RELEASE_APP_ID }}
+        private_key: ${{ secrets.SEMANTIC_RELEASE_APP_PRIVATE_KEY }}
 
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          token: ${{ steps.generate_token.outputs.token }}
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ steps.generate_token.outputs.token }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 'lts/*'
-          cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+        cache: npm
+        cache-dependency-path: '**/package-lock.json'
 
-      - name: Install dependencies
-        run: npm ci
-        env:
-          FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}
+    - name: Install dependencies
+      run: npm ci
+      env:
+        FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}
 
-      - name: Build
-        run: npm run build
+    - name: Build
+      run: npm run build
 
-      - name: Publish package to NPM
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}
+    - name: Publish package to NPM
+      run: npx semantic-release
+      env:
+        GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}

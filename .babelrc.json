@@ -1,13 +1,13 @@
 {
-  "sourceType": "unambiguous",
+  "plugins": [],
   "presets": [
     [
       "@babel/preset-env",
       {
         "targets": {
           "chrome": 100,
-          "safari": 15,
-          "firefox": 91
+          "firefox": 91,
+          "safari": 15
         }
       }
     ],
@@ -19,5 +19,5 @@
       }
     ]
   ],
-  "plugins": []
+  "sourceType": "unambiguous"
 }

@@ -1,10 +1,8 @@
 import { ForwardedRef, LiHTMLAttributes, MouseEvent, ReactNode, forwardRef, useContext, useState } from 'react';
-
 import { Tooltip, TooltipTrigger } from '../../../tooltip';
 import { useSidebar } from '../../useSidebar';
 import { ItemContent } from '../layout/ItemContent';
 import { LevelContext } from './Menu';
-
 import { StyledInnerItem, StyledItem, StyledMenuItem } from './MenuItem.styles';
 import { StyledContent, StyledSubMenuContent } from './SubMenu.styles';
 

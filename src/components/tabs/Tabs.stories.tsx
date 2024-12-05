@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Box } from '../box';
 import { Tabs } from './Tabs';
 

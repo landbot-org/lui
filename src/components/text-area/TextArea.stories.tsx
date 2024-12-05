@@ -1,7 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
-
 import { TextArea } from './TextArea';
 
 const meta: Meta<typeof TextArea> = {

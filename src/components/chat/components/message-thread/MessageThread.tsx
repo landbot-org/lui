@@ -1,9 +1,7 @@
 import { useEffect, useRef } from 'react';
-
 import { ChatMessage } from '../../Chat.types';
-import { Message } from './components/Message';
-
 import { StyledMessageThread } from './MessageThread.styles';
+import { Message } from './components/Message';
 
 export interface MessageThreadProps {
   userId: string;

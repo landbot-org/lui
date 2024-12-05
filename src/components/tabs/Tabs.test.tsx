@@ -1,5 +1,4 @@
 import { cleanup } from '@testing-library/react';
-
 import { mockResizeObserver, render, screen } from '../../test-utils';
 import { Tabs } from './Tabs';
 

@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { COMMAND_PRIORITY_LOW, FOCUS_COMMAND } from 'lexical';
+import { useEffect } from 'react';
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 
 export const OnFocusPlugin = ({ onFocus }: { onFocus: () => void }) => {
   const [editor] = useLexicalComposerContext();

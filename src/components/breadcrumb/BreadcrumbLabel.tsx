@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
-
-import { BreadcrumbProps } from './Breadcrumb.types';
-
 import { StyledBreadcrumbLabel, getLabelColor, getTypographyVariant } from './Breadcrumb.styles';
+import { BreadcrumbProps } from './Breadcrumb.types';
 
 export const BreadcrumbLabel = ({
   children,

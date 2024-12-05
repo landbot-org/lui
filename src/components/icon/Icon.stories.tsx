@@ -1,8 +1,7 @@
+import { styled } from 'styled-components';
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
-import { styled } from 'styled-components';
-
 import { Box } from '../box';
 import { Divider } from '../divider';
 import { Typography } from '../typography';

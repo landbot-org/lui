@@ -1,5 +1,4 @@
 import { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'react';
-
 import { StyledToggle } from './Toggle.styles';
 
 export interface ToggleProps extends HTMLAttributes<HTMLDivElement> {

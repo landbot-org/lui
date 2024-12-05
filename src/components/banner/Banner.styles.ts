@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import type { Theme } from '../../shared/theme.types';
 import { BannerColorTypes } from './Banner.types';
 

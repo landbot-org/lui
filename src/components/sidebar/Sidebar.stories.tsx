@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
-import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
-
+import { Meta, StoryObj } from '@storybook/react';
 import {
   Sidebar,
   SidebarContent,

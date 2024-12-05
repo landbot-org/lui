@@ -1,13 +1,10 @@
 import { ReactNode } from 'react';
-
 import { faCircleCheck as faCircleCheckRegular } from '@fortawesome/free-regular-svg-icons';
 import { faCircleCheck as faCircleCheckSolid, faWarning } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { StepperWrapper } from './Stepper.styles';
 import { StepVariant, StepperProps } from './Stepper.types';
 import { StepperLabel } from './StepperLabel';
-
-import { StepperWrapper } from './Stepper.styles';
 
 const getIconFromVariant = ({ icon, variant }: { icon: ReactNode; variant: StepVariant }) => {
   if (icon) {

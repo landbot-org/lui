@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-
 import { PopoverProps } from '../popover/Popover.types';
 import { PopoverContext } from '../popover/PopoverContext';
 import { usePopover } from '../popover/usePopover';

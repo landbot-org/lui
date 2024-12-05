@@ -10,7 +10,7 @@
     "test:watch": "jest --watchAll",
     "test:ci": "jest --collect-coverage --ci",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "npx eslint ./src --max-warnings=0",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "clean": "npx rimraf ./dist",

@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { RadioProps } from './Radio.types';
 import { getBackgroundColorFromState, getBorderColorFromState, getColorFromState } from './Radio.utils';
 

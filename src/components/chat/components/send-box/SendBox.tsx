@@ -8,12 +8,10 @@ import {
   useRef,
   useState,
 } from 'react';
-
 import { Box } from '../../../box';
 import { FormHelperText } from '../../../form-helper-text';
 import { PaperPlane } from '../../../icon/icons/PaperPlane';
 import { ChatContent, ChatContentType } from '../../Chat.types';
-
 import { StyledIcon, StyledInputGroup, StyledTextArea } from './SendBox.styles';
 
 export interface SendBoxProps {
