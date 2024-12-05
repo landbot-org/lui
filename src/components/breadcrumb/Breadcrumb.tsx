@@ -1,16 +1,15 @@
 import { Box } from '../box';
 import { Icon } from '../icon';
-import { BreadcrumbProps } from './Breadcrumb.types';
-import { BreadcrumbLabel } from './BreadcrumbLabel';
-import { BreadcrumbLabelContainer } from './BreadcrumbLabelContainer';
-import { BreadcrumbSeparator } from './BreadcrumbSeparator';
-
 import {
   StyledBreadcrumbList,
   StyledBreadcrumbListItem,
   StyledBreadcrumbNav,
   getLabelColor,
 } from './Breadcrumb.styles';
+import { BreadcrumbProps } from './Breadcrumb.types';
+import { BreadcrumbLabel } from './BreadcrumbLabel';
+import { BreadcrumbLabelContainer } from './BreadcrumbLabelContainer';
+import { BreadcrumbSeparator } from './BreadcrumbSeparator';
 
 export const Breadcrumb = ({ items, size = 'large', mode = 'dark' }: BreadcrumbProps) => {
   return (

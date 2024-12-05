@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Box } from '../box';
 import { Button } from '../button';
 import { Divider } from '../divider';

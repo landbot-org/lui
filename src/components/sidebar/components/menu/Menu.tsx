@@ -1,5 +1,4 @@
 import { ForwardedRef, HTMLAttributes, ReactNode, createContext, forwardRef } from 'react';
-
 import { StyledMenuItem } from './Menu.styles';
 
 export interface MenuProps extends HTMLAttributes<HTMLDivElement> {

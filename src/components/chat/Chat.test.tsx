@@ -1,5 +1,4 @@
 import { v4 as uuid } from 'uuid';
-
 import { render, screen } from '../../test-utils';
 import { Chat } from './Chat';
 import { ChatContentType, ChatProps } from './Chat.types';

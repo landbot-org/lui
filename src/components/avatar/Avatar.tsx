@@ -1,7 +1,6 @@
 import defaultAvatar from '../../assets/images/avatar.png';
-import { AVATAR_STATUS, AvatarProps } from './Avatar.types';
-
 import { StyledAvatar, StyledAvatarImage, StyledAvatarStatus } from './Avatar.styles';
+import { AVATAR_STATUS, AvatarProps } from './Avatar.types';
 
 export const Avatar = ({
   avatar = defaultAvatar,

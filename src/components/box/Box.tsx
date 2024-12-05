@@ -1,8 +1,6 @@
 import { forwardRef } from 'react';
-
-import { BoxProps } from './Box.types';
-
 import { BoxStyled } from './Box.styles';
+import { BoxProps } from './Box.types';
 
 export const Box = forwardRef<HTMLElement, BoxProps>(
   (

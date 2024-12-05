@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Avatar } from './Avatar';
 import { AVATAR_STATUS } from './Avatar.types';
 

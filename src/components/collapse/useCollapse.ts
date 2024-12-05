@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-
 import { CollapseProps } from './Collapse.types';
 
 export const useCollapse = ({ open: controlledOpen, setOpen: setControlledOpen }: CollapseProps) => {

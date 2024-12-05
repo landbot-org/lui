@@ -1,5 +1,4 @@
 import { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'react';
-
 import { StyledHeader } from './Header.styles';
 
 export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {

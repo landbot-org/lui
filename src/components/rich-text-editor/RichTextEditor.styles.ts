@@ -1,6 +1,5 @@
-import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { styled } from 'styled-components';
-
+import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { inputBackgroundStyle, inputBorderStyle } from '../../shared/inputStyles';
 import { pxToRem } from '../../shared/mixins';
 import { Theme } from '../../shared/theme.types';

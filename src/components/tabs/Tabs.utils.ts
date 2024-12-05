@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-
 import { Size } from '../icon/Icon.types';
 import { TypographyVariants } from '../typography/Typography.types';
 import { TabSizeTypes } from './Tabs.types';

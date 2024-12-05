@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { StyledPopoverContent } from '../popover/Popover.styles';
 
 export const StyledTooltipContent = styled(StyledPopoverContent)`

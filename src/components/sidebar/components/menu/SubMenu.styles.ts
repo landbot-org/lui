@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { TooltipContent } from '../../../tooltip';
 
 export const StyledContent = styled(TooltipContent)`

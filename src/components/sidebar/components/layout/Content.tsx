@@ -1,5 +1,4 @@
 import { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'react';
-
 import { StyledContent } from './Content.styles';
 
 export interface ContentProps extends HTMLAttributes<HTMLDivElement> {

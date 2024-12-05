@@ -1,5 +1,4 @@
 import { AVATAR_STATUS, AvatarSize } from '../Avatar.types';
-
 import { StyledStatus } from './Status.styles';
 
 export interface StatusProps {

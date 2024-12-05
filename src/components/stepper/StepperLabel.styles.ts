@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { Theme } from '../../shared/theme.types';
 import { StepVariant } from './Stepper.types';
 

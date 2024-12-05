@@ -1,9 +1,7 @@
 import { useState } from 'react';
-
-import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
 import { v4 as uuid } from 'uuid';
-
+import { Meta, StoryObj } from '@storybook/react';
 import { Chat, ChatContentType, ChatMessage } from '.';
 
 const USER_ID = uuid();

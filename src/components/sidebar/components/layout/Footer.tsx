@@ -1,5 +1,4 @@
 import { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from 'react';
-
 import { StyledFooter } from './Footer.styles';
 
 export interface FooterProps extends HTMLAttributes<HTMLDivElement> {

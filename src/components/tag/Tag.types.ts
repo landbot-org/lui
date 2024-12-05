@@ -1,5 +1,4 @@
 import { HTMLAttributes, ReactNode } from 'react';
-
 import { ColorsTypes } from '../../shared/theme.types';
 
 export type TagSizeTypes = 'small' | 'medium' | 'large';

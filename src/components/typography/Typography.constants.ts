@@ -1,7 +1,5 @@
 import { ElementType } from 'react';
-
 import { css } from 'styled-components';
-
 import { TypographyVariants } from './Typography.types';
 
 export const VARIANT_MAPPING: Record<TypographyVariants, ElementType | keyof JSX.IntrinsicElements> = {

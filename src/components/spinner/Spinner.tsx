@@ -1,7 +1,6 @@
 import { NUMBER_OF_PILLS } from './Spinner.constants';
-import { SpinnerProps } from './Spinner.types';
-
 import { PillStyled, PillWrapperStyled, SpinnerStyled } from './Spinner.styles';
+import { SpinnerProps } from './Spinner.types';
 
 const arrayPills = Array.from({ length: NUMBER_OF_PILLS }, (_, i) => i);
 

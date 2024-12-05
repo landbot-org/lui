@@ -1,7 +1,5 @@
 import { cloneElement, isValidElement } from 'react';
-
 import { useMergeRefs } from '@floating-ui/react';
-
 import { usePopoverContext } from './PopoverContext';
 
 export interface PopoverTriggerProps {

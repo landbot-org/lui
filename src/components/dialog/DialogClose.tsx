@@ -1,8 +1,6 @@
 import { forwardRef } from 'react';
-
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Button } from '../button';
 import { ButtonProps } from '../button/Button.types';
 import { useDialogContext } from './DialogContext';

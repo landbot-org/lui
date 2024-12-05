@@ -1,11 +1,9 @@
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Icon } from '../icon';
 import { Typography } from '../typography';
-import { LinkProps } from './Link.types';
-
 import { BaseLink } from './Link.styles';
+import { LinkProps } from './Link.types';
 
 export const Link = ({ bold = false, children, containsIcon = false, variant, ...rest }: LinkProps) => (
   <BaseLink {...rest}>

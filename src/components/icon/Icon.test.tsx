@@ -1,6 +1,5 @@
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { render } from '../../test-utils';
 import { Icon } from './Icon';
 import { GRID_AREA } from './Icon.types';

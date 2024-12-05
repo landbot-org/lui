@@ -1,8 +1,7 @@
+import { MemoryRouter } from 'react-router-dom';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
-import { MemoryRouter } from 'react-router-dom';
-
 import { Breadcrumb } from './Breadcrumb';
 
 const meta: Meta<typeof Breadcrumb> = {

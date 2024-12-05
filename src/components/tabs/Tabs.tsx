@@ -1,14 +1,11 @@
 import { createRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Icon } from '../icon';
 import { Tab } from './Tab';
+import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 import { TabsProps } from './Tabs.types';
 import { getButtonIconSizeStyles } from './Tabs.utils';
-
-import { ArrowButton, Container, TabsContainer } from './Tabs.styles';
 
 const ARROW_SIZE = 32;
 const SCROLL_SIZE = 100;

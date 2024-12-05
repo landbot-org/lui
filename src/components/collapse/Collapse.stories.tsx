@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Divider } from '../divider';
 import { Typography } from '../typography';
 import { Collapse } from './Collapse';

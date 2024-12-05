@@ -1,5 +1,12 @@
+import {
+  $createParagraphNode,
+  $getSelection,
+  $isRangeSelection,
+  $isRootOrShadowRoot,
+  FORMAT_TEXT_COMMAND,
+  SELECTION_CHANGE_COMMAND,
+} from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
-
 import {
   faBold,
   faCode,
@@ -22,15 +29,6 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from '@lexical/rich-text';
 import { $setBlocksType } from '@lexical/selection';
 import { $findMatchingParent, $getNearestNodeOfType, mergeRegister } from '@lexical/utils';
-import {
-  $createParagraphNode,
-  $getSelection,
-  $isRangeSelection,
-  $isRootOrShadowRoot,
-  FORMAT_TEXT_COMMAND,
-  SELECTION_CHANGE_COMMAND,
-} from 'lexical';
-
 import { Box } from '../../box';
 import { Button } from '../../button';
 

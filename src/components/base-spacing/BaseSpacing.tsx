@@ -1,5 +1,4 @@
 import { css, styled } from 'styled-components';
-
 import { pxToRem } from '../../shared/mixins';
 import { BaseSpacingProps } from './BaseSpacing.types';
 

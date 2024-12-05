@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react';
-
 import { useDialog } from './useDialog';
 
 type DialogContextType = ReturnType<typeof useDialog> | null;

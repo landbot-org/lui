@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
-
-import { BreadcrumbItem } from './Breadcrumb.types';
-
 import { StyledBreadcrumbNavLink } from './Breadcrumb.styles';
+import { BreadcrumbItem } from './Breadcrumb.types';
 
 export const BreadcrumbLabelContainer = ({
   route,

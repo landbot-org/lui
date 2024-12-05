@@ -1,5 +1,4 @@
 import { ElementType, HTMLAttributes, ReactNode } from 'react';
-
 import { ColorsTypes } from '../../shared/theme.types';
 import { BaseSpacingProps } from '../base-spacing';
 

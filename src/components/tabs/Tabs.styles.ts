@@ -1,5 +1,4 @@
 import { css, keyframes, styled } from 'styled-components';
-
 import { Theme } from '../../shared/theme.types';
 import { Box } from '../box';
 import { Typography } from '../typography';
