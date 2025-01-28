@@ -29,6 +29,7 @@ export const Autocomplete = ({
   noResults,
   preventOpen,
   styles,
+  itemsContainerFooter,
   onFocus,
   onBlur,
   onChange,
@@ -138,17 +139,22 @@ export const Autocomplete = ({
             >
               <Box border={1} radius={1} p={1} backgroundColor="white.main" style={styles?.popoverContainer}>
                 {items.length > 0 ? (
-                  <AutoCompleteOptions
-                    activeIndex={activeIndex}
-                    refs={refs}
-                    selectedItemId={selectedItemId}
-                    listRef={listRef}
-                    getItemProps={getItemProps}
-                    handleSelectItem={handleSelectItem}
-                    items={items}
-                    itemRenderer={itemRenderer}
-                    styles={{ optionHover: styles?.optionHover, option: styles?.option }}
-                  />
+                  <>
+                    <Box style={styles?.popoverItemsContainer}>
+                      <AutoCompleteOptions
+                        activeIndex={activeIndex}
+                        refs={refs}
+                        selectedItemId={selectedItemId}
+                        listRef={listRef}
+                        getItemProps={getItemProps}
+                        handleSelectItem={handleSelectItem}
+                        items={items}
+                        itemRenderer={itemRenderer}
+                        styles={{ optionHover: styles?.optionHover, option: styles?.option }}
+                      />
+                    </Box>
+                    {itemsContainerFooter}
+                  </>
                 ) : (
                   <AutocompleteNoResults>{noResults}</AutocompleteNoResults>
                 )}
