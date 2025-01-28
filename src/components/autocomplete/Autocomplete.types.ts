@@ -32,9 +32,11 @@ export interface AutocompleteProps {
   onChange: NonNullable<TextFieldProps['onChange']>;
   onSelectItem: (item: AutoCompleteItemOption) => void;
   itemRenderer?: (item: AutoCompleteItemOption) => ReactNode;
+  itemsContainerFooter?: ReactNode;
   styles?: {
     popover?: CSSProperties;
     popoverContainer?: CSSProperties;
+    popoverItemsContainer?: CSSProperties;
     option?: CSSProperties;
     optionHover?: CSSProperties;
   };

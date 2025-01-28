@@ -3,6 +3,7 @@ import { faAngleDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '../box';
+import { Button } from '../button';
 import { Divider } from '../divider';
 import { Icon } from '../icon';
 import { Typography } from '../typography';
@@ -116,6 +117,24 @@ export const CustomStyles: Story = {
       optionHover: {
         backgroundColor: 'yellow',
       },
+    },
+  },
+};
+
+export const CustomItemsContainerFooter: Story = {
+  args: {
+    items: Array.from({ length: 100 }).map((_, i) => ({ id: i.toString(), value: `Option ${i}` })),
+    itemsContainerFooter: <Button>Create new option</Button>,
+    styles: {
+      popoverContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '4px',
+        maxHeight: '268px',
+        overflowY: 'auto',
+        borderRadius: '4px',
+      },
+      popoverItemsContainer: { overflowY: 'auto' },
     },
   },
 };
