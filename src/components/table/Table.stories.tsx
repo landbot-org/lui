@@ -1,4 +1,9 @@
+import { styled } from 'styled-components';
 import { Meta, StoryObj } from '@storybook/react';
+import { Box } from '../box';
+import { Icon } from '../icon';
+import { Warning, WhatsApp } from '../icon/icons';
+import { Typography } from '../typography';
 import { Table } from './Table';
 import { TableBody } from './Table.Body';
 import { TableBodySkeleton } from './Table.BodySkeleton';
@@ -162,6 +167,70 @@ export const RowSelection: Story = {
                   </TableTextCell>
                 );
               })}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  },
+};
+
+const StyledSubscriptionTag = styled(Box).attrs({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 8,
+  backgroundColor: 'neutral.100',
+  radius: 2,
+})`
+  padding: 2px 4px;
+`;
+
+export const CustomPopoverCell: Story = {
+  render: function Render() {
+    const rowIds = [1, 2, 3];
+    const channelsIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const { selection, allSelectionState, toggleSelection, toggleAllSelection } = useTablePageSelector(rowIds);
+
+    return (
+      <Table>
+        <TableHeader index selectOptions={{ onToggleSelection: toggleAllSelection, selected: allSelectionState }}>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Age</TableHeaderCell>
+          <TableHeaderCell size={300}>Channels</TableHeaderCell>
+          <TableHeaderCell>Food</TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          {rowIds.map((i) => (
+            <TableRow
+              index={i.toString()}
+              key={i}
+              selectOptions={{ onToggleSelection: toggleSelection, value: i, selected: selection.includes(i) }}
+            >
+              <TableTextCell>Name {i}</TableTextCell>
+              <TableTextCell>Age {i}</TableTextCell>
+              <TablePopoverCell
+                size={300}
+                popoverChildren={
+                  <Box display="flex" flexWrap="wrap" gap={8} style={{ maxHeight: '100px', overflowY: 'auto' }}>
+                    {channelsIds.map((channelId) => (
+                      <Box key={channelId} style={{ width: 'fit-content', backgroundColor: 'red' }}>
+                        <Icon icon={<Warning />} />
+                        <Typography variant="text14">Channel {channelId}</Typography>
+                      </Box>
+                    ))}
+                  </Box>
+                }
+              >
+                <Box display="flex" alignItems="center" gap={8}>
+                  {channelsIds.map((channelId) => (
+                    <StyledSubscriptionTag key={channelId}>
+                      <Icon icon={<WhatsApp />} />
+                      <Typography variant="text14">Channel {channelId}</Typography>
+                    </StyledSubscriptionTag>
+                  ))}
+                </Box>
+              </TablePopoverCell>
+              <TableTextCell>Ramen {i}</TableTextCell>
             </TableRow>
           ))}
         </TableBody>

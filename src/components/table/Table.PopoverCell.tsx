@@ -8,9 +8,9 @@ import { Popover, PopoverTrigger } from '../popover';
 import { PopoverContentProps } from '../popover';
 import { usePopoverContext } from '../popover/PopoverContext';
 import { Typography } from '../typography';
+import { TablePopoverCellProps } from './Table.PopoverCell.types';
 import { StyledPopoverButtonWrapper, StyledPopoverCell, StyledTableText } from './Table.styles';
 import { StyledFloatingContent } from './Table.styles';
-import { CellProps } from './Table.types';
 
 const FloatingContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps) => {
   const { context: floatingContext, ...context } = usePopoverContext();
@@ -32,7 +32,14 @@ const FloatingContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps)
   );
 };
 
-export const TablePopoverCell = ({ size, children, flexGrow }: CellProps) => {
+export const TablePopoverCell = ({
+  size,
+  children,
+  flexGrow,
+  clipboardContent,
+  popoverChildren,
+  styles,
+}: TablePopoverCellProps) => {
   const copyToClipboard = () => {
     const extractTextFromChildren = (node: ReactNode): string => {
       if (typeof node === 'string') {
@@ -47,16 +54,18 @@ export const TablePopoverCell = ({ size, children, flexGrow }: CellProps) => {
       return '';
     };
 
-    const text = extractTextFromChildren(children);
+    const text = clipboardContent ?? extractTextFromChildren(children);
     navigator.clipboard.writeText(text);
   };
 
   return (
     <Popover hasArrow={false} mainAxisOffset={-40} placement="bottom-end" fitInContaier>
       <FloatingContent width={size}>
-        <Typography color="blue.main" variant="text14" fontWeight={400} as="div">
-          {children}
-        </Typography>
+        {popoverChildren || (
+          <Typography color="blue.main" variant="text14" fontWeight={400} as="div" style={styles?.popoverContainer}>
+            {children}
+          </Typography>
+        )}
         <StyledPopoverButtonWrapper>
           <Button
             variant="text"
