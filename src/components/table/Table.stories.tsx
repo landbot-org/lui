@@ -178,7 +178,7 @@ export const RowSelection: Story = {
 const StyledSubscriptionTag = styled(Box).attrs({
   display: 'flex',
   alignItems: 'center',
-  gap: 8,
+  gap: 12,
   backgroundColor: 'neutral.100',
   radius: 2,
 })`
