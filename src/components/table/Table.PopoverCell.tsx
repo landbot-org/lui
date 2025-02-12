@@ -32,7 +32,14 @@ const FloatingContent = (props: HTMLProps<HTMLDivElement> & PopoverContentProps)
   );
 };
 
-export const TablePopoverCell = ({ size, children, flexGrow, clipboardContent }: TablePopoverCellProps) => {
+export const TablePopoverCell = ({
+  size,
+  children,
+  flexGrow,
+  clipboardContent,
+  popoverChildren,
+  styles,
+}: TablePopoverCellProps) => {
   const copyToClipboard = () => {
     const extractTextFromChildren = (node: ReactNode): string => {
       if (typeof node === 'string') {
@@ -54,9 +61,11 @@ export const TablePopoverCell = ({ size, children, flexGrow, clipboardContent }:
   return (
     <Popover hasArrow={false} mainAxisOffset={-40} placement="bottom-end" fitInContaier>
       <FloatingContent width={size}>
-        <Typography color="blue.main" variant="text14" fontWeight={400} as="div">
-          {children}
-        </Typography>
+        {popoverChildren || (
+          <Typography color="blue.main" variant="text14" fontWeight={400} as="div" style={styles?.popoverContainer}>
+            {children}
+          </Typography>
+        )}
         <StyledPopoverButtonWrapper>
           <Button
             variant="text"

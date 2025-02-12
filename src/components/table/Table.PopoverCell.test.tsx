@@ -11,6 +11,15 @@ const renderComponent = (props: Partial<TablePopoverCellProps> = {}) => {
 };
 
 describe('TablePopoverCell', () => {
+  it('allows to customice popover content', async () => {
+    const popoverChildren = 'popoverChildren';
+    const children = 'childrenContent';
+    const { user } = renderComponent({ children, popoverChildren });
+
+    await user.click(screen.getByText(children));
+
+    expect(screen.getByText(popoverChildren)).toBeVisible();
+  });
   describe('copy to clipboard', () => {
     it('allows to customize the content for the clipboard', async () => {
       const clipboardContent = 'clipboardContent';
