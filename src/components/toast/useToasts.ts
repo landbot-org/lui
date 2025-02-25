@@ -7,7 +7,7 @@ function generateUID() {
 }
 
 export function useToasts() {
-  const [index, _] = useState(0);
+  const [index] = useState(0);
   const [toasts, setToasts] = useState<ToastsType>([]);
   const listRef = useRef<Array<HTMLElement | null>>([]);
 
