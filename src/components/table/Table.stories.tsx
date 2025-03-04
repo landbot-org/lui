@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import { styled } from 'styled-components';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/pro-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '../box';
+import { Button } from '../button/Button';
 import { Icon } from '../icon';
-import { Warning, WhatsApp } from '../icon/icons';
+import { Menu, Warning, WhatsApp } from '../icon/icons';
+import { MenuButton } from '../menu/MenuButton';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 import { Typography } from '../typography';
 import { Table } from './Table';
 import { TableBody } from './Table.Body';
@@ -231,6 +238,121 @@ export const CustomPopoverCell: Story = {
                 </Box>
               </TablePopoverCell>
               <TableTextCell>Ramen {i}</TableTextCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  },
+};
+
+const StyledMenuContainer = styled(Box)`
+  min-width: 200px;
+`;
+
+const StyledMenuActions = styled(Button)`
+  margin-left: auto;
+`;
+
+export const HeaderCellWithMenuActions: Story = {
+  render: function Render() {
+    const [openFirst, setOpenFirst] = useState(false);
+    const [openSecond, setOpenSecond] = useState(false);
+
+    const FirstMenuActions = (
+      <Popover open={openFirst} setOpen={setOpenFirst} placement="bottom" hasCloseButton={false} hasArrow={false}>
+        <PopoverTrigger>
+          <StyledMenuActions
+            variant="text"
+            color="blue.main"
+            startIcon={<Icon icon={<FontAwesomeIcon icon={faEllipsisV} />} />}
+            aria-label="Bulk actions"
+          />
+        </PopoverTrigger>
+        <PopoverContent>
+          <Menu>
+            <StyledMenuContainer>
+              <MenuButton
+                color="error.main"
+                startIcon={<Icon icon={<FontAwesomeIcon icon={faTrash} />} />}
+                onClick={() => {}}
+              >
+                Delete
+              </MenuButton>
+            </StyledMenuContainer>
+          </Menu>
+        </PopoverContent>
+      </Popover>
+    );
+
+    const SecondMenuActions = (
+      <Popover open={openSecond} setOpen={setOpenSecond} placement="bottom" hasCloseButton={false} hasArrow={false}>
+        <PopoverTrigger>
+          <StyledMenuActions
+            variant="text"
+            color="blue.main"
+            startIcon={<Icon icon={<FontAwesomeIcon icon={faEllipsisV} />} />}
+            aria-label="Bulk actions"
+          />
+        </PopoverTrigger>
+        <PopoverContent>
+          <Menu>
+            <StyledMenuContainer>
+              <MenuButton
+                color="error.main"
+                startIcon={<Icon icon={<FontAwesomeIcon icon={faTrash} />} />}
+                onClick={() => {}}
+              >
+                Delete
+              </MenuButton>
+            </StyledMenuContainer>
+          </Menu>
+        </PopoverContent>
+      </Popover>
+    );
+
+    return (
+      <Table>
+        <TableHeader index>
+          <TableHeaderCell
+            menuActions={FirstMenuActions}
+            size={sizes[0]}
+            flexGrow={headers.length - 1 === 0 ? 1 : undefined}
+          >
+            {headers[0]}
+          </TableHeaderCell>
+          {headers.slice(1, 3).map((header, i) => {
+            return (
+              <TableHeaderCell size={sizes[i]} flexGrow={headers.length - 1 === i ? 1 : undefined}>
+                {header}
+              </TableHeaderCell>
+            );
+          })}
+          <TableHeaderCell
+            menuActions={SecondMenuActions}
+            size={sizes[3]}
+            flexGrow={headers.length - 1 === 3 ? 1 : undefined}
+          >
+            {headers[3]}
+          </TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          {data.map((row, i) => (
+            <TableRow index={i.toString()} key={i}>
+              {row.map((cell, j) => {
+                if (row.length - 1 === j) {
+                  return (
+                    <TablePopoverCell flexGrow={1} size={sizes[j]} key={cell}>
+                      {cell.toString()}
+                    </TablePopoverCell>
+                  );
+                }
+                return (
+                  <TableTextCell key={cell} size={sizes[j]}>
+                    {cell}
+                  </TableTextCell>
+                );
+              })}
             </TableRow>
           ))}
         </TableBody>
