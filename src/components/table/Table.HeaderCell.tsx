@@ -6,7 +6,7 @@ export const TableHeaderCell = ({ size, children, flexGrow, menuActions }: CellP
   return (
     <StyledCell $width={size} flexGrow={flexGrow}>
       <StyledTableText>{children}</StyledTableText>
-      {menuActions == undefined ? null : menuActions}
+      {menuActions}
     </StyledCell>
   );
 };
