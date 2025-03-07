@@ -27,13 +27,17 @@ export const useToastsContext = () => {
   return context;
 };
 
-export function ToastProvider({ children }: { children: ReactNode }) {
+interface ToastProviderProps {
+  children: ReactNode;
+}
+
+export function ToastProvider({ children }: ToastProviderProps) {
   const context = useToasts();
 
   const ref = useMergeRefs([context.refs.setReference, context.refs.setFloating]);
 
   return (
-    <ToastContext.Provider value={{ ...context }}>
+    <ToastContext.Provider value={context}>
       {createPortal(
         <div ref={ref}>
           {context.toasts.map(
