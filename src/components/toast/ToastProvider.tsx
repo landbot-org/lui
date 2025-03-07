@@ -1,4 +1,5 @@
-import React, { MutableRefObject, ReactNode, createContext, useContext } from 'react';
+import { MutableRefObject, ReactNode, createContext, useContext } from 'react';
+import { createPortal } from 'react-dom';
 import { ExtendedRefs, UseFloatingReturn, useMergeRefs } from '@floating-ui/react';
 import { ToastContent } from './Toast';
 import { Options, ToastsType } from './Toast.types';
@@ -33,28 +34,31 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 
   return (
     <ToastContext.Provider value={{ ...context }}>
-      <div ref={ref}>
-        {context.toasts.map(
-          ({ id, message, variant, autoDismiss, hideIcon, icon, hideCloseButton, action, style }, index) => (
-            <ToastContent
-              key={id}
-              toastId={id}
-              variant={variant}
-              autoDismiss={autoDismiss}
-              ref={(node) => {
-                context.listRef.current[index] = node;
-              }}
-              toastIndex={index}
-              hideIcon={hideIcon}
-              icon={icon}
-              hideCloseButton={hideCloseButton}
-              message={message}
-              action={action}
-              style={style}
-            />
-          ),
-        )}
-      </div>
+      {createPortal(
+        <div ref={ref}>
+          {context.toasts.map(
+            ({ id, message, variant, autoDismiss, hideIcon, icon, hideCloseButton, action, style }, index) => (
+              <ToastContent
+                key={id}
+                toastId={id}
+                variant={variant}
+                autoDismiss={autoDismiss}
+                ref={(node) => {
+                  context.listRef.current[index] = node;
+                }}
+                toastIndex={index}
+                hideIcon={hideIcon}
+                icon={icon}
+                hideCloseButton={hideCloseButton}
+                message={message}
+                action={action}
+                style={style}
+              />
+            ),
+          )}
+        </div>,
+        document.body,
+      )}
       {children}
     </ToastContext.Provider>
   );
