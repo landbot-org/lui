@@ -6,7 +6,6 @@ import { faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box } from '../box';
 import { Button } from '../button';
-import { Icon } from '../icon';
 import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from './Toast.styles';
 import { ToastVariant } from './Toast.types';
 import { useToastsContext } from './ToastProvider';
@@ -124,8 +123,8 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
                 <Button
                   color="blue.main"
                   variant="text"
-                  size="small"
-                  startIcon={<Icon icon={<FontAwesomeIcon icon={faXmark} />} />}
+                  size="medium"
+                  startIcon={<FontAwesomeIcon icon={faXmark} />}
                   onClick={handleClose}
                   aria-label="toast-close"
                 ></Button>
