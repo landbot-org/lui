@@ -52,6 +52,12 @@ type Story = StoryObj<typeof Autocomplete>;
 
 export const Default: Story = {};
 
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};
+
 export const NoResults: Story = {
   args: {
     items: [],

@@ -23,6 +23,11 @@ describe('Autocomplete', () => {
 
     expect(screen.getByPlaceholderText('Write something here')).toBeVisible();
   });
+  it('should render disabled', () => {
+    renderComponent({ disabled: true, placeholder: 'Write something here' });
+
+    expect(screen.getByRole('combobox')).toBeDisabled();
+  });
   it('should render items when start typing', async () => {
     const { user } = renderComponent({
       placeholder: 'Write something here',

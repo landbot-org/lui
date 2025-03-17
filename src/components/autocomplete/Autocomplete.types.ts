@@ -20,6 +20,7 @@ export interface AutocompleteProps {
   items: AutoCompleteItem[];
   selectedItemId?: AutoCompleteItemOption['id'];
   placeholder?: string;
+  disabled?: boolean;
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
   inputValue?: string;

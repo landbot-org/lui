@@ -35,6 +35,7 @@ export const Autocomplete = ({
   onChange,
   onSelectItem,
   itemRenderer,
+  disabled,
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -94,12 +95,13 @@ export const Autocomplete = ({
     setOpen(false);
   };
 
-  const showPopover = !preventOpen && open;
+  const showPopover = !disabled && !preventOpen && open;
 
   return (
     <>
       <div onMouseDown={handleFocusInput}>
         <TextField
+          disabled={disabled}
           startAdornment={startAdornment}
           endAdornment={endAdornment}
           {...getReferenceProps({
