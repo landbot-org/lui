@@ -36,6 +36,7 @@ export const Autocomplete = ({
   onSelectItem,
   itemRenderer,
   disabled,
+  'aria-labelledby': arialLabelledBy,
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -112,6 +113,7 @@ export const Autocomplete = ({
             ref: refs.setReference,
             placeholder,
             'aria-autocomplete': 'list',
+            'aria-labelledby': arialLabelledBy,
             onKeyDown(event) {
               if (
                 event.key === 'Enter' &&

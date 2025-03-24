@@ -41,4 +41,5 @@ export interface AutocompleteProps {
     option?: CSSProperties;
     optionHover?: CSSProperties;
   };
+  'aria-labelledby'?: string;
 }
