@@ -18,6 +18,21 @@ describe('Autocomplete', () => {
     mockResizeObserver();
   });
 
+  it('when aria-labelledby is passed, should be selected by the content of aria-labelledby', () => {
+    render(
+      <>
+        <span id="label">Span Text</span>
+        <Autocomplete items={[]} onChange={jest.fn()} onSelectItem={jest.fn()} aria-labelledby="label" />
+      </>,
+    );
+
+    expect(
+      screen.getByRole('combobox', {
+        name: 'Span Text',
+      }),
+    ).toHaveAttribute('aria-labelledby', 'label');
+  });
+
   it('should render input with placeholder', () => {
     renderComponent({ placeholder: 'Write something here' });
 
