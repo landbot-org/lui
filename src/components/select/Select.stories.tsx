@@ -17,18 +17,6 @@ const meta: Meta<typeof Select> = {
     ],
     endAdornment: <Icon icon={<FontAwesomeIcon icon={faAngleDown} />} color="blue.main" />,
   },
-  argTypes: {
-    startAdornment: {
-      control: {
-        type: null,
-      },
-    },
-    endAdornment: {
-      control: {
-        type: null,
-      },
-    },
-  },
 };
 
 export default meta;

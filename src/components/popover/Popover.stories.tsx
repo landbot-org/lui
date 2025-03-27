@@ -12,13 +12,6 @@ const meta: Meta<typeof Popover> = {
   title: 'Components/Popover',
   component: Popover,
   tags: ['autodocs'],
-  argTypes: {
-    children: {
-      control: {
-        type: null,
-      },
-    },
-  },
 };
 
 export default meta;

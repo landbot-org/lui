@@ -9,10 +9,6 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-};
-
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {

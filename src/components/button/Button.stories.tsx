@@ -13,16 +13,6 @@ const meta: Meta<typeof Button> = {
     children: { control: 'text' },
     disabled: { control: 'boolean' },
     fullWidth: { control: 'boolean' },
-    startIcon: {
-      control: {
-        type: null,
-      },
-    },
-    endIcon: {
-      control: {
-        type: null,
-      },
-    },
   },
   args: {
     children: 'Button',
