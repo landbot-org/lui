@@ -23,28 +23,6 @@ const meta: Meta<typeof Autocomplete> = {
     startAdornment: <Icon icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} color="blue.main" />,
     endAdornment: <Icon icon={<FontAwesomeIcon icon={faAngleDown} />} color="blue.main" />,
   },
-  argTypes: {
-    startAdornment: {
-      control: {
-        type: null,
-      },
-    },
-    endAdornment: {
-      control: {
-        type: null,
-      },
-    },
-    onChange: {
-      control: {
-        type: null,
-      },
-    },
-    onSelectItem: {
-      control: {
-        type: null,
-      },
-    },
-  },
 };
 
 export default meta;

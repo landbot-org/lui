@@ -10,13 +10,6 @@ const meta: Meta<typeof Collapse> = {
   title: 'Components/Collapse',
   component: Collapse,
   tags: ['autodocs'],
-  argTypes: {
-    children: {
-      control: {
-        type: null,
-      },
-    },
-  },
 };
 
 export default meta;

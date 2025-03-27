@@ -8,23 +8,6 @@ const meta: Meta<typeof Tag> = {
   title: 'Components/Tag',
   component: Tag,
   tags: ['autodocs'],
-  argTypes: {
-    children: {
-      control: {
-        type: null,
-      },
-    },
-    startAdornment: {
-      control: {
-        type: null,
-      },
-    },
-    endAdornment: {
-      control: {
-        type: null,
-      },
-    },
-  },
   args: {
     label: 'Tag Name',
     startAdornment: <Icon icon={<FontAwesomeIcon icon={faCheck} />} />,

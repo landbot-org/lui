@@ -9,13 +9,6 @@ const meta: Meta<typeof Tooltip> = {
   title: 'Components/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
-  argTypes: {
-    children: {
-      control: {
-        type: null,
-      },
-    },
-  },
   args: {
     placement: 'top-start',
   },

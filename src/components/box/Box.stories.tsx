@@ -19,11 +19,6 @@ const meta: Meta<typeof Box> = {
         type: 'text',
       },
     },
-    children: {
-      control: {
-        type: null,
-      },
-    },
   },
 };
 

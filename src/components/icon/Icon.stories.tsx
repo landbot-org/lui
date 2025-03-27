@@ -12,13 +12,6 @@ const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',
   component: Icon,
   tags: ['autodocs'],
-  argTypes: {
-    icon: {
-      control: {
-        type: null,
-      },
-    },
-  },
   args: {
     size: '2x',
   },

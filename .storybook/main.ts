@@ -6,11 +6,23 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+
   // Optional
-  addons: ['@storybook/addon-essentials', '@storybook/addon-themes'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-themes',
+    '@chromatic-com/storybook',
+    '@storybook/addon-mdx-gfm',
+  ],
+
   docs: {
-    autodocs: 'tag',
+    autodocs: true,
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
 };
 export default config;

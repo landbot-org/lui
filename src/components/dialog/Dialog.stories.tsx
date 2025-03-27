@@ -11,19 +11,15 @@ import { DialogContent } from './DialogContent';
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',
   component: Dialog,
+  tags: ['autodocs'],
   args: {
-    open: true,
+    open: false,
     width: 500,
     hasCloseButton: true,
   },
   argTypes: {
     width: {
       control: { type: 'number', min: 100, max: 3000, step: 10 },
-    },
-    children: {
-      control: {
-        type: null,
-      },
     },
   },
 };
