@@ -1,8 +1,9 @@
+import { ElementType } from 'react';
 import { VARIANT_MAPPING } from './Typography.constants';
 import { BaseTypography } from './Typography.styles';
 import { TypographyProps } from './Typography.types';
 
-export const Typography = ({
+export const Typography = <TAs extends ElementType = 'p'>({
   as,
   children,
   color,
@@ -10,7 +11,7 @@ export const Typography = ({
   fontWeight,
   variant = 'text16',
   ...rest
-}: TypographyProps) => {
+}: TypographyProps<TAs>) => {
   return (
     <BaseTypography
       as={as || VARIANT_MAPPING[variant]}
