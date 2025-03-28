@@ -120,6 +120,15 @@ export const Interactive: Story = {
 
 export const Loading: Story = {
   render: function Render() {
+    const headers = [
+      'Person',
+      'Most interest in',
+      'Age',
+      'long long long long long long long long long long long long text',
+    ];
+
+    const sizes = [400, 100, 500, 200];
+
     return (
       <Table>
         <TableHeader index>
@@ -131,7 +140,13 @@ export const Loading: Story = {
             );
           })}
         </TableHeader>
-        <TableBodySkeleton rows={data.length} columns={headers.length} longCellsPositions={[3]} showIndex />
+        <TableBodySkeleton
+          rows={data.length}
+          columns={headers.length}
+          longCellsPositions={[3]}
+          sizes={sizes}
+          showIndex
+        />
       </Table>
     );
   },

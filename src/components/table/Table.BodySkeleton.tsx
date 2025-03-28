@@ -12,9 +12,10 @@ export interface TableBodySkeletonProps {
   columns: number;
   showIndex?: boolean;
   longCellsPositions?: number[];
+  sizes?: number[];
 }
 
-export const TableBodySkeleton = ({ rows, columns, showIndex, longCellsPositions }: TableBodySkeletonProps) => {
+export const TableBodySkeleton = ({ rows, columns, showIndex, longCellsPositions, sizes }: TableBodySkeletonProps) => {
   return (
     <StyledSkeletonBody>
       {Array.from({ length: rows }).map((_, rowIndex) => (
@@ -29,6 +30,7 @@ export const TableBodySkeleton = ({ rows, columns, showIndex, longCellsPositions
               key={colIndex}
               flexGrow={longCellsPositions?.includes(colIndex) ? 1 : undefined}
               aria-label={`Loading cell ${rowIndex}-${colIndex}`}
+              $width={sizes?.[colIndex]}
             >
               <StyledSkeletonCellContent />
             </StyledSkeletonCell>
