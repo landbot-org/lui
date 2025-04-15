@@ -27,5 +27,5 @@ export interface PopoverContentProps {
   children?: ReactNode;
   id?: string;
   root?: HTMLElement | null | MutableRefObject<HTMLElement | null>;
-  border?: BorderType | null;
+  border?: BorderType;
 }
