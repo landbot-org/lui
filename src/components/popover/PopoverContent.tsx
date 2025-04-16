@@ -17,7 +17,7 @@ export const PopoverContent = (props: HTMLProps<HTMLDivElement> & PopoverContent
       <FloatingFocusManager context={floatingContext}>
         <StyledPopoverContent
           $color={context.color}
-          border={1}
+          border={props.border}
           radius={2}
           elevation={2}
           ref={context.refs.setFloating}

@@ -1,5 +1,6 @@
 import { MutableRefObject, ReactNode } from 'react';
 import { Placement } from '@floating-ui/react';
+import { BorderType } from '../box';
 
 export interface PopoverProps {
   canEscapeClose?: boolean;
@@ -26,4 +27,5 @@ export interface PopoverContentProps {
   children?: ReactNode;
   id?: string;
   root?: HTMLElement | null | MutableRefObject<HTMLElement | null>;
+  border?: BorderType;
 }
