@@ -13,7 +13,7 @@ export const StyledContent = styled(Box).attrs({
 })<{ $width: number; $zIndex: number }>`
   z-index: ${({ $zIndex }) => $zIndex};
   width: ${({ $width }) => `${$width}px`};
-  max-width: 94vw;
+  max-width: 95vw;
   max-height: 100vh;
   height: 100%;
   overflow: auto;
