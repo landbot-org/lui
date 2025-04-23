@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { getColorFromTheme } from '../../shared/mixins';
 import { Box } from '../box';
 
 export const StyledContent = styled(Box).attrs({
@@ -7,7 +8,7 @@ export const StyledContent = styled(Box).attrs({
   right: 0,
   elevation: 3,
   backgroundColor: 'white.main',
-  border: 1,
+  border: 0,
   radius: 0,
 })<{ $width: number; $zIndex: number }>`
   z-index: ${({ $zIndex }) => $zIndex};
@@ -16,4 +17,5 @@ export const StyledContent = styled(Box).attrs({
   max-height: 100vh;
   height: 100%;
   overflow: auto;
+  border-left: 1px solid ${({ theme }) => getColorFromTheme(theme, 'neutral.300')};
 `;
