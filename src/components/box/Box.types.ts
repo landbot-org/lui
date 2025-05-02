@@ -1,6 +1,6 @@
 import { ElementType, HTMLAttributes, ReactNode } from 'react';
 import { ColorsTypes } from '../../shared/theme.types';
-import { BaseSpacingProps } from '../base-spacing';
+import { BaseSpacingProps, StyledBaseSpacingProps } from '../base-spacing';
 
 export type FlexAlignType = 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline';
 export type FlexDirectionType = 'row' | 'column';
@@ -38,7 +38,7 @@ export interface BoxProps extends BaseSpacingProps, HTMLAttributes<HTMLDivElemen
   radius?: RadiusType;
 }
 
-export interface StyledBoxProps extends BoxProps {
+export interface StyledBoxProps extends StyledBaseSpacingProps, HTMLAttributes<HTMLDivElement> {
   $alignItems: BoxProps['alignItems'];
   $backgroundColor: BoxProps['backgroundColor'];
   $border: BoxProps['border'];

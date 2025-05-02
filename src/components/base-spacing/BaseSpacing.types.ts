@@ -16,3 +16,20 @@ export interface BaseSpacingProps {
   px?: SPACING_OPTIONS;
   py?: SPACING_OPTIONS;
 }
+
+export interface StyledBaseSpacingProps {
+  $m?: SPACING_OPTIONS;
+  $mt?: SPACING_OPTIONS;
+  $mr?: SPACING_OPTIONS;
+  $mb?: SPACING_OPTIONS;
+  $ml?: SPACING_OPTIONS;
+  $mx?: SPACING_OPTIONS;
+  $my?: SPACING_OPTIONS;
+  $p?: SPACING_OPTIONS;
+  $pt?: SPACING_OPTIONS;
+  $pr?: SPACING_OPTIONS;
+  $pb?: SPACING_OPTIONS;
+  $pl?: SPACING_OPTIONS;
+  $px?: SPACING_OPTIONS;
+  $py?: SPACING_OPTIONS;
+}

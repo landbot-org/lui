@@ -10,6 +10,20 @@ export const Typography = <TAs extends ElementType = 'p'>({
   ellipsize,
   fontWeight,
   variant = 'text16',
+  m,
+  mt,
+  mr,
+  mb,
+  ml,
+  mx,
+  my,
+  p,
+  pt,
+  pr,
+  pb,
+  pl,
+  px,
+  py,
   ...rest
 }: TypographyProps<TAs>) => {
   return (
@@ -19,6 +33,20 @@ export const Typography = <TAs extends ElementType = 'p'>({
       $ellipsize={ellipsize}
       $fontWeight={fontWeight}
       $variant={variant}
+      $m={m}
+      $mt={mt}
+      $mr={mr}
+      $mb={mb}
+      $ml={ml}
+      $mx={mx}
+      $my={my}
+      $p={p}
+      $pt={pt}
+      $pr={pr}
+      $pb={pb}
+      $pl={pl}
+      $px={px}
+      $py={py}
       {...rest}
     >
       {children}
