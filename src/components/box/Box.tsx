@@ -28,6 +28,20 @@ export const Box = forwardRef<HTMLElement, BoxProps>(
       left,
       right,
       bottom,
+      m,
+      mt,
+      mr,
+      mb,
+      ml,
+      mx,
+      my,
+      p,
+      pt,
+      pr,
+      pb,
+      pl,
+      px,
+      py,
       ...other
     },
     ref,
@@ -55,6 +69,20 @@ export const Box = forwardRef<HTMLElement, BoxProps>(
       $left={left}
       $right={right}
       $bottom={bottom}
+      $m={m}
+      $mt={mt}
+      $mr={mr}
+      $mb={mb}
+      $ml={ml}
+      $mx={mx}
+      $my={my}
+      $p={p}
+      $pt={pt}
+      $pr={pr}
+      $pb={pb}
+      $pl={pl}
+      $px={px}
+      $py={py}
       {...other}
       ref={ref}
     >
