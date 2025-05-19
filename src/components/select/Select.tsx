@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useState } from 'react';
+import React, { forwardRef, useRef, useState } from 'react';
 import {
   FloatingFocusManager,
   FloatingPortal,
@@ -12,12 +12,21 @@ import {
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { Box } from '../box';
 import { TextField } from '../text-field';
 import { Typography } from '../typography';
 import { StyledSelect } from './Select.styles';
 import { SelectItemProps, SelectProps } from './Select.types';
 import { SelectItem } from './SelectItem';
+
+const IntersectionTrack = ({ onIntersection }: Pick<SelectProps, 'onIntersection'>) => {
+  const { loadMoreRef } = useIntersectionObserver({
+    onIntersection,
+  });
+
+  return <div ref={loadMoreRef} />;
+};
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
   (
@@ -38,6 +47,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       variant = 'regular',
       styles,
       ariaLabel,
+      infiniteMode = false,
+      hasMore,
+      onIntersection,
     }: SelectProps,
     ref,
   ) => {
@@ -123,7 +135,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                 })}
               >
                 <Box style={styles?.optionsContainer}>
-                  <Box border={1} radius={1} p={1} backgroundColor="white.main">
+                  <Box style={styles?.insideContainer} border={1} radius={1} p={1} backgroundColor="white.main">
                     {items.length > 0 ? (
                       items.map((item, index) => (
                         <SelectItem
@@ -148,6 +160,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                         {noResults}
                       </Typography>
                     )}
+                    {infiniteMode && hasMore && <IntersectionTrack onIntersection={onIntersection} />}
                   </Box>
                 </Box>
               </div>

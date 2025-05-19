@@ -1,3 +1,4 @@
+import { ComponentProps, useState } from 'react';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
@@ -55,4 +56,35 @@ export const Disabled: Story = {
     label: 'Label',
     disabled: true,
   },
+};
+
+const FetchOnScroll = ({ items, ...rest }: ComponentProps<typeof Select>) => {
+  const [copyItems, setItems] = useState<ComponentProps<typeof Select>['items']>(items);
+  const hasMore = copyItems.length < 50;
+
+  const handleOnIntersection = () => {
+    setItems((prevItems) => {
+      const newItems = Array.from({ length: 10 }, (_, i) => ({
+        label: `Option ${prevItems.length + i + 1}`,
+        value: `${prevItems.length + i + 1}`,
+      }));
+      return [...prevItems, ...newItems];
+    });
+  };
+
+  return (
+    <Select {...rest} items={copyItems} infiniteMode={true} hasMore={hasMore} onIntersection={handleOnIntersection} />
+  );
+};
+
+export const OnIntersection: Story = {
+  args: {
+    styles: {
+      insideContainer: {
+        maxHeight: '200px',
+        overflowY: 'auto',
+      },
+    },
+  },
+  render: (args) => <FetchOnScroll {...args} />,
 };
