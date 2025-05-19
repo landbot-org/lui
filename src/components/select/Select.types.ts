@@ -1,29 +1,47 @@
-import { CSSProperties, ReactNode } from 'react';
-import { TextFieldProps } from '../text-field';
+import { CSSProperties, ComponentProps } from 'react';
+import { TextField } from '../text-field';
 
 export interface SelectItemProps {
   label: string;
   value: string;
 }
 
-export interface SelectProps {
+type TextSelectProps = Pick<
+  ComponentProps<typeof TextField>,
+  | 'endAdornment'
+  | 'startAdornment'
+  | 'placeholder'
+  | 'description'
+  | 'error'
+  | 'helperText'
+  | 'label'
+  | 'variant'
+  | 'styles'
+>;
+
+type BaseSelectProps = {
   className?: string;
   items: SelectItemProps[];
-  placeholder?: string;
-  startAdornment?: ReactNode;
-  endAdornment?: ReactNode;
   onChange: (value: string) => void;
   value: string;
-  label?: string;
-  description?: string;
-  error?: boolean;
-  helperText?: string;
   noResults?: string;
   disabled?: boolean;
-  variant?: TextFieldProps['variant'];
   ariaLabel?: string;
   styles?: {
     input?: CSSProperties;
     optionsContainer?: CSSProperties;
+    insideContainer?: CSSProperties;
   };
-}
+} & TextSelectProps;
+
+export type SelectProps =
+  | (BaseSelectProps & {
+      infiniteMode?: false;
+      onIntersection?: never;
+      hasMore?: never;
+    })
+  | (BaseSelectProps & {
+      infiniteMode: true;
+      onIntersection?: () => void;
+      hasMore: boolean;
+    });
