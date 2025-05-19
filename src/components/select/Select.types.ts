@@ -41,7 +41,7 @@ export type SelectProps =
       hasMore?: never;
     })
   | (BaseSelectProps & {
-      infiniteMode: true;
+      infiniteMode?: true;
       onIntersection?: () => void;
-      hasMore: boolean;
+      hasMore?: boolean;
     });
