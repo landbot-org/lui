@@ -33,7 +33,7 @@ describe('Table Row', () => {
       expect(selectOptions.onToggleSelection).toHaveBeenCalledWith(selectOptions.value, true);
     });
 
-    it('shows a selection checkbox on hoover', async () => {
+    it('shows a selection checkbox on hover', async () => {
       const rowContent = 'Row 1';
       const selectOptions: SelectedOptionProps = {
         value: '2',
@@ -42,9 +42,8 @@ describe('Table Row', () => {
       const { user } = renderComponent({ children: rowContent, selectOptions });
 
       await user.hover(screen.getByLabelText(`Row ${selectOptions.value}`));
-      await user.click(screen.getByRole('checkbox'));
 
-      expect(selectOptions.onToggleSelection).toHaveBeenCalledWith(selectOptions.value, true);
+      expect(screen.getByRole('checkbox')).toBeVisible();
     });
 
     it('shows a selection checkbox when selected', () => {

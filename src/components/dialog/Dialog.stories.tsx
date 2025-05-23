@@ -11,9 +11,9 @@ import { DialogContent } from './DialogContent';
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',
   component: Dialog,
-  tags: ['autodocs'],
+  tags: ['!autodocs'], // disable docs page generation as it renders all dialogs opened and is not useful
   args: {
-    open: false,
+    open: true,
     width: 500,
     hasCloseButton: true,
   },
