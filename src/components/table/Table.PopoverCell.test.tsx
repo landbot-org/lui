@@ -27,7 +27,7 @@ describe('TablePopoverCell', () => {
       const { user } = renderComponent({ children, clipboardContent });
 
       await user.click(screen.getByText('childrenContent'));
-      await user.click(screen.getByRole('button'));
+      await user.click(screen.getByRole('button', { name: 'copy to clipboard' }));
 
       const clipboardText = await navigator.clipboard.readText();
       expect(clipboardText).toEqual(clipboardContent);
@@ -60,7 +60,7 @@ describe('TablePopoverCell', () => {
       const { user } = renderComponent({ children });
 
       await user.click(screen.getByText(rowMatch));
-      await user.click(screen.getByRole('button'));
+      await user.click(screen.getByRole('button', { name: 'copy to clipboard' }));
 
       const clipboardText = await navigator.clipboard.readText();
       expect(clipboardText).toEqual(expectedString);

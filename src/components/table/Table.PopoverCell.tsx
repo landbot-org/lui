@@ -68,6 +68,7 @@ export const TablePopoverCell = ({
         )}
         <StyledPopoverButtonWrapper>
           <Button
+            aria-label="copy to clipboard"
             variant="text"
             color="purple.main"
             startIcon={<Icon icon={<FontAwesomeIcon icon={faCopy} />} />}
