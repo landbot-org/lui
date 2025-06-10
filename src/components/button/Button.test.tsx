@@ -92,4 +92,12 @@ describe('Button', () => {
     const { container } = render(<Button startIcon={<Robot />} />);
     expect(container.querySelector('svg')).toBeInTheDocument();
   });
+  it('sets default type to button', () => {
+    const { getByRole } = render(<Button>test</Button>);
+    expect(getByRole('button')).toHaveAttribute('type', 'button');
+  });
+  it.each(['submit', 'reset', 'button'])('sets type to %s', (type) => {
+    const { getByRole } = render(<Button type={type}>test</Button>);
+    expect(getByRole('button')).toHaveAttribute('type', type);
+  });
 });

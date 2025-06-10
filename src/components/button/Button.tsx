@@ -23,6 +23,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(
       onClick,
       textAlign = 'center',
       ellipsize,
+      type = 'button',
       ...rest
     },
     ref,
@@ -48,6 +49,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(
         disabled={disabled || isLoading}
         href={href}
         onClick={onClick}
+        type={type}
         {...rest}
         ref={ref}
       >
