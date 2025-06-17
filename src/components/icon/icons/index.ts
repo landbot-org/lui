@@ -144,3 +144,5 @@ export { World } from './World';
 export { WPCheck } from './WPCheck';
 export { WrenchTool } from './WrenchTool';
 export { Zapier } from './Zapier';
+export { WhatsAppIA } from './WhatsAppIA';
+export { WebIA } from './WebIA';
