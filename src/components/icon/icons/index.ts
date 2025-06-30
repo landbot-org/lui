@@ -146,3 +146,7 @@ export { WrenchTool } from './WrenchTool';
 export { Zapier } from './Zapier';
 export { WhatsAppIA } from './WhatsAppIA';
 export { WebIA } from './WebIA';
+export { FlowWhatsapp } from './FlowWhatsapp';
+export { FlowWeb } from './FlowWeb';
+export { FlowMessenger } from './FlowMessenger';
+export { FlowFacebookApi } from './FlowFacebookApi';
