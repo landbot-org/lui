@@ -141,7 +141,6 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                         <SelectItem
                           key={item.value}
                           {...getItemProps({
-                            key: item.value,
                             ref(node) {
                               listRef.current[index] = node;
                             },

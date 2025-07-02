@@ -17,7 +17,7 @@ describe('Select', () => {
     mockResizeObserver();
   });
 
-  it('should render with label', async () => {
+  it('should render with label', () => {
     renderComponent({
       label: 'Select one',
     });
