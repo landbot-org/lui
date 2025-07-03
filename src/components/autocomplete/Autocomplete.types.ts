@@ -35,6 +35,7 @@ export interface AutocompleteProps {
   itemRenderer?: (item: AutoCompleteItemOption) => ReactNode;
   itemsContainerFooter?: ReactNode;
   styles?: {
+    textfield?: TextFieldProps['styles'];
     popover?: CSSProperties;
     popoverContainer?: CSSProperties;
     popoverItemsContainer?: CSSProperties;
