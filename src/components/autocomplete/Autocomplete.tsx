@@ -105,6 +105,7 @@ export const Autocomplete = ({
           disabled={disabled}
           startAdornment={startAdornment}
           endAdornment={endAdornment}
+          styles={styles?.textfield}
           {...getReferenceProps({
             onFocus,
             onBlur,
