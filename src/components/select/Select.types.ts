@@ -38,15 +38,15 @@ type BaseSelectProps = {
 } & TextSelectProps;
 
 type SingleModeSelectProps = {
-  mode: 'single';
+  mode?: 'single';
   selectedValues?: never;
   valueText?: never;
 };
 
 type MultipleModeSelectProps = {
-  mode: 'multiple';
-  selectedValues: string[];
-  valueText: string;
+  mode?: 'multiple';
+  selectedValues?: string[];
+  valueText?: string;
 };
 
 type EnhancedSelectProps = (SingleModeSelectProps & BaseSelectProps) | (MultipleModeSelectProps & BaseSelectProps);
