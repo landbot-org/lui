@@ -27,6 +27,9 @@ type BaseSelectProps = {
   noResults?: string;
   disabled?: boolean;
   ariaLabel?: string;
+  renderItem?: (item: SelectItemProps) => JSX.Element;
+  closeOnClick?: boolean;
+  mode?: 'single' | 'multiple';
   styles?: {
     input?: CSSProperties;
     optionsContainer?: CSSProperties;
@@ -34,13 +37,27 @@ type BaseSelectProps = {
   };
 } & TextSelectProps;
 
+type SingleModeSelectProps = {
+  mode?: 'single';
+  selectedValues?: never;
+  valueText?: never;
+};
+
+type MultipleModeSelectProps = {
+  mode?: 'multiple';
+  selectedValues?: string[];
+  valueText?: string;
+};
+
+type EnhancedSelectProps = (SingleModeSelectProps & BaseSelectProps) | (MultipleModeSelectProps & BaseSelectProps);
+
 export type SelectProps =
-  | (BaseSelectProps & {
+  | (EnhancedSelectProps & {
       infiniteMode?: false;
       onIntersection?: never;
       hasMore?: never;
     })
-  | (BaseSelectProps & {
+  | (EnhancedSelectProps & {
       infiniteMode?: true;
       onIntersection?: () => void;
       hasMore?: boolean;
