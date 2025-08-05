@@ -45,11 +45,16 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       noResults = 'NO RESULTS...',
       disabled = false,
       variant = 'regular',
+      mode = 'single',
+      selectedValues = [],
+      valueText,
+      renderItem,
       styles,
       ariaLabel,
       infiniteMode = false,
       hasMore,
       onIntersection,
+      closeOnClick = true,
     }: SelectProps,
     ref,
   ) => {
@@ -57,6 +62,13 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const listRef = useRef<Array<HTMLElement | null>>([]);
+
+    const checkHasValue = (itemValue: string) => {
+      if (mode === 'multiple') {
+        return selectedValues.some((item) => item === itemValue);
+      }
+      return value === itemValue;
+    };
 
     const { refs, floatingStyles, context } = useFloating<HTMLInputElement>({
       whileElementsMounted: autoUpdate,
@@ -92,7 +104,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     const handleSelectItem = (item: SelectItemProps) => {
       onChange(item.value);
       setActiveIndex(null);
-      setOpen(false);
+      if (closeOnClick) {
+        setOpen(false);
+      }
     };
 
     return (
@@ -106,7 +120,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
           error={error}
           helperText={helperText}
           label={label}
-          value={items.find((item) => item.value === value)?.label ?? ''}
+          value={mode === 'multiple' ? valueText : (items.find((item) => item.value === value)?.label ?? '')}
           readOnly
           inputGroupProps={getReferenceProps({
             ref: refs.setReference,
@@ -149,9 +163,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
                               refs.domReference.current?.focus();
                             },
                           })}
-                          active={activeIndex === index || value === item.value}
+                          active={activeIndex === index || checkHasValue(item.value)}
                         >
-                          {item.label}
+                          {renderItem ? renderItem(item) : item.label}
                         </SelectItem>
                       ))
                     ) : (
