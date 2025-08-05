@@ -2,7 +2,6 @@ import { ComponentProps, useState } from 'react';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Meta, StoryObj } from '@storybook/react';
-import { theme } from '../../shared/theme';
 import { Icon } from '../icon';
 import { Select } from './Select';
 
@@ -169,11 +168,6 @@ export const MultipleSelect: Story = {
       <>
         <Select
           {...args}
-          styles={{
-            input: {
-              color: selectedValue.length > 0 ? theme.palette.blue.main : theme.palette.neutral.main,
-            },
-          }}
           mode="multiple"
           selectedValues={selectedValue}
           valueText={formatSelectionInformation({ values: selectedValue })}
