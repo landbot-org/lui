@@ -156,11 +156,9 @@ export const MultipleSelect: Story = {
       if (values.length === 0) {
         return 'Select an item';
       }
-
       if (values.length === 1) {
         return values[0];
       }
-
       return `Selected ${values.length} items`;
     };
 
