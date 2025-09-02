@@ -152,3 +152,20 @@ export const CustomRender: Story = {
     },
   },
 };
+
+export const Labeled: Story = {
+  args: {
+    label: 'Label',
+    description: 'Description',
+    helperText: 'Helper text',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    error: true,
+    label: 'Label',
+    description: 'Description',
+    helperText: 'Helper text',
+  },
+};

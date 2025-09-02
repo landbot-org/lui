@@ -17,6 +17,11 @@ export type AutoCompleteItemOption = {
 export type AutoCompleteItem = AutoCompleteItemOption | AutoCompleteItemSeparator;
 
 export interface AutocompleteProps {
+  error?: boolean;
+  label?: string;
+  id?: string;
+  description?: string;
+  helperText?: string | null;
   items: AutoCompleteItem[];
   selectedItemId?: AutoCompleteItemOption['id'];
   placeholder?: string;

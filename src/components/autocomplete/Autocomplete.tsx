@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useId, useRef, useState } from 'react';
 import {
   FloatingFocusManager,
   FloatingPortal,
@@ -12,15 +12,23 @@ import {
   useRole,
 } from '@floating-ui/react';
 import { Box } from '../box';
+import { FormHelperText } from '../form-helper-text';
+import { FormLabel } from '../form-label';
 import { TextField } from '../text-field';
+import { Typography } from '../typography';
 import { AutoCompleteOptions } from './AutoCompleteOptions';
 import { AutoCompleteItemOption, AutocompleteProps } from './Autocomplete.types';
 import { AutocompleteNoResults } from './AutocompleteNoResults';
 
 export const Autocomplete = ({
   endAdornment,
+  error,
   inputValue,
   items,
+  label,
+  description,
+  id,
+  helperText,
   placeholder,
   startAdornment,
   selectedItemId,
@@ -40,6 +48,7 @@ export const Autocomplete = ({
 }: AutocompleteProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const autoId = useId();
 
   const listRef = useRef<Array<HTMLElement | null>>([]);
 
@@ -101,7 +110,19 @@ export const Autocomplete = ({
   return (
     <>
       <div onMouseDown={handleFocusInput}>
+        {(label || description) && (
+          <FormLabel htmlFor={id ?? autoId}>
+            {label && (
+              <Typography variant="text14" fontWeight={700}>
+                {label}
+              </Typography>
+            )}
+            {description && <Typography variant="text14">{description}</Typography>}
+          </FormLabel>
+        )}
         <TextField
+          id={id ?? autoId}
+          error={error}
           disabled={disabled}
           startAdornment={startAdornment}
           endAdornment={endAdornment}
@@ -128,6 +149,11 @@ export const Autocomplete = ({
           })}
         />
       </div>
+      {helperText && (
+        <FormHelperText variant="text12" color={error ? 'error.main' : 'neutral.main'}>
+          {helperText}
+        </FormHelperText>
+      )}
       <FloatingPortal>
         {showPopover && (
           <FloatingFocusManager context={context} visuallyHiddenDismiss initialFocus={-1}>

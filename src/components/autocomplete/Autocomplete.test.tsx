@@ -120,6 +120,24 @@ describe('Autocomplete', () => {
     expect(screen.queryByRole('option', { name: 'Option 1' })).not.toBeInTheDocument();
   });
 
+  it('should render label', () => {
+    renderComponent({ label: 'Label' });
+
+    expect(screen.getByLabelText('Label')).toBeVisible();
+  });
+
+  it('should render description', () => {
+    renderComponent({ description: 'Description' });
+
+    expect(screen.getByLabelText('Description')).toBeVisible();
+  });
+
+  it('should render helper text', () => {
+    renderComponent({ helperText: 'Helper text' });
+
+    expect(screen.getByText('Helper text')).toBeVisible();
+  });
+
   describe('Custom render', () => {
     it('should render items when start typing', async () => {
       const { user } = renderComponent({

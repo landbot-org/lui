@@ -9,5 +9,9 @@ interface MenuProps {
 }
 
 export const Menu = ({ children, styles }: MenuProps) => {
-  return <StyledContainer style={styles?.container}>{children}</StyledContainer>;
+  return (
+    <StyledContainer role="menu" style={styles?.container}>
+      {children}
+    </StyledContainer>
+  );
 };
