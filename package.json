@@ -1,6 +1,6 @@
 {
   "name": "@landbot/lui",
-  "version": "7.36.0",
+  "version": "7.37.0",
   "description": "",
   "main": "dist/index.js",
   "type": "module",
