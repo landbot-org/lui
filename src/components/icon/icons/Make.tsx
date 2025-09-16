@@ -1,6 +1,6 @@
 export const Make = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <g clip-path="url(#clip0_4595_3117)">
+    <g clipPath="url(#clip0_4595_3117)">
       <path
         d="M4.65933 2.69072L0.0413265 11.8787C-0.00432124 11.9699 -0.0119165 12.0754 0.0202093 12.1722C0.0523351 12.2689 0.121554 12.349 0.21266 12.3947L2.70133 13.6454C2.74646 13.6681 2.79562 13.6817 2.84601 13.6855C2.89641 13.6892 2.94704 13.6829 2.99502 13.6671C3.043 13.6512 3.08738 13.6261 3.12564 13.5931C3.1639 13.5601 3.19528 13.5199 3.21799 13.4747L7.83533 4.28672C7.85803 4.24155 7.87161 4.19235 7.87529 4.14193C7.87897 4.09151 7.87267 4.04086 7.85676 3.99287C7.84085 3.94489 7.81563 3.90051 7.78255 3.86228C7.74948 3.82404 7.70919 3.79271 7.66399 3.77006L5.17533 2.52006C5.13023 2.49727 5.08106 2.48363 5.03067 2.47992C4.98028 2.4762 4.92965 2.48249 4.8817 2.49841C4.83374 2.51434 4.78941 2.53958 4.75125 2.5727C4.71308 2.60582 4.68184 2.64615 4.65933 2.69139V2.69072Z"
         fill="url(#paint0_linear_4595_3117)"
@@ -23,11 +23,11 @@ export const Make = (props: React.SVGProps<SVGSVGElement>) => (
         y2="5.57441e-05"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FF00FF" />
-        <stop offset="0.17" stop-color="#E90CF9" />
-        <stop offset="0.54" stop-color="#C023ED" />
-        <stop offset="0.73" stop-color="#B02DE9" />
-        <stop offset="1" stop-color="#B02DE9" />
+        <stop stopColor="#FF00FF" />
+        <stop offset="0.17" stopColor="#E90CF9" />
+        <stop offset="0.54" stopColor="#C023ED" />
+        <stop offset="0.73" stopColor="#B02DE9" />
+        <stop offset="1" stopColor="#B02DE9" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_4595_3117"
@@ -37,10 +37,10 @@ export const Make = (props: React.SVGProps<SVGSVGElement>) => (
         y2="2.63456e-05"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#B02DE9" />
-        <stop offset="0.02" stop-color="#B02DE9" />
-        <stop offset="0.8" stop-color="#6D00CC" />
-        <stop offset="1" stop-color="#6D00CC" />
+        <stop stopColor="#B02DE9" />
+        <stop offset="0.02" stopColor="#B02DE9" />
+        <stop offset="0.8" stopColor="#6D00CC" />
+        <stop offset="1" stopColor="#6D00CC" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_4595_3117"
@@ -50,15 +50,15 @@ export const Make = (props: React.SVGProps<SVGSVGElement>) => (
         y2="-1.02404e-05"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FF00FF" />
-        <stop offset="0.02" stop-color="#FF00FF" />
-        <stop offset="0.09" stop-color="#E90CF9" />
-        <stop offset="0.23" stop-color="#C023ED" />
-        <stop offset="0.3" stop-color="#B02DE9" />
-        <stop offset="0.42" stop-color="#A42BE3" />
-        <stop offset="0.63" stop-color="#8626D5" />
-        <stop offset="0.85" stop-color="#6021C3" />
-        <stop offset="1" stop-color="#6021C3" />
+        <stop stopColor="#FF00FF" />
+        <stop offset="0.02" stopColor="#FF00FF" />
+        <stop offset="0.09" stopColor="#E90CF9" />
+        <stop offset="0.23" stopColor="#C023ED" />
+        <stop offset="0.3" stopColor="#B02DE9" />
+        <stop offset="0.42" stopColor="#A42BE3" />
+        <stop offset="0.63" stopColor="#8626D5" />
+        <stop offset="0.85" stopColor="#6021C3" />
+        <stop offset="1" stopColor="#6021C3" />
       </linearGradient>
       <clipPath id="clip0_4595_3117">
         <rect width="16" height="16" fill="white" />
