@@ -119,6 +119,7 @@ export { Sendgrid } from './Sendgrid';
 export { ShuffleButton } from './ShuffleButton';
 export { Slack } from './Slack';
 export { Spark } from './Spark';
+export { Sparkles } from './Sparkles';
 export { Star } from './Star';
 export { Stripe } from './Stripe';
 export { Sunco } from './Sunco';
