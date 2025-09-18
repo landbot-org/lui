@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export type ButtonVariants = 'contained' | 'outlined' | 'text' | 'menu-item';
-export type ButtonColorTypes = 'pink.main' | 'blue.main' | 'purple.main' | 'white.main' | 'error.main';
+export type ButtonColorTypes = 'pink.main' | 'blue.main' | 'purple.main' | 'white.main' | 'error.main' | 'menu-item';
 export type ButtonSizeTypes = 'small' | 'medium' | 'large';
 export type ButtonTextAlignTypes = 'left' | 'center' | 'right';
 
