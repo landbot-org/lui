@@ -36,3 +36,9 @@ export default meta;
 type Story = StoryObj<typeof Menu>;
 
 export const Default: Story = {};
+
+export const CustomWidth: Story = {
+  args: {
+    width: '100%',
+  },
+};
