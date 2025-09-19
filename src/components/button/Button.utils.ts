@@ -96,6 +96,7 @@ export const getTypographyColorDefault = (
     'purple.main': theme.palette.purple.main,
     'white.main': theme.palette.white.main,
     'error.main': theme.palette.error.main,
+    'menu-item': theme.palette.blue.main,
   }[color];
 };
 
@@ -110,6 +111,7 @@ export const getBackgroundColor = (theme: Theme, color: ButtonColorTypes, disabl
     'purple.main': theme.palette.purple.main,
     'white.main': theme.palette.neutral[400],
     'error.main': theme.palette.error.main,
+    'menu-item': theme.palette.purple.main,
   }[color];
 };
 
@@ -124,6 +126,7 @@ export const getBorderColor = (theme: Theme, color: ButtonColorTypes, disabled?:
     'purple.main': theme.palette.purple.main,
     'white.main': theme.palette.white.main,
     'error.main': theme.palette.error.main,
+    'menu-item': theme.palette.blue.main,
   }[color];
 };
 
