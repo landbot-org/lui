@@ -33,7 +33,7 @@ export const ACTIVE_MAPPING: Record<ButtonColorTypes, string> = {
   'purple.main': theme.palette.purple[600],
   'white.main': theme.palette.neutral[300],
   'error.main': theme.palette.error.light,
-  'menu-item': theme.palette.purple[100],
+  'menu-item': theme.palette.purple[200],
 };
 
 export const TYPOGRAPHY_VARIANT_MAPPING: Record<ButtonSizeTypes, TypographyVariants> = {
