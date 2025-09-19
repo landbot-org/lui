@@ -7,6 +7,6 @@ export const StyledContainer = styled(Box).attrs({
   display: 'flex',
   flexDirection: 'column',
   gap: 4,
-})`
-  width: fit-content;
+})<{ $width?: string | number }>`
+  width: ${({ $width }) => (typeof $width === 'number' ? `${$width}px` : $width)};
 `;

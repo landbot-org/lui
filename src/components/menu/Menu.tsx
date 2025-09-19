@@ -1,6 +1,11 @@
+import { CSSProperties } from 'react';
 import { BoxProps } from '../box';
 import { StyledContainer } from './Menu.styles';
 
-export const Menu = (props: BoxProps) => {
-  return <StyledContainer role="menu" {...props} />;
+interface MenuProps extends BoxProps {
+  width?: CSSProperties['width'];
+}
+
+export const Menu = ({ width = 200, ...props }: MenuProps) => {
+  return <StyledContainer role="menu" $width={width} {...props} />;
 };
