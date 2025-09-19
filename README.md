@@ -22,6 +22,8 @@ npm install
 
 ```shell
 npm run storybook
+or
+npm start
 ```
 
 For more information about Storybook, please visit the [Storybook website](https://storybook.js.org/).
