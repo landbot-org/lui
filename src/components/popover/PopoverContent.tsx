@@ -40,7 +40,7 @@ export const PopoverContent = (props: HTMLProps<HTMLDivElement> & PopoverContent
               ref={context.arrowRef}
               context={floatingContext}
               fill={context.color === 'blue' ? theme.palette.blue[800] : theme.palette.white.main}
-              stroke={context.color === 'blue' ? theme.palette.blue[800] : theme.palette.neutral[300]}
+              stroke={context.color === 'blue' ? theme.palette.blue[800] : theme.palette.neutral[200]}
               strokeWidth={1}
               tipRadius={1}
             />
