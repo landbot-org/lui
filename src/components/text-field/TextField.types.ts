@@ -5,7 +5,7 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   description?: string;
   endAdornment?: ReactNode;
   error?: boolean | null;
-  helperText?: string | null;
+  helperText?: ReactNode | null;
   startAdornment?: ReactNode;
   inputRef?: RefObject<HTMLInputElement>;
   inputGroupProps?: HTMLAttributes<HTMLDivElement>;
