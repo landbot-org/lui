@@ -33,7 +33,7 @@ For more information about Storybook, please visit the [Storybook website](https
 Component tests are written using [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/).
 
 ```shell
-npm test
+npm run test
 ```
 
 ## Build
