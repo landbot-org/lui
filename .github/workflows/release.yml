@@ -14,6 +14,9 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      id-token: write  # Required for OIDC trusted publishing
+      contents: read   # Required for checkout
     steps:
     - name: Generate token
       id: generate_token
@@ -29,11 +32,12 @@ jobs:
         token: ${{ steps.generate_token.outputs.token }}
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: lts/*
         cache: npm
         cache-dependency-path: '**/package-lock.json'
+        registry-url: 'https://registry.npmjs.org'
 
     - name: Install dependencies
       run: npm ci
@@ -47,5 +51,4 @@ jobs:
       run: npx semantic-release
       env:
         GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}
