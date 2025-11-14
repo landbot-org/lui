@@ -37,9 +37,6 @@ jobs:
         node-version: lts/*
         cache: npm
         cache-dependency-path: '**/package-lock.json'
-        registry-url: https://registry.npmjs.org
-        always-auth: false
-        token: '' # Prevent setup-node from exporting NODE_AUTH_TOKEN
 
     - name: Update npm
       run: npm install -g npm@latest
@@ -48,6 +45,9 @@ jobs:
       run: npm ci
       env:
         FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}
+
+    - name: Verify @semantic-release/npm version
+      run: npm list @semantic-release/npm
 
     - name: Build
       run: npm run build
