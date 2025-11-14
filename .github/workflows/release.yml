@@ -38,8 +38,6 @@ jobs:
         cache: npm
         cache-dependency-path: '**/package-lock.json'
         registry-url: https://registry.npmjs.org
-        always-auth: false
-        token: '' # Prevent setup-node from exporting NODE_AUTH_TOKEN
 
     - name: Update npm
       run: npm install -g npm@latest
