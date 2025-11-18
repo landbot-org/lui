@@ -37,6 +37,7 @@ const BaseButtonStyles = css<StyledButtonProps>`
   min-width: ${({ $hasChildren }) => ($hasChildren ? '80px' : 'auto')};
   padding: ${(props) => getBaseButtonPadding(props)};
   white-space: nowrap;
+  position: relative;
 
   &:hover {
     cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};

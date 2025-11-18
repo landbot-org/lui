@@ -100,4 +100,9 @@ describe('Button', () => {
     const { getByRole } = render(<Button type={type}>test</Button>);
     expect(getByRole('button')).toHaveAttribute('type', type);
   });
+  it('renders loading state', () => {
+    const { getByRole } = render(<Button isLoading>Loading</Button>);
+    expect(getByRole('button')).toBeDisabled();
+    expect(getByRole('figure')).toBeVisible();
+  });
 });
