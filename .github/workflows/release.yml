@@ -53,8 +53,12 @@ jobs:
       run: npm run build
 
     - name: Publish package to NPM
-      run: npx semantic-release
+      run: |
+        npx semantic-release
+        # If semantic-release created a new version, publish it with OIDC
+        if [ -f package.json ]; then
+          npm publish
+        fi
       env:
         GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
         FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}
-        NPM_TOKEN: ''  # Empty token - npm will use OIDC to publish
