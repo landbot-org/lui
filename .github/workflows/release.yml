@@ -57,3 +57,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
         FORT_AWESOME_TOKEN: ${{ secrets.FORT_AWESOME_TOKEN }}
+        NPM_TOKEN: ''  # Empty token - npm will use OIDC to publish
