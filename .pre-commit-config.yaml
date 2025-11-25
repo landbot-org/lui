@@ -1,61 +1,44 @@
-default_stages: [commit]
+default_stages: [pre-commit]
 fail_fast: true
 
-ci:
-  autoupdate_schedule: weekly
-  skip: []
-  submodules: false
-
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.6.0
-  hooks:
-  - id: pretty-format-json
-    args: [--autofix]
-    exclude: package.json|package-lock.json|.eslintrc.json|.vscode/|tsconfig.json
-  - id: detect-private-key
-  - id: end-of-file-fixer
-    exclude: .vscode/
-  - id: no-commit-to-branch
-    args: [--branch, main]
-  - id: requirements-txt-fixer
-  - id: trailing-whitespace
-    exclude: __snapshots__/
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: no-commit-to-branch
+        args: [--branch, main]
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
 
-- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.13.0
-  hooks:
-  - id: pretty-format-yaml
-    args: [--autofix, --indent, '2']
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.39.1
+    hooks:
+      - id: eslint
+        language: node
+        additional_dependencies:
+          - eslint@^9.39.1
+          - '@landbot/eslint-config-typescript-react@^4.0.0'
+        files: \.[jt]sx?$ # *.js, *.jsx, *.ts and *.tsx
+        types: [file]
+        args: [--fix]
 
-- repo: https://github.com/pre-commit/mirrors-eslint
-  rev: v9.3.0
-  hooks:
-  - id: eslint
-    language: node
-    additional_dependencies:
-    - eslint@^8.57.0
-    - '@landbot/eslint-config-typescript-react@^3.2.0'
-    files: \.[jt]sx?$     # *.js, *.jsx, *.ts and *.tsx
-    types: [file]
-    args: [--fix]
-    exclude: .\.snap$|devenv/|ephemerals/
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.6.2
+    hooks:
+      - id: prettier
+        language: node
+        additional_dependencies:
+          - prettier@^3.6.2
+          - '@landbot/eslint-config-typescript-react@^4.0.0'
+        files: \.[jt]sx?$ # *.js, *.jsx, *.ts and *.tsx
+        types: [file]
+        args: [--check]
 
-- repo: https://github.com/rbubley/mirrors-prettier
-  rev: v3.3.0
-  hooks:
-  - id: prettier
-    language: node
-    additional_dependencies:
-    - prettier@^3.3.3
-    - '@landbot/eslint-config-typescript-react@^3.2.0'
-    files: \.[jt]sx?$     # *.js, *.jsx, *.ts and *.tsx
-    types: [file]
-    args: [--check]
-
-- repo: https://github.com/compilerla/conventional-pre-commit
-  rev: v3.2.0
-  hooks:
-  - id: conventional-pre-commit
-    stages: [commit-msg]
-    args: []
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.2.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args: []

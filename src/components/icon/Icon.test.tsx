@@ -8,7 +8,6 @@ import * as icons from './icons';
 describe('Icon', () => {
   it('should render svg with custom icons', () => {
     Object.keys(icons).map((icon) => {
-      // eslint-disable-next-line import/namespace
       const IconRender = icons[icon as keyof typeof icons];
       const { container } = render(<Icon icon={<IconRender />} size="1x" color="blue.main" />);
       expect(container.querySelector('svg')).toBeInTheDocument();

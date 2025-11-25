@@ -8,23 +8,12 @@ import { Typography } from '../typography';
 import { Icon } from './Icon';
 import * as icons from './icons';
 
-const meta: Meta<typeof Icon> = {
-  title: 'Components/Icon',
-  component: Icon,
-  tags: ['autodocs'],
-  args: {
-    size: '2x',
-  },
-};
+const meta: Meta<typeof Icon> = { title: 'Components/Icon', component: Icon, tags: ['autodocs'], args: { size: '2x' } };
 
 export default meta;
 type Story = StoryObj<typeof Icon>;
 
-export const Default: Story = {
-  args: {
-    icon: <icons.Landbot />,
-  },
-};
+export const Default: Story = { args: { icon: <icons.Landbot /> } };
 
 const GridBox = styled.div`
   display: grid;
@@ -48,9 +37,7 @@ const GridItem = styled(Box).attrs({
 `;
 
 export const Icons: Story = {
-  args: {
-    size: '2x',
-  },
+  args: { size: '2x' },
   render: (args) => {
     const handleClick = (iconName: string) => navigator.clipboard.writeText(`<${iconName} />`);
 
@@ -62,7 +49,6 @@ export const Icons: Story = {
         </Box>
         <GridBox>
           {Object.keys(icons).map((iconName) => {
-            // eslint-disable-next-line import/namespace
             const IconRender = icons[iconName as keyof typeof icons];
             return (
               <GridItem key={iconName} title={iconName} onClick={() => handleClick(iconName)}>
@@ -78,9 +64,5 @@ export const Icons: Story = {
 };
 
 export const FontAwesomeExample: Story = {
-  args: {
-    size: '2x',
-    color: 'pink.main',
-    icon: <FontAwesomeIcon icon={faRobot} />,
-  },
+  args: { size: '2x', color: 'pink.main', icon: <FontAwesomeIcon icon={faRobot} /> },
 };

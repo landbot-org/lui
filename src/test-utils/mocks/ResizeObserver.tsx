@@ -6,9 +6,6 @@ export class ResizeObserver {
   observe(target: Element) {
     this.callback([{ target } as globalThis.ResizeObserverEntry], this);
   }
-  //eslint-disable-next-line @typescript-eslint/no-empty-function
   unobserve() {}
-
-  //eslint-disable-next-line @typescript-eslint/no-empty-function
   disconnect() {}
 }

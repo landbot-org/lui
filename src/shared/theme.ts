@@ -32,10 +32,5 @@ export const theme: Theme = {
     meta: META,
     whatsapp: WHATSAPP,
   },
-  typography: {
-    font: {
-      // eslint-disable-next-line quotes
-      primary: "'DM Sans', sans-serif",
-    },
-  },
+  typography: { font: { primary: "'DM Sans', sans-serif" } },
 };
