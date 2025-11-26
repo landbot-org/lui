@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      id-token: write  # Required for OIDC trusted publishing
-      contents: read   # Required for checkout
+      id-token: write # Required for OIDC trusted publishing
+      contents: read # Required for checkout
     steps:
     - name: Generate token
       id: generate_token
