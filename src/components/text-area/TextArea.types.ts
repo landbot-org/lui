@@ -1,4 +1,4 @@
-import { TextareaHTMLAttributes } from 'react';
+import { ReactNode, TextareaHTMLAttributes } from 'react';
 
 export type Resize = 'none' | 'both' | 'horizontal' | 'vertical';
 
@@ -6,7 +6,7 @@ export interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
   label?: string;
   description?: string;
   error?: boolean;
-  helperText?: string;
+  helperText?: ReactNode | null;
   fullHeight?: boolean;
   resize?: Resize;
 }
