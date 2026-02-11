@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type Formats = 'html' | 'json' | 'text' | 'markdown';
 
 export interface RichTextEditorProps {
@@ -21,6 +23,6 @@ export interface RichTextEditorProps {
   initialValue?: string;
   label?: string;
   description?: string;
-  helperText?: string;
+  helperText?: ReactNode | null;
   maxLength?: number;
 }

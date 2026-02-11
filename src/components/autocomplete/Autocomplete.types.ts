@@ -21,7 +21,7 @@ export interface AutocompleteProps {
   label?: string;
   id?: string;
   description?: string;
-  helperText?: string | null;
+  helperText?: ReactNode | null;
   items: AutoCompleteItem[];
   selectedItemId?: AutoCompleteItemOption['id'];
   placeholder?: string;
