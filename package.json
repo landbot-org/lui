@@ -24,8 +24,14 @@
     "typecheck:watch": "tsc --noEmit -w"
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./icons": "./dist/components/icon/icons/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./icons": {
+      "types": "./dist/components/icon/icons/index.d.ts",
+      "default": "./dist/components/icon/icons/index.js"
+    }
   },
   "typesVersions": {
     "*": {
