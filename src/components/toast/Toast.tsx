@@ -1,4 +1,4 @@
-import { CSSProperties, HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useState } from 'react';
+import { CSSProperties, HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { FloatingPortal, useTransitionStyles } from '@floating-ui/react';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition, faCircleInfo, faTriangleExclamation } from '@fortawesome/pro-regular-svg-icons';
@@ -9,7 +9,13 @@ import { Button } from '../button';
 import { CloseButtonWrapper, Message, ToastIcon, ToastPositionAndLayout } from './Toast.styles';
 import { ToastVariant } from './Toast.types';
 import { useToastsContext } from './ToastProvider';
-import { AUTO_DISMISS_TIMEOUT_MS } from './constants';
+import {
+  AUTO_DISMISS_ERROR_TIMEOUT_MS,
+  AUTO_DISMISS_TIMEOUT_MS,
+  AUTO_DISMISS_WARNING_MAX_TIMEOUT_MS,
+  AUTO_DISMISS_WARNING_MIN_TIMEOUT_MS,
+  MS_PER_CHARACTER,
+} from './constants';
 
 type ToastContentProps = {
   toastIndex: number;
@@ -65,6 +71,23 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
       }),
     });
 
+    const durationInMs = useMemo((): number => {
+      switch (variant) {
+        case 'warning':
+          if (message && typeof message === 'string') {
+            return Math.min(
+              Math.max(message.length * MS_PER_CHARACTER, AUTO_DISMISS_WARNING_MIN_TIMEOUT_MS),
+              AUTO_DISMISS_WARNING_MAX_TIMEOUT_MS,
+            );
+          }
+          return AUTO_DISMISS_TIMEOUT_MS;
+        case 'error':
+          return AUTO_DISMISS_ERROR_TIMEOUT_MS;
+        default:
+          return AUTO_DISMISS_TIMEOUT_MS;
+      }
+    }, [variant, message]);
+
     const handleClose = useCallback(() => {
       removeToast(toastId);
     }, [removeToast, toastId]);
@@ -73,7 +96,7 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
       const startTimer = () => {
         const id = window.setTimeout(() => {
           removeToast(toastId);
-        }, AUTO_DISMISS_TIMEOUT_MS);
+        }, durationInMs);
 
         setTimerId(id);
       };
@@ -93,7 +116,7 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
           stopTimer();
         }
       };
-    }, [autoDismiss, removeToast, toastId, timerId]);
+    }, [autoDismiss, removeToast, toastId, timerId, durationInMs]);
 
     return (
       <FloatingPortal>
