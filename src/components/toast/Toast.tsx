@@ -1,4 +1,4 @@
-import { CSSProperties, HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useState } from 'react';
+import { CSSProperties, HTMLAttributes, ReactNode, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { FloatingPortal, useTransitionStyles } from '@floating-ui/react';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition, faCircleInfo, faTriangleExclamation } from '@fortawesome/pro-regular-svg-icons';
@@ -14,6 +14,7 @@ import {
   AUTO_DISMISS_TIMEOUT_MS,
   AUTO_DISMISS_WARNING_MAX_TIMEOUT_MS,
   AUTO_DISMISS_WARNING_MIN_TIMEOUT_MS,
+  MS_PER_CHARACTER,
 } from './constants';
 
 type ToastContentProps = {
@@ -70,12 +71,12 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
       }),
     });
 
-    const calculateDurationInMs = useCallback(() => {
+    const durationInMs = useMemo((): number => {
       switch (variant) {
         case 'warning':
           if (message && typeof message === 'string') {
             return Math.min(
-              Math.max(message.length * 70, AUTO_DISMISS_WARNING_MIN_TIMEOUT_MS),
+              Math.max(message.length * MS_PER_CHARACTER, AUTO_DISMISS_WARNING_MIN_TIMEOUT_MS),
               AUTO_DISMISS_WARNING_MAX_TIMEOUT_MS,
             );
           }
@@ -95,7 +96,7 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
       const startTimer = () => {
         const id = window.setTimeout(() => {
           removeToast(toastId);
-        }, calculateDurationInMs());
+        }, durationInMs);
 
         setTimerId(id);
       };
@@ -115,7 +116,7 @@ export const ToastContent = forwardRef<HTMLDivElement, ToastContentProps>(
           stopTimer();
         }
       };
-    }, [autoDismiss, removeToast, toastId, timerId, calculateDurationInMs]);
+    }, [autoDismiss, removeToast, toastId, timerId, durationInMs]);
 
     return (
       <FloatingPortal>
