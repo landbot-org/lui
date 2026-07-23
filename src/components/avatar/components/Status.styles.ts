@@ -24,8 +24,8 @@ export const StyledStatus = styled.div<StyledAvatarProps>`
     `}
 
 ${({ $size }) =>
-    $size === 'lg' &&
-    `
+  $size === 'lg' &&
+  `
       width: 15px;
       height: 15px;
     `}
