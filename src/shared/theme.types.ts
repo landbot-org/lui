@@ -124,24 +124,10 @@ type BlueColorsTypes =
   | 'blue.800'
   | 'blue.900';
 type PinkColorsTypes =
-  | 'pink.main'
-  | 'pink.50'
-  | 'pink.100'
-  | 'pink.200'
-  | 'pink.300'
-  | 'pink.400'
-  | 'pink.600'
-  | 'pink.700';
+  'pink.main' | 'pink.50' | 'pink.100' | 'pink.200' | 'pink.300' | 'pink.400' | 'pink.600' | 'pink.700';
 type TealColorsTypes = 'teal.main' | 'teal.200' | 'teal.400' | 'teal.600' | 'teal.700';
 type PurpleColorsTypes =
-  | 'purple.main'
-  | 'purple.50'
-  | 'purple.100'
-  | 'purple.200'
-  | 'purple.300'
-  | 'purple.400'
-  | 'purple.600'
-  | 'purple.700';
+  'purple.main' | 'purple.50' | 'purple.100' | 'purple.200' | 'purple.300' | 'purple.400' | 'purple.600' | 'purple.700';
 type OrangeColorsTypes = 'orange.main' | 'orange.100' | 'orange.200' | 'orange.400' | 'orange.600' | 'orange.700';
 type SuccessColorsTypes = 'success.dark' | 'success.main' | 'success.light';
 type InfoColorsTypes = 'info.dark' | 'info.main' | 'info.light';
@@ -150,11 +136,7 @@ type ErrorColorsTypes = 'error.dark' | 'error.main' | 'error.light';
 type WhiteColorsTypes = 'white.main';
 type MetaColorsTypes = 'meta.main';
 type WhatsappColorsTypes =
-  | 'whatsapp.main'
-  | 'whatsapp.secondary'
-  | 'whatsapp.light'
-  | 'whatsapp.tertiary'
-  | 'whatsapp.background';
+  'whatsapp.main' | 'whatsapp.secondary' | 'whatsapp.light' | 'whatsapp.tertiary' | 'whatsapp.background';
 
 export type ColorsTypes =
   | NeutralColorsTypes
